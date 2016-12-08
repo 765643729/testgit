@@ -1,0 +1,305 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Depth of Field</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/script-DepthOfField.html">English</a></li>
+<li><a href="/ja/current/Manual/script-DepthOfField.html">日本語</a></li>
+<li><a href="/es/current/Manual/script-DepthOfField.html">Español</a></li>
+<li><a href="/kr/current/Manual/script-DepthOfField.html">한국어</a></li>
+<li><a href="/ru/current/Manual/script-DepthOfField.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="comp-ImageEffects.html">Image Effect reference</a></li>
+<li>Depth of Field</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="script-DepthOfFieldDeprecated.html"></a></span><div class="tip">Depth of Field (Deprecated)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="script-EdgeDetectEffect.html"></a></span><div class="tip">Edge Detection</div>
+</div>
+</div></div>
+<h1>Depth of Field</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>
+<strong>Depth of Field</strong> is a common postprocessing effect that simulates the properties of a camera lens. This version is a more modern and sophisticated version of the old <a href="script-DepthOfFieldDeprecated.html">Depth of Field (Deprecated) effect</a> that works especially well with <a href="HDR.html">HDR</a> rendering and a <a href="UsingDX11GL3Features.html">DirectX 11</a> compatible graphics device.</p>
+
+<p>In real life, a camera can only focus sharply on an object at a specific distance; objects nearer or farther from the camera will be somewhat out of focus. The blurring not only gives a visual cue about an object’s distance but also introduces <strong>Bokeh</strong> which is the term for pleasing visual artifacts that appear around bright areas of the image as they fall out of focus. Common <strong>Bokeh</strong> shapes are discs, hexagons and other shapes of higher level dihedral groups.</p>
+
+<p>While the regular version only supports disc shapes (generated via circular texture sampling), the <a href="UsingDX11GL3Features.html">DX11/GL4</a> version is able to splat any shape as defined by the <strong>Bokeh Texture</strong>.</p>
+
+<p>An example of Depth of Field effect can be seen in the following image, displaying the results of a focused foreground and a defocused background..</p>
+
+<figure>
+<img src="../uploads/ImageEffects/DepthOfFieldScatter.png" alt="The DirectX11 version of this effect can create nicely defined bokeh shapes at a very reasonable cost.">
+<figcaption>The <a href="UsingDX11GL3Features.html">DirectX11</a> version of this effect can create nicely defined bokeh shapes at a very reasonable cost.</figcaption>
+</figure>
+
+<p>As with the other <a href="comp-ImageEffects.html">image effects</a>, you must have the <a href="HOWTO-InstallStandardAssets.html">Standard Assets Effects package</a> installed before it becomes available.</p>
+
+<h2>Properties</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Focal Settings</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Visualize</strong></td>
+	<td style="text-align:left;">Overlay color indicating camera focus.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Focal distance</strong></td>
+	<td style="text-align:left;">The distance to the focal plane from the camera position in world space.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Focal Size</strong></td>
+	<td style="text-align:left;">Increase the total focal area.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Focus on Transform</strong></td>
+	<td style="text-align:left;">Determine the focal distance using a target object in the scene.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Aperture</strong></td>
+	<td style="text-align:left;">The camera’s aperture defining the transition between focused and defocused areas. It is good practice to keep this value as high as possible, as otherwise sampling artifacts might occur, especially when the <strong>Max Blur Distance</strong> is big. Bigger Aperture values will automatically downsample the image to produce a better defocus.</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Defocus Type</strong></td>
+	<td style="text-align:left;">Algorithm used to produce defocused areas. <strong>DX11</strong> is effectively a bokeh splatting technique while <strong>DiscBlur</strong> indicates a more traditional (scatter as gather) based blur.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Sample Count</strong></td>
+	<td style="text-align:left;">Amount of filter taps. Greatly affects performance.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Max Blur Distance</strong></td>
+	<td style="text-align:left;">Max distance for filter taps. Affects texture cache and can cause undersampling artifacts if value is too big. A value smaller than 4.0 should produce decent results.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>High Resolution</strong></td>
+	<td style="text-align:left;">Perform defocus operations in full resolution. Affects performance but might help reduce unwanted artifacts and produce more defined bokeh shapes.</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Near Blur</strong></td>
+	<td style="text-align:left;">Foreground areas will overlap at a performance cost.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Overlap Size</strong></td>
+	<td style="text-align:left;">Increase foreground overlap dilation if needed.</td>
+</tr>
+</tbody>
+</table>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>DX11 Bokeh Settings</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bokeh Texture</strong></td>
+	<td style="text-align:left;">Texture defining bokeh shape.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bokeh Scale</strong></td>
+	<td style="text-align:left;">Size of bokeh texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bokeh Intensity</strong></td>
+	<td style="text-align:left;">Blend strength of bokeh shapes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Min Luminance</strong></td>
+	<td style="text-align:left;">Only pixels brighter than this value will cast bokeh shapes. Affects performance as it limits overdraw to a more reasonable amount.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Spawn Heuristic</strong></td>
+	<td style="text-align:left;">Bokeh shapes will only be cast if pixel in questions passes a frequency check. A threshold around 0.1 seems like a good tradeoff between performance and quality.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Comparison between DirectX11 and DiscBlur settings</h2>
+
+<figure>
+<img src="../uploads/Main/HighRezBokeh.png" alt="Smooth transitions are possible with the high resolution DX11 version (albeit at a high performance cost).">
+<figcaption>Smooth transitions are possible with the high resolution DX11 version (albeit at a high performance cost).</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/BokehDisc.png" alt="Due to the nature of the standard DiscBlur texture sampling approach, the maximum blur radius is limited before sampling artifacts become appearant. Also, only spherical Bokeh shapes are possible.">
+<figcaption>Due to the nature of the standard DiscBlur texture sampling approach, the maximum blur radius is limited before sampling artifacts become appearant. Also, only spherical Bokeh shapes are possible.</figcaption>
+</figure>
+
+<h2>About DirectX 11 Bokeh Splatting</h2>
+
+<p>This powerful technique enables proper Scattering, however due to high demands on fillrate, it should be used with care. The parameters <strong>Spawn Heuristic</strong> and <strong>Min Luminance</strong> control when and where Bokeh Sprites will be placed. If pixels don’t pass a luminance and frequency check, a simple Box Blur will be used instead. It’s however hard to notice as it uses the same kernel width as the Bokeh sprites. </p>
+
+<p>The following pictures show that the road, that is neither bright nor bears great frequency changes can just be blurred with a simple box filter without ruining the overall <strong>Bokeh</strong> experience.</p>
+
+<figure>
+<img src="../uploads/Main/BokehSplatting1.png" alt="Example with small Max Blur Distance">
+<figcaption>Example with small <strong>Max Blur Distance</strong></figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/BokehSplatting2.png" alt="Example with big Max Blur Distance">
+<figcaption>Example with big <strong>Max Blur Distance</strong></figcaption>
+</figure>
+
+<h2>Hardware Support</h2>
+
+<p>This effect requires a graphics card that supports <strong>Shader Model 3</strong> and <strong>depth textures</strong>.
+See the <a href="GraphicsEmulation.html">Graphics Hardware Capabilities and Emulation</a> page for further details and a list of compliant hardware.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="script-DepthOfFieldDeprecated.html"></a></span><div class="tip">Depth of Field (Deprecated)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="script-EdgeDetectEffect.html"></a></span><div class="tip">Edge Detection</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

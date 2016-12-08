@@ -1,0 +1,378 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Animation Clip</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-AnimationClip.html">English</a></li>
+<li><a href="/ja/current/Manual/class-AnimationClip.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-AnimationClip.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-AnimationClip.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-AnimationClip.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="AnimationSection.html">Animation</a></li>
+<li><a href="comp-AnimationGroup.html">Animation Reference</a></li>
+<li>Animation Clip</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="comp-AnimationGroup.html"></a></span><div class="tip">Animation Reference</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-Animator.html"></a></span><div class="tip">Animator Component</div>
+</div>
+</div></div>
+<h1>Animation Clip</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/AnimationClip.html' title='Go to AnimationClip page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>
+<strong>Animation Clips</strong> are the smallest building blocks of animation in Unity. They represent an isolated piece of motion, such as RunLeft, Jump, or Crawl, and can be manipulated and combined in various ways to produce lively end results (see <a href="AnimationStateMachines.html">Animation State Machines</a>, <a href="class-AnimatorController.html">Animator Controller</a>, or <a href="class-BlendTree.html">Blend Trees</a>).
+Animation clips can be selected from imported FBX data (see <a href="FBXImporter-Animations.html">FBXImporter settings for Animations</a>), and when you click on the set of available animation clips you will see the following set of properties: </p>
+
+<figure>
+<img src="../uploads/Main/MecanimAnimationClipInspector.png" alt="The Animation Clip Inspector">
+<figcaption>The Animation Clip Inspector</figcaption>
+</figure>
+
+<h2>Asset-specific properties</h2>
+
+<p>(These properties apply to all animation clips defined within this asset).</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Import Animation</strong></td>
+	<td style="text-align:left;">Should any animation be imported from this asset?. If un-checked, all other options on this page are hidden and no animation is imported.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bake Animations</strong></td>
+	<td style="text-align:left;">Animations created using IK or Simulation will be baked to forward kinematic keyframes. This option is only available for Maya, 3dsMax and Cinema4D files.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Resample Curves</strong></td>
+	<td style="text-align:left;">When enabled, animation curves will be resampled on every frame. You should enable this if you’re having issues with the interpolation between keys in your original animation. Disable this to keep animation curves as they were originally authored. This option is only available for Generic animtions, not Humanoid animations.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Import Animation</strong></td>
+	<td style="text-align:left;">Should any animation be imported from this asset?. If un-checked, all other options on this page are hidden and no animation is imported.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Anim. Compression</strong></td>
+	<td style="text-align:left;">The type of compression to use when importing the animation</td>
+</tr>
+<tr>
+	<td style="text-align:left;">- <strong>Off</strong>
+</td>
+	<td style="text-align:left;">No Compression</td>
+</tr>
+<tr>
+	<td style="text-align:left;">- <strong>Keyframe Reduction</strong>
+</td>
+	<td style="text-align:left;">Removes redundant keyframes</td>
+</tr>
+<tr>
+	<td style="text-align:left;">- <strong>Optimal</strong>
+</td>
+	<td style="text-align:left;">Let unity decide how to compress. Either by keyframe reduction or by using dense format. Unity will pick the most optimal of the two.</td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2>Clip-specific properties</h2>
+
+<p>(These properties are set separately for each animation clip defined within this asset).</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Name</strong></td>
+	<td style="text-align:left;">The name of the clip.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Source Take</strong></td>
+	<td style="text-align:left;">The take in the source file to use as a source for this animation clip. (This option will not show up if there’s only one take). This is what defines a set of animation as separated in Motionbuilder, Maya and other 3D packages. Unity can import these takes as individual clips or you can create them from the whole file or a take.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Start</strong></td>
+	<td style="text-align:left;">Start frame of the clip.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>End</strong></td>
+	<td style="text-align:left;">End frame of the clip.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Loop Time</strong></td>
+	<td style="text-align:left;">Enable this option to make the animation clip play through and restart when the end is reached.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Loop Pose</strong>
+</td>
+	<td style="text-align:left;">Enable to make the motion loop seamlessly.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Cycle Offset</strong>
+</td>
+	<td style="text-align:left;">Offset to the cycle of a looping animation, if we want to start it at a different time.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Root Transform Rotation</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Bake into Pose</strong>
+</td>
+	<td style="text-align:left;">Enable to make root rotation be baked into the movement of the bones. Disable to make root rotation be stored as root motion.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Based Upon</strong>
+</td>
+	<td style="text-align:left;">What the root rotation is based upon.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">         - <strong>Original</strong>
+</td>
+	<td style="text-align:left;">Keeps the rotation as it is authored in the source file.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">         - <strong>Body Orientation</strong>
+</td>
+	<td style="text-align:left;">Keeps the upper body pointing forward.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Offset</strong>
+</td>
+	<td style="text-align:left;">Offset to the root rotation (in degrees).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Root Transform Position (Y)</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Bake into Pose</strong>
+</td>
+	<td style="text-align:left;">Enable to make vertical root motion be baked into the movement of the bones. Disable to make vertical root motion be stored as root motion.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Based Upon</strong>
+</td>
+	<td style="text-align:left;">What the vertical root position is based upon.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">         - <strong>Original</strong>
+</td>
+	<td style="text-align:left;">Keeps the vertical position as it is authored in the source file.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">         - <strong>Center of Mass</strong>
+</td>
+	<td style="text-align:left;">Keeps the center of mass aligned with root transform position.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">         - <strong>Feet</strong>
+</td>
+	<td style="text-align:left;">Keeps the feet aligned with the root transform position.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Offset</strong>
+</td>
+	<td style="text-align:left;">Offset to the vertical root position.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Root Transform Position (XZ)</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Bake into Pose</strong>
+</td>
+	<td style="text-align:left;">Enable to make horizontal root motion be baked into the movement of the bones. Disable to make horizontal root motion be stored as root motion.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Based Upon</strong>
+</td>
+	<td style="text-align:left;">What the horizontal root position is based upon.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">         - <strong>Original</strong>
+</td>
+	<td style="text-align:left;">Keeps the horizontal position as it is authored in the source file.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">         - <strong>Center of Mass</strong>
+</td>
+	<td style="text-align:left;">Keeps the center of mass aligned with the root transform position.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Offset</strong>
+</td>
+	<td style="text-align:left;">Offset to the horizontal root position.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Mirror</strong></td>
+	<td style="text-align:left;">Mirror left and right in this clip. (Only available for Humanoid Animations)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Additive Reference Pose</strong></td>
+	<td style="text-align:left;">When enabled, allows you to define the reference pose used as the base for the additive animation. Also, a blue marker becomes visible in the Start/End timeline editor: <img src="../uploads/Main/AnimationAdditiveReferencePoseTimelineMarker.png" alt="">. You can specify the reference pose by entering a frame number in the “Pose Frame” field, or by dragging the blue marker in the timeline.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Mask</strong></td>
+	<td style="text-align:left;">The Body mask and Transform mask applied to this animation clip (see section on <a href="class-AvatarMask.html">avatar masks</a>).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Curves</strong></td>
+	<td style="text-align:left;">Parameter-related curves (see <a href="animeditor-AnimationCurves.html">Curves in Mecanim</a>).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Events</strong></td>
+	<td style="text-align:left;">Used to create a new Event on a clip (see <a href="animeditor-AnimationEvents.html">Using Animation Events</a>).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Motion</strong></td>
+	<td style="text-align:left;">Allows you to define a custom root motion node (see <a href="AnimationRootMotionNodeOnImportedClips.html">Selecting a Root Motion Node</a>).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Import Messages</strong></td>
+	<td style="text-align:left;">Gives you information about how your animation was imported, including an optional ‘Retargeting Quality Report’.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Creating clips is essentially defining the start and end points for segments of animation. In order for these clips to loop, they should be trimmed in such a way to match the first and last frame as best as possible for the desired loop. For more on this, see the section on
+<a href="LoopingAnimationClips.html">Looping animation clips</a>
+</p>
+
+<h2>Animation Import Warnings</h2>
+
+<p>If any problems occured during the animation import process, a warning will be displayed at the top of the Animations Import inspector, like this:</p>
+
+<figure>
+<img src="../uploads/Main/AnimationWarningBox.png" alt="">
+</figure>
+
+<p>The warnings do not necessarily mean your animation has not imported or will not work. It may just mean that the imported animation could look slightly different to the source animation. The detail of the warnings, if any, are displayed further down the inspector under the “Import Messages” section. The animation import warnings that you might recieve are as follows:</p>
+
+<ul>
+<li>Default bone length found in this file is different from the one found in the source avatar.</li>
+<li>Inbetween bone default rotation found in this file is different from the one found in the source avatar.</li>
+<li>Source avatar hierarchy doesn’t match one found in this model.</li>
+<li>This animation has Has translation animation that will be discarded.</li>
+<li>Humanoid animation has inbetween transforms and rotation that will be discarded.</li>
+<li>Has scale animation that will be discarded.</li>
+</ul>
+
+<p>All these messages indicate that some data present in your original file was omitted when Unity imported and converted your animation to its own internal format. These warnings essentially tell you that the retargeted animation may not exactly match the source animation.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="comp-AnimationGroup.html"></a></span><div class="tip">Animation Reference</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-Animator.html"></a></span><div class="tip">Animator Component</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

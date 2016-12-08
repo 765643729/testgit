@@ -1,0 +1,243 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Procedural Material Assets</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-ProceduralMaterial.html">English</a></li>
+<li><a href="/ja/current/Manual/class-ProceduralMaterial.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-ProceduralMaterial.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-ProceduralMaterial.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-ProceduralMaterial.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="comp-Textures.html">Texture Components</a></li>
+<li>Procedural Material Assets</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-TextureImporterOverride.html"></a></span><div class="tip">Texture compression formats for platform-specific overrides</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-RenderTexture.html"></a></span><div class="tip">Render Texture</div>
+</div>
+</div></div>
+<h1>Procedural Material Assets</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/ProceduralMaterial.html' title='Go to ProceduralMaterial page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Procedural Material Assets are textures that are generated for you at run-time. See
+<a href="ProceduralMaterials.html">Procedural Materials</a> in the User Guide for more information.
+A Procedural Material asset can contain one or more procedural materials.
+These can be viewed in the Inspector just like regular materials. Note however that often
+procedural materials have many tweakable parameters. As with Material assets the Inspector
+shows a preview of the Procedural Material at the bottom of the window.</p>
+
+<figure>
+<img src="../uploads/Main/Inspector-ProceduralMaterial1.png" alt="A Procedural Material viewed in the Inspector.">
+<figcaption>A Procedural Material viewed in the Inspector.</figcaption>
+</figure>
+
+<p>The Inspector window has 4 main panes.</p>
+
+<ol>
+<li>Substance Archive Manager.</li>
+<li>Properties.</li>
+<li>Generated Textures.</li>
+<li>Preview.</li>
+</ol>
+
+<h2>Substance Archive Manager</h2>
+
+<p>The archive view shows you all the procedural materials that the Procedural Material asset contains.
+Select the procedural material you are interested in from the row of previews. Procedural Materials
+can be Added and Deleted to the Procedural Material Asset archive using the plus and minus buttons.
+Adding a procedural material will create a new material using the prototype encoded in the archive.
+The third, Duplicate button will create a new procedural material that is a copy of the currently
+selected one, including all its settings. Procedural materials can be renamed by typing in a new
+name in the material header name field.</p>
+
+<h2>Properties</h2>
+
+<h3>Material Properties</h3>
+
+<p>These are the regular properties of the material, which are dependent on which shader is chosen.
+They work the same as for regular materials.</p>
+
+<h3>Procedural Properties</h3>
+
+<p>The properties of any Procedural Material will change according to how the procedural material was created.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Generate at Load</strong></td>
+	<td style="text-align:left;">Generate the substance when the scene loads. If disabled, it will only be generated when prompted from scripting.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Random Seed</strong></td>
+	<td style="text-align:left;">Procedural materials often need some randomness. The Random Seed can be used to vary the generated appearance. Often this will be zero. Just click the Randomize button to get a different seed and observe how the material changes.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Generated Textures</h2>
+
+<figure>
+<img src="../uploads/Main/Inspector-ProceduralMaterial2.png" alt="The Generated Textures pane.">
+<figcaption>The Generated Textures pane.</figcaption>
+</figure>
+
+<p>This area allows you to visualize textures that the procedural material generates.
+The dropdown below each of the generated textures allows you to choose which texture map should
+supply the alpha channel for that texture. You could, for example, specify that the base alpha
+comes from the Transparency image, or from the Specular image. The screen-shot below shows the
+base alpha channel coming from the Specular image.</p>
+
+<h3>Per-Platform Overrides</h3>
+
+<p>When you are building for different platforms, you have to think on the resolution of your textures
+for the target platform, the size and the quality. You can override these options and assign specific
+values depending on the platform you are deploying to. Note that if you don’t select any value to
+override, the Editor will pick the default values when building your project.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Target Size</strong></td>
+	<td style="text-align:left;">The targeted size of the generated textures. Most procedural textures are designed to be resolution independent and will respect the chosen target size, but in rare cases they will use a fixed size instead, or have the possible sizes limited to within a certain range. The actual size of the generated textures can be read in the preview at the bottom of the Inspector.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Texture Format</strong></td>
+	<td style="text-align:left;">What internal representation is used for the texture in memory, once it is generated. This is a tradeoff between size and quality:</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Compressed</strong>
+</td>
+	<td style="text-align:left;">Compressed RGB texture. This will result in considerably less memory used.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RAW</strong>
+</td>
+	<td style="text-align:left;">Uncompressed truecolor, this is the highest quality. At 256 KB for a 256x256 texture.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Preview</h2>
+
+<p>The procedural material preview operates in an identical manner to the material preview.
+However, unlike the regular material preview it shows the pixel dimensions of the generated textures.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-TextureImporterOverride.html"></a></span><div class="tip">Texture compression formats for platform-specific overrides</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-RenderTexture.html"></a></span><div class="tip">Render Texture</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

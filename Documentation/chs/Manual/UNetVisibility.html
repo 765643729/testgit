@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Object Visibility</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetVisibility.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetVisibility.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetVisibility.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetVisibility.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetVisibility.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetOverview.html">Networking Overview</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li>Object Visibility</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetPlayers.html"></a></span><div class="tip">Player Objects</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="NetworkManagerCallbacks.html"></a></span><div class="tip"> Network Manager callbacks</div>
+</div>
+</div></div>
+<h1>Object Visibility</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity Networking supports the idea that not all objects on the server should be visible to all players in the game. This is sometimes called “Area of Interest”, as players are only given visibility to objects that the game determines are relevant or interesting to them. Some game features that use this concept are Fog Of War, Stealth and proximity based visibility. This is especially important when the game world is very large on the server or contains many networked objects. Reducing the set of objects visible to player reduces login times, and ongoing bandwidth - as updates are only sent to players for objects that are visible to them.</p>
+
+<h2>NetworkProximityChecker</h2>
+
+<p>The simplest way to restrict object visibility for players is use the built-in <a href="class-NetworkProximityChecker.html">NetworkProximityChecker</a> component. This works in conjunction with the Unity 3D physics or 2D physics systems to only allow players to see objects that are close to them. To use this component, add it to the prefab of the networked object that you want to have restricted visibility. The <a href="class-NetworkProximityChecker.html">NetworkProximityChecker</a> has some configurable parameters. Objects further away than “Vis Range” will not be visible to a player, and each player’s set of visible objects will be recalculated every “Vis Update Interval” seconds.</p>
+
+<p>The object must have a physics collider to work with the <a href="class-NetworkProximityChecker.html">NetworkProximityChecker</a>. </p>
+
+<h2>Visibility on Remote Clients</h2>
+
+<p>When a player on a remote client joins a network game, only objects that are visible to the player will be spawned on that client. So even if the player enters a large world with many networked objects, the time for world entry can be kept reasonable. This applies to networked objects in the scene, but does not affect the loading of assets - the assets for registered prefabs and scene objects are still loaded.</p>
+
+<p>As a player moves within the world, the set of visible objects will change. As this happens, the client is told about these changes. There is an ObjectHide message that is sent to clients when an object is no longer visible. The default behaviour for handling this message is to destroy the object. When an object becomes visible, the client receives an ObjectSpawn message - just as if the object were created for the first time. So by default the object is instantiated like any other spawned object.</p>
+
+<h2>Visibility on the Host</h2>
+
+<p>As the host shares the same scene as the server, it cannot destroy objects that are not visible to the local player. Instead, there is a virtual function on NetworkBehaviour that is invoked:</p>
+
+<pre><code>public virtual void OnSetLocalVisibility(bool vis)
+{
+}
+</code></pre>
+
+<p>This function is invoked on all networked scripts on objects that change visibility state on the host. This allow each script to customize how it should respond, such as by disabling HUD elements or renderers. The default implementation in NetworkProximityChecker disables or enables all Renderer components on the object.</p>
+
+<h2>Custom Visibility</h2>
+
+<p>The NetworkProximityChecker is implemented using the public visibility interface of Unity Networking. Using this interface developers should be able to implement any kind of visibility rules they desire. Each NetworkIdentity keeps track of the set of players that it is visible to. These are called the “observers” of the object.</p>
+
+<p>There is one function on NetworkIdentity:</p>
+
+<pre><code>// call this to rebuild the set of players observing this object
+public void RebuildObservers(bool initialize);
+</code></pre>
+
+<p>The NetworkProximityChecker calls this function at a fixed interval, so the set of visible objects for each player is updated as they move around.</p>
+
+<p>On the NetworkBehaviour, there are some virtual functions for determining visibility:</p>
+
+<pre><code>// called when a new player enters the game
+public override bool OnCheckObserver(NetworkConnection newObserver);
+
+// called when RebuildObservers is invoked 
+public override bool OnRebuildObservers(HashSet&lt;NetworkConnection&gt; observers, bool initial);
+</code></pre>
+
+<p>The OnCheckObservers function is called on the server on each networked object when a new player enters the game. If it returns true, then that player is added to the object’s observers. The NetworkProximityCheck does a simple distance check in its implementation of this function.</p>
+
+<p>The OnRebuildObservers function is called on the server when RebuildObservers is invoked. This function expects the set of observers to be populated with the players that can see the object. The NetworkServer then handles sending ObjectHide and ObjectSpawn messages based on the differences between the old and new visibility sets. The NetworkProximityChecker uses Physics.OverlapSphere() to find the players that are within the visibility distance for this object.</p>
+
+<p>Note that to tell is an object is a player, check if it has a valid “connectionToClient” on its NetworkIdentity. For example:</p>
+
+<pre><code>    var hits = Physics.OverlapSphere(transform.position, visRange);
+    foreach (var hit in hits)
+    {
+        // (if an object has a connectionToClient, it is a player)
+        var uv = hit.GetComponent&lt;NetworkIdentity&gt;();
+        if (uv != null &amp;&amp; uv.connectionToClient != null)
+        {
+            observers.Add(uv.connectionToClient);
+        }
+    }
+</code></pre>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetPlayers.html"></a></span><div class="tip">Player Objects</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="NetworkManagerCallbacks.html"></a></span><div class="tip"> Network Manager callbacks</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

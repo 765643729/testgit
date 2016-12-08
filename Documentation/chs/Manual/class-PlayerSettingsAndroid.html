@@ -1,0 +1,546 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Android Player Settings</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-PlayerSettingsAndroid.html">English</a></li>
+<li><a href="/ja/current/Manual/class-PlayerSettingsAndroid.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-PlayerSettingsAndroid.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-PlayerSettingsAndroid.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-PlayerSettingsAndroid.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="android.html">Android</a></li>
+<li>Android Player Settings</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AndroidMobileCustomizeSplashScreen.html"></a></span><div class="tip">Customizing an Android Splash Screen</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-TextureImporterAndroid.html"></a></span><div class="tip">Android 2D Textures Overrides</div>
+</div>
+</div></div>
+<h1>Android Player Settings</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>This page details the <strong>Player Settings</strong> specific to Android. A description of the general Player Settings can be found <a href="class-PlayerSettings.html">here</a>.</p>
+
+<h2>Resolution And Presentation</h2>
+
+<figure>
+<img src="../uploads/Main/PlayerSetAndroidResPres.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Orientation</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Default Orientation</strong></td>
+	<td style="text-align:left;">The game’s screen orientation. The options are <strong>Portrait</strong> (home button at the bottom), <strong>Portrait Upside Down</strong> (home button at the top, Android 2.3+), <strong>Landscape Left</strong> (home button on the right side) and <strong>Landscape Right</strong> (home button on the left side, Android 2.3+).</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Allowed Orientations for Auto Rotation</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Allowed Orientations for Auto Rotation</strong></td>
+	<td style="text-align:left;">(Only visible when the <em>Default Orientation</em> is set to <em>Auto Rotation</em>.)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Portrait</strong></td>
+	<td style="text-align:left;">Allow portrait orientation.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Portrait Upside Down</strong></td>
+	<td style="text-align:left;">Allow portrait upside down orientation.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Landscape Right</strong></td>
+	<td style="text-align:left;">Allow landscape right orientation (ie, home button on the <strong>left</strong> side).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Landscape Left</strong></td>
+	<td style="text-align:left;">Allow landscape left orientation (home button is on the <strong>right</strong> side).</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Other</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Use 32-bit Display Buffer</strong></td>
+	<td style="text-align:left;">Specifies if Display Buffer should be created to hold 32-bit color values (16-bit by default). Use it if you see banding, or need alpha in your ImageEffects, as they will create RTs in same format as Display Buffer. Not supported on devices running pre-Gingerbread OS (will be forced to 16-bit).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Disable Depth and Stencil</strong></td>
+	<td style="text-align:left;">Should the depth and stencil buffers be disabled?</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Show Loading Indicator</strong></td>
+	<td style="text-align:left;">The type of loading progress indicator that should be shown. Options are <strong>Don’t Show</strong>, <strong>Large</strong>, <strong>Inversed Large</strong>, <strong>Small</strong> and <strong>Inversed Small</strong>.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Icon</h2>
+
+<figure>
+<img src="../uploads/Main/PlayerSetAndroidIcon.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Override for Android</strong></td>
+	<td style="text-align:left;">Check if you want to override the default icon with a custom one for Android. The icon images at various different sizes can be dragged into the appropriate squares.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Enable Android Banner</strong></td>
+	<td style="text-align:left;">Enables a custom banner for Android T.V builds</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Splash Image</h2>
+
+<figure>
+<img src="../uploads/Main/PlayerSetAndroidSplash.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Virtual Reality Splash Screen (Pro-only feature)</strong></td>
+	<td style="text-align:left;">Specifies the texture that should be used for the Android splash screen on a Virtual Reality Application.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Android Splash Screen (Pro-only feature)</strong></td>
+	<td style="text-align:left;">Specifies the texture that should be used for the Android splash screen. The standard size for the splash screen image is 320x480.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Splash Scaling</strong></td>
+	<td style="text-align:left;">Specifies how the splash image will be scaled to fit the device’s screen. The options are <strong>Center (only scale down)</strong>, <strong>Scale to Fit (letter-boxed)</strong> and <strong>Scale to Fill (cropped)</strong>.</td>
+</tr>
+</tbody>
+</table>
+
+<p>See also <a href="class-PlayerSettingsSplashScreen.html">Unity Splash Screen</a> settings.</p>
+
+<h2>Other Settings</h2>
+
+<figure>
+<img src="../uploads/Main/PlayerSetAndroidOther.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Rendering</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Rendering Path</strong></td>
+	<td style="text-align:left;">The <a href="RenderingPaths.html">rendering path</a> enabled for the game.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Automatic Graphics API</strong></td>
+	<td style="text-align:left;">Allows you to select which graphics API is used. When checked, Unity will include Metal, and GLES2 as a fallback for devices where Metal is not supported. When unchecked, you can manually pick and reorder the graphics APIs. Manually picking just one API will adjust your app’s info.plist which will result in appropriate app store restrictions.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Multithreaded Rendering</strong></td>
+	<td style="text-align:left;">Enables multithreaded rendering.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Static Batching</strong></td>
+	<td style="text-align:left;">Set this to use Static batching on your build (enabled by default).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Dynamic Batching</strong></td>
+	<td style="text-align:left;">Set this to use Dynamic Batching on your build (enabled by default).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>GPU Skinning</strong></td>
+	<td style="text-align:left;">Should DX11/ES3 GPU skinning be enabled?</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Virtual Reality Supported</strong></td>
+	<td style="text-align:left;">Enable this if your application is a virtual reality application.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Protect Graphics Memory</strong></td>
+	<td style="text-align:left;">Enable this to force the graphics buffer to be displayed only through a hardware-protected path.</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Identification</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bundle Identifier</strong></td>
+	<td style="text-align:left;">The string used in your provisioning certificate from your Apple Developer Network account(This is shared between iOS and Android)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Version*</strong></td>
+	<td style="text-align:left;">Specifies the build version number of the bundle, which identifies an iteration (released or unreleased) of the bundle. The version is specified in the common format of a string containing numbers separated by dots (eg, 4.3.2). (This is shared between iOS and Android.)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bundle Version Code</strong></td>
+	<td style="text-align:left;">An internal version number. This number is used only to determine whether one version is more recent than another, with higher numbers indicating more recent versions. This is not the version number shown to users; that number is set by the versionName attribute. The value must be set as an integer, such as “100”. You can define it however you want, as long as each successive version has a higher number. For example, it could be a build number. Or you could translate a version number in “x.y” format to an integer by encoding the “x” and “y” separately in the lower and upper 16 bits. Or you could simply increase the number by one each time a new version is released.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Minimum API Level</strong></td>
+	<td style="text-align:left;">Minimum API version required to support the build.</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Configuration</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Scripting Backend</strong></td>
+	<td style="text-align:left;">Allows you to select between IL2CPP and Mono2x scripting backends. The default is Mono2x.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Disable HW Statistics</strong></td>
+	<td style="text-align:left;">By default, Unity Android apps send anonymous HW statistics to Unity so we can provide you with aggregated information to help you make decisions as a developer. These stats can be found at (http://stats.unity3d.com/)[http://stats.unity3d.com/]. Checking this option disables the sending of these statistics for your app.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Device Filter</strong></td>
+	<td style="text-align:left;">Limit the game to run only on specific CPUs.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Install Location</strong></td>
+	<td style="text-align:left;">Specifies application install location on the device (for detailed information, please refer to http://developer.android.com/guide/appendix/install-location.html).</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Automatic</strong>
+</td>
+	<td style="text-align:left;">Let OS decide. User will be able to move the app back and forth.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Prefer External</strong>
+</td>
+	<td style="text-align:left;">Install app to external storage (SD-Card) if possible. OS does not guarantee that will be possible; if not, the app will be installed to internal memory.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Force Internal</strong>
+</td>
+	<td style="text-align:left;">Force app to be installed into internal memory. User will be unable to move the app to external storage.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Internet Access</strong></td>
+	<td style="text-align:left;">When set to Require, will enable networking permissions even if your scripts are not using this. Automatically enabled for development builds.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Write Access</strong></td>
+	<td style="text-align:left;">When set to External (SDCard), will enable write access to external storage such as the SD-Card. Automatically enabled for development builds.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Android TV Compatibility</strong></td>
+	<td style="text-align:left;">If enabled, checks the game for Android T.V compatibility.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Android Game</strong></td>
+	<td style="text-align:left;">If enabled, built APK will be marked as a game rather than a regular app.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Android Gamepad Support Level</strong></td>
+	<td style="text-align:left;">This allows you to define the level of support your application allows for a gamepad. The options are <strong>Works with D - Pad</strong>, <strong>Supports Gamepad</strong> and <strong>Requires Gamepad</strong>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Scripting Define Symbols</strong></td>
+	<td style="text-align:left;">Custom compilation flags (see the <a href="PlatformDependentCompilation.html">platform dependent compilation</a> page for details).</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Optimization</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Api Compatibility Level</strong></td>
+	<td style="text-align:left;">Specifies active .NET API profile. See below.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>.Net 2.0</strong>
+</td>
+	<td style="text-align:left;">.Net 2.0 libraries. Maximum .net compatibility, biggest file sizes</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>.Net 2.0 Subset</strong>
+</td>
+	<td style="text-align:left;">Subset of full .net compatibility, smaller file sizes</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Prebake Collision Meshes</strong></td>
+	<td style="text-align:left;">Should collision data be added to meshes at build time?</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Preload Shaders</strong></td>
+	<td style="text-align:left;">Should shaders be loaded when the player starts up?</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Preloaded Assets</strong></td>
+	<td style="text-align:left;">An array of assets to be loaded when the player starts up.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Stripping Level</strong></td>
+	<td style="text-align:left;">Options to strip out scripting features to reduce built player size (This setting is shared between iOS and Android Platforms, and is available with the Mono scripting backend only.)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Disabled</strong>
+</td>
+	<td style="text-align:left;">No reduction is done.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Strip Assemblies</strong>
+</td>
+	<td style="text-align:left;">Level 1 size reduction.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Strip ByteCode (iOS only)</strong>
+</td>
+	<td style="text-align:left;">Level 2 size reduction (includes reductions from Level 1).</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Use micro mscorlib</strong>
+</td>
+	<td style="text-align:left;">Level 3 size reduction (includes reductions from Levels 1 and 2).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Strip Engine Code</strong></td>
+	<td style="text-align:left;">Enable code stripping. (This setting is only available with the IL2CPP scripting backend.)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Enable Internal profiler</strong></td>
+	<td style="text-align:left;">Enable this if you want to get feedback from your device while testing your projects. So adb logcat prints logs from the device to the console (only available in development builds).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Vertex Compression</strong></td>
+	<td style="text-align:left;">Select which vertex channels should be compressed. Compression can save memory and bandwidth but precision will be lower.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Optimize Mesh Data</strong></td>
+	<td style="text-align:left;">Remove any data from meshes that is not required by the material applied to them (tangents, normals, colors, UV).</td>
+</tr>
+</tbody>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Logging</strong></td>
+	<td style="text-align:left;">Enable different logging types (see the <a href="../ScriptReference/StackTraceLogType.html">StackTraceLogType</a> page for details).</td>
+</tr>
+</tbody>
+</table>
+
+<h3>API Compatibility Level</h3>
+
+<p>You can choose your mono api compatibility level for all targets. Sometimes a 3rd party .net dll will use things that are outside of the .net compatibility level that you would like to use. In order to understand what is going on in such cases, and how to best fix it, get “Reflector” on windows. </p>
+
+<ol>
+<li>Drag the .net assemblies for the api compatilibity level in question into reflector. You can find these in Frameworks/Mono/lib/mono/YOURSUBSET/</li>
+<li>Also drag in your 3rd party assembly.</li>
+<li>Right click your 3rd party assembly, and select “Analyze”.</li>
+<li>In the analysis report, inspect the “Depends on” section. Anything that the 3rd party assembly depends on, but is not available in the .net compatibility level of your choice will be highlighted in red there.</li>
+</ol>
+
+<h2>Publishing Settings</h2>
+
+<figure>
+<img src="../uploads/Main/PlayerSetAndroidPublish.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Keystore</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Use Existing Keystore / Create New Keystore</strong></td>
+	<td style="text-align:left;">Use this to choose whether to create a new Keystore or use an existing one. You can use the <strong>Browse Keystore</strong> button to select a Keystore from the filesystem.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Keystore password</strong></td>
+	<td style="text-align:left;">Password for the Keystore.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Confirm password</strong></td>
+	<td style="text-align:left;">Password confirmation (only enabled if the Create New Keystore option is chosen).</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Key</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Alias</strong></td>
+	<td style="text-align:left;">Key alias.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Password</strong></td>
+	<td style="text-align:left;">Password for key alias.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Split Application Binary</strong></td>
+	<td style="text-align:left;">Flag to split the application into expansion files. Useful only with Google Play Store when the finished build exceeds 50MB.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Note that for security reasons, Unity will save neither the keystore password nor the key password. Also, note that the signing must be done from Unity’s player settings - using jarsigner will not work. The unsigned debug keystore is located by default at <code>~/.android/debug.keystore</code> on OS X and <code>%USERPROFILE%\.android\debug.keystore</code> on Windows.</p>
+
+<h2>Details</h2>
+
+<h3>Bundle Identifier</h3>
+
+<p>The <strong>Bundle Identifier</strong> string is the unique name of your application when published to the Android Market and installed on the device. The basic structure of the identifier is <strong>com.CompanyName.GameName</strong>, and can be chosen arbitrarily. In Unity this field is shared with the iOS Player Settings for convenience.</p>
+
+<h3>Stripping Level</h3>
+
+<p>Most games don’t use all the functionality of the provided dlls. With this option, you can strip out unused parts to reduce the size of the built player on Android devices.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AndroidMobileCustomizeSplashScreen.html"></a></span><div class="tip">Customizing an Android Splash Screen</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-TextureImporterAndroid.html"></a></span><div class="tip">Android 2D Textures Overrides</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

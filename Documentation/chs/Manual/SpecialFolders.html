@@ -1,0 +1,168 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Special folder names</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/SpecialFolders.html">English</a></li>
+<li><a href="/ja/current/Manual/SpecialFolders.html">日本語</a></li>
+<li><a href="/es/current/Manual/SpecialFolders.html">Español</a></li>
+<li><a href="/kr/current/Manual/SpecialFolders.html">한국어</a></li>
+<li><a href="/ru/current/Manual/SpecialFolders.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityOverview.html">Working In Unity</a></li>
+<li><a href="EditorFeatures.html">Editor Features</a></li>
+<li>Special folder names</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="IMEInput.html"></a></span><div class="tip">IME in Unity</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-exportpackage.html"></a></span><div class="tip">Exporting Packages</div>
+</div>
+</div></div>
+<h1>Special folder names</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>You can usually choose any name you like for the folders you create to organise your Unity project. However, there are a number of folder names that Unity interprets as an instruction that the folder’s contents should be treated in a special way. For example, you must place Editor scripts in a folder called <strong>Editor</strong> for them to work correctly. </p>
+
+<p>This page contains the full list of special folder names used by Unity.</p>
+
+<h2>Assets</h2>
+
+<p>The <strong>Assets</strong> folder is the main folder that contains the Assets used by a Unity project. The contents of the Project window in the Editor correspond directly to the contents of the Assets folder. Most API functions assume that everything is located in the Assets folder, and so don’t require it to be mentioned explicitly. However, some functions do need to have the Assets folder included as part of a pathname (for example, certain functions in the <a href="../ScriptReference/AssetDatabase.html">AssetDatabase</a> class).</p>
+
+<h2>Editor</h2>
+
+<p>All scripts that are placed in a folder called <strong>Editor</strong> (or a sub-folder within it) are treated as Editor scripts rather than runtime scripts. These scripts are designed to add functionality to Unity itself during development, and are not available to the finished game at runtime. More than one Editor folder can be used in the project at once, but the exact location of a given Editor folder affects the time at which its scripts will be compiled relative to other scripts (see documentation on <a href="ScriptCompileOrderFolders.html">Special Folders and Script Compilation Order</a> for a full description of this). You can use the <a href="../ScriptReference/EditorGUIUtility.Load.html">EditorGUIUtility.Load</a> function in Editor scripts to load Assets in a Resources folder, placed inside an Editor folder. These Assets are only loadable via Editor scripts, and are stripped from builds. </p>
+
+<p>
+<strong>Note:</strong> Unity does not allow components derived from MonoBehaviour to be assigned to GameObjects if the scripts are in the Editor folder.</p>
+
+<h2>Editor Default Resources</h2>
+
+<p>Editor scripts can make use of Asset files loaded on-demand using the <a href="../ScriptReference/EditorGUIUtility.Load.html">EditorGUIUtility.Load</a> function. This function looks for the Asset files in a folder called <strong>Editor Default Resources</strong>, which your should place directly within the <strong>Assets</strong> folder.</p>
+
+<h2>Gizmos</h2>
+
+<p>Unity’s <a href="../ScriptReference/Gizmos.html">Gizmos</a> allow you to add graphics to the Scene View to help visualise design details that are otherwise invisible. The <a href="../ScriptReference/Gizmos.DrawIcon.html">Gizmos.DrawIcon</a> function places an icon in the Scene to act as a marker for a special object or position. You must place the image file used to draw this icon in a folder called <strong>Gizmos</strong> in order for it to be located by the DrawIcon function.</p>
+
+<h2>Plugins</h2>
+
+<p>Unity lets you add <a href="Plugins.html">Plugins</a> to a project to extend the features available to Unity. Plugins are native DLLs that are typically written in C/C++. They can access third-party code libraries, system calls and other functionality that are is provided by Unity out of the box. You must place Plugins in a folder called <strong>Plugins</strong> for them to be detected by Unity. Like the Editor folder, this affects the order in which scripts are compiled. See <a href="ScriptCompileOrderFolders.html">Special folders and script compilation order</a> for further details, and <a href="PluginInspector.html">Plugin Inspector</a> for more information on plugin platform control.</p>
+
+<h2>Resources</h2>
+
+<p>Generally, you create instances of Assets in a Scene to use them in gameplay, but Unity also lets you load Assets on demand from a script. You do this by placing the Assets in a folder called <strong>Resources</strong> or a sub-folder (you can actually have any number of Resources folders and place them anywhere in the project). These Assets can then be loaded using the <a href="../ScriptReference/Resources.Load.html">Resources.Load</a> function. If the Resources folder is under a folder named Editor, then the Assets in it are loadable from Editor scripts but will be stripped from player builds.</p>
+
+<h2>Standard Assets</h2>
+
+<p>When you import a Standard Asset package (menu: <strong>Assets</strong> &gt; <strong>Import Package</strong>) the Assets are placed in a folder called <strong>Standard Assets</strong>. As well as containing the Assets, these folders also have an effect on script compilation order; see the page on <a href="ScriptCompileOrderFolders.html">Special Folders and Script Compilation Order</a> for further details.</p>
+
+<h2>StreamingAssets</h2>
+
+<p>Most game Assets are incorporated directly into the built player, but there are some cases where you want the Asset to be available as a separate file in its original format (for example, to play a video on iOS, you must access the video file from the filesystem rather than use it as a MovieTexture). If you place a file in a folder called <strong>StreamingAssets</strong>, it is copied unchanged to the target machine, where it is then available from a specific folder. See the page about <a href="StreamingAssets.html">Streaming Assets</a> for further details.</p>
+
+<h2>Hidden Assets</h2>
+
+<p>During the import process, Unity completely ignores the following files and folders in the <strong>Assets</strong> folder (or a sub-folder within it):</p>
+
+<ul>
+<li>Hidden folders.</li>
+<li>Files and folders which start with ‘<strong>.</strong>’.</li>
+<li>Files and folders which end with ‘<strong>~</strong>’.</li>
+<li>Files and folders named <strong>cvs</strong>.</li>
+<li>Files with the extension <strong>.tmp</strong>.</li>
+</ul>
+
+<p>This is used to prevent importing special and temporary files created by the operating system or other applications.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="IMEInput.html"></a></span><div class="tip">IME in Unity</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-exportpackage.html"></a></span><div class="tip">Exporting Packages</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

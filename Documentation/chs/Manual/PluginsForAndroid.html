@@ -1,0 +1,423 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Building Plugins for Android</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/PluginsForAndroid.html">English</a></li>
+<li><a href="/ja/current/Manual/PluginsForAndroid.html">日本語</a></li>
+<li><a href="/es/current/Manual/PluginsForAndroid.html">Español</a></li>
+<li><a href="/kr/current/Manual/PluginsForAndroid.html">한국어</a></li>
+<li><a href="/ru/current/Manual/PluginsForAndroid.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="android.html">Android</a></li>
+<li><a href="android-GettingStarted.html">Getting started with Android development</a></li>
+<li>Building Plugins for Android</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AndroidMobileAdvanced.html"></a></span><div class="tip">Advanced Unity Mobile Scripting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AndroidMobileCustomizeSplashScreen.html"></a></span><div class="tip">Customizing an Android Splash Screen</div>
+</div>
+</div></div>
+<h1>Building Plugins for Android</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>This page describes <a href="Plugins.html">Native Code Plugins</a> for Android.</p>
+
+<h2>Building a Plugin for Android</h2>
+
+<p>To build a plugin for Android, you should first obtain the <a href="http://developer.android.com/sdk/ndk">Android NDK</a> and familiarize yourself with the steps involved in building a shared library.</p>
+
+<p>If you are using C++ (.cpp) to implement the plugin you must ensure the functions are declared with C linkage to avoid <a href="http://en.wikipedia.org/wiki/Name_mangling">name mangling issues</a>.</p>
+
+<pre><code>extern &quot;C&quot; {
+  float FooPluginFunction ();
+}
+
+</code></pre>
+
+<h2>Using Your Plugin from C#</h2>
+
+<p>Once built, the shared library should be copied to the <strong>Assets-&gt;Plugins-&gt;Android</strong> folder. Unity will then find it by name when you define a function like the following in the C# script:-</p>
+
+<pre><code>[DllImport (&quot;PluginName&quot;)]
+private static extern float FooPluginFunction ();
+
+</code></pre>
+
+<p>Please note that <strong>PluginName</strong> should not include the prefix (‘lib’) nor the extension (‘.so’) of the filename.
+You should wrap all native code methods with an additional C# code layer. This code should check <a href="../ScriptReference/Application-platform.html">Application.platform</a> and call native methods only when the app is running on the actual device; dummy values can be returned from the C# code when running in the Editor. You can also use <a href="PlatformDependentCompilation.html">platform defines</a> to control platform dependent code compilation.</p>
+
+<h2>Android Library Projects</h2>
+
+<p>You can drop pre-compiled Android library projects into the <strong>Assets-&gt;Plugins-&gt;Android</strong> folder. Pre-compiled means all <em>.java</em> files must have been compiled into jar files located in either the <em>bin/</em> or the <em>libs/</em> folder of the project.
+<em>AndroidManifest.xml</em> from these folders will get automatically merged with the main manifest file when the project is built.</p>
+
+<p>See <a href="http://developer.android.com/tools/projects/index.html#LibraryProjects">Android Library Projects</a> for more details.</p>
+
+<h2>Deployment</h2>
+
+<p>For cross platform deployment, your project should include plugins for each supported platform (ie, libPlugin.so for Android, Plugin.bundle for Mac and Plugin.dll for Windows).
+Unity automatically picks the right plugin for the target platform and includes it with the player.</p>
+
+<p>For specific Android platform (armv7, x86), the libraries (lib*.so) should be placed in the following:</p>
+
+<p>Assets/Plugins/Android/libs/x86/</p>
+
+<p>Assets/Plugins/Android/libs/armeabi-v7a/</p>
+
+<h2>Using Java Plugins</h2>
+
+<p>The Android plugin mechanism also allows Java to be used to enable interaction with the Android OS.</p>
+
+<h3>Building a Java Plugin for Android</h3>
+
+<p>There are several ways to create a Java plugin but the result in each case is that you end up with a .jar file containing the .class files for your plugin.
+One approach is to download the <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">JDK</a>, then compile your .java files from the command line with <em>javac</em>. This will create .class files which you can then package into a .jar with the <em>jar</em> command line tool.
+Another option is to use the <a href="http://www.eclipse.org">Eclipse</a> IDE together with the <a href="http://developer.android.com/sdk/eclipse-adt.html">ADT</a>.</p>
+
+<p>
+<strong>Note:</strong> Unity expects Java plugins to be built using JDK v1.6. If you are using v1.7, you should include “-source 1.6 -target 1.6” in the command line options to the compiler.</p>
+
+<h3>Using Your Java Plugin from Native Code</h3>
+
+<p>Once you have built your Java plugin (.jar) you should copy it to the <strong>Assets-&gt;Plugins-&gt;Android</strong> folder in the Unity project. Unity will package your .class files together with the rest of the Java code and then access the code using the <a href="http://en.wikipedia.org/wiki/Java_Native_Interface">Java Native Interface (JNI)</a>. JNI is used both when calling native code from Java and when interacting with Java (or the JavaVM) from native code.</p>
+
+<p>To find your Java code from the native side you need access to the Java VM. Fortunately, that access can be obtained easily by adding a function like this to your C/C++ code:</p>
+
+<pre><code>jint JNI_OnLoad(JavaVM* vm, void* reserved) {
+  JNIEnv* jni_env = 0;
+  vm-&gt;AttachCurrentThread(&amp;jni_env, 0);
+  return JNI_VERSION_1_6;
+}
+
+</code></pre>
+
+<p>This is all that is needed to start using Java from C/C++. It is beyond the scope of this document to explain JNI completely. However, using it usually involves finding the class definition, resolving the constructor (&lt;init&gt;) method and creating a new object instance, as shown in this example:-</p>
+
+<pre><code>jobject createJavaObject(JNIEnv* jni_env) {
+  jclass cls_JavaClass = jni_env-&gt;FindClass(&quot;com/your/java/Class&quot;);         // find class definition
+  jmethodID mid_JavaClass = jni_env-&gt;GetMethodID (cls_JavaClass, &quot;&lt;init&gt;&quot;, &quot;()V&quot;);      // find constructor method
+  jobject obj_JavaClass = jni_env-&gt;NewObject(cls_JavaClass, mid_JavaClass);     // create object instance
+  return jni_env-&gt;NewGlobalRef(obj_JavaClass);                      // return object with a global reference
+}
+
+</code></pre>
+
+<h3>Using Your Java Plugin with helper classes</h3>
+
+<p>
+<strong>AndroidJNIHelper</strong> and <strong>AndroidJNI</strong> can be used to ease some of the pain with raw JNI. </p>
+
+<p>
+<strong>AndroidJavaObject</strong> and <strong>AndroidJavaClass</strong> automate a lot of tasks and also use cacheing to make calls to Java faster. The combination of <strong>AndroidJavaObject</strong> and <strong>AndroidJavaClass</strong> builds on top of <strong>AndroidJNI</strong> and <strong>AndroidJNIHelper</strong>, but also has a lot of logic in its own right (to handle the automation). These classes also come in a ‘static’ version to access static members of Java classes. </p>
+
+<p>You can choose whichever approach you prefer, be it raw JNI through <strong>AndroidJNI</strong> class methods, or <strong>AndroidJNIHelper</strong> together with <strong>AndroidJNI</strong> and eventually <strong>AndroidJavaObject/AndroidJavaClass</strong> for maximum automation and convenience.</p>
+
+<p>
+<a href="../ScriptReference/AndroidJNI.html">UnityEngine.AndroidJNI</a> is a wrapper for the JNI calls available in C (as described above). All methods in this class are static and have a 1:1 mapping to the Java Native Interface. <a href="../ScriptReference/AndroidJNIHelper.html">UnityEngine.AndroidJNIHelper</a> provides helper functionality used by the next level, but is exposed as public methods because they may be useful for some special cases.</p>
+
+<p>Instances of <a href="../ScriptReference/AndroidJavaObject.html">UnityEngine.AndroidJavaObject</a> and <a href="../ScriptReference/AndroidJavaClass.html">UnityEngine.AndroidJavaClass</a> have a one-to-one mapping to an instance of java.lang.Object and java.lang.Class (or subclasses thereof) on the Java side, respectively. They essentially provide 3 types of interaction with the Java side:-</p>
+
+<ul>
+<li>Call a method</li>
+<li>Get the value of a field</li>
+<li>Set the value of a field</li>
+</ul>
+
+<p>The <strong>Call</strong> is separated into two categories: <strong>Call</strong> to a ‘void’ method, and <strong>Call</strong> to a method with non-void return type. A generic type is used to represent the return type of those methods which return a non-void type. The <strong>Get</strong> and <strong>Set</strong> always take a generic type representing the field type. </p>
+
+<h3>Example 1</h3>
+
+<pre><code>//The comments describe what you would need to do if you were using raw JNI
+ AndroidJavaObject jo = new AndroidJavaObject(&quot;java.lang.String&quot;, &quot;some_string&quot;); 
+ // jni.FindClass(&quot;java.lang.String&quot;); 
+ // jni.GetMethodID(classID, &quot;&lt;init&gt;&quot;, &quot;(Ljava/lang/String;)V&quot;); 
+ // jni.NewStringUTF(&quot;some_string&quot;); 
+ // jni.NewObject(classID, methodID, javaString); 
+ int hash = jo.Call&lt;int&gt;(&quot;hashCode&quot;); 
+ // jni.GetMethodID(classID, &quot;hashCode&quot;, &quot;()I&quot;); 
+ // jni.CallIntMethod(objectID, methodID);
+
+
+</code></pre>
+
+<p>Here, we’re creating an instance of <a href="http://developer.android.com/reference/java/lang/String.html">java.lang.String</a>, initialized with a <a href="http://developer.android.com/reference/java/lang/String.html#String(java.lang.StringBuilder)">string</a> of our choice and retrieving the <a href="http://developer.android.com/reference/java/lang/String.html#hashCode()">hash value</a> for
+that string.</p>
+
+<p>The <strong>AndroidJavaObject</strong> constructor takes at least one parameter, the name of class for which we want to construct an instance. Any parameters after the class name are for the constructor call on the object, in this case the string “some_string”. The subsequent <strong>Call</strong> to hashCode() returns an ‘int’ which is why we use that as the generic type parameter to the <strong>Call</strong> method.</p>
+
+<p>
+<strong>Note:</strong> You cannot instantiate a nested Java class using dotted notation. Inner classes must use the $ separator, and it should work in both dotted and slashed format. So <span class="math">\[android.view.ViewGroup$LayoutParams __or__ android/view/ViewGroup$LayoutParams__ can be used, where a __LayoutParams__ class is nested in a __ViewGroup\]</span> class.</p>
+
+<h3>Example 2</h3>
+
+<p>One of the plugin samples above shows how to get the cache directory for the current application. This is how you would do the same thing from C# without any plugins:-</p>
+
+<pre><code> AndroidJavaClass jc = new AndroidJavaClass(&quot;com.unity3d.player.UnityPlayer&quot;); 
+ // jni.FindClass(&quot;com.unity3d.player.UnityPlayer&quot;); 
+ AndroidJavaObject jo = jc.GetStatic&lt;AndroidJavaObject&gt;(&quot;currentActivity&quot;); 
+ // jni.GetStaticFieldID(classID, &quot;Ljava/lang/Object;&quot;); 
+ // jni.GetStaticObjectField(classID, fieldID); 
+ // jni.FindClass(&quot;java.lang.Object&quot;); 
+
+ Debug.Log(jo.Call&lt;AndroidJavaObject&gt;(&quot;getCacheDir&quot;).Call&lt;string&gt;(&quot;getCanonicalPath&quot;)); 
+ // jni.GetMethodID(classID, &quot;getCacheDir&quot;, &quot;()Ljava/io/File;&quot;); // or any baseclass thereof! 
+ // jni.CallObjectMethod(objectID, methodID); 
+ // jni.FindClass(&quot;java.io.File&quot;); 
+ // jni.GetMethodID(classID, &quot;getCanonicalPath&quot;, &quot;()Ljava/lang/String;&quot;); 
+ // jni.CallObjectMethod(objectID, methodID); 
+ // jni.GetStringUTFChars(javaString);
+
+
+</code></pre>
+
+<p>In this case, we start with <strong>AndroidJavaClass</strong> instead of <strong>AndroidJavaObject</strong> because we want to access a static member of <strong>com.unity3d.player.UnityPlayer</strong> rather than create a new object (an instance is created automatically by the <strong>Android UnityPlayer</strong>). Then we access the static field “currentActivity” but this time we use <strong>AndroidJavaObject</strong> as the generic parameter. This is because the actual field type (<a href="http://developer.android.com/reference/android/app/Activity.html">android.app.Activity</a>) is a subclass of <a href="http://developer.android.com/reference/java/lang/Object.html">java.lang.Object</a>, and any <a href="http://developer.android.com/reference/java/lang/Class.html">non-primitive type</a> must be accessed as <strong>AndroidJavaObject</strong>. The exceptions to this rule are strings, which can be accessed directly even though they don’t represent a primitive type in Java. </p>
+
+<p>After that it is just a matter of traversing the <strong>Activity</strong> through <a href="http://developer.android.com/reference/android/content/Context.html#getCacheDir()">getCacheDir()</a> to get the File object representing the cache directory, and then calling <a href="http://developer.android.com/reference/java/io/File.html#getCanonicalPath()">getCanonicalPath()</a> to get a string representation. </p>
+
+<p>Of course, nowadays you don’t need to do that to get the cache directory since Unity provides access to the application’s cache and file directory with <a href="../ScriptReference/Application-temporaryCachePath.html">Application.temporaryCachePath</a> and <a href="../ScriptReference/Application-persistentDataPath.html">Application.persistentDataPath</a>.</p>
+
+<h3>Example 3</h3>
+
+<p>Finally, here is a trick for passing data from Java to script code using <strong>UnitySendMessage</strong>.</p>
+
+<pre><code>using UnityEngine; 
+public class NewBehaviourScript : MonoBehaviour { 
+
+    void Start () { 
+        AndroidJNIHelper.debug = true; 
+        using (AndroidJavaClass jc = new AndroidJavaClass(&quot;com.unity3d.player.UnityPlayer&quot;)) { 
+            jc.CallStatic(&quot;UnitySendMessage&quot;, &quot;Main Camera&quot;, &quot;JavaMessage&quot;, &quot;whoowhoo&quot;); 
+        } 
+    } 
+
+    void JavaMessage(string message) { 
+        Debug.Log(&quot;message from java: &quot; + message); 
+    }
+} 
+
+
+</code></pre>
+
+<p>The Java class <strong>com.unity3d.player.UnityPlayer</strong> now has a static method <strong>UnitySendMessage</strong>, equivalent to the iOS <a href="PluginsForIOS.html">UnitySendMessage</a> function on the native side. It can be used in Java to pass data to script code. </p>
+
+<p>Here though, we call it directly from script code, which essentially relays the message on the Java side. This then calls back to the native/Unity code to deliver the message to the object named “Main Camera”. This object has a script attached which contains a method called “JavaMessage”. </p>
+
+<h3>Best practice when using Java plugins with Unity</h3>
+
+<p>As this section is mainly aimed at people who don’t have comprehensive JNI, Java and Android experience, we assume that the <strong>AndroidJavaObject/AndroidJavaClass</strong> approach has been used for interacting with Java code from Unity.</p>
+
+<p>The first thing to note is that any operation you perform on an <strong>AndroidJavaObject</strong> or <strong>AndroidJavaClass</strong> is computationally expensive (as is the raw JNI approach). It is highly advisable to keep the number of transitions between managed and native/Java code to a minimum, for the sake of performance and also code clarity. </p>
+
+<p>You could have a Java method to do all the actual work and then use <strong>AndroidJavaObject / AndroidJavaClass</strong> to communicate with that method and get the result. However, it is worth bearing in mind that the JNI helper classes try to cache as much data as possible to improve performance. </p>
+
+<pre><code>//The first time you call a Java function like 
+AndroidJavaObject jo = new AndroidJavaObject(&quot;java.lang.String&quot;, &quot;some_string&quot;); // somewhat expensive
+int hash = jo.Call&lt;int&gt;(&quot;hashCode&quot;); // first time - expensive
+int hash = jo.Call&lt;int&gt;(&quot;hashCode&quot;); // second time - not as expensive as we already know the java method and can call it directly
+
+
+</code></pre>
+
+<p>The Mono garbage collector should release all created instances of <strong>AndroidJavaObject</strong> and <strong>AndroidJavaClass</strong> after use, but it is advisable to keep them in a <strong>using(){}</strong> statement to ensure they are deleted as soon as possible. Without this, you cannot be sure when they will be destroyed. If you set <strong>AndroidJNIHelper.debug</strong> to true, you will see a record of the garbage collector’s activity in the debug output.</p>
+
+<pre><code>//Getting the system language with the safe approach
+void Start () { 
+    using (AndroidJavaClass cls = new AndroidJavaClass(&quot;java.util.Locale&quot;)) { 
+        using(AndroidJavaObject locale = cls.CallStatic&lt;AndroidJavaObject&gt;(&quot;getDefault&quot;)) { 
+            Debug.Log(&quot;current lang = &quot; + locale.Call&lt;string&gt;(&quot;getDisplayLanguage&quot;)); 
+
+        } 
+    } 
+}
+
+
+</code></pre>
+
+<p>You can also call the <strong>.Dispose()</strong> method directly to ensure there are no Java objects lingering. The actual C# object might live a bit longer, but will be garbage collected by mono eventually.</p>
+
+<h2>Extending the UnityPlayerActivity Java Code</h2>
+
+<p>With Unity Android it is possible to extend the standard <strong>UnityPlayerActivity</strong> class (the primary Java class for the Unity Player on Android, similar to AppController.mm on Unity iOS).</p>
+
+<p>An application can override any and all of the basic interaction between Android OS and Unity Android. You can enable this by creating a new <a href="http://developer.android.com/reference/android/app/Activity.html">Activity</a> which derives from UnityPlayerActivity (UnityPlayerActivity.java can be found at <strong>/Applications/Unity/Unity.app/Contents/PlaybackEngines/AndroidPlayer/src/com/unity3d/player</strong> on Mac and usually at <strong>C:\Program Files\Unity\Editor\Data\PlaybackEngines\AndroidPlayer\src\com\unity3d\player</strong> on Windows). </p>
+
+<p>To do this, first locate the <strong>classes.jar</strong> shipped with Unity Android. It is found in the installation folder (usually <strong>C:\Program Files\Unity\Editor\Data</strong> (on Windows) or <strong>/Applications/Unity</strong> (on Mac)) in a sub-folder called <strong>PlaybackEngines/AndroidPlayer/Variations/mono or il2cpp/Development or Release/Classes/</strong>. Then add <strong>classes.jar</strong> to the classpath used to compile the new Activity. The resulting .class file(s) should be compressed into a .jar file and placed in the <strong>Assets-&gt;Plugins-&gt;Android</strong> folder.
+Since the manifest dictates which activity to launch it is also necessary to create a new <a href="http://developer.android.com/guide/topics/manifest/manifest-intro.html">AndroidManifest.xml</a>. The AndroidManifest.xml file should also be placed in the <strong>Assets-&gt;Plugins-&gt;Android</strong> folder (placing a custom manifest completely overrides the default Unity Android manifest).</p>
+
+<p>The new activity could look like the following example, <strong>OverrideExample.java</strong>:</p>
+
+<pre><code>package com.company.product;
+
+import com.unity3d.player.UnityPlayerActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+
+public class OverrideExample extends UnityPlayerActivity {
+
+  protected void onCreate(Bundle savedInstanceState) {
+
+    // call UnityPlayerActivity.onCreate()
+    super.onCreate(savedInstanceState);
+
+    // print debug message to logcat
+    Log.d(&quot;OverrideActivity&quot;, &quot;onCreate called!&quot;);
+  }
+
+  public void onBackPressed()
+  {
+    // instead of calling UnityPlayerActivity.onBackPressed() we just ignore the back button event
+    // super.onBackPressed();
+  }
+}
+
+</code></pre>
+
+<p>And this is what the corresponding <strong>AndroidManifest.xml</strong> would look like:</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;com.company.product&quot;&gt;
+  &lt;application android:icon=&quot;@drawable/app_icon&quot; android:label=&quot;@string/app_name&quot;&gt;
+    &lt;activity android:name=&quot;.OverrideExample&quot;
+             android:label=&quot;@string/app_name&quot;
+             android:configChanges=&quot;fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen&quot;&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+            &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+  &lt;/application&gt;
+&lt;/manifest&gt;
+
+</code></pre>
+
+<h3>UnityPlayerNativeActivity</h3>
+
+<p>It is also possible to create your own subclass of <code>UnityPlayerNativeActivity</code>. This has much the same effect as subclassing <code>UnityPlayerActivity</code>, but with improved input latency. Because touch/motion events are processed in native code, Java views do normally not see those events. There is, however, a forwarding mechanism in Unity which allows events to be propagated to the DalvikVM. To access this mechanism, you need to modify the manifest file as follows:</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;manifest xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot; package=&quot;com.company.product&quot;&gt;
+  &lt;application android:icon=&quot;@drawable/app_icon&quot; android:label=&quot;@string/app_name&quot;&gt;
+    &lt;activity android:name=&quot;.OverrideExampleNative&quot;
+             android:label=&quot;@string/app_name&quot;
+             android:configChanges=&quot;fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen&quot;&gt;
+  &lt;meta-data android:name=&quot;android.app.lib_name&quot; android:value=&quot;unity&quot; /&gt;
+  &lt;meta-data android:name=&quot;unityplayer.ForwardNativeEventsToDalvik&quot; android:value=&quot;true&quot; /&gt;
+        &lt;intent-filter&gt;
+            &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+            &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+        &lt;/intent-filter&gt;
+    &lt;/activity&gt;
+  &lt;/application&gt;
+&lt;/manifest&gt; 
+
+
+</code></pre>
+
+<p>Note the “.OverrideExampleNative” attribute in the activity element and the two additional meta-data elements. The first meta-data is an instruction to use the Unity library <strong>libunity.so</strong>. The second enables events to be passed on to your custom subclass of UnityPlayerNativeActivity.</p>
+
+<h2>Examples</h2>
+
+<h3>Native Plugin Sample</h3>
+
+<p>A simple example of the use of a native code plugin can be found <a href="../uploads/Examples/AndroidNativePlugin.zip">here</a>
+</p>
+
+<p>This sample demonstrates how C code can be invoked from a Unity Android application.
+The package includes a scene which displays the sum of two values as calculated by the native plugin.
+Please note that you will need the <a href="http://developer.android.com/sdk/ndk/index.html">Android NDK</a> to compile the plugin.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AndroidMobileAdvanced.html"></a></span><div class="tip">Advanced Unity Mobile Scripting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AndroidMobileCustomizeSplashScreen.html"></a></span><div class="tip">Customizing an Android Splash Screen</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Scene View Control Bar</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/ViewModes.html">English</a></li>
+<li><a href="/ja/current/Manual/ViewModes.html">日本語</a></li>
+<li><a href="/es/current/Manual/ViewModes.html">Español</a></li>
+<li><a href="/kr/current/Manual/ViewModes.html">한국어</a></li>
+<li><a href="/ru/current/Manual/ViewModes.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityOverview.html">Working In Unity</a></li>
+<li><a href="UsingTheEditor.html">The Main Windows</a></li>
+<li><a href="UsingTheSceneView.html">The Scene View</a></li>
+<li>Scene View Control Bar</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PositioningGameObjects.html"></a></span><div class="tip">Positioning GameObjects</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="GameView.html"></a></span><div class="tip">The Game View</div>
+</div>
+</div></div>
+<h1>Scene View Control Bar</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Scene View control bar lets you choose various options for viewing the scene and also control whether lighting and audio are enabled. These controls only affect the scene view during development and have no effect on the built game.</p>
+
+<figure>
+<img src="../uploads/Main/SceneViewControlBar.png" alt="">
+</figure>
+
+<h2>Draw Mode</h2>
+
+<p>The first drop-down menu selects which <strong>Draw Mode</strong> will be used to depict the scene. The available options are:</p>
+
+<h3>Shading Mode</h3>
+
+<ul>
+<li>
+<strong>Shaded</strong>: show surfaces with their textures visible.</li>
+<li>
+<strong>Wireframe</strong>: draw meshes with a wireframe representation.</li>
+<li>
+<strong>Shaded Wireframe</strong>: show meshes textured and with wireframes overlaid.</li>
+</ul>
+
+<h3>Miscellaneous</h3>
+
+<ul>
+<li>
+<strong>Shadow Cascades</strong>: show directional light <a href="DirLightShadows.html">shadow cascades</a>.</li>
+<li>
+<strong>Render Paths</strong>: show the <a href="RenderingPaths.html">rendering path</a> for each object using a color code: Blue indicates <a href="RenderTech-DeferredShading.html">deferred shading</a>, Green indicates <a href="RenderTech-DeferredLighting.html">deferred lighting</a>, yellow indicates <a href="RenderTech-ForwardRendering.html">forward rendering</a> and red indicates <a href="RenderTech-VertexLit.html">vertex lit</a>.</li>
+<li>
+<strong>Alpha Channel</strong>: render colors with alpha.</li>
+<li>
+<strong>Overdraw</strong>: render objects as transparent “silhouettes”. The transparent colors accumulate, making it easy to spot places where one object is drawn over another.</li>
+<li>
+<strong>Mipmaps</strong>: show ideal texture sizes using a color code: red indicates that the texture is larger than necessary (at the current distance and resolution); blue indicates that the texture could be larger. Naturally, ideal texture sizes depend on the resolution at which the game will run and how close the camera can get to particular surfaces.</li>
+</ul>
+
+<h3>Deferred</h3>
+
+<p>These modes let you view each of the elements of the G-buffer (<strong>Albedo</strong>, <strong>Specular</strong>, <strong>Smoothness</strong> and <strong>Normal</strong>) in isolation. See the page on <a href="RenderTech-DeferredShading.html">Deferred Shading</a> for further details.</p>
+
+<h3>Global Illumination</h3>
+
+<p>The following modes are available to help visualise aspects of the <a href="GlobalIllumination.html">Global Illumination</a> system: <strong>UV Charts</strong>, <strong>Systems</strong>, <strong>Albedo</strong>, <strong>Emissive</strong>, <strong>Irradiance</strong>, <strong>Directionality</strong>, <strong>Baked</strong>, <strong>Clustering</strong> and <strong>Lit Clustering</strong>. These modes are described with examples on the <a href="GIVis.html">GI Visualisations</a> page.</p>
+
+<h2>2D, Lighting and Audio Switches</h2>
+
+<p>To the right of the render mode menu are three buttons that switch certain scene view options on or off:</p>
+
+<ul>
+<li>
+<strong>2D</strong>: switches between 2D and 3D view for the scene. In 2D mode the camera is oriented looking towards positive z, with the x axis pointing right and the y axis pointing up.</li>
+<li>
+<strong>Lighting</strong>: turns scene view lighting (lights, object shading, etc) on or off.</li>
+<li>
+<strong>Audio</strong>: turns scene view audio effects on or off.</li>
+</ul>
+
+<h2>Effects Button and Menu</h2>
+
+<p>The menu (activated by the small mountain icon to the right of the Audio button) has options to enable or disable rendering effects in the scene view.</p>
+
+<ul>
+<li>
+<strong>Skybox</strong>: a skybox texture rendered in the scene’s background</li>
+<li>
+<strong>Fog</strong>: gradual fading of the view to a flat color with distance from the camera.</li>
+<li>
+<strong>Flares</strong>: lens flares on lights.</li>
+<li>
+<strong>Animated Materials</strong>: should animated materials show the animation?</li>
+</ul>
+
+<p>The Effects button itself acts as a switch that enables or disables all the effects at once.</p>
+
+<h2>Gizmos Menu</h2>
+
+<p>
+<strong>Gizmos</strong> are graphics added to the scene (either by Unity itself or from your own scripts) that help with visualisation and identification of items in the game world. For example, you can add icons to help identify your game objects and use simple wireframe graphics to show otherwise invisible paths and positioning elements. See the Script Reference page for the <a href="../ScriptReference/MonoBehaviour.OnDrawGizmos.html">OnDrawGizmos</a> function for further information about implementing custom gizmos in your scripts.</p>
+
+<p>Clicking the Gizmos popup will show a menu with a number of options:</p>
+
+<figure>
+<img src="../uploads/Main/GizmosMenu.png" alt="">
+</figure>
+
+<p>The <strong>3D Gizmos</strong> checkbox determines whether gizmos are shown in true 3D (with correct obscuration and perspective) or as a simple overlay on top of other scene graphics. The slider to its right adjusts the scale of gizmo icons relative to other objects. The <strong>Show Grid</strong> checkbox below switches the standard scene measurement grid on and off.</p>
+
+<p>Beneath these options is a table of component names with <strong>Icon</strong> and <strong>Gizmo</strong> columns to the right. The list is subdivided into user scripts and built-in components and will also maintain a section of recently changed items as you make modifications.</p>
+
+<p>The <strong>Icon</strong> column lets you select the gizmo icon displayed for particular component types. For built-in components, the only options are to have no icon (as with Colliders, where only a wireframe gizmo is shown) or simply to switch the standard icon on and off (as with Cameras, Lights and Audio Sources, among others). For user scripts, clicking the icon column will bring up a menu to select the desired icon:</p>
+
+<figure>
+<img src="../uploads/Main/GizmoIconMenu.png" alt="">
+</figure>
+
+<p>This lets you select from a variety of simple standard icon shapes in different colors that you can use to identify particular script types. The <strong>Other</strong> button will bring up a texture selector from which you can choose any texture you like to use as the icon for your script.</p>
+
+<p>The <strong>Gizmo</strong> column in the table contains a checkbox that lets you choose whether gizmo graphics will be drawn for a particular Component type. For example, Colliders have a predefined wireframe gizmo to show their shape while user scripts can draw custom gizmos appropriate to their purpose; these gizmos can be turned on or off by clicking in this column.</p>
+
+<h2>Search Box</h2>
+
+<p>The rightmost item on the control bar is a search box that lets you filter items in the scene view by their names and/or types (you can select which with the small menu at the left of the search box). The set of items that match the search filter will also be shown in the Hierarchy view which, by default, is located to the left of the Scene view.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PositioningGameObjects.html"></a></span><div class="tip">Positioning GameObjects</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="GameView.html"></a></span><div class="tip">The Game View</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

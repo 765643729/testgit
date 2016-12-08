@@ -1,0 +1,254 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Downloading AssetBundles</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/DownloadingAssetBundles.html">English</a></li>
+<li><a href="/ja/current/Manual/DownloadingAssetBundles.html">日本語</a></li>
+<li><a href="/es/current/Manual/DownloadingAssetBundles.html">Español</a></li>
+<li><a href="/kr/current/Manual/DownloadingAssetBundles.html">한국어</a></li>
+<li><a href="/ru/current/Manual/DownloadingAssetBundles.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityOverview.html">Working In Unity</a></li>
+<li><a href="AdvancedDevelopment.html">Advanced Development</a></li>
+<li><a href="AssetBundlesIntro.html">AssetBundles</a></li>
+<li>Downloading AssetBundles</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AssetBundleInternalStructure.html"></a></span><div class="tip">Asset Bundle Internal Structure</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="LoadingAssetBundles.html"></a></span><div class="tip">Loading and unloading objects from an AssetBundle</div>
+</div>
+</div></div>
+<h2>Downloading AssetBundles</h2>
+
+<p>This section assumes you already learned how to build asset bundles. If you have not, please see <a href="BuildingAssetBundles.html">Building AssetBundles</a>
+</p>
+
+<p>There are two ways to download an AssetBundle</p>
+
+<ol>
+<li>
+<strong>Non-caching:</strong> This is done using a creating a new <a href="../ScriptReference/WWW.html">WWW object</a>. The AssetBundles are not cached to Unity’s Cache folder in the local storage device.</li>
+<li>
+<strong>Caching:</strong> This is done using the <a href="../ScriptReference/WWW.LoadFromCacheOrDownload.html">WWW.LoadFromCacheOrDownload</a> call. The AssetBundles are cached to Unity’s Cache folder in the local storage device. PC/Mac Standalone applications and iOS/Android applications have a limit of 4 GB. Please refer to the scripting documentation for other platforms.</li>
+</ol>
+
+<p>Here’s an example of a non-caching download:</p>
+
+<pre><code>using System;
+using UnityEngine;
+using System.Collections; class NonCachingLoadExample : MonoBehaviour {
+   public string BundleURL;
+   public string AssetName;
+   IEnumerator Start() {
+     // Download the file from the URL. It will not be saved in the Cache
+     using (WWW www = new WWW(BundleURL)) {
+         yield return www;
+         if (www.error != null)
+             throw new Exception(&quot;WWW download had an error:&quot; + www.error);
+         AssetBundle bundle = www.assetBundle;
+         if (AssetName == &quot;&quot;)
+             Instantiate(bundle.mainAsset);
+         else
+             Instantiate(bundle.LoadAsset(AssetName));
+                   // Unload the AssetBundles compressed contents to conserve memory
+                   bundle.Unload(false);
+
+     } // memory is freed from the web stream (www.Dispose() gets called implicitly)
+   }
+}
+
+</code></pre>
+
+<p>The recommended way to download AssetBundles is to use <a href="../ScriptReference/WWW.LoadFromCacheOrDownload.html">WWW.LoadFromCacheOrDownload</a>. For example:</p>
+
+<pre><code>using System;
+using UnityEngine;
+using System.Collections;
+
+public class CachingLoadExample : MonoBehaviour {
+    public string BundleURL;
+    public string AssetName;
+    public int version;
+
+    void Start() {
+        StartCoroutine (DownloadAndCache());
+    }
+
+    IEnumerator DownloadAndCache (){
+        // Wait for the Caching system to be ready
+        while (!Caching.ready)
+            yield return null;
+
+        // Load the AssetBundle file from Cache if it exists with the same version or download and store it in the cache
+        using(WWW www = WWW.LoadFromCacheOrDownload (BundleURL, version)){
+            yield return www;
+            if (www.error != null)
+                throw new Exception(&quot;WWW download had an error:&quot; + www.error);
+            AssetBundle bundle = www.assetBundle;
+            if (AssetName == &quot;&quot;)
+                Instantiate(bundle.mainAsset);
+            else
+                Instantiate(bundle.LoadAsset(AssetName));
+                    // Unload the AssetBundles compressed contents to conserve memory
+                    bundle.Unload(false);
+
+        } // memory is freed from the web stream (www.Dispose() gets called implicitly)
+    }
+}
+
+</code></pre>
+
+<p>When you access the <code>.assetBundle</code> property, the downloaded data is extracted and the AssetBundle object is created. At this point, you are ready to load the objects contained in the bundle. The second parameter passed to LoadFromCacheOrDownload specifies which version of the AssetBundle to download. If the AssetBundle doesn’t exist in the cache or has a version lower than requested, LoadFromCacheOrDownload will download the AssetBundle. Otherwise the AssetBundle will be loaded from cache.</p>
+
+<p>Please note that only up to one AssetBundle download can finish per frame when they are downloaded with WWW.LoadFromCacheOrDownload.</p>
+
+<h3>Putting it all together</h3>
+
+<p>Now that the components are in place you can build a scene that will allow you to load your AssetBundle and display the contents on screen. </p>
+
+<figure>
+<img src="../uploads/Main/AssetBundlesExampleFinalProject.png" alt="Final project structure">
+<figcaption>Final project structure</figcaption>
+</figure>
+
+<p>First create an empty game object by going to <strong>GameObject-&gt;CreateEmpty</strong>. Drag the CachingLoadExample script onto the empty game object you just created. Then type the the URL of your AssetBundle in the BundleURL field. As we have placed this in the project directory you can copy the file directory location and add the prefix <code>file://</code>, for example <code>file://C:/UnityProjects/AssetBundlesGuide/Assets/AssetBundles/Cube.unity3d</code>
+</p>
+
+<p>You can now hit play in the Editor and you should see the Cube prefab being loaded from the AssetBundle. </p>
+
+<h3>Loading AssetBundles in the Editor</h3>
+
+<p>When working in the Editor requiring AssetBundles to be built and loaded can slow down the development process. For instance, if an Asset from an AssetBundle is modified this will then require the AssetBundle to be rebuilt and in a production environment it is most likely that all AssetBundles are built together and therefore making the process of updating a single AssetBundle a lengthy operation. A better approach is to have a separate code path in the Editor that will load the Asset directly instead of loading it from an AssetBundle. To do this it is possible to use Resources.LoadAssetAtPath (Editor only). </p>
+
+<pre><code>// C# Example
+// Loading an Asset from disk instead of loading from an AssetBundle
+// when running in the Editor
+using System.Collections;
+using UnityEngine;
+
+class LoadAssetFromAssetBundle : MonoBehaviour
+{
+    public Object Obj;
+
+    public IEnumerator DownloadAssetBundle&lt;T&gt;(string asset, string url, int version) where T : Object {
+        Obj = null;
+
+#if UNITY_EDITOR
+        Obj = Resources.LoadAssetAtPath(&quot;Assets/&quot; + asset, typeof(T));
+        yield return null;
+
+#else
+        // Wait for the Caching system to be ready
+        while (!Caching.ready)
+            yield return null;
+
+        // Start the download
+        using(WWW www = WWW.LoadFromCacheOrDownload (url, version)){
+            yield return www;
+            if (www.error != null)
+                        throw new Exception(&quot;WWW download:&quot; + www.error);
+            AssetBundle assetBundle = www.assetBundle;
+            Obj = assetBundle.LoadAsset(asset, typeof(T));
+            // Unload the AssetBundles compressed contents to conserve memory
+            bundle.Unload(false);
+
+        } // memory is freed from the web stream (www.Dispose() gets called implicitly)
+
+#endif
+    }
+}
+
+</code></pre>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AssetBundleInternalStructure.html"></a></span><div class="tip">Asset Bundle Internal Structure</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="LoadingAssetBundles.html"></a></span><div class="tip">Loading and unloading objects from an AssetBundle</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

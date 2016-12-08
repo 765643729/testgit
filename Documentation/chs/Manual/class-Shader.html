@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Shader assets</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-Shader.html">English</a></li>
+<li><a href="/ja/current/Manual/class-Shader.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-Shader.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-Shader.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-Shader.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="SL-Reference.html"> Shader Reference</a></li>
+<li> Shader assets</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SL-Other.html"></a></span><div class="tip"> ShaderLab: other commands</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SL-AdvancedTopics.html"></a></span><div class="tip">Advanced ShaderLab topics</div>
+</div>
+</div></div>
+<h1>Shader assets</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/Shader.html' title='Go to Shader page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Shaders are assets that contain code and instructions for the graphics card to execute.
+<a href="class-Material.html">Materials</a> reference shaders, and setup their parameters (textures, colors and so on).</p>
+
+<p>Unity contains some built-in shaders that are always available in your project (for example,
+the <a href="shader-StandardShader.html">Standard shader</a>). <a href="comp-ImageEffects.html">Image Effects</a> package also
+has many shaders for image post-processing. You can also <a href="ShadersOverview.html">write your own shaders</a>.</p>
+
+<h2>Creating a new shader</h2>
+
+<p>To create a new Shader, use <strong>Assets</strong> &gt; <strong>Create</strong> &gt; <strong>Shader</strong> from the
+main menu or the <strong>Project View</strong> context menu. A shader is a text file
+similar to a C# script, and is written in a combination of Cg/HLSL and ShaderLab languages
+(see <a href="ShadersOverview.html">writing shaders</a> page for details).</p>
+
+<figure>
+<img src="../uploads/Shaders/Inspector-Shader.png" alt="Shader inspector.">
+<figcaption>Shader inspector.</figcaption>
+</figure>
+
+<h3>Shader import settings</h3>
+
+<p>This inspector section allows specifying default textures for a shader. Whenever a new
+<a href="class-Material.html">Material</a> is created with this shader, these textures are
+automatically assigned.</p>
+
+<h3>Shader Inspector</h3>
+
+<p>The Shader Inspector displays basic information about the shader (mostly <a href="SL-SubShaderTags.html">shader tags</a>),
+and allows compiling and inspecting low-level compiled code.</p>
+
+<p>For <a href="SL-SurfaceShaders.html">Surface Shaders</a>, the <strong>Show generated code</strong>
+button displays all the code that Unity generates to handle lighting and shadowing. If you really want
+to customize the generated code, you can just copy and paste all of it back to your original shader file
+and start tweaking.</p>
+
+<figure>
+<img src="../uploads/Shaders/Inspector-ShaderCompilePopup.png" alt="Shader compilation popup menu.">
+<figcaption>Shader compilation popup menu.</figcaption>
+</figure>
+
+<p>The pop-up menu of the <strong>Compile and show code</strong> button allows inspecting final
+compiled shader code (e.g. assembly on Direct3D9, or low-level optimized GLSL for OpenGL ES) for selected
+platforms. This is mostly useful while optimizing shaders for performance; often you do want to know how
+many low-level instructions here generated in the end.</p>
+
+<p>The low-level generated code is useful for pasting into GPU shader performance analysis tools (like
+<a href="http://developer.amd.com/tools-and-sdks/graphics-development/gpu-shaderanalyzer/">AMD GPU ShaderAnalyzer</a>
+or <a href="http://community.imgtec.com/developers/powervr/tools/pvrshadereditor/">PVRShaderEditor</a>).</p>
+
+<h2>Shader compilation details</h2>
+
+<p>On shader import time, Unity does not compile the whole shader. This is because majority of shaders
+have a lot of <a href="SL-MultipleProgramVariants.html">variants</a> inside, and compiling all of them, for all possible
+platforms, would take a very long time. Instead, this is done:</p>
+
+<ul>
+<li>At import time, only do minimal processing of the shader (surface shader generation etc.).</li>
+<li>Actually compile the shader variants only when needed.</li>
+<li>Instead of typical work of compiling 100–10000 internal shaders at import time, this usually ends up compiling just a handful.</li>
+</ul>
+
+<p>At player build time, all the “not yet compiled” shader variants are compiled, so that they are in the game data even if the editor did not happen to use them.</p>
+
+<p>However, this does mean that a shader might have an error in there, which is not detected at shader
+import time. For example, you’re running editor using Direct3D 11, but a shader has an error if compiled
+for OpenGL. Or some <a href="SL-MultipleProgramVariants.html">variants</a> of the shader does not fit into shader model 2.0
+instruction limits, etc. These errors will be shown in the inspector if editor needs them; but it’s also a
+good practice to manually fully compile the shader for platforms you need, to check for errors. This can be
+done using the <strong>Compile and show code</strong> pop-up menu in the shader inspector.</p>
+
+<p>Shader compilation is carried out using a background process named <code>UnityShaderCompiler</code> that is started by Unity
+whenever it needs to compile shaders. Multiple compiler processes can be started (generally one per CPU
+core in your machine), so that at player build time shader compilation can be done in parallel. While the
+editor is not compiling shaders, the compiler processes do nothing and do not consume computer resources,
+so there’s no need to worry about them. They are also shut down when Unity editor quits.</p>
+
+<p>Individual shader variant compilation results are cached in the project, under <code>Library/ShaderCache</code> folder.
+This means that 100% identical shaders or their snippets will reuse previously compiled results. It also
+means that the shader cache folder can become quite large, if you have a lot of shaders that are changed
+often. It is always safe to delete it; it will just cause shader variants to be recompiled.</p>
+
+<h2>Further reading</h2>
+
+<ul>
+<li>
+<a href="class-Material.html">Material</a> assets.</li>
+<li>
+<a href="ShadersOverview.html">Writing Shaders overview</a>.</li>
+<li>
+<a href="SL-Reference.html">Shader reference</a>.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SL-Other.html"></a></span><div class="tip"> ShaderLab: other commands</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SL-AdvancedTopics.html"></a></span><div class="tip">Advanced ShaderLab topics</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

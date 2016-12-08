@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: iOS &amp; Mac App Stores</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UnityIAPiOSMAS.html">English</a></li>
+<li><a href="/ja/current/Manual/UnityIAPiOSMAS.html">日本語</a></li>
+<li><a href="/es/current/Manual/UnityIAPiOSMAS.html">Español</a></li>
+<li><a href="/kr/current/Manual/UnityIAPiOSMAS.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UnityIAPiOSMAS.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityServices.html">Unity Services</a></li>
+<li><a href="UnityIAP.html">Unity IAP</a></li>
+<li>Store Guides</li>
+<li>iOS &amp; Mac App Stores</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityIAPCrossStoreInstallationIssues.html"></a></span><div class="tip">Cross-store installation issues with Android in-app purchase stores</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityIAPUniversalWindows.html"></a></span><div class="tip">Windows Store</div>
+</div>
+</div></div>
+<h1>iOS &amp; Mac App Stores</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>Extended Functionality</h2>
+
+<h3>Reading the App Receipt</h3>
+
+<p>An <a href="https://developer.apple.com/library/ios/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html">App Receipt</a> is stored on the device’s local storage and can be read as follows:</p>
+
+<pre><code>var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+string receipt = builder.Configure&lt;IAppleConfiguration&gt;().appReceipt;
+</code></pre>
+
+<h3>Checking for payment restrictions</h3>
+
+<p>In App Purchases may be restricted in a device’s settings, which can be checked for as follows:</p>
+
+<pre><code>var builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
+bool canMakePayments = builder.Configure&lt;IAppleConfiguration&gt;().canMakePayments;
+</code></pre>
+
+<h3>Restoring Transactions</h3>
+
+<p>On Apple platforms users must enter their password to retrieve previous transactions so your application must provide users with a button letting them do so. During this process the <code>ProcessPurchase</code> method of your <code>IStoreListener</code> will be invoked for any items the user already owns.</p>
+
+<pre><code>/// &lt;summary&gt;
+/// Your IStoreListener implementation of OnInitialized.
+/// &lt;/summary&gt;
+public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+{
+    extensions.GetExtension&lt;IAppleExtensions&gt; ().RestoreTransactions (result =&gt; {
+        if (result) {
+            // This does not mean anything was restored,
+            // merely that the restoration process succeeded.
+        } else {
+            // Restoration failed.
+        }
+    });
+}
+</code></pre>
+
+<h3>Refreshing the App Receipt</h3>
+
+<p>Apple provides a mechanism to fetch a new App Receipt from their servers, typically used when no receipt is currently cached in local storage; <a href="https://developer.apple.com/library/ios/documentation/StoreKit/Reference/SKReceiptRefreshRequest_ClassRef/index.html#//apple_ref/occ/cl/SKReceiptRefreshRequest">SKReceiptRefreshRequest</a>.</p>
+
+<p>Note that this will prompt the user for their password.</p>
+
+<p>Unity IAP makes this method available as follows:</p>
+
+<pre><code>/// &lt;summary&gt;
+/// Your IStoreListener implementation of OnInitialized.
+/// &lt;/summary&gt;
+public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+{
+    extensions.GetExtension&lt;IAppleExtensions&gt; ().RefreshAppReceipt (receipt =&gt; {
+        // This handler is invoked if the request is successful.
+        // Receipt will be the latest app receipt.
+        Console.WriteLine(receipt);
+    },
+    () =&gt; {
+        // This handler will be invoked if the request fails,
+        // such as if the network is unavailable or the user
+        // enters the wrong password.
+    });
+}
+</code></pre>
+
+<h3>Ask to Buy</h3>
+
+<p>iOS 8 introduced a new parental control feature; <a href="https://developer.apple.com/library/ios/technotes/tn2259/_index.html#//apple_ref/doc/uid/DTS40009578-CH1-UPDATE_YOUR_APP_FOR_ASK_TO_BUY">Ask to Buy</a>
+</p>
+
+<p>Ask to buy allows an In App Purchase to be deferred to a parent for approval. When this occurs, Unity IAP will send your App a notification if it registers to be notified as follows.</p>
+
+<pre><code>/// &lt;summary&gt;
+/// This will be called when Unity IAP has finished initialising.
+/// &lt;/summary&gt;
+public void OnInitialized(IStoreController controller, IExtensionProvider extensions)
+{
+    extensions.GetExtension&lt;IAppleExtensions&gt;().RegisterPurchaseDeferredListener(product =&gt; {
+        Console.WriteLine(product.definition.id);
+    });
+}
+</code></pre>
+
+<p>If and when the purchase is approved or rejected, the normal ProcessPurchase/OnPurchaseFailed methods of your store listener will be invoked.</p>
+
+<h2>Testing</h2>
+
+<p>To test on Apple stores you must be using an iTunes connect test account, which can be created in iTunes connect.</p>
+
+<p>Sign out of the app store on the iOS device or laptop, launch your application and you will be prompted to log in when you attempt either a purchase or to restore transactions.</p>
+
+<p>If you receive an initialization failure with a reason of <code>NoProductsAvailable</code>, follow this checklist:</p>
+
+<ul>
+<li>iTunes Connect product identifiers must exactly match the product identifiers supplied to Unity IAP</li>
+<li>In-App purchases must be enabled for your application in iTunes Connect</li>
+<li>Products must be cleared for sale in iTunes Connect</li>
+<li>It may take many hours for newly created iTunes Connect products to be available for purchase</li>
+<li>You must agree to the latest iTunes Connect developer agreements and have active bank details</li>
+</ul>
+
+<h2>Mac App Store</h2>
+
+<p>When building a desktop Mac build you must select <code>Mac App Store validation</code> within Unity’s build settings.</p>
+
+<p>Once you have built your App, you must update its info.plist file with your bundle identifier and version strings. Right click on the <code>.app</code> file and click <code>show package contents</code>, locate the <code>info.plist</code> file and update the <code>CFBundleIdentifier</code> string to your application’s bundle identifier.</p>
+
+<p>You must then sign, package and install your application. You will need to run the following commands from an OSX terminal:</p>
+
+<pre><code>codesign -f --deep -s &quot;3rd Party Mac Developer Application: &quot; your.app/Contents/Plugins/unitypurchasing.bundle
+codesign -f --deep -s &quot;3rd Party Mac Developer Application: &quot; your.app
+productbuild --component your.app /Applications --sign &quot;3rd Party Mac Developer Installer: &quot; your.pkg
+</code></pre>
+
+<p>In order to install the package correctly you must delete the unpackaged .app file before running the newly created package.</p>
+
+<p>You must then launch your App from the Applications folder. The first time you do so, you will be prompted to enter your iTunes account details, for which you should enter your iTunes Connect test user account login. You will then be able to make test purchases against the sandbox environment.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityIAPCrossStoreInstallationIssues.html"></a></span><div class="tip">Cross-store installation issues with Android in-app purchase stores</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityIAPUniversalWindows.html"></a></span><div class="tip">Windows Store</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

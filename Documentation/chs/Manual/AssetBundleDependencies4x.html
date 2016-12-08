@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Managing Asset Dependencies in Unity 4</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/AssetBundleDependencies4x.html">English</a></li>
+<li><a href="/ja/current/Manual/AssetBundleDependencies4x.html">日本語</a></li>
+<li><a href="/es/current/Manual/AssetBundleDependencies4x.html">Español</a></li>
+<li><a href="/kr/current/Manual/AssetBundleDependencies4x.html">한국어</a></li>
+<li><a href="/ru/current/Manual/AssetBundleDependencies4x.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="LegacyTopics.html">Legacy Topics</a></li>
+<li><a href="AssetBundles4x.html"> Legacy Asset Bundles</a></li>
+<li>Managing Asset Dependencies in Unity 4</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="BuildingAssetBundles4x.html"></a></span><div class="tip">Creating Asset Bundles in Unity 4</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="Animations.html"></a></span><div class="tip">Legacy Animation System</div>
+</div>
+</div></div>
+<h1>Managing Asset Dependencies in Unity 4</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p><em>In versions of Unity earlier than Unity 5, assets dependencies had to be defined using editor scripts alone. (In Unity 5 we provide tools in the editor to assign assets to specific Bundles and dependency handling is automatic). This information is provided for those working on legacy projects in Unity 4, and speaks assuming you are using Unity 4.</em></p>
+
+<p>Any given asset in a bundle may depend on other assets. For example, a model may incorporate materials which in turn make use of textures and shaders. It is possible to include all an asset’s dependencies along with it in its bundle. However, several assets from different bundles may all depend on a common set of other assets (eg, several different models of buildings may use the same brick texture). If a separate copy of a shared dependency is included in each bundle that has objects using it, then redundant instances of the assets will be created when the bundles are loaded. This will result in wasted memory.</p>
+
+<p>To avoid such wastage, it is possible to separate shared dependencies out into a separate bundle and simply reference them from any bundles with assets that need them. First, the referencing feature needs to be enabled with a call to <a href="../ScriptReference/BuildPipeline.PushAssetDependencies.html">BuildPipeline.PushAssetDependencies</a>. Then, the bundle containing the referenced dependencies needs to be built. Next, another call to PushAssetDependencies should be made before building the bundles that reference the assets from the first bundle. Additional levels of dependency can be introduced using further calls to PushAssetDependencies. The levels of reference are stored on a stack, so it is possible to go back a level using the corresponding <a href="../ScriptReference/BuildPipeline.PopAssetDependencies.html">BuildPipeline.PopAssetDependencies</a> function. The push and pop calls need to be balanced including the initial push that happens before building.</p>
+
+<p>At runtime, you need to load a bundle containing dependencies before any other bundle that references them. For example, you would need to load a bundle of shared textures before loading a separate bundle of materials that reference those textures.</p>
+
+<h2>Asset IDs</h2>
+
+<p>If you anticipate needing to rebuild asset bundles that are part of a dependency chain then you should build them with the <a href="../ScriptReference/BuildAssetBundleOptions.DeterministicAssetBundle.html">BuildAssetBundleOptions.DeterministicAssetBundle</a> option enabled. This guarantees that the internal ID values used to identify assets will be the same each time the bundle is rebuilt.</p>
+
+<p>When building the asset bundle with this method, the objects in it are assigned a 32 bit hash code that is calculated using the name of the asset bundle file, the GUID of the asset and the local id of the object in the asset. For that reason make sure to use the same file name when rebuilding. Also note that having a lot of objects might cause hash collisions preventing Unity from building the asset bundle.</p>
+
+<h2>Shaders dependencies</h2>
+
+<p>Whenever shaders are directly referenced as parameters in <a href="../ScriptReference/BuildPipeline.BuildAssetBundle.html">BuildPipeline.BuildAssetBundle</a>, or indirectly with the option <a href="../ScriptReference/BuildAssetBundleOptions.CollectDependencies.html">BuildAssetBundleOptions.CollectDependencies</a> the shader’s code is included with the asset bundle. This could cause a problem if you use BuildAssetBundle alone to create several asset bundles, since referenced shaders will be included in every generated bundle. There could be conflicts, i.e. when you mix different versions of a shader, so you will have to rebuild all your bundles after modifying the shaders. The shader’s code will also increase the size of bundles. To avoid these problems you can use <a href="../ScriptReference/BuildPipeline.PushAssetDependencies.html">BuildPipeline.PushAssetDependencies</a> to separate shaders in a single bundle, and that will allow you to update the shader bundle only. As an example of how to achieve this workflow, you can create a prefab that includes references to the required shaders:</p>
+
+<h3>C# Example</h3>
+
+<pre><code>using UnityEngine;
+
+public class ShadersList : MonoBehaviour {
+    public Shader[] list;
+}
+
+
+</code></pre>
+
+<p>Create an empty object, assign the script, add the shaders to the list and create the prefab, i.e. “ShadersList”. Then you can create an exporter that generates all the bundles and updates the bundle of shaders:</p>
+
+<h3>C# Example</h3>
+
+<pre><code>using UnityEngine;
+using UnityEditor;
+
+public class Exporter : MonoBehaviour {
+    
+    [MenuItem(&quot;Assets/Export all asset bundles&quot;)]
+    static void Export() {
+        BuildAssetBundleOptions options = 
+            BuildAssetBundleOptions.CollectDependencies | 
+            BuildAssetBundleOptions.CompleteAssets | 
+            BuildAssetBundleOptions.DeterministicAssetBundle;
+        
+        BuildPipeline.PushAssetDependencies();
+        BuildPipeline.BuildAssetBundle(AssetDatabase.LoadMainAssetAtPath(&quot;Assets/ShadersList.prefab&quot;), null, &quot;Data/ShadersList.unity3d&quot;, options);
+            
+        BuildPipeline.PushAssetDependencies();
+        BuildPipeline.BuildAssetBundle(AssetDatabase.LoadMainAssetAtPath(&quot;Assets/Scene1.prefab&quot;), null, &quot;Data/Scene1.unity3d&quot;, options);
+        BuildPipeline.BuildAssetBundle(AssetDatabase.LoadMainAssetAtPath(&quot;Assets/Scene2.prefab&quot;), null, &quot;Data/Scene2.unity3d&quot;, options);        
+        
+        BuildPipeline.PopAssetDependencies();
+        BuildPipeline.PopAssetDependencies();
+    }
+    
+    [MenuItem(&quot;Assets/Update shader bundle&quot;)]
+    static void ExportShaders() {
+        BuildAssetBundleOptions options = 
+            BuildAssetBundleOptions.CollectDependencies | 
+            BuildAssetBundleOptions.CompleteAssets | 
+            BuildAssetBundleOptions.DeterministicAssetBundle;
+        
+        BuildPipeline.PushAssetDependencies();
+        BuildPipeline.BuildAssetBundle(AssetDatabase.LoadMainAssetAtPath(&quot;Assets/ShadersList.prefab&quot;), null, &quot;Data/ShadersList.unity3d&quot;, options);
+        
+        BuildPipeline.PopAssetDependencies();
+    }
+}
+
+
+</code></pre>
+
+<p>Bear in mind that you must load the shader bundle first. One drawback of this method is that the option <a href="../ScriptReference/BuildAssetBundleOptions.DeterministicAssetBundle.html">BuildAssetBundleOptions.DeterministicAssetBundle</a> can produce conflicts due to colliding hashes when the amount of objects is too large. In this case the build will fail, and it won’t be possible to update the shader bundle alone. In this case you will have to remove that option and rebuild all the asset bundles.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="BuildingAssetBundles4x.html"></a></span><div class="tip">Creating Asset Bundles in Unity 4</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="Animations.html"></a></span><div class="tip">Legacy Animation System</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

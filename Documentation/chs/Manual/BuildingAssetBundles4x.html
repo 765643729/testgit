@@ -1,0 +1,272 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Creating Asset Bundles in Unity 4</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/BuildingAssetBundles4x.html">English</a></li>
+<li><a href="/ja/current/Manual/BuildingAssetBundles4x.html">日本語</a></li>
+<li><a href="/es/current/Manual/BuildingAssetBundles4x.html">Español</a></li>
+<li><a href="/kr/current/Manual/BuildingAssetBundles4x.html">한국어</a></li>
+<li><a href="/ru/current/Manual/BuildingAssetBundles4x.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="LegacyTopics.html">Legacy Topics</a></li>
+<li><a href="AssetBundles4x.html"> Legacy Asset Bundles</a></li>
+<li>Creating Asset Bundles in Unity 4</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AssetBundles4x.html"></a></span><div class="tip"> Legacy Asset Bundles</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AssetBundleDependencies4x.html"></a></span><div class="tip">Managing Asset Dependencies in Unity 4</div>
+</div>
+</div></div>
+<h1>Creating Asset Bundles in Unity 4</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p><em>In versions of Unity earlier than Unity 5, assets had to be selected and added to bundles using editor scripts alone. (In Unity 5 we provide tools in the editor to assign assets to specific Bundles). This information is provided for those working on legacy projects in Unity 4, and speaks assuming you are using Unity 4.</em></p>
+
+<p>To create an Asset Bundle you need to use the BuildPipeline editor class. All scripts using Editor classes must be placed in a folder named Editor, anywhere in the Assets folder. Here is an example of such a script in C#:</p>
+
+<pre><code>// Legacy Unity 4 example. Not for use in Unity 5 &amp; onwards
+using UnityEngine;
+using UnityEditor;
+
+public class ExportAssetBundles {
+    [MenuItem(&quot;Assets/Build AssetBundle&quot;)]
+    static void ExportResource () {
+        string path = &quot;Assets/myAssetBundle.unity3d&quot;;
+        Object[] selection = Selection.GetFiltered(typeof(Object), SelectionMode.DeepAssets);
+        BuildPipeline.BuildAssetBundle(Selection.activeObject, selection, path, 
+                                       BuildAssetBundleOptions.CollectDependencies 
+                                     | BuildAssetBundleOptions.CompleteAssets);
+    }
+}
+</code></pre>
+
+<p>An Editor script does not need to be applied to a GameObject, it is instead used by the Editor. This previous example will create a new item in the “Assets” menu of your editor called “Build AssetBundle”.</p>
+
+<p>To use this example:</p>
+
+<ul>
+<li>Create a C# script file named ExportAssetBundles.cs, inside an folder named Editor, in the Project View.</li>
+<li>Select the Asset or Assets in your project folder that you wish to make into an AssetBundle.</li>
+<li>Select Build AssetBundle from the Assets menu. Click “Save” to create the AssetBundle.</li>
+<li>The first line of the ExportResource function sets the path of your AssetBundle.</li>
+<li>The next line sets the selection to be made into an AssetBundle as the objects selected in the Project window.</li>
+</ul>
+
+<p>The BuildAssetBundle function is the line that creates the AssetBundle and saves it to the specified location. The first parameter specifies the mainAsset, which is a special Asset that can be obtained directly with the mainAsset property when loading Assets from the AssetBundle. It is not mandatory to set a main Asset, if this is not going to be used you can use null for the parameter. The second parameter is the array of objects that will make up the AssetBundle. The third parameter is the location on disk that the AssetBundle will be saved to. The final parameters are the build flags or options used when building AssetBundles. These <a href="../ScriptReference/BuildAssetBundleOptions.html">BuildAssetBundleOptions</a> can be combined using the bitwise OR operator.</p>
+
+<p>Building AssetBundles should be a pre-publish step which happens only once and with a single function call, for example, with a Menu Item that builds all the AssetBundles. As you develop your application you should write helper scripts that can build all your AssetBundles for a target platform with a single click or in batchmode without user intervention.</p>
+
+<p>There are three class methods you can use to build AssetBundles: </p>
+
+<ul>
+<li><p>
+<a href="../ScriptReference/BuildPipeline.BuildAssetBundle.html">BuildPipeline.BuildAssetBundle</a> allows you to build AssetBundles of any type of asset.</p></li>
+<li><p>
+<a href="../ScriptReference/BuildPipeline.BuildStreamedSceneAssetBundle.html">BuildPipeline.BuildStreamedSceneAssetBundle</a> is used when you want to include only scenes to be streamed and loaded as the data becomes available.</p></li>
+<li><p>
+<a href="../ScriptReference/BuildPipeline.BuildAssetBundleExplicitAssetNames.html">BuildPipeline.BuildAssetBundleExplicitAssetNames</a> is the same as BuildPipeline.BuildAssetBundle but has an extra parameter to specify a custom string identifier (name) for each object.</p></li>
+</ul>
+
+<h2>An example of how to build an AssetBundle</h2>
+
+<p>Building asset bundles is done through editor scripting. There is basic example of this in the scripting documentation for <a href="../ScriptReference/BuildPipeline.BuildAssetBundle.html">BuildPipeline.BuildAssetBundle</a>. </p>
+
+<p>For the sake of this example, copy and paste the script from the link above into a new C# script called ExportAssetBundles. This script should be placed in a folder named Editor, so that it works inside the Unity Editor.</p>
+
+<figure>
+<img src="../uploads/Main/ExportAssetBundlesScript.png" alt="">
+</figure>
+
+<p>Now in the <strong>Assets</strong> menu, you should see two new menu options.</p>
+
+<figure>
+<img src="../uploads/Main/AssetBundleMenuOptions.png" alt="">
+</figure>
+
+<ol>
+<li><p>
+<strong>Build AssetBundle From Selection - Track dependencies</strong>. This will build the current object into an asset bundle and include all of its dependencies. For example if you have a prefab that consists of several hierarchical layers then it will recursively add all the child objects and components to the asset bundle.</p></li>
+<li><p>
+<strong>Build AssetBundle From Selection - No dependency tracking</strong>. This is the opposite of the previous method and will only include the single asset you have selected.</p></li>
+</ol>
+
+<p>For this example, you should create a new prefab. First create a new Cube by going to <strong>GameObject &gt; 3D Object &gt; Cube</strong>, which will create a new cube in the Hierarchy View. Then drag the Cube from the Hierarchy View into the Project View, which will create a prefab of that object.</p>
+
+<p>You should then right click the Cube prefab in the project window and select <strong>Build AssetBundle From Selection - Track dependencies</strong>.
+At this point you will be presented with a window to save the “bundled” asset. If you created a new folder called “AssetBundles” and saved the cube as <strong>Cube.unity3d</strong>, your project window will now look something like this.</p>
+
+<figure>
+<img src="../uploads/Main/AssetBundlesCube.png" alt="">
+</figure>
+
+<p>At this point you can move the AssetBundle <strong>Cube.unity3d</strong> elsewhere on your local storage, or upload it to a server of your choice.</p>
+
+<h2>An example of how to change the properties of the assets when building an Asset Bundle</h2>
+
+<p>You can use <a href="../ScriptReference/AssetDatabase.ImportAsset.html">AssetDatabase.ImportAsset</a> to force reimporting the asset right before calling <a href="../ScriptReference/BuildPipeline.BuildAssetBundle.html">BuildPipeline.BuildAssetBundle</a>, and then use <a href="../ScriptReference/AssetPostprocessor.OnPreprocessTexture.html">AssetPostprocessor.OnPreprocessTexture</a> to set the required properties. The following example will show you how to set different texture compressions when building the Asset Bundle.</p>
+
+<pre><code>// Legacy Unity 4 example. Not for use in Unity 5 &amp; onwards.
+// Builds an asset bundle from the selected objects in the project view,
+// and changes the texture format using an AssetPostprocessor.
+
+using UnityEngine;
+using UnityEditor;
+
+public class ExportAssetBundles {
+    
+    // Store current texture format for the TextureProcessor.
+    public static TextureImporterFormat textureFormat;
+    
+    [MenuItem(&quot;Assets/Build AssetBundle From Selection - PVRTC_RGB2&quot;)]
+    static void ExportResourceRGB2 () {
+        textureFormat = TextureImporterFormat.PVRTC_RGB2;
+        ExportResource();       
+    }   
+    
+    [MenuItem(&quot;Assets/Build AssetBundle From Selection - PVRTC_RGB4&quot;)]
+    static void ExportResourceRGB4 () {
+        textureFormat = TextureImporterFormat.PVRTC_RGB4;
+        ExportResource();
+    }
+    
+    static void ExportResource () {
+        // Bring up save panel.
+        string path = EditorUtility.SaveFilePanel (&quot;Save Resource&quot;, &quot;&quot;, &quot;New Resource&quot;, &quot;unity3d&quot;);
+        
+        if (path.Length != 0) {
+            // Build the resource file from the active selection.
+            Object[] selection = Selection.GetFiltered(typeof(Object), SelectionMode.DeepAssets);
+            
+            foreach (object asset in selection) {
+                string assetPath = AssetDatabase.GetAssetPath((UnityEngine.Object) asset);
+                if (asset is Texture2D) {
+                    // Force reimport thru TextureProcessor.
+                    AssetDatabase.ImportAsset(assetPath);
+                }
+            }
+            
+            BuildPipeline.BuildAssetBundle(Selection.activeObject, selection, path, BuildAssetBundleOptions.CollectDependencies | BuildAssetBundleOptions.CompleteAssets);
+            Selection.objects = selection;
+        }
+    }
+}
+</code></pre>
+
+<pre><code>// Legacy Unity 4 example. Not for use in Unity 5 &amp; onwards.
+// Changes the texture format when building the Asset Bundle.
+
+using UnityEngine;
+using UnityEditor;
+
+public class TextureProcessor : AssetPostprocessor
+{ 
+    void OnPreprocessTexture() {
+        TextureImporter importer = assetImporter as TextureImporter;
+        importer.textureFormat = ExportAssetBundles.textureFormat;
+    }
+}
+
+
+</code></pre>
+
+<p>You can also control how the asset is imported using the <a href="../ScriptReference/ImportAssetOptions.html">AssetDatabase.ImportAssetOptions</a>.</p>
+
+<p>In a test environment, you sometimes need to test a change that requires AssetBundles to be rebuilt. In these cases, it is advisable to use the option <a href="../ScriptReference/BuildAssetBundleOptions.UncompressedAssetBundle.html">BuildAssetBundleOptions.UncompressedAssetBundle</a> when you build the AssetBundles. This makes it faster to build and load the AssetBundles but they will also be bigger and therefore take longer to download.</p>
+
+<h2>Building AssetBundles in a production enviroment</h2>
+
+<p>When first using AssetBundles, it may seem enough to manually build them as seen in the previous example. But as a project grows in size and the number of assets increases, doing this process by hand is not efficient. A better approach is to write a function that builds all of the AssetBundles for a project. You can, for example, use a text file that maps Asset files to AssetBundle files.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AssetBundles4x.html"></a></span><div class="tip"> Legacy Asset Bundles</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AssetBundleDependencies4x.html"></a></span><div class="tip">Managing Asset Dependencies in Unity 4</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

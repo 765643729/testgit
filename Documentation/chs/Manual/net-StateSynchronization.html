@@ -1,0 +1,172 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: State Synchronization Details (Legacy)</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/net-StateSynchronization.html">English</a></li>
+<li><a href="/ja/current/Manual/net-StateSynchronization.html">日本語</a></li>
+<li><a href="/es/current/Manual/net-StateSynchronization.html">Español</a></li>
+<li><a href="/kr/current/Manual/net-StateSynchronization.html">한국어</a></li>
+<li><a href="/ru/current/Manual/net-StateSynchronization.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="LegacyTopics.html">Legacy Topics</a></li>
+<li><a href="NetworkReferenceGuide.html">Legacy Network Reference Guide</a></li>
+<li>State Synchronization Details (Legacy)</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="net-RPCDetails.html"></a></span><div class="tip">RPC Details (Legacy)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-NetworkInstantiate.html"></a></span><div class="tip">Network Instantiate (Legacy)</div>
+</div>
+</div></div>
+<h1>State Synchronization Details (Legacy)</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p><em>(For new projects, you should use the <a href="UNet.html">new networking system introduced in 5.1</a>. This information is for legacy projects using the old networking system.)</em></p>
+
+<p>You can enable State Synchronization for a given Network View by choosing either <strong>Reliable Delta Compressed</strong> or <strong>Unreliable</strong> from the <strong>State Synchronization</strong> drop-down. You must then choose what kind of data will be synchronized using the <em>Observed</em> property.</p>
+
+<p>Unity can synchronize Transform, Animation, Rigidbody and MonoBehaviour components.</p>
+
+<p>
+<a href="class-Transform.html">Transforms</a> are serialized by storing position, rotation and scale. Parenting information is not transferred over the network.</p>
+
+<p>
+<a href="class-Animation.html">Animation</a> serializes each running animation state, that is the time, weight, speed and enabled properties.</p>
+
+<p>
+<a href="class-Rigidbody.html">Rigidbody</a> serializes position, rotation, velocity and angular velocity.</p>
+
+<p>Scripts (MonoBehaviours) call the function <a href="../ScriptReference/Network.OnSerializeNetworkView.html">OnSerializeNetworkView()</a>.</p>
+
+<h2>Reliability and bandwidth</h2>
+
+<p>Network Views currently support two reliability levels Reliable Delta Compressed and Unreliable.</p>
+
+<p>Both have their advantages and disadvantages, and the specific details of the game will determine which is the best to use.</p>
+
+<p>For additional information about minimizing bandwidth, please read the <a href="net-MinimizingBandwidth.html">Minimizing Bandwidth page</a>.</p>
+
+<h3>Reliable Delta Compressed</h3>
+
+<p>
+<strong>Reliable Delta Compressed</strong> mode will automatically compare the data that was last received by the client to the current state. If no data has changed since the last update then no data will be sent. However, the data will be compared on a per property basis. For example, if the Transform’s position has changed but its rotation has not then only the position will be sent across the network. Bandwidth is saved by transmitting only the changed data.</p>
+
+<p>Unity will also ensure that every UDP packet arrives reliably by resending it until receipt is determined. This means that if a packet is dropped, any packets sent later will not be applied until the dropped packet is re-sent and received. Until then, all later packets will be kept waiting in a buffer.</p>
+
+<h3>Unreliable</h3>
+
+<p>In <strong>Unreliable</strong> mode, Unity will send packets without checking that they have been received. This means that it doesn’t know which information has been received and so it is not safe to send only the changed data - the whole state will be sent with each update.</p>
+
+<h2>Deciding which method to use</h2>
+
+<p>The Network layer uses UDP, which is an unreliable, unordered protocol but it can used to send ordered packets reliably, just like TCP does. To do this, Unity internally uses ACKs and NACKs to control packet transmission, ensuring no packets are dropped. The downside to using reliable ordered packets is that if a packet is dropped or delayed, everything stops until that packet has arrived safely. This can cause transmission delays where there is significant network lag.</p>
+
+<p>Unreliable transmission is useful when you know that data will change every frame anyway. For example, in a racing game, you can practically rely that the player’s car is always moving, so the effects of a missed packet will soon be fixed by the next one.</p>
+
+<p>In general, you should use Unreliable sending where quick, frequent updates are more important than missed packets. Conversely, when data doesn’t change so frequently, you can use reliable delta compression to save bandwidth.</p>
+
+<h2>Prediction</h2>
+
+<p>When the server has <a href="net-HighLevelOverview.html">full authority</a> over the world state, the clients only change the game state according to updates they receive from the server. One problem with this is that the delay introduced by waiting for the server to respond can affect gameplay. For example, when a player presses a key to move forward, they won’t actually move until the updated state is received from the server. This delay depends on the latency of the connection so the worse the connection the less snappy the control system becomes.</p>
+
+<p>One possible solution to this is <strong>Client-side Prediction</strong> which means the client predicts the expected movement update from the server by using approximately the same internal model. So the player responds immediately to input but the server sees its position from the last update. When the state update finally arrives from the server, the client will compare what it predicted with what actually happened. This might differ because the server might know more about the environment around the player, the client just knows what it needs to know. Errors in prediction are corrected as they happen and if they are corrected continuously then the result will smoother and less noticeable.</p>
+
+<h2>Dead reckoning or interpolation/extrapolation</h2>
+
+<p>It is possible to apply the basic principle of client-side prediction to the opponents of the player. <strong>Extrapolation</strong> is the process of storing the last few known values of position, velocity and direction for an opponent and use these to predict where it should be in the immediate future. When the next state update finally arrives with the correct position, the client state will be updated with the exact information, which may make the character jump suddenly if the prediction was bad. In FPS games the behavior of players can be very erratic so this kind of prediction has limited success. If the lag gets high enough the opponent will jump severely as the prediction errors accumulate.</p>
+
+<p>
+<strong>Interpolation</strong> can be used when packets get dropped on the way to the client. This would normally cause the NPC’s movement to pause and then jump to the newest position when the new packet finally arrives. By delaying the world state by some set amount of time (like 100 ms) and then interpolating between the last known position and the new one, the movement between these two points, where packets were dropped, will be smooth.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="net-RPCDetails.html"></a></span><div class="tip">RPC Details (Legacy)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-NetworkInstantiate.html"></a></span><div class="tip">Network Instantiate (Legacy)</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

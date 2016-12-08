@@ -1,0 +1,209 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Using WebGL Templates</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/webgl-templates.html">English</a></li>
+<li><a href="/ja/current/Manual/webgl-templates.html">日本語</a></li>
+<li><a href="/es/current/Manual/webgl-templates.html">Español</a></li>
+<li><a href="/kr/current/Manual/webgl-templates.html">한국어</a></li>
+<li><a href="/ru/current/Manual/webgl-templates.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="webgl.html">WebGL</a></li>
+<li><a href="webgl-gettingstarted.html">Getting started with WebGL development</a></li>
+<li>Using WebGL Templates</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="webgl-interactingwithbrowserscripting.html"></a></span><div class="tip">WebGL: Interacting with browser scripting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="webgl-cursorfullscreen.html"></a></span><div class="tip">Cursor locking and full-screen mode in WebGL</div>
+</div>
+</div></div>
+<h1>Using WebGL Templates</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>When you build a WebGL project, Unity embeds the player in an HTML page so that it can be played in the browser. The default page is a simple white page with a loading bar on a grey canvas. Alternatively, you can select a minimal template (with only the necessary boilerplate code to run the WebGL content) in the Player Settings inspector (menu: Edit &gt; Project Settings &gt; Player).</p>
+
+<figure>
+<img src="../uploads/Main/WebGLPlayerSettings.png" alt="">
+</figure>
+
+<p>The built-in HTML pages are fine for testing and demonstrating a minimal player but for production purposes, it is often desirable to see the player hosted in the page where it will eventually be deployed. For example, if the Unity content interacts with other elements in the page via the external call interface then it must be tested with a page that provides those interacting elements. Unity allows you to supply your own pages to host the player by using <strong>WebGL templates</strong>.</p>
+
+<h2>Structure of a WebGL Template</h2>
+
+<p>Custom templates are added to a project by creating a folder called “WebGLTemplates” in the Assets folder - the templates themselves are sub-folders within this folder. Each template folder contains an <em>index.html</em> file along with any other resources the page needs, such as images or stylesheets.</p>
+
+<figure>
+<img src="../uploads/Main/WebGLTemplatesProjPanel.png" alt="">
+</figure>
+
+<p>Once created, the template will appear among the options on the Player Settings inspector. (the name of the template will be the same as its folder). Optionally, the folder can contain a file named <em>thumbnail.png</em>, which should have dimensions of 128x128 pixels. The thumbnail image will be displayed in the inspector to hint at what the finished page will look like.</p>
+
+<p>The html file needs to contain a canvas element with the id “canvas”. Then you must insert the <strong>UNITY_WEBGL_LOADER_GLUE</strong> tag, which will generate the required script tags to embed the Unity content, which will then render to that canvas element.</p>
+
+<h2>Template Tags</h2>
+
+<p>During the build process, Unity will look for special tag strings in the page text and replace them with values supplied by the editor. These include the name, onscreen dimensions and various other useful information about the player.</p>
+
+<p>The tags are delimited by percent signs (%) in the page source. For example, if the product name is defined as “MyPlayer” in the Player settings:-</p>
+
+<pre><code>    &lt;title&gt;%UNITY_WEB_NAME%&lt;/title&gt;
+</code></pre>
+
+<p>…in the template’s index file will be replaced with</p>
+
+<pre><code>    &lt;title&gt;MyPlayer&lt;/title&gt;
+</code></pre>
+
+<p>…in the host page generated for the build. The complete set of tags is given below:-</p>
+
+<ul>
+<li><p>
+<strong>UNITY_WEB_NAME</strong>: Name of the player.</p></li>
+<li><p>
+<strong>UNITY_WEBGL_LOADER_GLUE</strong>: This will inject the necessary script tags to embed the WebGL content. This is required to be in the template’s <em>index.html</em> file.</p></li>
+<li><p>
+<strong>UNITY_WIDTH</strong> and <strong>UNITY_HEIGHT</strong>: Onscreen width and height of the player in pixels.</p></li>
+<li><p>
+<strong>UNITY_DEVELOPMENT_PLAYER</strong>: 1 when building a development player, 0 otherwise.</p></li>
+<li><p>
+<strong>UNITY_CUSTOM_SOME_TAG</strong>: If you add a tag to the index file with the form UNITY_CUSTOM_XXX, then this tag will appear in the Player Settings when your template is selected. For example, if something like</p></li>
+</ul>
+
+<pre><code>    &lt;title&gt;Unity Player | %UNITY_CUSTOM_MYTAG%&lt;/title&gt;
+</code></pre>
+
+<p>…is added to the source, the Player Settings will look like this:-</p>
+
+<figure>
+<img src="../uploads/Main/WebGLPlayerSettingsCustomTag.png" alt="">
+</figure>
+
+<p>The textbox next to the tag’s name contains the text that the custom tag will be replaced with during the build.</p>
+
+<h2>Example</h2>
+
+<p>To illustrate the use of the template tags, here is the HTML source that Unity uses for its minimal WebGL template.</p>
+
+<pre><code>&lt;!doctype html&gt;
+&lt;html lang=&quot;en-us&quot;&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;utf-8&quot;&gt;
+    &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;
+    &lt;title&gt;Unity WebGL Player | %UNITY_WEB_NAME%&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;TemplateData/style.css&quot;&gt;
+    &lt;link rel=&quot;shortcut icon&quot; href=&quot;TemplateData/favicon.ico&quot; /&gt;
+    &lt;script src=&quot;TemplateData/UnityProgress.js&quot;&gt;&lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body class=&quot;template&quot;&gt;
+    &lt;p class=&quot;header&quot;&gt;&lt;span&gt;Unity WebGL Player | &lt;/span&gt;%UNITY_WEB_NAME%&lt;/p&gt;
+    &lt;div class=&quot;template-wrap clear&quot;&gt;
+    &lt;canvas class=&quot;emscripten&quot; id=&quot;canvas&quot; oncontextmenu=&quot;event.preventDefault()&quot; height=&quot;%UNITY_HEIGHT%px&quot; width=&quot;%UNITY_WIDTH%px&quot;&gt;&lt;/canvas&gt;
+      &lt;div class=&quot;logo&quot;&gt;&lt;/div&gt;
+      &lt;div class=&quot;fullscreen&quot;&gt;&lt;img src=&quot;TemplateData/fullscreen.png&quot; width=&quot;38&quot; height=&quot;38&quot; alt=&quot;Fullscreen&quot; title=&quot;Fullscreen&quot; onclick=&quot;SetFullscreen(1);&quot; /&gt;&lt;/div&gt;
+      &lt;div class=&quot;title&quot;&gt;%UNITY_WEB_NAME%&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;p class=&quot;footer&quot;&gt;&amp;laquo; created with &lt;a href=&quot;http://unity3d.com/&quot; title=&quot;Go to unity3d.com&quot;&gt;Unity&lt;/a&gt; &amp;raquo;&lt;/p&gt;
+    %UNITY_WEBGL_LOADER_GLUE%
+  &lt;/body&gt;
+&lt;/html&gt;
+
+</code></pre>
+
+<h2>Adding a progress bar</h2>
+
+<p>Unity WebGL content will not automatically render a progress bar for you when it loads - the template needs to handle that. The default template included in Unity contains a <em>UnityProgress.js</em> file which implements a simple progress bar. You can reuse that for your own templates, or use it as a reference for creating your own. Since the progress bar is completely implemented in JavaScript, you can completely customize or replace it to show anything you want as a progress indication.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="webgl-interactingwithbrowserscripting.html"></a></span><div class="tip">WebGL: Interacting with browser scripting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="webgl-cursorfullscreen.html"></a></span><div class="tip">Cursor locking and full-screen mode in WebGL</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

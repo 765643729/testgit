@@ -1,0 +1,222 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Sprite Editor</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/SpriteEditor.html">English</a></li>
+<li><a href="/ja/current/Manual/SpriteEditor.html">日本語</a></li>
+<li><a href="/es/current/Manual/SpriteEditor.html">Español</a></li>
+<li><a href="/kr/current/Manual/SpriteEditor.html">한국어</a></li>
+<li><a href="/ru/current/Manual/SpriteEditor.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Unity2D.html">Unity 2D</a></li>
+<li><a href="Sprites.html">Sprites</a></li>
+<li>Sprite Editor</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SpriteCreator.html"></a></span><div class="tip">Sprite Creator</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SpritePacker.html"></a></span><div class="tip">Sprite Packer</div>
+</div>
+</div></div>
+<h1>Sprite Editor</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Sometimes a sprite texture contains just a single graphic element but it is often more convenient to combine several related graphics together into a single image. For example, the image could contain component parts of a single character, as with a car whose wheels move independently of the body. Unity makes it easy to extract elements from a composite image by providing a <strong>Sprite Editor</strong> for the purpose.</p>
+
+<p><strong>NOTE:</strong></p>
+
+<p>Make sure the graphic you want to edit has its <strong>Texture Type</strong> set to <strong>Sprite (2D and UI)</strong>. For information on importing and setting up sprites, see <a href="Sprites.html">Sprites</a>.</p>
+
+<p>Sprite textures with multiple elements need the <strong>Sprite Mode</strong> to be set to <strong>Multiple</strong> in the Inpsector. (See <em>Fig 2: Texture Import Inspector…</em> below.)</p>
+
+<h2>Opening the Sprite Editor</h2>
+
+<p>To open the <strong>Sprite Editor</strong>:</p>
+
+<ol>
+<li>
+<p>Select the 2D image you want to edit from the <strong>Project View</strong> <em>(Fig 1: Project View)</em>. </p>
+
+<p>Note that you can’t edit a sprite which is in the <strong>Scene View</strong>.</p>
+</li>
+<li><p>Click on the <strong>Sprite Editor</strong> button in the <strong>Texture Import Inspector</strong> <em>(Fig 2: Texture Import Inspector)</em> and the <strong>Sprite Editor</strong> displays <em>(Fig 3: Sprite Editor)</em>.</p></li>
+</ol>
+
+<p>
+<strong>Note:</strong> You can only see the <strong>Sprite Editor</strong> button if the <strong>Texture Type</strong> on the image you have selected is set to <strong>Sprite (2D and UI)</strong>.</p>
+
+<figure>
+<img src="../uploads/ProjectViewSprite.png" alt="Fig 1: Project View">
+<figcaption>Fig 1: Project View</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/SpriteEditorButton.png" alt="Fig 2: Texture Import Inspector with Sprite Editor button">
+<figcaption>Fig 2: Texture Import Inspector with Sprite Editor button</figcaption>
+</figure>
+
+<p>
+<strong>Note:</strong> Set the <strong>Sprite Mode</strong> to <strong>Multiple</strong> in the <strong>Texture Import Inspector</strong> if your image has several elements.</p>
+
+<figure>
+<img src="../uploads/SpriteEditor.png" alt="Fig 3: Sprite Editor">
+<figcaption>Fig 3: Sprite Editor</figcaption>
+</figure>
+
+<p>Along with the composite image, you will see a number of controls in the bar at the top of the window. The slider at the top right controls the zoom, while the color bar button to its left chooses whether you view the image itself or its alpha levels. The right-most slider controls the pixelation (mipmap) of the texure. Moving the slider to the left reduces the resolution of the sprite texture. The most important control is the <strong>Slice</strong> menu at the top left, which gives you options for separating the elements of the image automatically. Finally, the <strong>Apply</strong> and <strong>Revert</strong> buttons allow you to keep or discard any changes you have made.</p>
+
+<h2>Using the Editor</h2>
+
+<p>The most direct way to use the editor is to identify the elements manually. If you click on the image, you will see a rectangular selection area appear with handles in the corners. You can drag the handles or the edges of the rectangle to resize it around a specific element. Having isolated an element, you can add another by dragging a new rectangle in a separate part of the image. You’ll notice that when you have a rectangle selected, a panel appears in the bottom right of the window:</p>
+
+<figure>
+<img src="../uploads/Main/SpritePanel.png" alt="">
+</figure>
+
+<p>The controls in the panel let you choose a name for the sprite graphic and set the position and size of the rectangle by its coordinates. A border width, for left, top, right and bottom can be specified in pixels. There are also settings for the sprite’s pivot, which Unity uses as the coordinate origin and main “anchor point” of the graphic. You can choose from a number of default rectangle-relative positions (eg, Center, Top Right, etc) or use custom coordinates.</p>
+
+<p>The <strong>Trim</strong> button next to the Slice menu item will resize the rectangle so that it fits tightly around the edge of the graphic based on transparency.</p>
+
+<p>
+<strong>Note:</strong> Borders are only supported for the UI system, not for the 2D SpriteRenderer.</p>
+
+<h2>Automatic Slicing</h2>
+
+<p>Isolating the sprite rectangles manually works well but in many cases, Unity can save you work by detecting the graphic elements and extracting them for you automatically. If you click on the <strong>Slice</strong> menu in the control bar, you will see this panel:</p>
+
+<figure>
+<img src="../uploads/Main/SpriteSlicePanelAuto.png" alt="">
+</figure>
+
+<p>With the slicing type set to <strong>Automatic</strong>, the editor will attempt to guess the boundaries of sprite elements by transparency. You can set a default pivot for each identified sprite. The <strong>Method</strong> menu lets you choose how to deal with existing selections in the window. The <strong>Delete existing</strong> option will simply replace whatever is already selected, <strong>Smart</strong> will attempt to create new rectangles while retaining or adjusting existing ones, and <strong>Safe</strong> will add new rectangles without changing anything already in place.</p>
+
+<p>
+<strong>Grid by Cell Size</strong> or <strong>Grid by Cell Count</strong> options are also available for the slicing type. This is very useful when the sprites have already been laid out in a regular pattern during creation:</p>
+
+<figure>
+<img src="../uploads/Main/SpriteSlicePanelGrid.png" alt="">
+</figure>
+
+<p>The <strong>Pixel Size</strong> values determine the height and width of the tiles in pixels. If you chose grid by cell count, <strong>Column &amp; Row</strong> determines the number of columns and rows used for slicing. You can also use the <strong>Offset</strong> values to shift the grid position from the top-left of the image and the <strong>Padding</strong> values to inset the sprite rectangles slightly from the grid. The <strong>Pivot</strong> can be set with one of nine preset locations or a <strong>Custom Pivot</strong> location can be set.</p>
+
+<p>Note that after any of the automatic slicing methods has been used, the generated rectangles can still be edited manually. You can let Unity handle the rough definition of the sprite boundaries and pivots and then do any necessary fine tuning yourself.</p>
+
+<h2>Polygon Resizing</h2>
+
+<p>Open the <strong>Sprite Editor</strong> for a polygon and you have the option to change its shape, size, and pivot position.</p>
+
+<p>
+<strong>Shape</strong> </p>
+
+<figure>
+<img src="../uploads/Main/SpriteEditorWindow.png" alt="Sprite Editor: Polygon resizing - shape">
+<figcaption>Sprite Editor: Polygon resizing - shape</figcaption>
+</figure>
+
+<p>Enter the number of sides you want the polygon to have in the <strong>Sides</strong> field and click <strong>Change</strong>.</p>
+
+<p><strong>Size and Pivot</strong></p>
+
+<figure>
+<img src="../uploads/Main/SpriteEditorWindow2.png" alt="Sprite Editor: Polygon resizing - size and pivot point - click on the polygon to display these options">
+<figcaption>Sprite Editor: Polygon resizing - size and pivot point - click on the polygon to display these options</figcaption>
+</figure>
+
+<p>SIZE: To change the polygon’s size, click on the sprite to display green border lines and the Sprite information box. Click and drag on the green lines to create the border you want, and the values in the <strong>Border</strong> fields change.
+(Note that you cannot edit the <strong>Border</strong> fields directly.)</p>
+
+<p>PIVOT: To change the polygon’s pivot point (that is the axis point the polygon moves around), click on the image to display the Sprite information box. Click on the <strong>Pivot</strong> drop down menu and select an option. This displays a blue pivot circle on the polygon; its location depends on the pivot option to you have selected. If you want to change it further, select <strong>Custom Pivot</strong> and click and drag on the blue pivot circle to position it.
+(Note that you cannot edit the <strong>Pivot</strong> fields directly.)</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SpriteCreator.html"></a></span><div class="tip">Sprite Creator</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SpritePacker.html"></a></span><div class="tip">Sprite Packer</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Unity - Scripting API: Network</title>
+    <meta name="description" content="Unity is the ultimate game development platform. Use Unity to build high-quality 3D and 2D games, deploy them across mobile, desktop, VR/AR, consoles or the Web, and connect with loyal and enthusiastic players and customers." />
+    <meta name="author" content="Unity Technologies" />
+    <link rel="shortcut icon" href="../StaticFiles/images/favicons/favicon.ico" />
+    <link rel="icon" type="image/png" href="../StaticFiles/images/favicons/favicon.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFiles/images/favicons/apple-touch-icon-152x152.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFiles/images/favicons/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFiles/images/favicons/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFiles/images/favicons/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFiles/images/favicons/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" href="../StaticFiles/images/favicons/apple-touch-icon.png" />
+    <meta name="msapplication-TileColor" content="#222c37" />
+    <meta name="msapplication-TileImage" content="../StaticFiles/images/favicons/tileicon-144x144.png" />
+    <script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script>
+    <script type="text/javascript" src="../StaticFiles/js/jquery.js">
+    </script>
+    <script type="text/javascript" src="docdata/toc.js">//toc</script>
+    <!--local TOC-->
+    <script type="text/javascript" src="docdata/global_toc.js">//toc</script>
+    <!--global TOC, including other platforms-->
+    <script type="text/javascript" src="../StaticFiles/js/core.js">
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../StaticFiles/css/core.css" />
+  </head>
+  <body>
+    <div class="header-wrapper">
+      <div id="header" class="header">
+        <div class="content">
+          <div class="spacer">
+            <div class="menu">
+              <div class="logo">
+                <a href="">
+                </a>
+              </div>
+              <div class="search-form">
+                <form action="30_search.html" method="get" class="apisearch">
+                  <input type="text" name="q" placeholder="Search scripting..." autosave="Unity Reference" results="5" class="sbox field" id="q">
+                  </input>
+                  <input type="submit" class="submit">
+                  </input>
+                </form>
+              </div>
+              <ul>
+                <li>
+                  <a href="../Manual/index.html">Manual</a>
+                </li>
+                <li>
+                  <a href="../ScriptReference/index.html" class="selected">Scripting API</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="more">
+            <div class="filler">
+            </div>
+            <ul>
+              <li>
+                <a href="http://unity3d.com/">unity3d.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="toolbar">
+        <div class="content clear">
+          <div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/ScriptReference">switch to 5.4</a>)</div>
+          <div class="lang-switcher hide">
+            <div class="current toggle" data-target=".lang-list">
+              <div class="lbl">Language<span class="b">English</span></div>
+              <div class="arrow">
+              </div>
+            </div>
+            <div class="lang-list" style="display:none;">
+              <ul>
+                <li>
+                  <a href="">English</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="script-lang">
+            <ul>
+              <li class="selected" data-lang="CS">C#</li>
+              <li data-lang="JS">JS</li>
+            </ul>
+            <div id="script-lang-dialog" class="dialog hide">
+              <div class="dialog-content clear">
+                <h2>Script language</h2>
+                <div class="close">
+                </div>
+                <p class="clear">Select your preferred scripting language. All code snippets will be displayed in this language.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="master-wrapper" class="master-wrapper clear">
+      <div id="sidebar" class="sidebar">
+        <div class="sidebar-wrap">
+          <div class="content">
+            <div class="sidebar-menu">
+              <div class="toc">
+                <h2>Scripting API</h2>
+              </div>
+            </div>
+            <p>
+              <a href="40_history.html" class="cw">History</a>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div id="content-wrap" class="content-wrap">
+        <div class="content-block">
+          <div class="content">
+            <div class="section">
+              <div class="mb20 clear" id="">
+                <h1 class="heading inherit">Network</h1>
+                <div class="clear">
+                </div>
+                <p class="cl mb0 left mr10">class in
+          UnityEngine</p>
+                <div class="clear">
+                </div>
+                <div class="suggest">
+                  <a class="blue-btn sbtn">Suggest a change</a>
+                  <div class="suggest-wrap rel hide">
+                    <div class="loading hide">
+                      <div>
+                      </div>
+                      <div>
+                      </div>
+                      <div>
+                      </div>
+                    </div>
+                    <div class="suggest-success hide">
+                      <h2>Success!</h2>
+                      <p>Thank you for helping us improve the quality of Unity Documentation. Although we cannot accept all submissions, we do read each suggested change from our users and will make updates where applicable.</p>
+                      <a class="gray-btn sbtn close">Close</a>
+                    </div>
+                    <div class="suggest-failed hide">
+                      <h2>Submission failed</h2>
+                      <p>For some reason your suggested change could not be submitted. Please &lt;a&gt;try again&lt;/a&gt; in a few minutes. And thank you for taking the time to help us improve the quality of Unity Documentation.</p>
+                      <a class="gray-btn sbtn close">Close</a>
+                    </div>
+                    <div class="suggest-form clear">
+                      <label for="suggest_name">Your name</label>
+                      <input id="suggest_name" type="text">
+                      </input>
+                      <label for="suggest_email">Your email</label>
+                      <input id="suggest_email" type="email">
+                      </input>
+                      <label for="suggest_body" class="clear">Suggestion<span class="r">*</span></label>
+                      <textarea id="suggest_body" class="req">
+                      </textarea>
+                      <button id="suggest_submit" class="blue-btn mr10">Submit suggestion</button>
+                      <p class="mb0">
+                        <a class="cancel left lh42 cn">Cancel</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a href="" class="switch-link gray-btn sbtn left hide">
+                </a>
+                <div class="clear">
+                </div>
+              </div>
+              <div class="subsection">
+                <div class="signature">
+                  <div class="signature-JS sig-block">
+                    <span style="color:red;">
+                    </span>
+                  </div>
+                  <div class="signature-CS sig-block">
+                    <span style="color:red;">
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div class="subsection">
+                <h2>Description</h2>
+                <p>The network class is at the heart of the network implementation and provides the core functions.</p>
+              </div>
+              <div class="subsection">
+                <p>This class configures the network interface and all the network parameters. You use it to set up a
+server or connect to one and have a row of helper functions to help you with those tasks. 
+For more information on what is exposed in the editor see the <a href="../Manual/class-NetworkManager.html">Network Manger component reference</a>.</p>
+              </div>
+              <div class="subsection">
+                <h2>Static Variables</h2>
+                <table class="list">
+      <tr><td class="lbl"><a href="Network-connections.html">connections</a></td><td class="desc">All connected players.</td></tr>
+      <tr><td class="lbl"><a href="Network-connectionTesterIP.html">connectionTesterIP</a></td><td class="desc">The IP address of the connection tester used in Network.TestConnection.</td></tr>
+      <tr><td class="lbl"><a href="Network-connectionTesterPort.html">connectionTesterPort</a></td><td class="desc">The port of the connection tester used in Network.TestConnection.</td></tr>
+      <tr><td class="lbl"><a href="Network-incomingPassword.html">incomingPassword</a></td><td class="desc">Set the password for the server (for incoming connections).</td></tr>
+      <tr><td class="lbl"><a href="Network-isClient.html">isClient</a></td><td class="desc">Returns true if your peer type is client.</td></tr>
+      <tr><td class="lbl"><a href="Network-isMessageQueueRunning.html">isMessageQueueRunning</a></td><td class="desc">Enable or disable the processing of network messages.</td></tr>
+      <tr><td class="lbl"><a href="Network-isServer.html">isServer</a></td><td class="desc">Returns true if your peer type is server.</td></tr>
+      <tr><td class="lbl"><a href="Network-logLevel.html">logLevel</a></td><td class="desc">Set the log level for network messages (default is Off).</td></tr>
+      <tr><td class="lbl"><a href="Network-maxConnections.html">maxConnections</a></td><td class="desc">Set the maximum amount of connections/players allowed.</td></tr>
+      <tr><td class="lbl"><a href="Network-minimumAllocatableViewIDs.html">minimumAllocatableViewIDs</a></td><td class="desc">Get or set the minimum number of ViewID numbers in the ViewID pool given to clients by the server.</td></tr>
+      <tr><td class="lbl"><a href="Network-natFacilitatorIP.html">natFacilitatorIP</a></td><td class="desc">The IP address of the NAT punchthrough facilitator.</td></tr>
+      <tr><td class="lbl"><a href="Network-natFacilitatorPort.html">natFacilitatorPort</a></td><td class="desc">The port of the NAT punchthrough facilitator.</td></tr>
+      <tr><td class="lbl"><a href="Network-peerType.html">peerType</a></td><td class="desc">The status of the peer type, i.e. if it is disconnected, connecting, server or client.</td></tr>
+      <tr><td class="lbl"><a href="Network-player.html">player</a></td><td class="desc">Get the local NetworkPlayer instance.</td></tr>
+      <tr><td class="lbl"><a href="Network-proxyIP.html">proxyIP</a></td><td class="desc">The IP address of the proxy server.</td></tr>
+      <tr><td class="lbl"><a href="Network-proxyPassword.html">proxyPassword</a></td><td class="desc">Set the proxy server password.</td></tr>
+      <tr><td class="lbl"><a href="Network-proxyPort.html">proxyPort</a></td><td class="desc">The port of the proxy server.</td></tr>
+      <tr><td class="lbl"><a href="Network-sendRate.html">sendRate</a></td><td class="desc">The default send rate of network updates for all Network Views.</td></tr>
+      <tr><td class="lbl"><a href="Network-time.html">time</a></td><td class="desc">Get the current network time (seconds).</td></tr>
+      <tr><td class="lbl"><a href="Network-useProxy.html">useProxy</a></td><td class="desc">Indicate if proxy support is needed, in which case traffic is relayed through the proxy server.</td></tr>
+    </table>
+              </div>
+              <div class="subsection">
+                <h2>Static Functions</h2>
+                <table class="list">
+      <tr><td class="lbl"><a href="Network.AllocateViewID.html">AllocateViewID</a></td><td class="desc">Query for the next available network view ID number and allocate it (reserve).</td></tr>
+      <tr><td class="lbl"><a href="Network.CloseConnection.html">CloseConnection</a></td><td class="desc">Close the connection to another system.</td></tr>
+      <tr><td class="lbl"><a href="Network.Connect.html">Connect</a></td><td class="desc">Connect to the specified host (ip or domain name) and server port.</td></tr>
+      <tr><td class="lbl"><a href="Network.Destroy.html">Destroy</a></td><td class="desc">Destroy the object associated with this view ID across the network.</td></tr>
+      <tr><td class="lbl"><a href="Network.DestroyPlayerObjects.html">DestroyPlayerObjects</a></td><td class="desc">Destroy all the objects based on view IDs belonging to this player.</td></tr>
+      <tr><td class="lbl"><a href="Network.Disconnect.html">Disconnect</a></td><td class="desc">Close all open connections and shuts down the network interface.</td></tr>
+      <tr><td class="lbl"><a href="Network.GetAveragePing.html">GetAveragePing</a></td><td class="desc">The last average ping time to the given player in milliseconds.</td></tr>
+      <tr><td class="lbl"><a href="Network.GetLastPing.html">GetLastPing</a></td><td class="desc">The last ping time to the given player in milliseconds.</td></tr>
+      <tr><td class="lbl"><a href="Network.HavePublicAddress.html">HavePublicAddress</a></td><td class="desc">Check if this machine has a public IP address.</td></tr>
+      <tr><td class="lbl"><a href="Network.InitializeSecurity.html">InitializeSecurity</a></td><td class="desc">Initializes security layer.</td></tr>
+      <tr><td class="lbl"><a href="Network.InitializeServer.html">InitializeServer</a></td><td class="desc">Initialize the server.</td></tr>
+      <tr><td class="lbl"><a href="Network.Instantiate.html">Instantiate</a></td><td class="desc">Network instantiate a prefab.</td></tr>
+      <tr><td class="lbl"><a href="Network.RemoveRPCs.html">RemoveRPCs</a></td><td class="desc">Remove all RPC functions which belong to this player ID.</td></tr>
+      <tr><td class="lbl"><a href="Network.RemoveRPCsInGroup.html">RemoveRPCsInGroup</a></td><td class="desc">Remove all RPC functions which belong to given group number.</td></tr>
+      <tr><td class="lbl"><a href="Network.SetLevelPrefix.html">SetLevelPrefix</a></td><td class="desc">Set the level prefix which will then be prefixed to all network ViewID numbers.</td></tr>
+      <tr><td class="lbl"><a href="Network.SetReceivingEnabled.html">SetReceivingEnabled</a></td><td class="desc">Enable or disables the reception of messages in a specific group number from a specific player.</td></tr>
+      <tr><td class="lbl"><a href="Network.SetSendingEnabled.html">SetSendingEnabled</a></td><td class="desc">Enables or disables transmission of messages and RPC calls on a specific network group number.</td></tr>
+      <tr><td class="lbl"><a href="Network.TestConnection.html">TestConnection</a></td><td class="desc">Test this machines network connection.</td></tr>
+      <tr><td class="lbl"><a href="Network.TestConnectionNAT.html">TestConnectionNAT</a></td><td class="desc">Test the connection specifically for NAT punch-through connectivity.</td></tr>
+    </table>
+              </div>
+              <div class="subsection">
+                <h2>Messages</h2>
+                <table class="list">
+      <tr><td class="lbl"><a href="Network.OnConnectedToServer.html">OnConnectedToServer</a></td><td class="desc">Called on the client when you have successfully connected to a server.</td></tr>
+      <tr><td class="lbl"><a href="Network.OnDisconnectedFromServer.html">OnDisconnectedFromServer</a></td><td class="desc">Called on client during disconnection from server, but also on the server when the connection has disconnected.</td></tr>
+      <tr><td class="lbl"><a href="Network.OnFailedToConnect.html">OnFailedToConnect</a></td><td class="desc">Called on the client when a connection attempt fails for some reason.</td></tr>
+      <tr><td class="lbl"><a href="Network.OnNetworkInstantiate.html">OnNetworkInstantiate</a></td><td class="desc">Called on objects which have been network instantiated with Network.Instantiate.</td></tr>
+      <tr><td class="lbl"><a href="Network.OnPlayerConnected.html">OnPlayerConnected</a></td><td class="desc">Called on the server whenever a new player has successfully connected.</td></tr>
+      <tr><td class="lbl"><a href="Network.OnPlayerDisconnected.html">OnPlayerDisconnected</a></td><td class="desc">Called on the server whenever a player is disconnected from the server.</td></tr>
+      <tr><td class="lbl"><a href="Network.OnSerializeNetworkView.html">OnSerializeNetworkView</a></td><td class="desc">Used to customize synchronization of variables in a script watched by a network view.</td></tr>
+      <tr><td class="lbl"><a href="Network.OnServerInitialized.html">OnServerInitialized</a></td><td class="desc">Called on the server whenever a Network.InitializeServer was invoked and has completed.</td></tr>
+    </table>
+              </div>
+            </div>
+            <div class="footer-wrapper">
+              <div class="footer clear">
+                <div class="copy">Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+                <div class="menu">
+                  <a href="http://unity3d.com/learn">Tutorials</a>
+                  <a href="http://answers.unity3d.com">Community Answers</a>
+                  <a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a>
+                  <a href="http://forum.unity3d.com">Forums</a>
+                  <a href="http://unity3d.com/asset-store">Asset Store</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <noscript>
+      <iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+  </body>
+</html>

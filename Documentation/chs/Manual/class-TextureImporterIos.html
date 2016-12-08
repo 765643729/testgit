@@ -1,0 +1,204 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: iOS 2D Texture Overrides</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-TextureImporterIos.html">English</a></li>
+<li><a href="/ja/current/Manual/class-TextureImporterIos.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-TextureImporterIos.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-TextureImporterIos.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-TextureImporterIos.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="iphone.html">iOS</a></li>
+<li>iOS 2D Texture Overrides</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-PlayerSettingsiOS.html"></a></span><div class="tip">iOS Player Settings</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="iphone-64bit.html"></a></span><div class="tip">Upgrading to 64 bit iOS</div>
+</div>
+</div></div>
+<h1>iOS 2D Texture Overrides</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>When you are building for different platforms, you have to think about the resolution of your textures for the target platform, the size and the quality. You can set default options and then override the defaults for a specific platform.</p>
+
+<p>This page details the <strong>Texture Overrides</strong> specific to iOS. A description of the general Texture Overrides can be found <a href="class-TextureImporter.html">here</a>.</p>
+
+<figure>
+<img src="../uploads/Main/TextureImporterOverride.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Texture Format</strong></td>
+	<td style="text-align:left;">What internal representation is used for the texture. This is a tradeoff between size and quality. In the examples below we show the final size of a in-game texture of 256 by 256 pixels:</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGB Compressed PVRTC 4 bits</strong>
+</td>
+	<td style="text-align:left;">Compressed RGB texture. This is the most common format for diffuse textures. 4 bits per pixel (32 KB for a 256x256 texture)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGBA Compressed PVRTC 4 bits</strong>
+</td>
+	<td style="text-align:left;">Compressed RGBA texture. This is the main format used for diffuse &amp; specular control textures or diffuse textures with transparency. 4 bits per pixel (32 KB for a 256x256 texture)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGB Compressed PVRTC 2 bits</strong>
+</td>
+	<td style="text-align:left;">Compressed RGB texture. Lower quality format suitable for diffuse textures. 2 bits per pixel (16 KB for a 256x256 texture)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGBA Compressed PVRTC 2 bits</strong>
+</td>
+	<td style="text-align:left;">Compressed RGBA texture. Lower quality format suitable for diffuse &amp; specular control textures. 2 bits per pixel (16 KB for a 256x256 texture)</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGB Compressed DXT1</strong>
+</td>
+	<td style="text-align:left;">Compressed RGB texture. This format is not supported on iOS, but kept for backwards compatibility with desktop projects.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGBA Compressed DXT5</strong>
+</td>
+	<td style="text-align:left;">Compressed RGBA texture. This format is not supported on iOS, but kept for backwards compatibility with desktop projects.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGB 16 bit</strong>
+</td>
+	<td style="text-align:left;">65 thousand colors with no alpha. Uses more memory than PVRTC formats, but could be more suitable for UI or crisp textures without gradients. 128 KB for a 256x256 texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGB 24 bit</strong>
+</td>
+	<td style="text-align:left;">Truecolor but without alpha. 192 KB for a 256x256 texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>Alpha 8 bit</strong>
+</td>
+	<td style="text-align:left;">High quality alpha channel but without any color. 64 KB for a 256x256 texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGBA 16 bit</strong>
+</td>
+	<td style="text-align:left;">Low-quality truecolor. Has 16 levels of red, green, blue and alpha. Uses more memory than PVRTC formats, but can be handy if you need exact alpha channel. 128 KB for a 256x256 texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        <strong>RGBA 32 bit</strong>
+</td>
+	<td style="text-align:left;">Truecolor with alpha - this is the highest quality. At 256 KB for a 256x256 texture, this one is expensive. Most of the time, <strong>PVRTC</strong> formats offers sufficient quality at a much smaller size.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Compression quality</strong></td>
+	<td style="text-align:left;">Choose Fast for quickest performance, Best for the best image quality and Normal for a balance between the two.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-PlayerSettingsiOS.html"></a></span><div class="tip">iOS Player Settings</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="iphone-64bit.html"></a></span><div class="tip">Upgrading to 64 bit iOS</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

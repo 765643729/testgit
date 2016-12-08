@@ -1,0 +1,180 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Occlusion Area</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-OcclusionArea.html">English</a></li>
+<li><a href="/ja/current/Manual/class-OcclusionArea.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-OcclusionArea.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-OcclusionArea.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-OcclusionArea.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="comp-RenderingGroup.html">Rendering Components</a></li>
+<li>Occlusion Area</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-Cubemap.html"></a></span><div class="tip">Cubemap</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-OcclusionPortal.html"></a></span><div class="tip">Occlusion Portals</div>
+</div>
+</div></div>
+<h1>Occlusion Area</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/OcclusionArea.html' title='Go to OcclusionArea page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>To apply occlusion culling to moving objects you have to create an <strong>Occlusion Area</strong> and then modify its size to fit the space where the moving objects will be located (of course the moving objects cannot be marked as static). You can create Occlusion Areas by adding the <strong>Occlusion Area</strong> component to an empty game object (<strong>Component -&gt; Rendering -&gt; Occlusion Area</strong> in the menus).</p>
+
+<p>After creating the <strong>Occlusion Area</strong>, check the <em>Is View Volume</em> checkbox to occlude moving objects. </p>
+
+<figure>
+<img src="../uploads/Main/Inspector-OcclusionArea.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Size</strong></td>
+	<td style="text-align:left;">Defines the size of the Occlusion Area.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Center</strong></td>
+	<td style="text-align:left;">Sets the center of the Occlusion Area. By default this is 0,0,0 and is located in the center of the box.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Is View Volume</strong></td>
+	<td style="text-align:left;">Defines where the camera can be. Check this in order to occlude static objects that are inside this <em>Occlusion Area</em>.</td>
+</tr>
+</tbody>
+</table>
+
+<figure>
+<img src="../uploads/Main/OcclusionCullingOcclusionArea.png" alt="Occlusion Area properties for moving objects.">
+<figcaption>Occlusion Area properties for moving objects.</figcaption>
+</figure>
+
+<p>After you have added the Occlusion Area, you need to see how it divides the box into cells. To see how the occlusion area will be calculated, select <strong>Edit</strong> and toggle the <strong>View</strong> button
+in the <strong>Occlusion Culling Preview Panel</strong>. </p>
+
+<figure>
+<img src="../uploads/Main/OcclusionCullingViewVolumes.png" alt="">
+</figure>
+
+<h2>Testing the generated occlusion</h2>
+
+<p>After your occlusion is set up, you can test it by enabling the <em>Occlusion Culling</em> (in the <strong>Occlusion Culling Preview Panel</strong> in Visualize mode) and moving the <strong>Main Camera</strong> around in the scene view.</p>
+
+<figure>
+<img src="../uploads/Main/OcclusionCullingVisualize.png" alt="The Occlusion View mode in Scene View">
+<figcaption>The Occlusion View mode in Scene View</figcaption>
+</figure>
+
+<p>As you move the Main Camera around (whether or not you are in Play mode), you’ll see various objects disable themselves. The thing you are looking for here is any error in the occlusion data. You’ll recognize an error if you see objects suddenly popping into view as you move around. If this happens, your options for fixing the error are either to change the resolution (if you are playing with target volumes) or to move objects around to cover up the error. To debug problems with occlusion, you can move the Main Camera to the problematic position for spot-checking.</p>
+
+<p>When the processing is done, you should see some colorful cubes in the View Area. The blue cubes represent the cell divisions for <strong>Target Volumes</strong>. The white cubes represent cell divisions for <strong>View Volumes</strong>. If the parameters were set correctly you should see some objects not being rendered. This will be because they are either outside of the view frustum of the camera or else occluded from view by other objects.</p>
+
+<p>After occlusion is completed, if you don’t see anything being occluded in your scene then try breaking your objects into smaller pieces so they can be completely contained inside the cells.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-Cubemap.html"></a></span><div class="tip">Cubemap</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-OcclusionPortal.html"></a></span><div class="tip">Occlusion Portals</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

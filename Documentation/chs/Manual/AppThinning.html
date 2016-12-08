@@ -1,0 +1,399 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  App thinning</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/AppThinning.html">English</a></li>
+<li><a href="/ja/current/Manual/AppThinning.html">日本語</a></li>
+<li><a href="/es/current/Manual/AppThinning.html">Español</a></li>
+<li><a href="/kr/current/Manual/AppThinning.html">한국어</a></li>
+<li><a href="/ru/current/Manual/AppThinning.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="iphone.html">iOS</a></li>
+<li>iOS Advanced Topics</li>
+<li> App thinning</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="iosCustomWWWRequest.html"></a></span><div class="tip">Customising WWW Requests on iOS</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="iphone-unsupported.html"></a></span><div class="tip">Features currently not supported by Unity iOS</div>
+</div>
+</div></div>
+<h1>App thinning</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Apple store and iOS optimize the installation of iOS, tvOS, and watchOS apps by tailoring app delivery to the capabilities of the user’s particular device. This optimization is called app thinning. App thinning lets you create apps that use the most device features, occupy minimum disk space, and accommodate future updates that can be applied by Apple. Learn more about this optimization process on <a href="https://developer.apple.com/library/tvos/documentation/IDEs/Conceptual/AppDistributionGuide/AppThinning/AppThinning.html">Apple’s Developer Library page on App Thinning</a>.</p>
+
+<p>This chapter describes the two major components of app thinning that can be implemented in Unity:</p>
+
+<ul>
+<li><a href="#OnDemandresources">On-demand resources (ODR)</a></li>
+<li><a href="#AppSlicing">App slicing</a></li>
+</ul>
+
+<p><a name="OnDemandResources"></a></p>
+
+<h1>On-demand resources</h1>
+
+<p>On-demand resources (ODR) is a feature available for the iOS and tvOS platforms, from version 9.0 of iOS and tvOS onwards. It allows you to reduce the size of your application by separating the core Assets (those that are needed from application startup) from Assets which may be optional, or which appear in later levels of your game. These additional Assets are called <a href="AssetBundleIntro.html">AssetBundles</a>. They’re available across all Unity build targets, but extra steps must be taken to enable them to be hosted via the App Store.</p>
+
+<p>AssetBundles can contain Asset files such as models, Materials, Textures and Scenes, but they cannot include scripts. This means that all your scripting logic must reside in the main application. Apple recommends that an AssetBundle be no larger than 64MB in size, to reduce loading time (particularly over 3G) and minimize the amount of storage space used on the device.</p>
+
+<h2>Setting up ODR</h2>
+
+<p>To set up your project for ODR, first check that your build type is set to iOS. In the menu bar, go to <strong>File</strong> &gt; <strong>Build Settings</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-BuildSettings.png" alt="">
+</figure>
+
+<p>If it isn’t selected already, click on <strong>iOS</strong>, then click the <strong>Switch Platform</strong> button. Next, click the <strong>Player Settings…</strong> button<strong>. </strong>In the Inspector window, open <strong>Other Settings,</strong> navigate to the <strong>Configuration</strong> section, and check the <strong>Use on demand resources</strong> checkbox.</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-OtherSettings.png" alt="">
+</figure>
+
+<h2>Creating an AssetBundle</h2>
+
+<p>First, create a new folder to group the Assets you want to place into an AssetBundle. To do this, right-click inside the Project window and go to <strong>Create</strong> &gt; <strong>Folder</strong> (or click <strong>Create</strong> &gt; <strong>Folder</strong> in the top-left of the Project window). </p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-CreateFolder.png" alt="">
+</figure>
+
+<p>Select the Asset files you wish to add to the AssetBundle, then drag-and-drop them into your new folder.</p>
+
+<p>When creating an AssetBundle, you need to assign it a tag, which is used as an identifier when requesting the AssetBundle download. It’s good practice to create a label that matches the bundle’s filename; this ensure a unique label, and makes it easier to recognise when you are working with it later.</p>
+
+<p>To create or assign a tag, select your new folder and navigate to the Asset Labels section at the bottom of the Inspector window. Click the left-hand drop-down menu, select <strong>New…</strong>, and enter the name of your new label. Note that AssetBundle labels must be lower-case.</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-AssetLabels.png" alt="">
+</figure>
+
+<p>In this example, a folder called “Textures” is being given a new label</p>
+
+<p>To generate the new AssetBundle file, the new label must be referenced in an Editor script. To create an Editor script, create a new folder inside the Project window called “Editor”. Right-click on the “Editor” folder and select <strong>Create</strong> &gt; <strong>C# Script</strong>. Name the new script <strong>BuildiOSAssetBundles.cs</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-NewScript.png" alt="">
+</figure>
+
+<p>In this example, the “Textures” folder has been given the label “textures”. The new script <strong>BuildiOSAssetBundles.cs</strong> has been created in the “Editor” folder.</p>
+
+<p>Open <strong>BuildiOSAssetBundles.cs</strong> and copy in the code below. In this example the label “textures” has been used; change this throughout with the name of your label (in lower-case text):</p>
+
+<pre><code>using UnityEngine;
+using UnityEditor;
+
+
+public class BuildiOSAssetBundles : MonoBehaviour
+{
+    [InitializeOnLoadMethod]
+    static void SetupResourcesBuild( )
+    {
+        UnityEditor.iOS.BuildPipeline.collectResources += CollectResources;
+    }
+
+    static UnityEditor.iOS.Resource[] CollectResources( )
+    {
+        return new UnityEditor.iOS.Resource[]
+        {
+            new UnityEditor.iOS.Resource( &quot;textures&quot;, &quot;Assets/ODR/textures&quot; ).AddOnDemandResourceTags( &quot;textures&quot; ),
+            new UnityEditor.iOS.Resource( &quot;bundle&quot;, &quot;Assets/Bundles/bundle.unity3d&quot; ).AddOnDemandResourceTags( &quot;bundle&quot; ),
+        };
+    }
+
+    [MenuItem( &quot;Bundle/Build iOS AssetBundle&quot; )]
+    static void BuildAssetBundles( )
+    {
+        var options = BuildAssetBundleOptions.None;
+
+        bool shouldCheckODR = EditorUserBuildSettings.activeBuildTarget == BuildTarget.iOS;
+
+#if UNITY_TVOS
+            shouldCheckODR |= EditorUserBuildSettings.activeBuildTarget == BuildTarget.tvOS;
+#endif
+
+        if( shouldCheckODR )
+        {
+#if ENABLE_IOS_ON_DEMAND_RESOURCES
+            if( PlayerSettings.iOS.useOnDemandResources )
+                options |= BuildAssetBundleOptions.UncompressedAssetBundle;
+#endif
+
+#if ENABLE_IOS_APP_SLICING
+            options |= BuildAssetBundleOptions.UncompressedAssetBundle;
+#endif
+        }
+
+        BuildPipeline.BuildAssetBundles( &quot;Assets/ODR&quot;, options, EditorUserBuildSettings.activeBuildTarget );
+    }
+
+}
+</code></pre>
+
+<p>The significant line in the above code sample is the following, which takes the files tagged with the “textures” label and creates an AssetBundle file called “textures” within the Assets/ODR folder:</p>
+
+<pre><code>new UnityEditor.iOS.Resource( &quot;textures&quot;, &quot;Assets/ODR/textures&quot; ).AddOnDemandResourceTags( &quot;textures&quot; )
+</code></pre>
+
+<p>For demonstration purposes, the above code sample also includes the following line, which adds an AssetBundle called “bundle” that has already been built - for example, from another project or a third-party vendor:</p>
+
+<pre><code>new UnityEditor.iOS.Resource( &quot;bundle&quot;, &quot;Assets/Bundles/bundle.unity3d&quot; ).AddOnDemandResourceTags( &quot;bundle&quot; )
+</code></pre>
+
+<p>The whole code sample creates a new menu in the Unity Editor menu bar. Go to <strong>Bundle</strong> &gt; <strong>Build iOS AssetBundle</strong>. This generates the AssetBundles in the <strong>ODR</strong> folder.</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-BuildiOSAssetBundle.png" alt="">
+</figure>
+
+<p>The following script downloads the “textures” ODR Asset Bundle, assigning it to the public member <strong>TextureBundle</strong>. Place this somewhere in your project.</p>
+
+<pre><code>using UnityEngine;
+using UnityEngine.iOS;
+using System;
+using System.Collections;
+
+public class LoadBundle : MonoBehaviour
+{
+    public AssetBundle     TextureBundle;
+
+
+    void Start( )
+    {
+        StartCoroutine( LoadAsset( &quot;textures&quot;, &quot;textures&quot; ) );
+    }
+
+    public IEnumerator LoadAsset( string resourceName, string odrTag )
+    {
+        // Create the request
+        OnDemandResourcesRequest request = OnDemandResources.PreloadAsync( new string[] { odrTag } );
+
+        // Wait until request is completed
+        yield return request;
+
+        // Check for errors
+        if( request.error != null )
+            throw new Exception( &quot;ODR request failed: &quot; + request.error );
+
+        TextureBundle = AssetBundle.LoadFromFile( &quot;res://&quot; + resourceName );
+
+        request.Dispose( );
+    }
+}
+</code></pre>
+
+<p>The next step is to generate an Xcode project, build an .IPA, and upload it to iTunes Connect’s TestFlight. As part of the TestFlight processing procedure, the embedded ODR AssetBundles are removed from the app and hosted on Apple’s servers, ready for downloading.</p>
+
+<p>Before you build the .IPA in Xcode, check in XCode’s Build Settings to make sure that in the Assets section, <strong>Embed Asset packs In Product Bundle</strong> is set to <strong>No</strong>, and <strong>Enable On Demand Resources</strong> is set to <strong>Yes</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-XCodeBuildSettings.png" alt="">
+</figure>
+
+<p>Once iTunes Connect has finished processing your app upload, click on the build version in TestFlight Builds to see more information about it:</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-XCodeTestFlightBuilds.png" alt="">
+</figure>
+
+<p><a name="AppSlicing"></a></p>
+
+<h2>App slicing</h2>
+
+<p>App slicing follows a similar process to on-demand resourcing, allowing you to dynamically download Assets according the specification of the device the app is running on - for example, to download high-resolution Assets for retina iPads, and low-resolution Assets for smaller devices like iPhones and the iPad Mini. This is achieved by defining AssetBundles, with the added provision of <strong>variants</strong>. This way, you can decide at startup which variant to use, and automatically append this to the Asset file name upon download.</p>
+
+<p>To create a Variant, click on your new folder and navigate to the <strong>Asset Labels</strong> section at the bottom of the Inspector window. Click on the right-hand drop-down menu, select <strong>New…</strong>, and enter the name of your new variant. Note that AssetBundle variants must be lower-case.</p>
+
+<figure>
+<img src="../uploads/Main/AppThinning-AssetBundleVariants.png" alt="">
+</figure>
+
+<p>The new variant must be referenced in an Editor script. To create an Editor script, create a new folder inside the Project window called “Editor”. Right-click on the Editor folder and select <strong>Create</strong> &gt; <strong>C# Script.</strong> Name the new script <strong>BuildiOSAppSlices.cs</strong>.</p>
+
+<p>Copy and paste the code below, replacing the example label (“textures”) and variants (“hd” and “sd”) with your own. In this code example, multiple folders are referred to: one containing HD textures, and one containing SD textures. These have been given the variants “hd” and “sd” respectively.</p>
+
+<pre><code>using UnityEngine;
+using UnityEditor;
+
+
+public class BuildiOSAppSlices : MonoBehaviour
+{
+    [InitializeOnLoadMethod]
+    static void SetupResourcesBuild( )
+    {
+        UnityEditor.iOS.BuildPipeline.collectResources += CollectResources;
+    }
+
+    static UnityEditor.iOS.Resource[] CollectResources( )
+    {
+        return new UnityEditor.iOS.Resource[]
+        {
+            new UnityEditor.iOS.Resource(&quot;textures&quot;).BindVariant( &quot;Assets/ODR/textures.hd&quot;, &quot;hd&quot; )
+                                     .BindVariant( &quot;Assets/ODR/textures.sd&quot;, &quot;sd&quot; )
+                     .AddOnDemandResourceTags( &quot;textures&quot; ),
+    };
+    }
+
+    [MenuItem( &quot;Bundle/Build iOS App Slices&quot; )]
+    static void BuildAssetBundles( )
+    {
+        var options = BuildAssetBundleOptions.None;
+
+        bool shouldCheckODR = EditorUserBuildSettings.activeBuildTarget == BuildTarget.iOS;
+
+#if UNITY_TVOS
+            shouldCheckODR |= EditorUserBuildSettings.activeBuildTarget == BuildTarget.tvOS;
+#endif
+
+        if( shouldCheckODR )
+        {
+#if ENABLE_IOS_ON_DEMAND_RESOURCES
+            if( PlayerSettings.iOS.useOnDemandResources )
+                options |= BuildAssetBundleOptions.UncompressedAssetBundle;
+#endif
+
+#if ENABLE_IOS_APP_SLICING
+            options |= BuildAssetBundleOptions.UncompressedAssetBundle;
+#endif
+        }
+
+        BuildPipeline.BuildAssetBundles( &quot;Assets/ODR&quot;, options, EditorUserBuildSettings.activeBuildTarget );
+    }
+
+}
+</code></pre>
+
+<p>This creates a new menu in the Unity Editor menu bar called <strong>Bundle</strong>. Click this and select the only item in the list, <strong>Build iOS App Slices</strong>. This generates the AssetBundles in the <strong>ODR</strong> folder.</p>
+
+<p>Then, to load an Asset, place this class somewhere in your project and pass in the name of the Variant you wish to load:</p>
+
+<pre><code class="using UnityEngine;">using UnityEngine.iOS;
+using System;
+using System.Collections;
+
+public class LoadBundle : MonoBehaviour
+{
+    public AssetBundle     TextureBundle;
+
+
+    void Start( )
+    {
+        StartCoroutine( LoadAsset( &quot;textures.hd&quot;, &quot;textures&quot; ) );
+    }
+
+    public IEnumerator LoadAsset( string resourceName, string odrTag )
+    {
+        // Create the request
+        OnDemandResourcesRequest request = OnDemandResources.PreloadAsync( new string[] { odrTag } );
+
+        // Wait until request is completed
+        yield return request;
+
+        // Check for errors
+        if( request.error != null )
+            throw new Exception( &quot;ODR request failed: &quot; + request.error );
+
+        TextureBundle = AssetBundle.LoadFromFile( &quot;res://&quot; + resourceName );
+
+        request.Dispose( );
+    }
+}
+</code></pre>
+
+<p>To learn more about AssetBundles and on-demand resources, see Unity’s <a href="https://bitbucket.org/Unity-Technologies/assetbundledemo">AssetBundle Manager demo project</a>, hosted on Bitbucket. The landing page offers a comprehensive description of how to use and tweak the demo.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="iosCustomWWWRequest.html"></a></span><div class="tip">Customising WWW Requests on iOS</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="iphone-unsupported.html"></a></span><div class="tip">Features currently not supported by Unity iOS</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

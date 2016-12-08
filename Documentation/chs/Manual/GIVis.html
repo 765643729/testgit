@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: GI Visualisations in the Scene View</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/GIVis.html">English</a></li>
+<li><a href="/ja/current/Manual/GIVis.html">日本語</a></li>
+<li><a href="/es/current/Manual/GIVis.html">Español</a></li>
+<li><a href="/kr/current/Manual/GIVis.html">한국어</a></li>
+<li><a href="/ru/current/Manual/GIVis.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li><a href="LightingOverview.html">Lighting</a></li>
+<li><a href="GIIntro.html">Global Illumination</a></li>
+<li>GI Visualisations in the Scene View</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="MetaPass.html"></a></span><div class="tip"> Meta Pass</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="GICache.html"></a></span><div class="tip"> GI Cache</div>
+</div>
+</div></div>
+<h1>GI Visualisations in the Scene View</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Scene view has a number of <a href="ViewModes.html">Draw Modes</a> to help you to visualise different aspects of the scene’s content. Among these are a set of modes to let you see exactly what the <a href="GlobalIllumination.html">global illumination</a> is doing. The default <em>Textured</em> mode shows the scene fully lit according to the GI setup. The other modes relevant to the GI are <em>Albedo</em>, <em>Emissive</em>, <em>UV Charts</em>, <em>Irradiance</em>, <em>Directionality</em>, <em>Systems</em> and <em>Baked</em>, each of which is described below.
+Note that the Object tab in the Lighting window can show the selected object’s texture with the UV channel rendered on top.</p>
+
+<h2>UV Charts</h2>
+
+<p>This shows the optimized UV layout used in calculating the dynamic GI. It is automatically generated during the precompute process. It is available as soon as the Instance precompute stage is completed.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/Charts.png" alt="">
+</figure>
+
+<h2>Systems</h2>
+
+<p>The precompute stage will automatically subdivide the scene into <em>systems</em> (ie, groups of objects sharing the same lightmap atlas) based on proximity and settings. This is mainly done to allow multithreading and optimizations in the precompute process. This visualization shows the systems with different colors.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/Systems.png" alt="">
+</figure>
+
+<h2>Albedo</h2>
+
+<p>This shows the albedo used in calculating the dynamic GI.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/Albedo.png" alt="">
+</figure>
+
+<h2>Emissive</h2>
+
+<p>Shows the emissiveness used in calculating the dynamic GI.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/Emissive.png" alt="">
+</figure>
+
+<h2>Irradiance</h2>
+
+<p>This shows the indirect lighting only (the contents of dynamic lightmaps).</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/Irradiance.png" alt="">
+</figure>
+
+<h2>Directionality</h2>
+
+<p>This shows directional information matching the irradiance.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/Directional.png" alt="">
+</figure>
+
+<h2>Baked</h2>
+
+<p>This shows the baked lightmaps only.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/StaticLightmap.png" alt="">
+</figure>
+
+<h2>Clustering</h2>
+
+<p>This shows the clustering output generated by Enlighten for Realtime GI.</p>
+
+<h2>Lit Clustering</h2>
+
+<p>This is a variation of the clustering view mode, with the indirect lighting generated by Enlighten applied to the clusters.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="MetaPass.html"></a></span><div class="tip"> Meta Pass</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="GICache.html"></a></span><div class="tip"> GI Cache</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

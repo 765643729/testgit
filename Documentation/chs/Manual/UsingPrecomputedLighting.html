@@ -1,0 +1,221 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Using precomputed lighting</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UsingPrecomputedLighting.html">English</a></li>
+<li><a href="/ja/current/Manual/UsingPrecomputedLighting.html">日本語</a></li>
+<li><a href="/es/current/Manual/UsingPrecomputedLighting.html">Español</a></li>
+<li><a href="/kr/current/Manual/UsingPrecomputedLighting.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UsingPrecomputedLighting.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li><a href="LightingOverview.html">Lighting</a></li>
+<li><a href="GIIntro.html">Global Illumination</a></li>
+<li>Using precomputed lighting</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GlobalIllumination.html"></a></span><div class="tip">Lighting Window</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="LightProbes.html"></a></span><div class="tip">Light Probes </div>
+</div>
+</div></div>
+<h1>Using precomputed lighting</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>In Unity, precomputed lighting is calculated in the background either as an automatic process or when manually initiated. In either case, it is possible to continue working in the editor while these processes run behind-the-scenes.</p>
+
+<p>When the precompute process is running, a blue progress bar will appear in the bottom right of the Editor. There are different stages which need to be completed depending on whether Baked GI or Precomputed Realtime GI is enabled. Information on the current process is shown on-top of the progress bar.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/BakingJobs.png" alt="">
+</figure>
+
+<p>Progress bar showing the current state of Unity’s precompute.</p>
+
+<p>In the example above, we can see that we are at task 5 of 11 which is, ‘Clustering’ and there are 6 jobs remaining before that task is complete and the precompute moves on to task 6. The various stages are listed below:</p>
+
+<p><strong>Precomputed Realtime GI</strong></p>
+
+<ol>
+<li>Create Geometry</li>
+<li>Layout Systems</li>
+<li>Create Systems</li>
+<li>Create Atlas</li>
+<li>Clustering</li>
+<li>Visibility</li>
+<li>Light Transport</li>
+<li>Tetrahedralize Probes</li>
+<li>Create ProbeSet</li>
+</ol>
+
+<p><strong>Probes</strong></p>
+
+<ol>
+<li>Ambient Probes</li>
+<li>Baked/Realtime Ref. Probes</li>
+</ol>
+
+<p><strong>Baked GI</strong></p>
+
+<ol>
+<li>Create Geometry</li>
+<li>Atlassing</li>
+<li>Create Baked Systems</li>
+<li>Baked Resources</li>
+<li>Bake AO</li>
+<li>Export Baked Texture</li>
+<li>Bake Visibility</li>
+<li>Bake Direct</li>
+<li>Ambient and Emissive</li>
+<li>Create Bake Systems</li>
+<li>Bake Runtime</li>
+<li>Upsampling Visibility</li>
+<li>Bake Indirect</li>
+<li>Final Gather</li>
+<li>Bake ProbesSet</li>
+<li>Compositing</li>
+</ol>
+
+<h2>Starting a precompute</h2>
+
+<p>Only static geometry is considered by Unity’s precomputed lighting solutions. To begin the lighting precompute process we need at least one GameObject marked as ‘static’ in our scene. This can either be done individually, or by shift-selecting multiple GameObjects from the hierarchy panel.</p>
+
+<p>From the Inspector panel, the Static checkbox can be selected (<strong>Inspector &gt; Static</strong>). This will set all of the GameObject’s ‘static options’, or ‘flags’, including navigation and batching, to be static, which may not be desirable. For Precomputed Realtime GI, only ‘Lightmap Static’ needs to be checked.</p>
+
+<p>For more fine-grained control, individual static options can be set from the drop-down list accessible to the right of the Static checkbox in the Inspector panel. Additionally, objects can also be set to Static in the Object area of the lighting window.</p>
+
+<p>If your scene is set to Auto (<strong>Lighting &gt; Scene &gt; Auto</strong>), Unity’s lighting precompute will now begin automatically. Otherwise it will need to be started manually as described below.</p>
+
+<h2>Auto/manual precompute</h2>
+
+<p>If ‘Auto’ is checked from the bottom of Unity’s Lighting panel (<strong>Lighting &gt; Scene &gt; Auto</strong>), then this precompute will begin automatically as a background process whenever changes are made to static geometry within your scene.</p>
+
+<p>However, if Auto is not selected, you will need to manually start a precompute by clicking the ‘Build’ button next to it. This will begin the precompute in much the same way, while giving you control over when this process starts.</p>
+
+<p>Manually initiating a precompute will cause all aspects of your scene lighting to be evaluated and (re)computed. If you wish to selectively recalculate Reflection probes by themselves, this can be done via the drop-down menu next to the Build button (<strong>Lighting &gt; Scene &gt; Build</strong>).</p>
+
+<h2>Enabling baked GI or precomputed realtime GI</h2>
+
+<p>By default, both Precomputed Realtime GI and Baked GI are enabled in Unity’s Lighting panel (<strong>Lighting &gt; Scene</strong>). With both enabled, which technique is used can then be controlled by each light individually (<strong>Inspector &gt; Light &gt; Baking</strong>).</p>
+
+<p>Using both Baked GI and Precomputed Realtime GI together in your scene can be detrimental to performance. A good practise is to ensure that only one system is used at a time, by disabling the other globally. This can be done by unchecking the box next to either Precomputed Realtime GI or Baked GI from Unity’s lighting panel (<strong>Lighting &gt; Scene)</strong>. Now only the checked option will be present in your scene, and any settings configured per-light will be overridden.</p>
+
+<h2>Per-light settings</h2>
+
+<p>The default baking mode for each light is ‘Realtime’. This means that the selected light(s) will still contribute direct light to your scene, with indirect light handled by Unity’s Precomputed Realtime GI system.</p>
+
+<p>However, if the baking mode is set to ‘Baked’ then that light will contribute lighting solely to Unity’s Baked GI system. Both direct and indirect light from those lights selected will be ‘baked’ into lightmaps and cannot be changed during gameplay.</p>
+
+<figure>
+<img src="../uploads/GlobalIllumination/LightBakingType.png" alt="">
+</figure>
+
+<p>Baking ModePoint light with the per-light Baking mode set to ‘Realtime’.</p>
+
+<p>Selecting the ‘Mixed’ baking mode, GameObjects marked as static will still include this light in their Baked GI lightmaps. However, unlike lights marked as ‘Baked’, Mixed lights will still contribute realtime, direct light to non-static GameObjects within your scene. This can be useful in cases where you are using lightmaps in your static environment, but you still want a character to use these same lights to cast realtime shadows onto lightmapped geometry.</p>
+
+<h2>GI cache</h2>
+
+<p>In either Baked GI or Precomputed Realtime GI, Unity ‘caches’ (stores) data about your scene lighting in the ‘GI Cache’, and will try to reuse this data whenever possible to save time during precompute. The number and nature of the changes you have made to your scene will determine how much of this data can be reused, if at all.</p>
+
+<p>This cache is stored outside of your Unity project and can be cleared using (<strong>Preference &gt; GI Cache &gt; Clear Cache</strong>). Clearing this means that all stages of the precompute will need to be recalculated from the beginning and this can therefore be time consuming. However in some cases, where perhaps you need to reduce disk usage, this may be helpful.</p>
+
+<h2>LOD for baked GI</h2>
+
+<p>Level-of-detail is taken into consideration when Unity generates baked lightmaps. Direct lighting is computed using the actual surfaces of all LODs. Lower LOD levels use light probes to fetch indirect lighting. The resulting lighting is baked into lightmap.</p>
+
+<p>This means that you should place light probes around your LODs to capture indirect lighting. The object will not use lightprobes at runtime if you use fully baked GI.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GlobalIllumination.html"></a></span><div class="tip">Lighting Window</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="LightProbes.html"></a></span><div class="tip">Light Probes </div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

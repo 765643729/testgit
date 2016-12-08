@@ -1,0 +1,217 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Windows Store Apps: Plugins on .NET Scripting Backend</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/windowsstore-plugins.html">English</a></li>
+<li><a href="/ja/current/Manual/windowsstore-plugins.html">日本語</a></li>
+<li><a href="/es/current/Manual/windowsstore-plugins.html">Español</a></li>
+<li><a href="/kr/current/Manual/windowsstore-plugins.html">한국어</a></li>
+<li><a href="/ru/current/Manual/windowsstore-plugins.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="Windows.html">Windows</a></li>
+<li><a href="WindowsStore.html">Windows Store Apps</a></li>
+<li><a href="windowsstore-scriptingbackends.html"> Scripting Backends</a></li>
+<li><a href="windowsstore-dotnet.html"> Windows Store: .NET Scripting Backend</a></li>
+<li> Windows Store Apps: Plugins on .NET Scripting Backend</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="windowsstore-missingtypes.html"></a></span><div class="tip"> Windows Store Apps: Missing .NET Types on .NET Scripting Backend</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="windowsstore-debugging.html"></a></span><div class="tip">Windows Store Apps: Debugging on .NET Scripting Backend</div>
+</div>
+</div></div>
+<h1>Windows Store Apps: Plugins on .NET Scripting Backend</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>Managed Plugins</h2>
+
+<p>You cannot use Windows Store Apps specific plugins in Unity Editor if you use Windows Runtime APIs (<a href="http://msdn.microsoft.com/en-us/library/windows/apps/br211377.aspx">http://msdn.microsoft.com/en-us/library/windows/apps/br211377.aspx</a>), so we changed a bit how Unity Editor handles them.
+If you intend to use the plugin only for Windows Store Apps and not in Unity editor, you can skip making a placeholder. If you do this, you need to wrap the code which uses the plugin API with the following:</p>
+
+<pre><code>#if !UNITY_EDITOR
+// Plugin code
+#endif
+</code></pre>
+
+<p>If you need a placeholder, you make two versions of plugins:</p>
+
+<ul>
+<li>One for Unity Editor</li>
+<li>The other one for Windows Store (<strong>Note:</strong> We do not support Windows Phone 8.1 silverlight assemblies as plugins for Windows Phone 8.1)</li>
+</ul>
+
+<p>
+<strong>Important</strong> The placeholder plugin for Unity Editor cannot reference UnityEditor.dll, otherwise you’ll get the following error:</p>
+
+<pre><code>The Assembly UnityEditor is referenced by Plugin ('Assets/Plugins/Plugin.dll'). But the dll is not allowed to be included or could not be found.
+</code></pre>
+
+<p>Both of them must share the same name and have the same assembly version. For example, you should place Editor compatible plugin in Assets\Plugins\MyPlugin.dll, and Windows Store Apps specific plugin in Assets\Plugins\WSA\MyPlugin.dll.</p>
+
+<ul>
+<li><p>Go to Assets\Plugins\MyPlugin.dll, select Editor as the only compatible platform</p></li>
+<li><p>Go to Assets\Plugins\WSA\MyPlugin.dll, select Windows Store Apps as the only compatible platform, now go to Windows Store Apps plugin settings</p></li>
+<li><p>Pick ‘Assets\Plugins\MyPlugin.dll’ in the placeholder field, this means that when building to Windows Store apps ‘Assets\Plugins\MyPlugin.dll’ will be used when compiling your scripts, but ‘Assets\Plugins\WSA\MyPlugin.dll’ will be copied to final folder instead of ‘Assets\Plugins\MyPlugin.dll’. This achieves two things - Unity Editor will successfully compile your scripts, but during the game you’ll be using API from Windows Store Apps specific plugin.<br>
+<img src="../uploads/Main/PluginsWSASettings.png" alt="Plugin Inspector">
+</p></li>
+</ul>
+
+<p>
+<strong>Don’t process</strong> option</p>
+
+<p>This option is used when you don’t want for Unity to patch your assemblies, usually this option should be applied for plugins which contain heavy Windows Runtime API, and Unity fails to patch them.</p>
+
+<h2>Windows Store Apps Plugin Settings</h2>
+
+<figure>
+<img src="../uploads/Main/PluginInspectorWSATab.png" alt="Options in the editor tab">
+<figcaption>Options in the editor tab</figcaption>
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>SDK</strong></td>
+	<td style="text-align:left;">Limits plugin to Windows Store Apps built with <em>SDK 8.0</em> or <em>SDK 8.1</em>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>CPU</strong></td>
+	<td style="text-align:left;">limit plugin to <em>32 bit</em>, <em>64 bit</em> or <em>ARM</em> players.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Don’t process</strong></td>
+	<td style="text-align:left;">(Only applies for managed assemblies) Disables patching for this assembly. Patching is needed when assemblies contains classes serializable by Unity. In these cases, additional IL code is injected into the assemblies. If you know that assemblies doesn’t have such classes then it’s safe to disable the patching. <strong>Note:</strong> if the assembly isn’t patched and Unity tries to serialize at runtime, you’ll get an ‘Out of bounds’ error or something similar.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Placeholder</strong></td>
+	<td style="text-align:left;">(Only applies for managed assemblies). With Windows Store Apps you can have plugins compiled against .NET Core, but because the Unity Editor runs on Mono, it will fail to recognize such assemblies. As a result, C# or JS files won’t be able to reference them. To overcome this, you have to provide an assembly compiled against .NET 3.5 with identical API which would act as a placeholder for the real plugin.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Placeholder Example</h3>
+
+<p>For example, let’s say you have two assemblies:</p>
+
+<ul>
+<li><p>
+<strong>Plugins\WSA\MyPlugin.dll</strong> - assembly compiled against .NET Core with Windows Runtime API inside.</p></li>
+<li><p>
+<strong>Plugins\MyPlugin.dll</strong> - assembly compiled against .NET 3.5 which has identical public API with dummy function implementations.</p></li>
+</ul>
+
+<p>Click on <strong>Plugins\WSA\MyPlugin.dll</strong>, select Placeholder and pick <strong>Plugins\MyPlugin.dll</strong>. </p>
+
+<p>This way when Unity compile scripts it will reference <strong>Plugins\MyPlugin.dll</strong> file, but when Unity will copy plugins to final directory, it will copy <strong>Plugins\WSA\MyPlugin.dll</strong> instead of <strong>Plugins\MyPlugin.dll</strong>.</p>
+
+<h3>What happens if Unity won’t patch your assemblies?</h3>
+
+<p>Unity injects serialization code into your assemblies, meaning if you have a class derived from MonoBehaviour in your plugin, and Unity doesn’t patch it, you might get a serialization error during runtime.</p>
+
+<p>Both of them must share the same name. For example, you should place an Editor compatible plugin at Assets\Plugins\MyPlugin.dll, and a Windows Store Apps specific plugin at Assets\Plugins\WSA\MyPlugin.dll. When you’re working in Editor the Assets\Plugins\MyPlugin.dll will be used, and when you’re building to a Windows Store Apps app the Assets\Plugins\WSA\MyPlugin.dll will copied over to the build.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="windowsstore-missingtypes.html"></a></span><div class="tip"> Windows Store Apps: Missing .NET Types on .NET Scripting Backend</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="windowsstore-debugging.html"></a></span><div class="tip">Windows Store Apps: Debugging on .NET Scripting Backend</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

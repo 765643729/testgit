@@ -1,0 +1,973 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Setting up a Multiplayer Project from Scratch</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetSetup.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetSetup.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetSetup.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetSetup.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetSetup.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetOverview.html">Networking Overview</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li>Setting up a Multiplayer Project from Scratch</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetConcepts.html"></a></span><div class="tip">Network System Concepts</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetManager.html"></a></span><div class="tip">Using the Network Manager</div>
+</div>
+</div></div>
+<h1>Setting up a Multiplayer Project from Scratch</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>This document describes steps to setup a new multiplayer project from nothing using the new networking system. This step-by-step process is generic, but can be customized for many types of multiplayer games once it is started.</p>
+
+<p>To get started, create a new empty Unity project.</p>
+
+<h2>NetworkManager Setup</h2>
+
+<p>The first step is to create a NetworkManager object in the project:</p>
+
+<ul>
+<li>Add a new empty game object, from the menu Game Object -&gt; Create Empty.</li>
+<li>Find the newly created object in the Hierarchy View and select it</li>
+<li>Rename the object to “NetworkManager” from the right-click context menu or by clicking on the object’s name and typing.</li>
+<li>In the inspector window for the object, click the Add Component button</li>
+<li>Find the component Network -&gt; NetworkManager and add it to the object. This component manages the network state of the game.</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut1.png" alt="">
+</figure>
+
+<ul>
+<li>Find the component Network -&gt; NetworkManagerHUD and add it to the object. This component supplies a simple user interface in your game for controlling the network state.</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerRuntimeUI.png" alt="">
+</figure>
+
+<p>For more details, see <a href="UNetManager.html">Using the NetworkManager</a>.</p>
+
+<h2>Setup the Player Prefab</h2>
+
+<p>The next step is to setup the Unity Prefab that represents the player in the game. By default, the NetworkManager instantiates an object for each player by cloning the player prefab. In this example, the player object will be a simple cube.</p>
+
+<ul>
+<li>Create a new Cube from the menu Game Object -&gt; 3D Object -&gt; Cube</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut2.png" alt="">
+</figure>
+
+<ul>
+<li>Find the cube in the Hierarchy view and select it</li>
+<li>Rename the object to “PlayerCube”</li>
+<li>In the inspector window for the object click the Add Component button</li>
+<li>Add the component Network -&gt; NetworkIdentity to the object. This component is used to identify the object between the server and clients.</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut3.png" alt="">
+</figure>
+
+<ul>
+<li>Set the “Local Player Authority” checkbox on the NetworkIdentity to true. This will allow the client to control the movement of the player object</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut4.png" alt="">
+</figure>
+
+<ul>
+<li>Make a prefab from the player cube object by dragging it into the Assets window. This will create a prefab called “PlayerCube”</li>
+<li>Delete the PlayerCube object from the scene - we don’t need it now that we have a prefab</li>
+</ul>
+
+<p>See <a href="UNetPlayers.html">Player Objects</a>.</p>
+
+<h2>Register the Player Prefab</h2>
+
+<p>Once the player prefab is created, it must be registered with the network system.</p>
+
+<ul>
+<li>Find the NetworkManager object in the Heirarchy View and select it</li>
+<li>Open the “Spawn Info” foldout of the inspector for the NetworkManager</li>
+<li>Find the “Player Prefab” slot</li>
+<li>Drag the PlayerCube prefab into the “Player Prefab” slot</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut5.png" alt="">
+</figure>
+
+<p>Now is a good time to save the project for the first time. From the menu File -&gt; Save Project, save the project. You should also save the scene. Lets call this scene the “offline” scene.</p>
+
+<h2>Player Movement (Single Player Version)</h2>
+
+<p>The first piece of game functionality is to move the player object. This will first be done without any networking, so it will only work in a single-player mode.</p>
+
+<ul>
+<li>Find the PlayerCube prefab in the Asset view.</li>
+<li>Click the Add Component button and choose “New Script”</li>
+<li>Enter the name “PlayerMove” for the new script name. A new script will be created.</li>
+<li>Open this new script in an editor (such as Visual Studio) by double clicking it</li>
+<li>Add this simple movement code to the script:</li>
+</ul>
+
+<pre><code>using UnityEngine;
+
+public class PlayerMove : MonoBehaviour
+{
+    void Update()
+    {
+        var x = Input.GetAxis(&quot;Horizontal&quot;)*0.1f;
+        var z = Input.GetAxis(&quot;Vertical&quot;)*0.1f;
+
+        transform.Translate(x, 0, z);
+    }
+}
+</code></pre>
+
+<p>This hooks up the cube to be controlled by the arrow keys or a controller pad. The cube only moves on the client right now - it is not networked. </p>
+
+<p>Save the project again.</p>
+
+<h2>Test a Hosted Game</h2>
+
+<p>Enter play mode in the editor by clicking the play button. You should see the NetworkManagerHUD default user interface:</p>
+
+<figure>
+<img src="../uploads/Main/NetworkManagerRuntimeUI.png" alt="">
+</figure>
+
+<p>Press “Host” to start the game as the host of the game. This will cause a player object to be created, and the HUD will change to show the server is active. This game is running as a “host” - which is a server and a client in the same process.</p>
+
+<p>See <a href="UNetConcepts.html">Network Concepts</a>.</p>
+
+<p>Pressing the arrow keys should make the player cube object move around.</p>
+
+<p>Exit play mode by pressing the stop button in the editor.</p>
+
+<h2>Test Player Movement for a Client</h2>
+
+<ul>
+<li>Use the menu File -&gt; Build Settings to open the Build Settings dialog.</li>
+<li>Add the current scene to the build by pressing the “Add Open Scenes” button</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut6.png" alt="">
+</figure>
+
+<ul>
+<li>Create a build by pressing the “Build and Run” button. This will prompt for a name for the executable, enter a name such as “networkTest”</li>
+<li>A stand-alone player will launch, and show a resolution choice dialogue.</li>
+<li>Choose the “windowed” checkbox and a lower resolution such as 640x480</li>
+<li>The stand-alone player will start and show the NetworkManager HUD.</li>
+<li>Choose “Host” from the menu to start as a host. A player cube should be created</li>
+<li>Press the arrow keys to move the player cube around a little</li>
+<li>Switch back to the editor and close the Build Settings dialog.</li>
+<li>Enter play mode with the play button</li>
+<li>From the NetworkManagerHUD user interace, choose “LAN Client” to connect to the host as a client</li>
+<li>There should be two cubes, one for the local player on the host and one for the remote player for this client</li>
+<li>Press the arrow keys to move the cube around</li>
+<li>Both cube currently move! This because the movement script is not network-aware.</li>
+</ul>
+
+<h2>Make Player Movement Networked</h2>
+
+<ul>
+<li>Close the stand-alone player</li>
+<li>Exit play mode in the editor</li>
+<li>Open the PlayerMove script.</li>
+<li>Update the script to only move the local player</li>
+<li>Add “using UnityEngine.Networking”</li>
+<li>Change “MonoBehaviour” to “NetworkBehaviour”</li>
+<li>Add a check for “isLocalPlayer” in the Update function, so that only the local player processes input</li>
+</ul>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Networking;
+
+public class PlayerMove : NetworkBehaviour
+{
+    void Update()
+    {
+        if (!isLocalPlayer)
+            return;
+
+        var x = Input.GetAxis(&quot;Horizontal&quot;)*0.1f;
+        var z = Input.GetAxis(&quot;Vertical&quot;)*0.1f;
+
+        transform.Translate(x, 0, z);
+    }
+}
+</code></pre>
+
+<ul>
+<li>Find the PlayerCube prefab in the Asset View and select</li>
+<li>Click the “Add Component” button and add the Networking -&gt; NetworkTransform component. This component makes the object sychronize it’s position across the network.</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut7.png" alt="">
+</figure>
+
+<ul>
+<li>Save the Project again</li>
+</ul>
+
+<h2>Test Multiplayer Movement</h2>
+
+<ul>
+<li>Build and run the stand-alone player again and start as host</li>
+<li>Enter play mode in the editor and connect as a client</li>
+<li>The player objects should now move independently of each other, and are controlled by the local player on their client.</li>
+</ul>
+
+<h2>Identify Your Player</h2>
+
+<p>The cubes in the game are currently all white, so the user cannot tell which one is their cube. To identify the player, we will make the cube of the local player red.</p>
+
+<ul>
+<li>Open the PlayerMove script</li>
+<li>Add an implementation of the OnStartLocalPlayer function to change the player object’s color.</li>
+</ul>
+
+<pre><code>    public override void OnStartLocalPlayer()
+    {
+        GetComponent&lt;MeshRenderer&gt;().material.color = Color.red;
+    }
+</code></pre>
+
+<p>This function is only called on the local player on their client. This will make the user see their cube as red. The OnStartLocalPlayer function is a good place to do initialization that is only for the local player, such as configuring cameras and input. </p>
+
+<p>There are also other useful virtual functions on the NetworkBehaviour base class. See <a href="UNetSpawning.html">Spawning</a>.</p>
+
+<ul>
+<li>Build and run the game</li>
+<li>The cube controlled by the local player should now be red, while the others are still white.</li>
+</ul>
+
+<h2>Shooting Bullets (Not Networked)</h2>
+
+<p>A common feature in multiplayer games is to have player fire bullets. This section adds non-networked bullets to the example. Networking for bullets is added in the next section.</p>
+
+<ul>
+<li>Create a sphere game object</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut8.png" alt="">
+</figure>
+
+<ul>
+<li>Rename the sphere object to “Bullet”</li>
+<li>Change scale of the bullet from 1.o to 0.2</li>
+<li>Drag the bullet to the assets folder to make a prefab of the bullet</li>
+<li>Delete the bullet object from the scene</li>
+<li>Add a Rigidbody component to the bullet</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut9.png" alt="">
+</figure>
+
+<ul>
+<li>Set the “Use Gravity” checkbox on the rigidbody to false</li>
+<li>Update the PlayerMove script to fire bullets:</li>
+<li>Add a public slot for the bullet prefab</li>
+<li>Add input handling in Update() function</li>
+<li>Add a function to fire a bullet</li>
+</ul>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Networking;
+
+public class PlayerMove : NetworkBehaviour
+{
+    public GameObject bulletPrefab;
+
+    public override void OnStartLocalPlayer()
+    {
+        GetComponent&lt;MeshRenderer&gt;().material.color = Color.red;
+    }
+
+    void Update()
+    {
+        if (!isLocalPlayer)
+            return;
+
+        var x = Input.GetAxis(&quot;Horizontal&quot;)*0.1f;
+        var z = Input.GetAxis(&quot;Vertical&quot;)*0.1f;
+
+        transform.Translate(x, 0, z);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Fire();
+        }
+    }
+
+    void Fire()
+    {
+        // create the bullet object from the bullet prefab
+        var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            transform.position - transform.forward,
+            Quaternion.identity);
+
+        // make the bullet move away in front of the player
+        bullet.GetComponent&lt;Rigidbody&gt;().velocity = -transform.forward*4;
+        
+        // make bullet disappear after 2 seconds
+        Destroy(bullet, 2.0f);        
+    }
+}
+</code></pre>
+
+<ul>
+<li>Save the script and return to the editor</li>
+<li>Select the PlayerCube prefab and find the PlayerMove component</li>
+<li>Find the bulletPrefab slot on the component</li>
+<li>Drag the bull prefab into the bulletPrefab slot</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut10.png" alt="">
+</figure>
+
+<ul>
+<li>Make a build then start the stand-alone player as the host</li>
+<li>Enter play mode in the editor and connect as a client</li>
+<li>Pressing the space bar should cause a bullet to be created and fired from the player object</li>
+<li>The bullet is not fired on other clients, only the one where the space bar was pressed.</li>
+</ul>
+
+<h2>Shooting Bullets with Networking</h2>
+
+<p>This section adds networking to the bullets in the example.</p>
+
+<ul>
+<li>Find the bullet prefab and select it</li>
+<li>Add NetworkIdentity to the bullet prefab</li>
+<li>Add NetworkTransform component to the bullet prefab</li>
+<li>Set the send rate to zero on the NetworkTransform component on the bullet prefab. The bullet doesnt change direction or velocity after it is shot, so it does not need to send movement updates.</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut11.png" alt="">
+</figure>
+
+<ul>
+<li>Select the NetworkManager and open the “Spawn Info” foldout</li>
+<li>Add a new spawn prefab with the plus button</li>
+<li>Drag the Bullet prefab into the new spawn prefab slot</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/UNetTut12.png" alt="">
+</figure>
+
+<ul>
+<li>Open the PlayerMove script</li>
+<li>Update the PlayerMove script to network the bullet:</li>
+<li>Change the Fire function to be a networked command, by adding the [Command] custom attribute and the “Cmd” prefix</li>
+<li>Use Network.Spawn() on bullet object</li>
+</ul>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Networking;
+
+public class PlayerMove : NetworkBehaviour
+{
+    public GameObject bulletPrefab;
+    
+    public override void OnStartLocalPlayer()
+    {
+        GetComponent&lt;MeshRenderer&gt;().material.color = Color.red;
+    }
+
+    [Command]
+    void CmdFire()
+    {
+       // This [Command] code is run on the server!
+
+       // create the bullet object locally
+       var bullet = (GameObject)Instantiate(
+            bulletPrefab,
+            transform.position - transform.forward,
+            Quaternion.identity);
+
+       bullet.GetComponent&lt;Rigidbody&gt;().velocity = -transform.forward*4;
+       
+       // spawn the bullet on the clients
+       NetworkServer.Spawn(bullet);
+       
+       // when the bullet is destroyed on the server it will automaticaly be destroyed on clients
+       Destroy(bullet, 2.0f);
+    }
+
+    void Update()
+    {
+        if (!isLocalPlayer)
+            return;
+
+        var x = Input.GetAxis(&quot;Horizontal&quot;)*0.1f;
+        var z = Input.GetAxis(&quot;Vertical&quot;)*0.1f;
+
+        transform.Translate(x, 0, z);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // Command function is called from the client, but invoked on the server
+            CmdFire();
+        }
+    }
+}
+</code></pre>
+
+<p>This code uses a [Command] to fire the bullet on the server. For more information see <a href="UNetActions.html">Networked Actions</a>.</p>
+
+<ul>
+<li>Make a build then start the stand-alone player as the host</li>
+<li>Enter play mode in the editor and connect as a client</li>
+<li>Pressing the space bar should make bullet fire for the correct player (only) on all clients</li>
+</ul>
+
+<h2>Bullet Collisions</h2>
+
+<p>This adds a collision handler so that bullets will disappear when they hit a player cube object.</p>
+
+<ul>
+<li>Find the bullet prefab and select it</li>
+<li>Choose the Add Component button and add a new script</li>
+<li>Call the new script “Bullet”</li>
+<li>Open the new script and add the collision handler that destroys the bullet when it hits a player object</li>
+</ul>
+
+<pre><code>using UnityEngine;
+
+public class Bullet : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
+        var hit = collision.gameObject;
+        var hitPlayer = hit.GetComponent&lt;PlayerMove&gt;();
+        if (hitPlayer != null)
+        {
+            Destroy(gameObject);
+        }
+    }
+}
+
+</code></pre>
+
+<p>Now when a bullet hits a player object it will be destroyed. When the bullet on the server is destroyed, since it is a spawned object managed by the network, it will be destroyed on clients too.</p>
+
+<h2>Player State (Non-Networked Health)</h2>
+
+<p>A common feature related to bullets is that the player object has a “health” property that starts at a full value and then is reduced when the player takes damage from a bullet hitting them. This section adds non-networked health to the player object.</p>
+
+<ul>
+<li>Select the PlayerCube prefab</li>
+<li>Choose the Add Component button and add a new script</li>
+<li>Call the script “Combat”</li>
+<li>Open the Combat script, add the health variables and TakeDamage function</li>
+</ul>
+
+<pre><code>using UnityEngine;
+
+public class Combat : MonoBehaviour 
+{
+    public const int maxHealth = 100;
+    public int health = maxHealth;
+
+    public void TakeDamage(int amount)
+    {
+        health -= amount;
+        if (health &lt;= 0)
+        {
+            health = 0;
+            Debug.Log(&quot;Dead!&quot;);
+        }
+    }
+}
+</code></pre>
+
+<p>The bullet script needs to be updated to call the TakeDamage function on a hit.
+* Open the bullet script
+* Add a call to TakeDamage() from the Combat script in the collision handler function</p>
+
+<pre><code>using UnityEngine;
+
+public class Bullet : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
+        var hit = collision.gameObject;
+        var hitPlayer = hit.GetComponent&lt;PlayerMove&gt;();
+        if (hitPlayer != null)
+        {
+            var combat = hit.GetComponent&lt;Combat&gt;();
+            combat.TakeDamage(10);
+
+            Destroy(gameObject);
+        }
+    }
+}
+</code></pre>
+
+<p>This will make health on the player object go down when hit by a bullet. But you cannot see this happening in the game. We need to add a simple health bar.
+* Select the PlayerCube prefab
+* Choose the Add Component button and add a new script called HealthBar
+* Open the HealthBar script</p>
+
+<p>This is a lot of code that uses the old GUI system. This is not very relevant for networking so we’ll just use it without explaination for now.</p>
+
+<pre><code>using UnityEngine;
+using System.Collections;
+
+public class HealthBar : MonoBehaviour 
+{
+    GUIStyle healthStyle;
+    GUIStyle backStyle;
+    Combat combat;
+
+    void Awake()
+    {
+        combat = GetComponent&lt;Combat&gt;();
+    }
+
+    void OnGUI()
+    {
+        InitStyles();
+
+        // Draw a Health Bar
+
+        Vector3 pos = Camera.main.WorldToScreenPoint(transform.position);
+        
+        // draw health bar background
+        GUI.color = Color.grey;
+        GUI.backgroundColor = Color.grey;
+        GUI.Box(new Rect(pos.x-26, Screen.height - pos.y + 20, Combat.maxHealth/2, 7), &quot;.&quot;, backStyle);
+        
+        // draw health bar amount
+        GUI.color = Color.green;
+        GUI.backgroundColor = Color.green;
+        GUI.Box(new Rect(pos.x-25, Screen.height - pos.y + 21, combat.health/2, 5), &quot;.&quot;, healthStyle);
+    }
+
+    void InitStyles()
+    {
+        if( healthStyle == null )
+        {
+            healthStyle = new GUIStyle( GUI.skin.box );
+            healthStyle.normal.background = MakeTex( 2, 2, new Color( 0f, 1f, 0f, 1.0f ) );
+        }
+
+        if( backStyle == null )
+        {
+            backStyle = new GUIStyle( GUI.skin.box );
+            backStyle.normal.background = MakeTex( 2, 2, new Color( 0f, 0f, 0f, 1.0f ) );
+        }
+    }
+    
+    Texture2D MakeTex( int width, int height, Color col )
+    {
+        Color[] pix = new Color[width * height];
+        for( int i = 0; i &lt; pix.Length; ++i )
+        {
+            pix[ i ] = col;
+        }
+        Texture2D result = new Texture2D( width, height );
+        result.SetPixels( pix );
+        result.Apply();
+        return result;
+    }
+}
+</code></pre>
+
+<ul>
+<li>Save the project</li>
+<li>Build and Run the game and see health bar on the player object</li>
+<li>If a player shoots another player now, the health goes down on that particular client, but not on other clients.</li>
+</ul>
+
+<h2>Player State (Networked Health)</h2>
+
+<p>Changes to health are being applied everywhere now - independently on the client and host. This allows health to look different for different players. Health should only be applied on the server and the changes replicated to clients. We call this “server authority” for health.</p>
+
+<ul>
+<li>Open the Combat script</li>
+<li>Change script to be a NetworkBehaviour</li>
+<li>Make health a [SyncVar]</li>
+<li>Add isServer check to TakeDamage, so it will only be applied on the server</li>
+</ul>
+
+<p>For more information on SyncVars, see <a href="UNetStateSync.html">State Synchronization</a>.</p>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Networking;
+
+public class Combat :  NetworkBehaviour 
+{
+    public const int maxHealth = 100;
+
+    [SyncVar]
+    public int health = maxHealth;
+
+    public void TakeDamage(int amount)
+    {
+        if (!isServer)
+            return;
+
+        health -= amount;
+        if (health &lt;= 0)
+        {
+            health = 0;
+            Debug.Log(&quot;Dead!&quot;);
+        }
+    }
+}
+
+</code></pre>
+
+<h2>Death and Respawning</h2>
+
+<p>Currently, nothing currently happens when the health of a player reaches zero except a log message. To make it more of a game, when health reaches zero, the player should be teleported back to the starting location with full health.</p>
+
+<ul>
+<li>Open the Combat script</li>
+<li>Add a [ClientRpc] function to respawn the player object. For more information see <a href="UNetActions.html">Networked Actions</a>.</li>
+<li>Call the repawn function on the server when health reaches zero</li>
+</ul>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Networking;
+
+public class Combat :  NetworkBehaviour 
+{
+    public const int maxHealth = 100;
+
+    [SyncVar]
+    public int health = maxHealth;
+
+    public void TakeDamage(int amount)
+    {
+        if (!isServer)
+            return;
+
+        health -= amount;
+        if (health &lt;= 0)
+        {
+            health = maxHealth;
+
+            // called on the server, will be invoked on the clients
+            RpcRespawn();
+        }
+    }
+
+    [ClientRpc]
+    void RpcRespawn()
+    {
+        if (isLocalPlayer)
+        {
+            // move back to zero location
+            transform.position = Vector3.zero;
+        }
+    }
+}
+</code></pre>
+
+<p>In this game, the client controls the position of the player object - the player object has “local authority” on the client. If the server just set the player’s position to the start position, it would be overridden by the client, since the client has authority. To avoid this, the server tells the owning client to move the player object to the start position.</p>
+
+<ul>
+<li>Build and run the game</li>
+<li>Move the player objects away from the start position</li>
+<li>Shoot bullets at one player until their health reaches zero</li>
+<li>The player object should teleport to the starting position.</li>
+</ul>
+
+<h2>Non-Player Objects</h2>
+
+<p>While player objects are spawned when client connect to the host, most games have non-player objects that exist in the game world, such as enemies. In this section a spawner is added that creates non-player objects that can be shot and killed.</p>
+
+<ul>
+<li>From the GameObject menu create a new empty game object</li>
+<li>Rename this object to “EnemySpawner”</li>
+<li>Select the EnemySpawner object</li>
+<li>Choose the Add Component button and add a NetworkIdentity to the object</li>
+<li>In the NetworkIdentity click the “Server Only” checkbox. This makes the spawner not be sent to clients.</li>
+<li>Choose the Add Component button and create a new script called “EnemySpawner”</li>
+<li>Edit the new script</li>
+<li>Make it a NetworkBehaviour</li>
+<li>Implement the virtual function OnStartServer to create the enemies</li>
+</ul>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Networking;
+
+public class EnemySpawner : NetworkBehaviour {
+
+    public GameObject enemyPrefab;
+    public int numEnemies;
+
+    public override void OnStartServer()
+    {
+        for (int i=0; i &lt; numEnemies; i++)
+        {
+            var pos = new Vector3(
+                Random.Range(-8.0f, 8.0f),
+                0.2f,
+                Random.Range(-8.0f, 8.0f)
+                );
+
+            var rotation = Quaternion.Euler( Random.Range(0,180), Random.Range(0,180), Random.Range(0,180));
+
+            var enemy = (GameObject)Instantiate(enemyPrefab, pos, rotation);
+            NetworkServer.Spawn(enemy);
+        }
+    }
+}
+</code></pre>
+
+<p>Now create an Enemy prefab:</p>
+
+<ul>
+<li>From the GameObject menu create a new Capsule.</li>
+<li>Rename the object to “Enemy”</li>
+<li>Choose the Add Component button add a NetworkIdentity component to the Enemy</li>
+<li>Choose the Add Component button add a NetworkTransform component to the Enemy</li>
+<li>Drag the Enemy object into the Asset view to create a prefab</li>
+<li>there should be a prefab asset now called “Enemy”</li>
+<li>Delete the Enemy object from the scene</li>
+<li>Select the Enemy prefab</li>
+<li>Choose the Add Component button and add the Combat script to the Enemy</li>
+<li>Choose the Add Component button and add the HealthBar script to the Enemy</li>
+<li>Select the NetworkManager and in Spawn Info add a new spawnable prefab</li>
+<li>Set the new spawn prefab to the Enemy Prefab</li>
+</ul>
+
+<p>The bullet script was setup to only work for players. Now update the bullet script to work with any object that has the Combat script on it:</p>
+
+<ul>
+<li>Open the Bullet script</li>
+<li>Change the collision check to use Combat instead of PlayerMove:</li>
+</ul>
+
+<pre><code>using UnityEngine;
+
+public class Bullet : MonoBehaviour
+{
+    void OnCollisionEnter(Collision collision)
+    {
+        var hit = collision.gameObject;
+        var hitCombat = hit.GetComponent&lt;Combat&gt;();
+        if (hitCombat != null)
+        {
+            hitCombat.TakeDamage(10);
+            Destroy(gameObject);
+        }
+    }
+}
+</code></pre>
+
+<p>Hookup the EnemySpawner with the Enemy object:</p>
+
+<ul>
+<li>Select the EnemySpawner object</li>
+<li>Find the “Enemy” slot on the EnemySpawner component</li>
+<li>Drag the Enemy prefab into the slot</li>
+<li>Set the numEnemies value to 4</li>
+</ul>
+
+<p>Test Enemies:</p>
+
+<ul>
+<li>Build and run the game</li>
+<li>When starting as Host, four enemies should be created at random locations</li>
+<li>The player should be able to shoot enemies, and their health should go down</li>
+<li>When the client joins they should see the enemies in the same positions, and same health values as on the server</li>
+</ul>
+
+<h2>Destroying Enemies</h2>
+
+<p>While the enemies can be shot by bullets and their health goes down, then respawn like players. Enemies should be destroyed when their health reaches zero instead of respawning.</p>
+
+<ul>
+<li>Open the Combat script</li>
+<li>Add a “destroyOnDeath” variable</li>
+<li>Check destroyOnDeath when health reaches zero</li>
+</ul>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Networking;
+
+public class Combat :  NetworkBehaviour 
+{
+    public const int maxHealth = 100;
+    public bool destroyOnDeath;
+
+    [SyncVar]
+    public int health = maxHealth;
+
+    public void TakeDamage(int amount)
+    {
+        if (!isServer)
+            return;
+
+        health -= amount;
+        if (health &lt;= 0)
+        {
+            if (destroyOnDeath)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                health = maxHealth;
+
+                // called on the server, will be invoked on the clients
+                RpcRespawn();
+            }
+        }
+    }
+
+    [ClientRpc]
+    void RpcRespawn()
+    {
+        if (isLocalPlayer)
+        {
+            // move back to zero location
+            transform.position = Vector3.zero;
+        }
+    }
+}
+
+</code></pre>
+
+<ul>
+<li>Select the Enemy prefab</li>
+<li>Set the destroyOnDeath checkbox to true for the Enemy</li>
+</ul>
+
+<p>Now the enemy will be destroyed when health reaches zero, but players will respawn.</p>
+
+<h2>Spawn Positions for players</h2>
+
+<p>Players currently all appear at the zero point when they are created. This means that they are potentially on top of each other. Player should spawn at different locations. The NetworkStartPosition component can be used to do this.</p>
+
+<ul>
+<li><p>Create a new empty GameObject</p></li>
+<li><p>Rename the object to “Pos1”</p></li>
+<li><p>Choose the Add Component button and add the NetworkStartPosition component</p></li>
+<li><p>Move the Pos1 object to the position (–3,0,0)</p></li>
+<li><p>Create a second empty GameObject</p></li>
+<li><p>Rename the object to “Pos2”</p></li>
+<li><p>Choose the Add Component button and add the NetworkStartPosition component</p></li>
+<li><p>Move the Pos2 object to the position (3,0,0)</p></li>
+<li><p>Find the NetworkManager and select it.</p></li>
+<li><p>Open the “Spawn Info” foldout</p></li>
+<li><p>Change the “Player Spawn Method” to “Round Robin”</p></li>
+<li><p>Build and run the game</p></li>
+<li><p>Player objects should now be created at the locations of the Pos1 and Pos2 objects instead of at zero.</p></li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetConcepts.html"></a></span><div class="tip">Network System Concepts</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetManager.html"></a></span><div class="tip">Using the Network Manager</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

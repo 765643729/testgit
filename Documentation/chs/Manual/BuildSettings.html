@@ -1,0 +1,417 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Build Settings</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/BuildSettings.html">English</a></li>
+<li><a href="/ja/current/Manual/BuildSettings.html">日本語</a></li>
+<li><a href="/es/current/Manual/BuildSettings.html">Español</a></li>
+<li><a href="/kr/current/Manual/BuildSettings.html">한국어</a></li>
+<li><a href="/ru/current/Manual/BuildSettings.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityOverview.html">Working In Unity</a></li>
+<li><a href="EditorFeatures.html">Editor Features</a></li>
+<li> Build Settings</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="Preferences.html"></a></span><div class="tip">Preferences</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="comp-ManagerGroup.html"></a></span><div class="tip">Settings Managers</div>
+</div>
+</div></div>
+<h1>Build Settings</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Build Settings window allows you to choose your target platform, adjust settings for your build, and start the build process. To access the Build Settings window, choose “Build Settings” from the File menu. Once you have specified your build settings, you can click “Build” to create your build, or click the “Build and Run” to create and run your build on the specified platform.</p>
+
+<figure>
+<img src="../uploads/Main/BuildSettings.png" alt="Build Settings window">
+<figcaption>Build Settings window</figcaption>
+</figure>
+
+<h2>Scenes in Build</h2>
+
+<p>This part of the window shows you the scenes from your project that will be included in your build. If no scenes are shown then you can use the <em>Add Current</em> button to add the current scene to the build, or you can drag scene assets into this window from your project window. You can also untick scenes in this list to exclude them from the build without removing it from the list. If a scene is never needed in the build you can remove it from the list of scenes by pressing the delete key.</p>
+
+<p>Scenes that are ticked and added to the Scenes in Build list will be included in the build. The list of scenes will be used to control the order the scenes are loaded. You can adjust the order of the scenes by dragging them up or down.</p>
+
+<h2>Platform List</h2>
+
+<p>The Platform area beneath the Scenes in Build area list all the platforms which are available to your Unity version. Some platforms may be greyed out to indicate they are not part of your version or invite you to download the platform specific build options. Selecting one of the platforms will control which platform will be built. If you change the target platform, you need to press the “Switch Platform” button to apply your change. This may take some time making the switch, because your assets may need to be re-imported in formats that match your target platform. The currently selected platform is indicated with a Unity icon to the right of the platform name.</p>
+
+<p>The selected platform will show a list of options that can be adjusted for the build. Each platform may have different options. These options are listed below. Options that are common across many platforms are listed at the very bottom of this section under the “Generic items across builds” details.</p>
+
+<h3>PC, Mac &amp; Linux Standalone</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Option</th>
+	<th style="text-align:left;">Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2">Target Platform</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Windows</td>
+	<td style="text-align:left;">Build for Windows</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Mac OS X</td>
+	<td style="text-align:left;">Build for Mac</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Linux</td>
+	<td style="text-align:left;">Build for Linux</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Architecture</td>
+	<td style="text-align:left;">x86</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        x86</td>
+	<td style="text-align:left;">32-bit CPU</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        x86_64</td>
+	<td style="text-align:left;">64-bit CPU</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Universal</td>
+	<td style="text-align:left;">All CPU devices</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        x86 + x86_64 (Universal)</td>
+	<td style="text-align:left;">All CPU devices for Linux</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Headless Mode</td>
+	<td style="text-align:left;">Build game for server use and with no visual elements</td>
+</tr>
+</tbody>
+</table>
+
+<h3>iOS</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Option</th>
+	<th style="text-align:left;">Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Run in Xcode as</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Release</td>
+	<td style="text-align:left;">Shipping version</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Debug</td>
+	<td style="text-align:left;">Testing version</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Symlink Unity libraries</td>
+	<td style="text-align:left;">Reference to the Unity libraries instead of copying them into the XCode project. (Reduces the XCode project size.)</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Android</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Option</th>
+	<th style="text-align:left;">Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="2">Texture Compression</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Don’t override</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        DXT Tegra)</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        PVRTC (PowerVR)</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        ATC (Adreno)</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        ETC (default)</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        ETC2 (GLES 3.0)</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        ASTC</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2">Build System</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Internal (Default)</td>
+	<td style="text-align:left;">Generate APK using the internal Unity process. This is default, and was previously always used when Export Project was not selected.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Gradle (new)</td>
+	<td style="text-align:left;">Generate APK using the Gradle build system. Supports direct Build and Run and exporting projects to a directory.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        ADT (Legacy)</td>
+	<td style="text-align:left;">Generate APK using the old Ant build system. This was previously always used when Export Project was selected.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Tizen</h3>
+
+<p>Build Settings for Tizen use the generic settings shown later on this page.</p>
+
+<h3>WebGL (Preview)</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Option</th>
+	<th style="text-align:left;">Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Optimization Level</td>
+	<td style="text-align:left;">Active when Development Build is selected</td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Slow (fast builds)</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Fast</td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;">        Fastest (very slow builds)</td>
+	<td style="text-align:left;"></td>
+</tr>
+</tbody>
+</table>
+
+<h3>Samsumg TV</h3>
+
+<p>Build Settings for Samsumg TV use the generic settings shown later on this page.</p>
+
+<h3>Windows Store</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Option</th>
+	<th style="text-align:left;">Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">TBD</td>
+	<td style="text-align:left;">TBD</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Windows Phone 8</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Option</th>
+	<th style="text-align:left;">Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">TBD</td>
+	<td style="text-align:left;">TBD</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Other platforms</h3>
+
+<p>Console platforms and devices which require a Unity license will be documented in the Platform Specific section of the User Guide.</p>
+
+<h3>Generic items across builds</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Option</th>
+	<th style="text-align:left;">Purpose</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Development Build</td>
+	<td style="text-align:left;">Allow the developer to test and work out how the build is coming along.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Autoconnect Profiler</td>
+	<td style="text-align:left;">When the Development Build option is selected allow the profiler to connect to the build.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Script Debugging</td>
+	<td style="text-align:left;">When the Development Build option is selected allow the script code to be debugged. Not available on WebGL.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="Preferences.html"></a></span><div class="tip">Preferences</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="comp-ManagerGroup.html"></a></span><div class="tip">Settings Managers</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

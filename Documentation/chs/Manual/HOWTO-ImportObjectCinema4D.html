@@ -1,0 +1,171 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Importing Objects From Cinema 4D</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/HOWTO-ImportObjectCinema4D.html">English</a></li>
+<li><a href="/ja/current/Manual/HOWTO-ImportObjectCinema4D.html">日本語</a></li>
+<li><a href="/es/current/Manual/HOWTO-ImportObjectCinema4D.html">Español</a></li>
+<li><a href="/kr/current/Manual/HOWTO-ImportObjectCinema4D.html">한국어</a></li>
+<li><a href="/ru/current/Manual/HOWTO-ImportObjectCinema4D.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsHowTos.html">Graphics HOWTOs</a></li>
+<li><a href="HOWTO-importObject.html">How do I import Models from my 3D app?</a></li>
+<li>Importing Objects From Cinema 4D</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ImportObjectMaya.html"></a></span><div class="tip">Importing Objects From Maya</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-ImportObjectMax.html"></a></span><div class="tip">Importing Objects From 3D Studio Max</div>
+</div>
+</div></div>
+<h1>Importing Objects From Cinema 4D</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity natively imports Cinema 4D files. To get started, simply place your <strong>.c4d</strong> file in your project’s Assets folder.
+When you switch back into Unity, the scene is imported automatically and will show up in the <strong>Project View</strong>.</p>
+
+<p>To see your model in Unity, simply drag it from the Project View into the <strong>Scene View</strong>.</p>
+
+<p>If you modify your <strong>.c4d</strong> file, Unity will automatically update whenever you save.</p>
+
+<h2>Unity currently imports</h2>
+
+<ol>
+<li>All objects with position, rotation and scale. Pivot points and Names are also imported.</li>
+<li>Meshes with UVs and normals.</li>
+<li>Materials with Texture and diffuse color. Multiple materials per mesh.</li>
+<li>Animations FK (IK needs to be manually baked).</li>
+<li>Bone-based animations.</li>
+</ol>
+
+<p>Unity does not import Point Level Animations (PLA) at the moment. Use Bone-based animations instead.</p>
+
+<h2>Animated Characters using IK</h2>
+
+<p>If you are using IK to animate your characters in Cinema 4D, you have to bake the IK before exporting using the <strong>Plugins-&gt;Mocca-&gt;Cappucino</strong> menu. If you don’t bake your IK prior to importing into Unity, you will most likely only get animated locators but no animated bones.</p>
+
+<h2>Requirements</h2>
+
+<ul>
+<li>You need to have at least Cinema 4D version 8.5 installed to import <strong>.c4d</strong> files.</li>
+</ul>
+
+<p>If you don’t have Cinema 4D installed on your machine but want to import a Cinema 4D file from another machine, you can export to the FBX format, which Unity imports natively:</p>
+
+<ol>
+<li>Open the Cinema 4D file</li>
+<li>In Cinema 4D choose <strong>File-&gt;Export-&gt;FBX 6.0</strong>
+</li>
+<li>Place the exported fbx file in the Unity project’s Assets folder. Unity will now automatically import the fbx file.</li>
+</ol>
+
+<h2>Hints</h2>
+
+<ol>
+<li>To maximize import speed when importing Cinema 4D files: go to the Cinema 4D preferences (<strong>Edit-&gt;Preferences</strong>) and select the FBX 6.0 preferences. Now uncheck <strong>Embed Textures</strong>.</li>
+</ol>
+
+<h2>Behind the import process (Advanced)</h2>
+
+<p>When Unity imports a Cinema 4D file it will automatically install a Cinema 4D plugin and launch Cinema 4D in the background. Unity then communicates with Cinema 4D to convert the .c4d file into a format Unity can read. The first time you import a .c4d file and Cinema 4D is not open yet it will take a short while to launch it but afterwards importing <strong>.c4d</strong> files will be very quick.</p>
+
+<h2>Cinema 4D 10 support</h2>
+
+<p>When importing <strong>.c4d</strong> files directly, Unity behind the scenes lets Cinema 4D convert its files to FBX.
+When Maxon shipped Cinema 4D 10.0, the FBX exporter was severly broken. With Cinema 4D 10.1 a lot of the issues have been fixed. Thus we strongly recommend everyone using Cinema 4D 10 to upgrade to 10.1.</p>
+
+<p>Now there are still some issues left in Maxons FBX exporter. It seems that currently there is no reliable way of exporting animated characters that use the Joint’s introduced in Cinema 4D 10. However the old bone system available in 9.6 exports perfectly fine. Thus when creating animated characters it is critical that you use the old bone system instead of joints.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ImportObjectMaya.html"></a></span><div class="tip">Importing Objects From Maya</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-ImportObjectMax.html"></a></span><div class="tip">Importing Objects From 3D Studio Max</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

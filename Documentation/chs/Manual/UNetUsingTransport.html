@@ -1,0 +1,290 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Using the Transport Layer API</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetUsingTransport.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetUsingTransport.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetUsingTransport.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetUsingTransport.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetUsingTransport.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetOverview.html">Networking Overview</a></li>
+<li>Using the Transport Layer API</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetHostMigration.html"></a></span><div class="tip"> Host Migration</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetInternetServicesOverview.html"></a></span><div class="tip">Internet Services</div>
+</div>
+</div></div>
+<h1>Using the Transport Layer API</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>In addition to the High Level networking API that we provide - which provides easy-to-use systems for managing your players, networked GameObjects, and other common requirements - we also give access to a lower level API called the “Transport Layer”. This provides you with the ability to build your own networking systems at a lower level, which can be useful if you have more specific or advanced requirements for your game’s networking.</p>
+
+<p>The Transport Layer is a thin layer working on top of the operating system’s sockets-based networking. It’s capable of sending and receiving messages represented as arrays of bytes, and offers a number of different “quality of service” options to suit different scenarios. It is focused on flexibility and performance, and exposes an API within the UnityEngine.Networking.NetworkTransport class.</p>
+
+<p>The Transport Layer supports base services for network communication. These base services include:</p>
+
+<ul>
+<li>Establishing Connections</li>
+<li>Communicating using a variety of “quality of services”</li>
+<li>Flow control</li>
+<li>Base statistics</li>
+<li>Additional services like communication via relay server or local discovery</li>
+</ul>
+
+<p>The Transport Layer can use two protocols: UDP for generic communications, and WebSockets for WebGL.
+To use the Transport Layer directly, the typical workflow would be as follows:</p>
+
+<ol>
+<li>Initialize the Network Transport Layer</li>
+<li>Configure network topology</li>
+<li>Create Host</li>
+<li>Start communication (handling connections and sending/receiving messages)</li>
+<li>Shut down library after use.</li>
+</ol>
+
+<h3>Initializing the Network Transport Layer</h3>
+
+<p>When initializing the Network Transport Layer, you can choose between the default initialization, with no arguments, or you can provide parameters which control the overall behaviour of the network layer, such as the maximum packet size and the thread timout limit.</p>
+
+<pre><code class="C#">    // Initializing the Transport Layer with no arguments (default settings)
+    NetworkTransport.Init();
+</code></pre>
+
+<pre><code class="C#">    // An example of initializing the Transport Layer with custom settings
+    GlobalConfig gConfig = new GlobalConfig();
+    gConfig.MaxPacketSize = 500;
+    NetworkTransport.Init(gConfig);
+</code></pre>
+
+<p>In the 2nd example above, the Transport Layer is initialized with a custom “MaxPacketSize” value specified of 500. Custom Init values should only be used if you have an unusual networking environment and are familiar with the specific settings you need. As a rule of thumb, if you are developing a typical multiplayer game designed to be played across the internet, the default Init() settings with no arguments should be appropriate.</p>
+
+<h3>Configuration</h3>
+
+<p>The next step is configuration of connection between peers. You may want to define several communication channels, each with a different quality of service level specified to suit the specific types of messages that you want to send, and their relative importance within your game.</p>
+
+<pre><code class="C#">    ConnectionConfig config = new ConnectionConfig();
+    int myReiliableChannelId  = config.AddChannel(QosType.Reliable);
+    int myUnreliableChannelId = config.AddChannel(QosType.Unreliable);
+</code></pre>
+
+<p>In the example above, we define two communication channels with different quality of service values. “QosType.Reliable” will deliver message and assure that the message is delivered, while “QosType.Unreliable” will send message without any assurance, but will do this faster. </p>
+
+<p>It’s also possible to specify configuration settings specifically for each connection, by adjusting properties on the ConnectionConfig object. However, when making a connection from one client to another, the settings should be the same for both connected peers or the connection will fail with a <code>CRCMismatch</code> error.</p>
+
+<h3>Topology</h3>
+
+<p>The final step of network configuration is topology definition. Network topology defines how many connections allowed and what connection configuration will used:</p>
+
+<pre><code class="C#">HostTopology topology = new HostTopology(config, 10);
+</code></pre>
+
+<p>Here we created topology which allow up to 10 connections, each of them will configured by parameters defines in previous step.</p>
+
+<h3>Host creating</h3>
+
+<p>As all preliminary steps have done, we can create host (open socket):</p>
+
+<pre><code class="C#">int hostId = NetworkTransport.AddHost(topology, 8888);
+</code></pre>
+
+<p>Here we add new host on port 8888 and any ip addresses. This host will support up to 10 connection, and each connection will have parameters as we defined in <code>config</code> object.</p>
+
+<h3>Communication</h3>
+
+<p>As host created, we can start our communication. To do this we send different command to host and check its status.
+There are 3 main command which we can send:</p>
+
+<pre><code class="C#">connectionId = NetworkTransport.Connect(hostId, &quot;192.16.7.21&quot;, 8888, 0, out error);
+NetworkTransport.Disconnect(hostId, connectionId, out error);
+NetworkTransport.Send(hostId, connectionId, myReiliableChannelId, buffer, bufferLength,  out error);
+</code></pre>
+
+<ol>
+<li>The first command will send connect request to peer with ip “192.16.7.21” and port 8888. It will return id assigned to this connection.</li>
+<li>The second will send disconnect request,</li>
+<li>And third will send message, to connection with id equal <code>connectionId</code>, using reliable channel with id equal <code>myReiliableChannelId</code>, message should be stored in <code>buffer[]</code> and length of the message should be defined by <code>bufferLength</code>.</li>
+</ol>
+
+<p>For checking host status you can use two functions:</p>
+
+<pre><code class="C#">NetworkTransport.Receive(out recHostId, out connectionId, out channelId, recBuffer, bufferSize, out dataSize, out error);
+NetworkTransport.ReceiveFromHost(recHostId, out connectionId, out channelId, recBuffer, bufferSize, out dataSize, out error);
+</code></pre>
+
+<p>Both of them returns event, first function will return events from any host (and return host id via <code>recHostId</code>) the second form check host with id <code>recHostId</code>. You can use any of these function inside <code>Update()</code> method:</p>
+
+<pre><code class="C#">void Update()
+{
+    int recHostId; 
+    int connectionId; 
+    int channelId; 
+    byte[] recBuffer = new byte[1024]; 
+    int bufferSize = 1024;
+    int dataSize;
+    byte error;
+    NetworkEventType recData = NetworkTransport.Receive(out recHostId, out connectionId, out channelId, recBuffer, bufferSize, out dataSize, out error);
+    switch (recData)
+    {
+        case NetworkEventType.Nothing:         //1
+            break;
+        case NetworkEventType.ConnectEvent:    //2
+            break;
+        case NetworkEventType.DataEvent:       //3
+            break;
+        case NetworkEventType.DisconnectEvent: //4
+            break;
+    }
+}
+</code></pre>
+
+<ul>
+<li>Point 1: No interesting events have been returned.</li>
+<li>Point 2: Connection event come in. It can be new connection, or it can be response on previous connect command:</li>
+</ul>
+
+<pre><code class="C#">myConnectionId = NetworkTransport.Connect(hostId, &quot;192.16.7.21&quot;, 8888, 0, out error);
+NetworkEventType recData = NetworkTransport.Receive(out recHostId, out connectionId, out channelId, recBuffer, bufferSize, out dataSize, out error);
+switch (recData)
+{
+    case NetworkEventType.ConnectEvent: 
+        if(myConnectionId == connectionId)
+            //my active connect request approved
+        else
+            //somebody else connect to me
+        break;
+    //...   
+}
+</code></pre>
+
+<ul>
+<li>Point 3: Data received. In this case <code>recHostId</code> will define host, connectionId will define connection, <code>channelId</code> will define channel; <code>dataSize</code> will define size of the received data. If <code>recBuffer</code> is big enough to contain data, data will be copied in the buffer. If not, <code>error</code> will contain <code>MessageToLong</code> error and you will need reallocate buffer and call this function again.</li>
+<li>Point 4: Disconnection signal come in. It can be signal that established connection has been disconnected or that your connect request is failed.</li>
+</ul>
+
+<pre><code class="C#">myConnectionId = NetworkTransport.Connect(hostId, &quot;192.16.7.21&quot;, 8888, 0, out error);
+NetworkEventType recData = NetworkTransport.Receive(out recHostId, out connectionId, out channelId, recBuffer, bufferSize, out dataSize, out error);
+switch (recData)
+{
+    case NetworkEventType. DisconnectEvent: 
+        if(myConnectionId == connectionId)
+            //cannot connect by some reason see error
+        else
+            //one of the established connection has been disconnected
+        break;
+    \\...   
+}
+</code></pre>
+
+<h3>WebGL support</h3>
+
+<p>WebSocket on client has been supported.
+For client side, all steps described above (including topology and configuration) should be the same. Web clients can connect to server only, where server is standalone player (Win, Mac or Linux only).
+On server you should call </p>
+
+<pre><code class="C#">NetworkTransport.AddWebsocketHost(topology, port, ip);
+</code></pre>
+
+<p>Where <code>ip</code> address is listening address, you can pass null as ip address in this case host will listen all network interfaces. Server can support only one Websocket Host and in the same time, it can handle generic hosts too:</p>
+
+<pre><code class="C#">NetworkTransport.AddWebsocketHost(topology, 8887, null);
+NetworkTransport.AddHost(topology, 8888);
+</code></pre>
+
+<p>Will open tcp socket handling web socket protocol on port 8887 and udp socket handling genetic protocol on port 8888.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetHostMigration.html"></a></span><div class="tip"> Host Migration</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetInternetServicesOverview.html"></a></span><div class="tip">Internet Services</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

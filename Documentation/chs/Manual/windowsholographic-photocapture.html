@@ -1,0 +1,190 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Photo capture</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/windowsholographic-photocapture.html">English</a></li>
+<li><a href="/ja/current/Manual/windowsholographic-photocapture.html">日本語</a></li>
+<li><a href="/es/current/Manual/windowsholographic-photocapture.html">Español</a></li>
+<li><a href="/kr/current/Manual/windowsholographic-photocapture.html">한국어</a></li>
+<li><a href="/ru/current/Manual/windowsholographic-photocapture.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="Windows.html">Windows</a></li>
+<li><a href="windowsholographic.html">Windows Holographic</a></li>
+<li><a href="windowsholographic-webcamera.html">Web Camera</a></li>
+<li>Photo capture</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="windowsholographic-webcamera.html"></a></span><div class="tip">Web Camera</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="windowsholographic-videocapture.html"></a></span><div class="tip">Video capture</div>
+</div>
+</div></div>
+<h1>Photo capture</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Use the <a href="../ScriptReference/VR.WSA.WebCam.PhotoCapture.html">PhotoCapture</a> API to take photos from the HoloLens web camera. You must enable the <strong>WebCam</strong> and <strong>Microphone</strong> capabilities to use the PhotoCapture API. The following example demonstrates how to take a photo using the PhotoCapture functionality and display it on a Unity <a href="../ScriptReference/GameObject.html">GameObject</a>.</p>
+
+<pre><code>using UnityEngine;
+using System.Collections;
+using System.Linq;
+using UnityEngine.VR.WSA.WebCam;
+
+public class PhotoCaptureExample : MonoBehaviour {
+    PhotoCapture photoCaptureObject = null;
+    Texture2D targetTexture = null;
+
+    // Use this for initialization
+    void Start() {
+        Resolution cameraResolution = PhotoCapture.SupportedResolutions.OrderByDescending((res) =&gt; res.width * res.height).First();
+        targetTexture = new Texture2D(cameraResolution.width, cameraResolution.height);
+
+        // Create a PhotoCapture object
+        PhotoCapture.CreateAsync(false, delegate (PhotoCapture captureObject) {
+            photoCaptureObject = captureObject;
+            CameraParameters cameraParameters = new CameraParameters();
+            cameraParameters.hologramOpacity = 0.0f;
+            cameraParameters.cameraResolutionWidth = cameraResolution.width;
+            cameraParameters.cameraResolutionHeight = cameraResolution.height;
+            cameraParameters.pixelFormat = CapturePixelFormat.BGRA32;
+
+            // Activate the camera
+            photoCaptureObject.StartPhotoModeAsync(cameraParameters, delegate (PhotoCapture.PhotoCaptureResult result) {
+                // Take a picture
+                photoCaptureObject.TakePhotoAsync(OnCapturedPhotoToMemory);
+            });
+        });
+    }
+
+    void OnCapturedPhotoToMemory(PhotoCapture.PhotoCaptureResult result, PhotoCaptureFrame photoCaptureFrame) {
+        // Copy the raw image data into the target texture
+        photoCaptureFrame.UploadImageDataToTexture(targetTexture);
+
+        // Create a GameObject to which the texture can be applied
+        GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
+        Renderer quadRenderer = quad.GetComponent&lt;Renderer&gt;() as Renderer;
+        quadRenderer.material = new Material(Shader.Find(&quot;Custom/Unlit/UnlitTexture&quot;));
+
+        quad.transform.parent = this.transform;
+        quad.transform.localPosition = new Vector3(0.0f, 0.0f, 3.0f);
+
+        quadRenderer.material.SetTexture(&quot;_MainTex&quot;, targetTexture);
+
+        // Deactivate the camera
+        photoCaptureObject.StopPhotoModeAsync(OnStoppedPhotoMode);
+    }
+
+    void OnStoppedPhotoMode(PhotoCapture.PhotoCaptureResult result) {
+        // Shutdown the photo capture resource
+        photoCaptureObject.Dispose();
+        photoCaptureObject = null;
+    }
+}
+</code></pre>
+
+<h2>Capture a photo to memory</h2>
+
+<p>When you capture an image to memory, a <a href="../ScriptReference/VR.WSA.WebCam.PhotoCaptureFrame.html">PhotoCaptureFrame</a> is returned. A <code>PhotoCaptureFrame</code> contains both the native image data and spatial matrices that indicate where the image was taken.</p>
+
+<p>Capturing an image to memory allows you to reference the captured image in a Shader, or apply it to a GameObject. There are three ways to extract the image data from the <code>PhotoCaptureFrame</code>. These are:</p>
+
+<ol>
+<li><p>Access the image data as a <a href="../ScriptReference/Texture2d.html">Texture2D</a>. This is the most common way to extract image data, because most components in Unity understand how to access image data in a Texture2D. Once your image has been captured to memory, you need to upload the image data into a Texture2D. Once the image data is uploaded into a Texture2D, you can then begin referencing that image data in materials, scripts, or any other relevant element of your project. The Unity API Documentation has an example which demonstrates how to capture a photo to memory and then upload it to a Texture2D. See
+<a href="../ScriptReference/VR.WSA.WebCam.PhotoCapture.TakePhotoAsync.html">WebCam.PhotoCapture.TakePhotoAsync</a> to learn how to capture a photo to a Texture2D. Uploading the image data to a Texture2D via the upload command is the easiest way to start working with your image data in Unity. The upload operation happens on the main thread. This operation is resource-intensive and can affect the performance of your project.</p></li>
+<li><p>Capture the native image data as a <strong>WinRT IMFMediaBuffer</strong>. See Microsoft’s documentation on <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms696261(v=vs.85).aspx">IMFMediaBuffer</a> to learn more. Make a copy of the native image data by passing a byte list into the
+<a href="../ScriptReference/VR.WSA.WebCam.PhotoCaptureFrame.CopyRawImageDataIntoBuffer.html">PhotoFrame.CopyRawImageDataIntoBuffer</a> function. Please note that the copy operation occurs on the main thread. This operation is resource-intensive and can affect the performance of your project.</p></li>
+<li><p>If you create your own plugin, or process the image data on a separate thread, you can get a pointer to the native image data via the <a href="../ScriptReference/PhotoFrame.GetUnsafePointerToBuffer.html">PhotoFrame.GetUnsafePointerToBuffer</a> function. The pointer returned is a pointer to an IMFMediaBuffer Component Object Model (COM). See Microsoft’s documentation on <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms696261(v=vs.85).aspx">IMFMediaBuffer</a> and <a href="https://msdn.microsoft.com/en-us/library/windows/desktop/ms694363(v=vs.85).aspx">Component Object Models</a> for more information. Once you call this function, a reference is added to the COM object. You are responsible for releasing the reference when you no longer need the resource.</p></li>
+</ol>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="windowsholographic-webcamera.html"></a></span><div class="tip">Web Camera</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="windowsholographic-videocapture.html"></a></span><div class="tip">Video capture</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

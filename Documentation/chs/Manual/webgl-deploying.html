@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Deploying compressed builds</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/webgl-deploying.html">English</a></li>
+<li><a href="/ja/current/Manual/webgl-deploying.html">日本語</a></li>
+<li><a href="/es/current/Manual/webgl-deploying.html">Español</a></li>
+<li><a href="/kr/current/Manual/webgl-deploying.html">한국어</a></li>
+<li><a href="/ru/current/Manual/webgl-deploying.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="webgl.html">WebGL</a></li>
+<li><a href="webgl-gettingstarted.html">Getting started with WebGL development</a></li>
+<li>Deploying compressed builds</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="webgl-building.html"></a></span><div class="tip">Building and running a WebGL project*</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="webgl-debugging.html"></a></span><div class="tip">Debugging and trouble shooting WebGL builds</div>
+</div>
+</div></div>
+<h1>Deploying compressed builds</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>When you build a WebGL project in release mode (see <a href="PublishingBuilds.html">Publishing builds</a>), Unity compresses your build output files to reduce the download size of your build. You can choose the type of compression it uses from the Compression Format options in Publishing Settings (menu: <strong>Edit</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Player</strong> &gt; <strong>Publishing Settings</strong>):</p>
+
+<ul>
+<li><p>
+<strong>gzip</strong>: This is the default option. gzip files are bigger than Brotli files, but faster to build, and natively supported by all browsers over both http and https. File names get an additional .gzip suffix appended.</p></li>
+<li><p>
+<strong>Brotli</strong>: Brotli compression offers the best compression ratios. Brotli compressed files are significantly smaller than gzip, but take a long time to compress, increasing your iteration times on release builds. Brotli compression is natively supported by Chrome and Firefox over https (see <a href="webgl-browsercompatibility.html">WebGL browser compatibility</a> for more information). Brotli-compressed file names get an additional .br suffix appended.</p></li>
+<li><p>
+<strong>Disabled</strong>: This disables compression. Use this if you want to implement your own compression in post-processing scripts.</p></li>
+</ul>
+
+<p>Compression-built Unity builds work on any browser. Unity contains a software decompressor written in JavaScript, which it falls back to when compression on the http transfer level is not enabled by the server. The data is downloaded from the server by the browser, and then decompressed by Unity’s loader code. When this is done, this message appears in your browser’s JavaScript console (containing your file name instead of our example):</p>
+
+<p><code>Decompressed &lt;Example/MyProject.jsgz&gt; in 82ms. You can remove this delay if you configure your web server to host files using compression.</code></p>
+
+<p>Here, <code>82ms</code> is just an example; the number of milliseconds depends on the size of the content and on the speed of the computer. Bigger builds take longer to decompress, and faster computers take less time. The decompression time is printed to give you an idea of how much start up time you could potentially save by having the browser handle the decompression instead.</p>
+
+<h2>Advanced: Native browser decompression</h2>
+
+<p>The browser can handle decompression of Unity builds natively while it downloads the build data. This has the advantage of avoiding the additional delay caused by decompressing your files in JavaScript, therefore reducing your startup time. To let the browser handle decompression natively, you need to configure your web server to serve the compressed files with the appropriate http headers: These tell the browser that the data is compressed with gzip or Brotli so it decompresses the data while it is being transferred. Brotli compression is supported by Firefox and Chrome on https only, while gzip compression is supported by all browsers. See <a href="webgl-browsercompatibility.html">WebGL browser compatibility</a> for more information.</p>
+
+<h2>Setting up web servers</h2>
+
+<p>The setup process for native browser decompression depends on your web server. The instructions on this page apply to the two most common web servers, <strong>Apache</strong> and <strong>IIS</strong>. Note that these are designed to work on a default setup, but may need adjustments to match your specific configuration. In particular, there may be issues if you already have other server-side configuration to compress hosted files, which may interfere with this setup.</p>
+
+<h3>Apache</h3>
+
+<p>Apache uses invisible .htaccess files for server configuration. This example code below shows an example of a .htaccess file you can put into your <em>Release</em> folder to configure Apache for hosting your compressed files.</p>
+
+<pre><code>&lt;IfModule mod_rewrite.c&gt;
+
+  &lt;IfModule mod_mime.c&gt;
+
+    Options +SymLinksIfOwnerMatch
+
+    RewriteEngine on
+
+    RewriteCond %{HTTP:Accept-encoding} br
+
+    RewriteCond %{REQUEST_FILENAME}br -f
+
+    RewriteRule ^(.*)\.(js|data|mem|unity3d)$ $1.$2br [L]
+
+    AddEncoding br .jsbr
+
+    AddEncoding br .databr
+
+    AddEncoding br .membr
+
+    AddEncoding br .unity3dbr
+
+    
+
+    RewriteCond %{HTTP:Accept-encoding} gzip
+
+    RewriteCond %{REQUEST_FILENAME}gz -f
+
+    RewriteRule ^(.*)\.(js|data|mem|unity3d)$ $1.$2gz [L]
+
+    AddEncoding gzip .jsgz
+
+    AddEncoding gzip .datagz
+
+    AddEncoding gzip .memgz
+
+    AddEncoding gzip .unity3dgz
+
+    
+
+  &lt;/IfModule&gt;
+
+&lt;/IfModule&gt;
+</code></pre>
+
+<p>When Apache receives a request for a file (such as <em>Release/mygame.js</em>), this configuration checks to see if the client accepts Brotli-encoded data (<code>RewriteCond %{HTTP:Accept-encoding} br</code>), then checks to see if there is a file at <em>Release/mygame.jsb**r</em> (<code>RewriteCond %{REQUEST_FILENAME}br -f</code>). If both conditions are met, it rewrites the request to the .jsbr file, and serves it. <code>AddEncoding br .jsbr</code> tells Apache to add the headers to tell the client that the file uses Brotli encoding.</p>
+
+<p>The following block of code example does the same setup for gzip, so if a <em>Release/mygame.jsgz</em> file exists but the conditions for Brotli compression are not met, then it will host the file in the .gzip format.</p>
+
+<h2>IIS</h2>
+
+<p>IIS uses <em>web.config</em> files for server configuration. This sample code shows an example of a <em>web.config</em> file you can put into your <em>Release</em> folder to configure IIS for hosting your compressed files. </p>
+
+<p>To use this, you need to have Microsoft’s <a href="http://www.iis.net/downloads/microsoft/url-rewrite">IIS URL Rewrite IIS module</a> installed; otherwise, the browser throws a 500 Internal Server Error. If you don’t have the module installed, you can still use this file, but without the section of code starting <code>&lt;rewrite&gt;</code> and ending <code>&lt;/rewrite&gt;</code>. This does not enable compressed transfers, but does enable IIS to host the file extensions.</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+
+&lt;configuration&gt;
+
+    &lt;system.webServer&gt;
+
+        &lt;staticContent&gt;
+
+            &lt;remove fileExtension=&quot;.mem&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.data&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.unity3d&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.jsbr&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.membr&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.databr&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.unity3dbr&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.jsgz&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.memgz&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.datagz&quot; /&gt;
+
+            &lt;remove fileExtension=&quot;.unity3dgz&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.mem&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.data&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.unity3d&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.jsbr&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.membr&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.databr&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.unity3dbr&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.jsgz&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.memgz&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.datagz&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+            &lt;mimeMap fileExtension=&quot;.unity3dgz&quot; mimeType=&quot;application/octet-stream&quot; /&gt;
+
+        &lt;/staticContent&gt;
+
+        &lt;rewrite&gt;
+
+            &lt;rules&gt;
+
+                &lt;rule name=&quot;Append br suffix to WebGL content requests&quot;&gt;
+
+                    &lt;match url=&quot;(.*)\.(js|data|mem|unity3d)$&quot; /&gt;
+
+                    &lt;conditions&gt;
+
+                        &lt;add input=&quot;{HTTP_ACCEPT_ENCODING}&quot; pattern=&quot;br&quot; /&gt;
+
+                        &lt;add input=&quot;{REQUEST_FILENAME}br&quot; matchType=&quot;IsFile&quot; /&gt;
+
+                    &lt;/conditions&gt;
+
+                    &lt;action type=&quot;Rewrite&quot; url=&quot;{R:1}.{R:2}br&quot; /&gt;
+
+                &lt;/rule&gt;
+
+                &lt;rule name=&quot;Append gz suffix to WebGL content requests&quot;&gt;
+
+                    &lt;match url=&quot;(.*)\.(js|data|mem|unity3d)$&quot; /&gt;
+
+                    &lt;conditions&gt;
+
+                        &lt;add input=&quot;{HTTP_ACCEPT_ENCODING}&quot; pattern=&quot;gzip&quot; /&gt;
+
+                        &lt;add input=&quot;{REQUEST_FILENAME}gz&quot; matchType=&quot;IsFile&quot; /&gt;
+
+                    &lt;/conditions&gt;
+
+                    &lt;action type=&quot;Rewrite&quot; url=&quot;{R:1}.{R:2}gz&quot; /&gt;
+
+                &lt;/rule&gt;
+
+            &lt;/rules&gt;
+
+            &lt;outboundRules&gt;
+
+                &lt;rule name=&quot;Append br Content-Encoding header to the rewritten responses&quot;&gt;
+
+                    &lt;match serverVariable=&quot;RESPONSE_Content-Encoding&quot; pattern=&quot;.*&quot; /&gt;
+
+                    &lt;conditions&gt;
+
+                        &lt;add input=&quot;{REQUEST_FILENAME}&quot; pattern=&quot;\.(js|data|mem|unity3d)br$&quot; /&gt;
+
+                    &lt;/conditions&gt;
+
+                    &lt;action type=&quot;Rewrite&quot; value=&quot;br&quot; /&gt;
+
+                &lt;/rule&gt;
+
+                &lt;rule name=&quot;Append gzip Content-Encoding header to the rewritten responses&quot;&gt;
+
+                    &lt;match serverVariable=&quot;RESPONSE_Content-Encoding&quot; pattern=&quot;.*&quot; /&gt;
+
+                    &lt;conditions&gt;
+
+                        &lt;add input=&quot;{REQUEST_FILENAME}&quot; pattern=&quot;\.(js|data|mem|unity3d)gz$&quot; /&gt;
+
+                    &lt;/conditions&gt;
+
+                    &lt;action type=&quot;Rewrite&quot; value=&quot;gzip&quot; /&gt;
+
+                &lt;/rule&gt;
+
+            &lt;/outboundRules&gt;
+
+        &lt;/rewrite&gt;
+
+    &lt;/system.webServer&gt;
+
+&lt;/configuration&gt;
+</code></pre>
+
+<p>You only need the <code>&lt;remove fileExtension=&quot;.*”&gt;</code> lines if these extensions can be overridden at a higher level in the directory’s hierarchy.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="webgl-building.html"></a></span><div class="tip">Building and running a WebGL project*</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="webgl-debugging.html"></a></span><div class="tip">Debugging and trouble shooting WebGL builds</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

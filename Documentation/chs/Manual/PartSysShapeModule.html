@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Shape Module</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/PartSysShapeModule.html">English</a></li>
+<li><a href="/ja/current/Manual/PartSysShapeModule.html">日本語</a></li>
+<li><a href="/es/current/Manual/PartSysShapeModule.html">Español</a></li>
+<li><a href="/kr/current/Manual/PartSysShapeModule.html">한국어</a></li>
+<li><a href="/ru/current/Manual/PartSysShapeModule.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="PartSysReference.html">Particle Systems Reference</a></li>
+<li><a href="ParticleSystemModules.html">Particle System Modules</a></li>
+<li>Shape Module</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PartSysEmissionModule.html"></a></span><div class="tip">Emission Module</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="PartSysVelOverLifeModule.html"></a></span><div class="tip">Velocity Over Lifetime Module</div>
+</div>
+</div></div>
+<h1>Shape Module</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>This module defines the shape (the volume or surface) from which particles can be emitted, and the direction of the start velocity.</p>
+
+<figure>
+<img src="../uploads/Main/PartSysShapeInsp.png" alt="">
+</figure>
+
+<h2>Properties</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Shape</strong></td>
+	<td style="text-align:left;">The shape of the emission volume. The options are <em>Sphere</em>, <em>Hemisphere</em>, <em>Cone</em>, <em>Box</em>, <em>Mesh</em>, <em>MeshRenderer</em>, <em>Skinned MeshRenderer</em>, <em>Circle</em> and <em>Edge</em>. For the Mesh shape, there is an extra menu to select whether particles are emitted from the vertices, triangles or edges of the mesh.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Angle</strong></td>
+	<td style="text-align:left;">The angle of the cone at its point (for Cone only). An angle of 0 produces a cylinder while an angle of 90 gives a flat disc.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Radius</strong></td>
+	<td style="text-align:left;">The radius of the circular aspect of the shape (for Sphere, Hemisphere, Cone, Circle and Edge only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Length</strong></td>
+	<td style="text-align:left;">The length of the cone (for Cone only, when using one of the ‘volume’ emit-from modes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Box X, Y, Z</strong></td>
+	<td style="text-align:left;">Width, height and depth of the box shape (for Box only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Mesh</strong></td>
+	<td style="text-align:left;">The mesh that provides the emitter’s shape (for Mesh, MeshRenderer and Skinned Mesh Renderer only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Emit from Shell</strong></td>
+	<td style="text-align:left;">Should particles be emitted from the outer surface rather than the inner volume of the shape? (For Sphere and Hemisphere only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Emit from</strong></td>
+	<td style="text-align:left;">Selects the part of the cone to emit from: Base, Volume, Base Shell or Volume Shell (for Cone only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Arc</strong></td>
+	<td style="text-align:left;">The angular portion of a full circle that forms the emitter’s shape (for Circle only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Emit From Edge</strong></td>
+	<td style="text-align:left;">Should particles be emitted from the edge of the circle rather than the centre? (For Circle only.)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Single Material</strong></td>
+	<td style="text-align:left;">Should the particles be emitted from a particular sub-mesh (identified by the material index number). If enabled, a numeric field is shown allowing you to specify the material index number.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Use Mesh Colors</strong></td>
+	<td style="text-align:left;">Use, or disregard mesh colors.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Normal Offset</strong></td>
+	<td style="text-align:left;">Distance away from the surface of the mesh to emit particles (in the direction of the surface normal)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Random Direction</strong></td>
+	<td style="text-align:left;">When enabled, the particles’ initial direction will be chosen randomly.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Details</h2>
+
+<p>The emitter can be given any of a selection of shapes:</p>
+
+<ul>
+<li>
+<strong>Sphere</strong>: Uniform emission in all directions.</li>
+<li>
+<strong>Hemisphere</strong>: Uniform emission in all directions on <em>one side</em> of a plane.</li>
+<li>
+<strong>Cone</strong>: Emission from the base or body of a cone. The particles diverge in proportion to their distance from the cone’s centre line.</li>
+<li>
+<strong>Box</strong>: Emission from the body of a box shape. The particles move in the emitter object’s forward (Z) direction.</li>
+<li>
+<strong>Mesh</strong>: Emission from any arbitrary mesh shape supplied via the inspector.</li>
+<li>
+<strong>Mesh Renderer</strong>: Emission from a reference to a Game Object’s Mesh Renderer</li>
+<li>
+<strong>Skinned Mesh Renderer</strong>: Emission from a reference to a Game Object’s Skinned Mesh Renderer</li>
+<li>
+<strong>Circle</strong>: Uniform emission from the centre of edge of a circle. The particles move only in the plane of the circle.</li>
+<li>
+<strong>Edge</strong>: Emission from a line segment. The particles move in the emitter object’s upward (Y) direction.</li>
+</ul>
+
+<p>All the shapes except <em>Mesh</em> have properties that define their dimensions (eg, radius). These can be edited by dragging the handles on the wireframe emitter shape in the scene view. The choice of shape affects the region from which particles can be launched but also the initial direction of the particles. For example, a sphere throws particles outward in all directions, a cone produces a diverging stream of particles and a mesh emits particles in directions that are normal to the surface.</p>
+
+<h3>Mesh Shape Source</h3>
+
+<p>Skinned meshes can now be used as a source for a particle emitter. Additionally MeshRenderer types are supported.</p>
+
+<p>It is possible to choose to emit only from a particular material (sub mesh), and to offset the emission position along the mesh’s normals. This option allows users to offset particles from the surface of a mesh.</p>
+
+<p>Also, it is possible to ignore the color of the mesh.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PartSysEmissionModule.html"></a></span><div class="tip">Emission Module</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="PartSysVelOverLifeModule.html"></a></span><div class="tip">Velocity Over Lifetime Module</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

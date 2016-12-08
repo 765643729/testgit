@@ -1,0 +1,333 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Master Server (Legacy)</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/net-MasterServer.html">English</a></li>
+<li><a href="/ja/current/Manual/net-MasterServer.html">日本語</a></li>
+<li><a href="/es/current/Manual/net-MasterServer.html">Español</a></li>
+<li><a href="/kr/current/Manual/net-MasterServer.html">한국어</a></li>
+<li><a href="/ru/current/Manual/net-MasterServer.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="LegacyTopics.html">Legacy Topics</a></li>
+<li><a href="NetworkReferenceGuide.html">Legacy Network Reference Guide</a></li>
+<li>Master Server (Legacy)</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="net-NetworkLevelLoad.html"></a></span><div class="tip">Network Level Loading (Legacy)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-MasterServerBuild.html"></a></span><div class="tip">Building the Unity Networking Servers on your own (Legacy)</div>
+</div>
+</div></div>
+<h1>Master Server (Legacy)</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p><em>(For new projects, you should use the <a href="UNet.html">new networking system introduced in 5.1</a>. This information is for legacy projects using the old networking system.)</em></p>
+
+<p>The Master Server is a meeting place that puts game instances in touch with the player clients who want to connect to them. It can also hide port numbers and IP addresses and perform other technical tasks that arise when setting up network connections, such as firewall handling and NAT punchthrough.</p>
+
+<p>Each individual running game instance provides a <strong>Game Type</strong> to the Master Server. When a player connects and queries the Master Server for their matching <strong>Game Type</strong>, the server responds with the list of running games along with the number of players in each and whether or not a password is needed to play. The two functions used to exchange this data are <a href="../ScriptReference/MasterServer.RegisterHost.html">MasterServer.RegisterHost()</a> for the Server, and <a href="../ScriptReference/MasterServer.RequestHostList.html">MasterServer.RequestHostList()</a> for the player client.</p>
+
+<p>When calling <strong>RegisterHost</strong>, you need to pass three arguments - <em>gameTypeName</em> (which is the previously mentioned <strong>Game Type</strong>), <em>gameName</em> and <em>comment</em> - for the host being registered. <strong>RequestHostList</strong> takes as an argument the <em>gameTypeName</em> of the hosts you are interested in connecting to. All the registered hosts of that type will then be returned to the requesting client. This is an asynchronous operation and the complete list can be retrieved with <strong>PollHostList()</strong> after it has arrived in full.</p>
+
+<p>The NAT punchthrough duty of the Master Server is actually handled by a separate process called the <strong>Facilitator</strong> but Unity’s Master Server runs both services in parallel.</p>
+
+<p>The <strong>Game Type</strong> is an identifying name that should be unique for each game (although Unity does not offer any central registration system to guarantee this). It makes sense to choose a distinctive name that is unlikely to be used by anyone else. If there are several different versions of you game then you may need to warn a user that their client is not compatible with the running server version. The version information can be passed in the comment field (this is actually binary data and so the version can be passed in any desired form). The game name is simply the name of the particular game instance as supplied by whoever set it up.</p>
+
+<p>The comment field can be used in more advanced ways if the Master Server is suitably modified (see the <em>Advanced</em> section at the bottom of the page for further information on how to do this). For example, you could reserve the first ten bytes of the comment field for a password and then extract the password in the Master Server when it receives the host update. It can then reject the host update if a password check fails. </p>
+
+<h2>Registering a game</h2>
+
+<p>Before registering a game, it is important to enable or disable the NAT functionality depending on whether or not it is supported by the host; you can do this with the <strong>useNat</strong> parameter of <a href="../ScriptReference/Network.InitializeServer.html">Network.InitializeServer</a>.</p>
+
+<p>A server might be started with code similar to this:-</p>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Network;
+using System.Collections;
+
+public class ExampleScript : MonoBehaviour {
+    void OnGUI() {
+        if (GUILayout.Button (&quot;Start Server&quot;))
+        {
+            // Use NAT punchthrough if no public IP present
+            Network.InitializeServer(32, 25002, !Network.HavePublicAddress());
+            MasterServer.RegisterHost(&quot;MyUniqueGameType&quot;, &quot;JohnDoes game&quot;, &quot;l33t game for all&quot;);
+        }
+    }
+}
+</code></pre>
+
+<p><em>C# script example</em></p>
+
+<pre><code>function OnGUI() {
+    if (GUILayout.Button (&quot;Start Server&quot;))
+    {
+        // Use NAT punchthrough if no public IP present
+        Network.InitializeServer(32, 25002, !Network.HavePublicAddress());
+        MasterServer.RegisterHost(&quot;MyUniqueGameType&quot;, &quot;JohnDoes game&quot;, &quot;l33t game for all&quot;);
+    }
+}
+</code></pre>
+
+<p><em>JS script example</em></p>
+
+<p>Here we just decide if NAT punchthrough is needed by checking whether or not the machine has a public address. There is a more sophisticated function available called <a href="../ScriptReference/Network.TestConnection.html">Network.TestConnection</a> which can tell you if the host machine can do NAT or not. It also does connectivity testing for public IP addresses to see if a firewall is blocking the game port. Machines which have public IP addresses always pass the NAT test but if the test fails then the host will <strong>not</strong> be able to connect to NAT clients. In such a case, the user should be informed that port forwarding must be enabled for the game to work. Domestic broadband connections will usually have a NAT address but will not be able to set up port forwarding (since they don’t have a personal public IP address). In these cases, if the NAT test fails, the user should be informed that running a server is inadvisable given that only clients on the same local network will be able to connect.</p>
+
+<p>If a host enables NAT functionality without needing it then it will still be accessible. However, clients which cannot do NAT punchthrough might incorrectly think they cannot connect on the basis that the server has NAT enabled. </p>
+
+<h2>Connecting to a game</h2>
+
+<p>A <strong>HostData</strong> object is sent during host registrations or queries. It contains the following information about the host:-</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">boolean</td>
+	<td style="text-align:left;"><strong>useNat</strong></td>
+	<td style="text-align:left;">Indicates if the host uses NAT punchthrough.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;"><strong>gameType</strong></td>
+	<td style="text-align:left;">The game type of the host.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;"><strong>gameName</strong></td>
+	<td style="text-align:left;">The game name of the host.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">int</td>
+	<td style="text-align:left;"><strong>connectedPlayers</strong></td>
+	<td style="text-align:left;">The number of currently connected players/clients.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">int</td>
+	<td style="text-align:left;"><strong>playerLimit</strong></td>
+	<td style="text-align:left;">The maximum number of concurrent players/clients allowed.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">String[]</td>
+	<td style="text-align:left;"><strong>IP</strong></td>
+	<td style="text-align:left;">The internal IP address of the host. On a server with a public address the external and internal addresses are the same. This field is defined as an array since all the IP addresses associated with all the active interfaces of the machine need to be checked when connecting internally.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">int</td>
+	<td style="text-align:left;"><strong>port</strong></td>
+	<td style="text-align:left;">The port of the host.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">boolean</td>
+	<td style="text-align:left;"><strong>passwordProtected</strong></td>
+	<td style="text-align:left;">Indicates whether you need to supply a password to be able to connect to this host.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;"><strong>comment</strong></td>
+	<td style="text-align:left;">Any comment which was set during host registration.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">String</td>
+	<td style="text-align:left;"><strong>guid</strong></td>
+	<td style="text-align:left;">The network GUID of the host. This is needed to connect using NAT punchthrough.</td>
+</tr>
+</tbody>
+</table>
+
+<p>This information can be used by clients to see the connection capabilities of the hosts. When NAT is enabled you need to use the GUID of the host when connecting. This is automatically handled for you when the <strong>HostData</strong> is retrieved as you connect. The connection routine might look something like this:</p>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Network;
+using System.Collections;
+
+public class ExampleScript : MonoBehaviour {
+    void Awake() {
+        MasterServer.RequestHostList(&quot;MadBubbleSmashGame&quot;);
+    }
+    
+    void OnGUI() {
+        HostData[] data = MasterServer.PollHostList();
+        // Go through all the hosts in the host list
+        foreach (var element in data)
+        {
+            GUILayout.BeginHorizontal();    
+            var name = element.gameName + &quot; &quot; + element.connectedPlayers + &quot; / &quot; + element.playerLimit;
+            GUILayout.Label(name);  
+            GUILayout.Space(5);
+            string hostInfo;
+            hostInfo = &quot;[&quot;;
+            foreach (var host in element.ip)
+                hostInfo = hostInfo + host + &quot;:&quot; + element.port + &quot; &quot;;
+            hostInfo = hostInfo + &quot;]&quot;;
+            GUILayout.Label(hostInfo);  
+            GUILayout.Space(5);
+            GUILayout.Label(element.comment);
+            GUILayout.Space(5);
+            GUILayout.FlexibleSpace();
+            if (GUILayout.Button(&quot;Connect&quot;))
+            {
+                // Connect to HostData struct, internally the correct method is used (GUID when using NAT).
+                Network.Connect(element);           
+            }
+            GUILayout.EndHorizontal();  
+        }
+    }
+}
+</code></pre>
+
+<p><em>C# script example</em></p>
+
+<pre><code>function Awake() {
+    MasterServer.RequestHostList(&quot;MadBubbleSmashGame&quot;);
+}
+
+function OnGUI() {
+    var data : HostData[] = MasterServer.PollHostList();
+    // Go through all the hosts in the host list
+    for (var element in data)
+    {
+        GUILayout.BeginHorizontal();    
+        var name = element.gameName + &quot; &quot; + element.connectedPlayers + &quot; / &quot; + element.playerLimit;
+        GUILayout.Label(name);  
+        GUILayout.Space(5);
+        var hostInfo;
+        hostInfo = &quot;[&quot;;
+        for (var host in element.ip)
+            hostInfo = hostInfo + host + &quot;:&quot; + element.port + &quot; &quot;;
+        hostInfo = hostInfo + &quot;]&quot;;
+        GUILayout.Label(hostInfo);  
+        GUILayout.Space(5);
+        GUILayout.Label(element.comment);
+        GUILayout.Space(5);
+        GUILayout.FlexibleSpace();
+        if (GUILayout.Button(&quot;Connect&quot;))
+        {
+            // Connect to HostData struct, internally the correct method is used (GUID when using NAT).
+            Network.Connect(element);           
+        }
+        GUILayout.EndHorizontal();  
+    }
+}
+</code></pre>
+
+<p><em>JS script example</em></p>
+
+<p>This example prints out all of the relevant host information returned by the Master Server. Other useful data like ping information or geographic location of hosts can be added to this.</p>
+
+<h2>NAT punchthrough</h2>
+
+<p>The availability of NAT punchthrough may determine whether or not a particular computer is suitable to use as a server. While some clients might be able to connect, there are others that might have trouble connecting to any NAT server.</p>
+
+<p>By default, NAT punchthrough is provided with the help of the Master Server but it need not be done this way. The Facilitator is the process that is actually used for the NAT punchthrough service. If two machines are connected to the Facilitator then it will appear as if they can both connect to each other as long as it uses the external IP and port. The Master Server is used to provide this external IP and port information which is otherwise hard to determine. That is why the Master Server and Facilitator are so tightly integrated. The Master Server and Facilitator have the same IP address by default, to change either one use <a href="../ScriptReference/MasterServer-ipAddress.html">MasterServer.ipAddress</a>, <a href="../ScriptReference/MasterServer-port.html">MasterServer.port</a>, <a href="../ScriptReference/Network-natFacilitatorIP.html">Network.natFacilitatorIP</a> and <a href="../ScriptReference/Network-natFacilitatorPort.html">Network.natFacilitatorPort</a>
+</p>
+
+<h2>Advanced</h2>
+
+<p>Unity Technologies also has a fully deployed Master Server available for testing purposes and this is actually the server that will be used by default. However, the source code is freely available for anyone to use and the server can be deployed on Windows, Linux and Mac OS. In addition to simply building the project from source, there might be cases where you want to modify the way in which the Master Server handles information and how it communicates. For example, you may be able to optimize the handling of host data or limit the number of clients returned on the host list. Such changes will require modifications to the source code; information about how to go about this can be found on the <a href="net-MasterServerBuild.html">Master Server Build page</a>.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="net-NetworkLevelLoad.html"></a></span><div class="tip">Network Level Loading (Legacy)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-MasterServerBuild.html"></a></span><div class="tip">Building the Unity Networking Servers on your own (Legacy)</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

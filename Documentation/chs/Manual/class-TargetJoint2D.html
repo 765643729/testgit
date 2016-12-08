@@ -1,0 +1,219 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Target Joint 2D</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-TargetJoint2D.html">English</a></li>
+<li><a href="/ja/current/Manual/class-TargetJoint2D.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-TargetJoint2D.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-TargetJoint2D.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-TargetJoint2D.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Unity2D.html">Unity 2D</a></li>
+<li><a href="Physics2DReference.html">2D Physics Reference</a></li>
+<li><a href="Joints2D.html"> 2D Joints</a></li>
+<li>Target Joint 2D</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-SpringJoint2D.html"></a></span><div class="tip">Spring Joint 2D</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-WheelJoint2D.html"></a></span><div class="tip"> Wheel Joint 2D</div>
+</div>
+</div></div>
+<h1>Target Joint 2D</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/TargetJoint2D.html' title='Go to TargetJoint2D page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>This joint connects to a specified target, rather than another rigid body object, as other joints do. It is a spring type joint, which you could use for picking up and moving an object acting under gravity, for example.</p>
+
+<figure>
+<img src="../uploads/Main/TargetJoint2DInspector.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Anchor</strong></td>
+	<td style="text-align:left;">The place (in terms of X, Y co-ordinates on the <strong>RigidBody</strong>) where the end point of the joint connects to this object.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Target</strong></td>
+	<td style="text-align:left;">The place (in terms of X, Y co-ordinates in the world space) towards which the other end of the joint attempts to move.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Auto Configure Target</strong></td>
+	<td style="text-align:left;">Check this box to automatically set the other end of the joint to the current position of the object. (This option is useful when you are moving the object around, as it sets the initial target position as the current position.) <strong>Note</strong> that when this option is selected, the target changes as you move the object; it won’t change if the option is unselected.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Max Force</strong></td>
+	<td style="text-align:left;">Sets the force that the joint can apply when attempting to move the object to the target position. The higher the value, the higher the maximum force.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Damping Ratio</strong></td>
+	<td style="text-align:left;">The degree to which you want to suppress spring oscillation: In the range 0 to 1, the higher the value, the less movement.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Frequency</strong></td>
+	<td style="text-align:left;">The frequency at which the spring oscillates while the objects are approaching the separation distance you want (measured in cycles per second): In the range 0 to 1,000,000 -, the higher the value, the stiffer the spring.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Break Force</strong></td>
+	<td style="text-align:left;">Specify the force level needed to break and so delete the joint. <strong>Infinity</strong> means it is unbreakable.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Details</h2>
+
+<p>(See also <a href="Joints2D.html">Joints 2D</a>: <em>Details and Hints</em> for useful background information on all 2D joints.)</p>
+
+<p>Use this joint to connect a rigid body game object to a point in space.</p>
+
+<p>The aim of this joint is to keep zero linear distance between two points: An anchor point on a rigid body object and a world-space position, called the “<strong>Target</strong>”. The joint applies linear force to the rigid body object, it does not apply torque (anglular force). </p>
+
+<p>The joint uses a simulated spring. You can set the spring’s stiffness and movement:</p>
+
+<p>A stiff, barely moving spring…</p>
+
+<ul>
+<li><p>A high (1,000,000 is the highest) <strong>Frequency</strong> == a stiff spring.</p></li>
+<li><p>A high (1 is the highest) <strong>Damping Ratio</strong> == a barely moving spring.</p></li>
+</ul>
+
+<p>A loose, moving spring…</p>
+
+<ul>
+<li><p>A low <strong>Frequency</strong> == a loose spring.</p></li>
+<li><p>A low <strong>Damping Ratio</strong> == a moving spring.</p></li>
+</ul>
+
+<p>When the spring applies its force between the rigid body object and target, it tends to overshoot the distance you have set between them, and then rebound repeatedly, giving in a continuous oscillation. The <strong>Damping Ratio</strong> sets how quickly the rigid body object stops moving. The <strong>Frequency</strong> sets how quickly the rigid body object oscillates either side of the distance you have specified.</p>
+
+<p>This joint has one constraint:</p>
+
+<ul>
+<li>Maintain a zero linear distance between the anchor point on a rigid body object and a world-space position (<strong>Target</strong>).</li>
+</ul>
+
+<p><strong>For Example:</strong></p>
+
+<p>You can use this joint to construct physical objects that need to move to designated target positions and stay there until another target position is selected or the turned-off. Such as:</p>
+
+<ul>
+<li>A game where players pick up cakes, using a mouse-click, and drag them into to a plate. You can use this joint to move each cake to the plate.</li>
+</ul>
+
+<p>You could also use the joint to allow objects to hang: If the anchor point is not the center of mass, then the object will rotate. Such as:</p>
+
+<ul>
+<li>A game where players pick up boxes. If they use a mouse-click to pick a box up by its corner and drag it, it will hang from the cursor.</li>
+</ul>
+
+<p><strong>HINT:</strong></p>
+
+<ul>
+<li>Zero in the <strong>Frequency</strong> is a special case: It gives the stiffest spring possible.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-SpringJoint2D.html"></a></span><div class="tip">Spring Joint 2D</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-WheelJoint2D.html"></a></span><div class="tip"> Wheel Joint 2D</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

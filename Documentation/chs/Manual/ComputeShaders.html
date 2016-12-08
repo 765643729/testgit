@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Compute Shaders</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/ComputeShaders.html">English</a></li>
+<li><a href="/ja/current/Manual/ComputeShaders.html">日本語</a></li>
+<li><a href="/es/current/Manual/ComputeShaders.html">Español</a></li>
+<li><a href="/kr/current/Manual/ComputeShaders.html">한국어</a></li>
+<li><a href="/ru/current/Manual/ComputeShaders.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li>Advanced Rendering Features</li>
+<li> Compute Shaders</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="OpenGLCoreDetails.html"></a></span><div class="tip">OpenGL Core Details</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="GraphicsCommandBuffers.html"></a></span><div class="tip"> Graphics Command Buffers</div>
+</div>
+</div></div>
+<h1>Compute Shaders</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Compute Shaders are programs that run on the graphics card, outside of the normal rendering pipeline. They can be used for massively parallel GPGPU algorithms, or to accelerate parts of game rendering. In order to efficiently use them, often an in-depth knowledge of GPU architectures and parallel algorithms is needed; as well as knowledge of <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/ff476331.aspx">DirectCompute</a>, <a href="http://en.wikipedia.org/wiki/OpenCL">OpenCL</a> or <a href="http://en.wikipedia.org/wiki/CUDA">CUDA</a>.</p>
+
+<p>Compute shaders in Unity closely match DirectX 11 DirectCompute technology. Platforms where compute shaders work:</p>
+
+<ul>
+<li>Windows and Windows Store, with a DirectX 11 graphics API and Shader Model 5.0 GPU.</li>
+<li>Modern OpenGL platforms (OpenGL 4.3 on Linux or Windows; OpenGL ES 3.1 on Android). Note that Mac OS X does not support OpenGL 4.3, so no compute shaders there yet.</li>
+<li>Modern consoles (Sony PS4 and Microsoft Xbox One).</li>
+</ul>
+
+<h2>Compute shader assets</h2>
+
+<p>Similar to <a href="class-Shader.html">regular shaders</a>, Compute Shaders are asset files in your project, with <code>*.compute</code> file extension. They are written in DirectX 11 style <a href="http://msdn.microsoft.com/en-us/library/windows/desktop/bb509561.aspx">HLSL</a> language, with minimal amount of <code>#pragma</code> compilation directives to indicate which functions to compile as compute shader kernels.</p>
+
+<p>Here’s a minimal example of a compute shader file:</p>
+
+<pre><code>// test.compute
+
+#pragma kernel FillWithRed
+
+RWTexture2D&lt;float4&gt; res;
+
+[numthreads(1,1,1)]
+void FillWithRed (uint3 dtid : SV_DispatchThreadID)
+{
+    res[dtid.xy] = float4(1,0,0,1);
+}
+</code></pre>
+
+<p>Note that the example above does not do anything remotely interesting, it just fills the output texture with red.</p>
+
+<p>The language is standard DX11 HLSL, with the only exception of a <code>#pragma kernel FillWithRed</code> directive. One compute shader asset file must contain at least one “compute kernel” that can be invoked, and that function is indicated by the #pragma directive. There can be more kernels in the file; just add multiple <code>#pragma kernel</code> lines.</p>
+
+<p>Please note when using multiple <code>#pragma kernel</code> lines that comments of the style <code>// text</code> are not permitted on the same line as the <code>#pragma kernel</code> directives and will cause compilation errors.</p>
+
+<p>The <code>#pragma kernel</code> line can optionally be followed by a number of preprocessor macros to define while compiling that kernel, for example:</p>
+
+<pre><code>#pragma kernel KernelOne SOME_DEFINE DEFINE_WITH_VALUE=1337
+#pragma kernel KernelTwo OTHER_DEFINE
+// ...
+</code></pre>
+
+<h2>Invoking compute shaders</h2>
+
+<p>In your script, define a variable of <code>ComputeShader</code> type, assign a reference to the asset, and then you can invoke them with <a href="../ScriptReference/ComputeShader.Dispatch.html">ComputeShader.Dispatch</a> function. See scripting reference of <a href="../ScriptReference/ComputeShader.html">ComputeShader class</a> for more details.</p>
+
+<p>Closely related to compute shaders is a <a href="../ScriptReference/ComputeBuffer.html">ComputeBuffer</a> class, which defines arbitrary data buffer (“structured buffer” in DX11 lingo). <a href="../ScriptReference/RenderTexture.html">Render Textures</a> can also be written into from compute shaders, if they have “random access” flag set (“unordered access view” in DX11), see <a href="../ScriptReference/RenderTexture-enableRandomWrite.html">RenderTexture.enableRandomWrite</a>.</p>
+
+<h2>Texture samplers in compute shaders</h2>
+
+<p>Textures and samplers aren’t separate objects in Unity, so in order to use them in compute shader you have to follow some Unity specific rules:</p>
+
+<ul>
+<li>Either use same as texture name, with “sampler” in front (e.g. <code>Texture2D MyTex; SamplerState samplerMyTex</code>). In this case, sampler will be initialized to that texture’s filter/wrap/aniso settings.</li>
+<li>Or use one of “predefined” samplers; name has to have “Linear” or “Point” (for filter mode) and “Clamp” or “Repeat” (for wrap mode). For example, <code>&quot;SamplerState MyLinearClampSampler&quot;</code> - this will have linear filter and clamp wrap mode.</li>
+</ul>
+
+<h2>Cross-platform support</h2>
+
+<p>As with regular shaders, Unity is capable of <a href="SL-ShadingLanguage.html">translating</a> compute shaders from HLSL to GLSL. Therefore for the easiest cross-platform builds it is recommended to write compute shaders in HLSL.</p>
+
+<h4>OpenGL compute differences from D3D</h4>
+
+<p>In order to achieve shaders working on multiple different platforms one should consider these limitations:</p>
+
+<ul>
+<li>D3D and OpenGL buffers have different data layout rules. Automatically translated GLSL shaders work around this issue so that the same data layout can be used for both D3D and OpenGL. However, in the case of manually written GLSL code the layout rule differences must be taken into account.</li>
+<li>OpenGL ES 3.1 guarantees support for only 4 simultaneous shader storage buffers. Actual implementations typically support a bit more but in general one should consider grouping related data in structs as opposed to having each data item in its own buffer.</li>
+</ul>
+
+<h4>HLSL-only or GLSL-only compute shaders</h4>
+
+<p>Typically compute shader files are written in HLSL, and compiled or translated into all needed platforms automatically. However it is possible to either prevent translation to GLSL (i.e. only keep HLSL platforms), or to write GLSL compute code manually.</p>
+
+<ul>
+<li>Compute shader source surrounded by <code>CGPROGRAM</code> and <code>ENDCG</code> keywords will not be processed for OpenGL/GLSL platforms.</li>
+<li>Compute shader source surrounded by <code>GLSLPROGRAM</code> and <code>ENDGLSL</code> keywords will be treated as GLSL source, and emitted verbatim. This will only work when targetting OpenGL/GLSL platforms.</li>
+</ul>
+
+<p>Note that for cross-platform builds neither of the above is recommended, since it very much ties compute shader source into being excluded from some platforms.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="OpenGLCoreDetails.html"></a></span><div class="tip">OpenGL Core Details</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="GraphicsCommandBuffers.html"></a></span><div class="tip"> Graphics Command Buffers</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

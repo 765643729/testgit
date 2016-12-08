@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Network System Concepts</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetConcepts.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetConcepts.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetConcepts.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetConcepts.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetConcepts.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetOverview.html">Networking Overview</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li>Network System Concepts</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetUsingHLAPI.html"></a></span><div class="tip">The High Level API</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetSetup.html"></a></span><div class="tip">Setting up a Multiplayer Project from Scratch</div>
+</div>
+</div></div>
+<h1>Network System Concepts</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>Server and Host</h2>
+
+<p>In the unity networking system, games have a Server and multiple Clients. When there is no dedicated server, one of the clients plays the role of the server - we call this client the “host”.</p>
+
+<figure>
+<img src="../uploads/Main/NetworkHost.png" alt="">
+</figure>
+
+<p>The host is a server and a client in the same process. The host uses a special kind of client called the LocalClient, while other clients are RemoteClients. The LocalClient communicates with the (local) server through direct function calls and message queues, since it is in the same process. It actually shares the scene with the server. RemoteClients communicate with the server over a regular network connection.</p>
+
+<p>One of the aims of the networking system is for the code for LocalClients and RemoteClients to be the same, so that developers only have to think about one type of client most of the time.</p>
+
+<h2>Instantiate and Spawn</h2>
+
+<p>In Unity, GameObject.Instantiate creates new Unity game objects. But with the networking system, objects must also be “spawned” to be active on the network. This can only be done on the server, and causes the objects to be created on connected clients. Once objects are spawned, the Spawning System uses distributed object life-cycle management and state-synchronization principles.</p>
+
+<p>For more details see <a href="UNetSpawning.html">Spawning</a>.</p>
+
+<h2>Players, Local Players and Authority</h2>
+
+<p>In the network system, player objects are special. There is a player object associated with each person playing the game, and <a href="UNetActions.html">command</a>s are routed to that object. A person cannot invoke a <a href="UNetActions.html">command</a> on another person’s player object - only their own. So there is a concept of “my” player object. When a player is added and the association is made with a connection, that player object becomes a “local player” object on the client of that player. There is a property isLocalPlayer that is set to true, and a callback OnStartLocalPlayer() that is invoked on the object on the client. The diagram below shows two clients and their local players.</p>
+
+<figure>
+<img src="../uploads/Main/NetworkLocalPlayers.png" alt="">
+</figure>
+
+<p>Only the player object that is “yours” will have the isLocalPlayer flag set. This can be used to filter input processing, to handle camera attachment, or do any other client side things that should only be done for your player.</p>
+
+<p>In addition to isLocalPlayer, a player object can have “local authority”. This means that the player object on its owner’s client is responsible for the object - it has authority. This is used most commonly for controlling movement, but can be used for other things also. The NetworkTransform component understands this and will send movement from the client if this is set. The NetworkIdentity has a checkbox for setting LocalPlayerAuthority.</p>
+
+<p>For non-player objects such as enemies, there is no associated client, so authority resides on the server.</p>
+
+<figure>
+<img src="../uploads/Main/NetworkAuthority.png" alt="">
+</figure>
+
+<p>There is a property “hasAuthority” on the NetworkBehaviour that can be used to tell if an object has authority. So non-player objects have authority on the server, and player objects with localPlayerAuthority set have authority on their owner’s client. </p>
+
+<h2>Client Authority for Non-Player Objects</h2>
+
+<p>Starting with Unity release 5.2, it is possible to have client authority over non-player objects. There are two ways to do this. One is to spawn the object using <a href="../ScriptReference/Networking.NetworkServer.SpawnWithClientAuthority.html">NetworkServer.SpawnWithClientAuthority</a> and pass the network connection of the client to take ownership. The other is to use <a href="../ScriptReference/Networking.NetworkIdentity.AssignClientAuthority.html">NetworkIdentity.AssignClientAuthority</a> with the network connection of the client to take ownership.</p>
+
+<p>Assigning authority to a client causes OnStartAuthority() to be called on NetworkBehaviours on the object, and the property hasAuthority will be true. On other clients the hasAuthority property will still be false. Non-player objects with client authority can send <a href="UNetActions.html">commands</a>, just like players can. These <a href="UNetActions.html">commands</a> are run on the server instance of the object, NOT on the player associated with the connection.</p>
+
+<p>Non-player objects that are to have client authority must have LocalPlayerAuthority checked in their NetworkIdentity.</p>
+
+<p>This example below spawns an object and assigns authority to the client of the player that spawned it.</p>
+
+<pre><code>[Command]
+void CmdSpawn()
+{
+    var go = (GameObject)Instantiate(otherPrefab, transform.position + new Vector3(0,1,0), Quaternion.identity);
+    NetworkServer.SpawnWithClientAuthority(go, connectionToClient);
+}
+</code></pre>
+
+<h2>Network Context Properties</h2>
+
+<p>There are properties on the NetworkBehaviour class that allow scripts to know what the network context is of a networked object at any time. </p>
+
+<ul>
+<li>isServer - true if the object is on a server (or host) and has been spawned.</li>
+<li>isClient - true if the object is on a client, and was created by the server.</li>
+<li>isLocalPlayer - true if the object is a player object for this client.</li>
+<li>hasAuthority - true if the object is owned by the local process</li>
+</ul>
+
+<p>These properties can be seen in the preview window of the object in the Inspector window of the editor.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetUsingHLAPI.html"></a></span><div class="tip">The High Level API</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetSetup.html"></a></span><div class="tip">Setting up a Multiplayer Project from Scratch</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

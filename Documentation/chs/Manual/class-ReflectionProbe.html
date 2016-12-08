@@ -1,0 +1,255 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Reflection Probe</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-ReflectionProbe.html">English</a></li>
+<li><a href="/ja/current/Manual/class-ReflectionProbe.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-ReflectionProbe.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-ReflectionProbe.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-ReflectionProbe.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="comp-RenderingGroup.html">Rendering Components</a></li>
+<li>Reflection Probe</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-Skybox.html"></a></span><div class="tip">Skybox</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-LODGroup.html"></a></span><div class="tip">LOD Group</div>
+</div>
+</div></div>
+<h1>Reflection Probe</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/ReflectionProbe.html' title='Go to ReflectionProbe page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>A <strong>Reflection Probe</strong> is rather like a camera that captures a spherical view of its surroundings in all directions. The captured image is then stored as a <a href="class-Cubemap.html">Cubemap</a> that can be used by objects with reflective materials. Several reflection probes can be used in a given scene and objects can be set to use the cubemap produced by the nearest probe. The result is that the reflections on the object can change convincingly according to its environment.</p>
+
+<figure>
+<img src="../uploads/Main/ReflectionProbeScene.png" alt="A Reflection Probe showing reflections from a nearby object">
+<figcaption>A Reflection Probe showing reflections from a nearby object</figcaption>
+</figure>
+
+<h2>Properties</h2>
+
+<figure>
+<img src="../uploads/Main/RefProbeInspector.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Type</strong></td>
+	<td style="text-align:left;">Choose whether the probe is for a <strong>Baked</strong>, <strong>Custom</strong> or <strong>Realtime</strong> setup?</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Dynamic Objects</strong></td>
+	<td style="text-align:left;">(<strong>Custom</strong> type only) Forces objects not marked as <strong>Static</strong> to be baked in to the reflection.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Cubemap</strong></td>
+	<td style="text-align:left;">(<strong>Custom</strong> type only) Sets a custom <a href="class-Cubemap.html">cubemap</a> for the probe.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Refresh Mode</strong></td>
+	<td style="text-align:left;">(<strong>Realtime</strong> type only) Selects if and how the probe will refresh at runtime. The <em>On Awake</em> option renders the probe only once when it first becomes active. <em>Every Frame</em> renders the probe every frame update, optionally using <strong>Time Slicing</strong> (see below). The <strong>Via Scripting</strong> option refreshes the probe from a user script command rather than an automatic update.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Time Slicing</strong></td>
+	<td style="text-align:left;">(<strong>Realtime</strong> type only) How should the probe distribute its updates over time? The options are <strong>All Faces At Once</strong> (spreads update over nine frames), <strong>Individual Faces</strong> (updates over fourteen frames) and <strong>No Time Slicing</strong> (the update happens entirely within one frame). See below for further details.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Runtime settings</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Importance</strong></td>
+	<td style="text-align:left;">The degree of “importance” of this probe compared to its neighbours. Higher values indicate greater importance; more important probes will have priority over less important one in cases where an object is within range of two or more probes. This setting also affects the <strong>Blending</strong>, explained <a href="UsingReflectionProbes.html">here</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Intensity</strong></td>
+	<td style="text-align:left;">The intensity modifier that is applied to the texture of this probe in its shader.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Box Projection</strong></td>
+	<td style="text-align:left;">Check this box to enable projection for reflection UV mappings.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Box Size</strong></td>
+	<td style="text-align:left;">The size of the box in which the reflection will be applied to the GameObject. The value is not affected by the Transform of the GameObject. Also used by <strong>Box Projection</strong>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Box Offset</strong></td>
+	<td style="text-align:left;">The center of the box in which the reflections will be applied to the GameObject. The value is relative to the position of the GameObject. Also used by <strong>Box Projection</strong>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Cubemap capture settings</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Resolution</strong></td>
+	<td style="text-align:left;">The resolution of the captured reflection image.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>HDR</strong></td>
+	<td style="text-align:left;">Should High Dynamic Range rendering be enabled for the cubemap? This also determines whether probe data is saved in <a href="http://www.openexr.com/">OpenEXR</a> or PNG format.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Shadow Distance</strong></td>
+	<td style="text-align:left;">Distance at which shadows are drawn when rendering the probe.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Clear Flags</strong></td>
+	<td style="text-align:left;">Option to specify how empty background areas of the cubemap will be filled. The options are <strong>Skybox</strong> and <strong>Solid Color</strong>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Background</strong></td>
+	<td style="text-align:left;">Background colour to which the reflection cubemap is cleared before rendering.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Culling Mask</strong></td>
+	<td style="text-align:left;">Allows objects on specified layers to be included or excluded in the reflection. See the section about the Camera’s culling mask on the <a href="Layers.html">Layers</a> page.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Use Occlusion Culling</strong></td>
+	<td style="text-align:left;">Should occlusion culling be used when baking the probe?</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Clipping Planes</strong></td>
+	<td style="text-align:left;">Near and far clipping planes of the probe’s “camera”.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Details</h2>
+
+<p>There are two buttons at the top of the <strong>Reflection Probe</strong> Inspector window that are used for editing the <strong>Size</strong> and <strong>Probe Origin</strong> properties directly within the Scene. With the leftmost button (<strong>Size</strong>) selected, the probe’s zone of effect is shown in the scene as a yellow box shape with handles to adjust the box’s size.</p>
+
+<figure>
+<img src="../uploads/Main/RefProbeHandles.svg" alt="">
+</figure>
+
+<p>The other button (<strong>Origin</strong>) allows you to drag the probe’s origin relative to the box. Note that the origin handle resembles the <a href="class-Transform.html">Transform</a> position handle but the two positions are not the same. Also, the rotation and scale operations are not available for the probe box.</p>
+
+<figure>
+<img src="../uploads/Main/RefProbeOrigin.svg" alt="">
+</figure>
+
+<p>The probe’s <strong>Type</strong> property determines how the reflection data is created and updated:</p>
+
+<ul>
+<li>
+<strong>Baked</strong> probes store a static reflection cubemap generated by baking in the editor.</li>
+<li>
+<strong>Custom</strong> probes store a static cubemap which can either be generated by baking or set manually by the user.</li>
+<li>
+<strong>Realtime</strong> probes update the cubemap at runtime and can therefore react to dynamic objects in the scene.</li>
+</ul>
+
+<p>To make use of the reflection cubemap, an object must have the <strong>Reflection Probes</strong> option enabled on its <a href="class-MeshRenderer.html">Mesh Renderer</a> and also be using a shader that supports reflection probes. When the object passes within the volume set by the probe’s <strong>Size</strong> and <strong>Probe Origin</strong> properties, the probe’s cubemap will be applied to the object.</p>
+
+<p>You can also manually set which reflection probe to use for a particular object using the settings on the object’s <a href="class-MeshRenderer.html">Mesh Renderer</a>. To do this, select one of the options for the Mesh Renderer’s <strong>Reflection Probes</strong> property (<strong>Simple</strong>, <strong>Blend Probes</strong> or <strong>Blend Probes and Skybox</strong>) and drag the chosen probe onto its <strong>Anchor Override</strong> property.</p>
+
+<p>See the <a href="ReflectionProbes.html">Reflection Probes</a> section in the manual for further details about principles and usage.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-Skybox.html"></a></span><div class="tip">Skybox</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-LODGroup.html"></a></span><div class="tip">LOD Group</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

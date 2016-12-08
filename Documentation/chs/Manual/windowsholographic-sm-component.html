@@ -1,0 +1,393 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Spatial Mapping components</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/windowsholographic-sm-component.html">English</a></li>
+<li><a href="/ja/current/Manual/windowsholographic-sm-component.html">日本語</a></li>
+<li><a href="/es/current/Manual/windowsholographic-sm-component.html">Español</a></li>
+<li><a href="/kr/current/Manual/windowsholographic-sm-component.html">한국어</a></li>
+<li><a href="/ru/current/Manual/windowsholographic-sm-component.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="Windows.html">Windows</a></li>
+<li><a href="windowsholographic.html">Windows Holographic</a></li>
+<li><a href="windowsholographic-spatialmapping.html">Spatial Mapping</a></li>
+<li> Spatial Mapping components</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="windowsholographic-sm-bestpractices.html"></a></span><div class="tip">Spatial Mapping best practices</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="windowsholographic-webcamera.html"></a></span><div class="tip">Web Camera</div>
+</div>
+</div></div>
+<h1>Spatial Mapping components</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Unity Editor has low-level Script Ref API for gathering information about surfaces in your project environment. This low-level Script Ref API gives you maximum control over when to query the device for surface changes, and when to create or update the corresponding surface game objects. The Spatial Mapping components allow you to quickly get up and running with mixed reality, without directly using the low-level Script Ref API.</p>
+
+<figure>
+<img src="../uploads/Main/SpatialMapping-RealWorld.png" alt="An example of the Spatial Mapping feature applied to a real-world space">
+<figcaption>An example of the Spatial Mapping feature applied to a real-world space</figcaption>
+</figure>
+
+<h2>Spatial Mapping components</h2>
+
+<p>There are two Spatial Mapping components: the <a href="#SMRenderer">Spatial Mapping Renderer</a>
+ and the <a href="#SMCollider">Spatial Mapping Collider</a>. Go to <strong>Component</strong> &gt; <strong>Add…</strong> (or click on <strong>Add Component</strong> in the Inspector window) to bring up the <strong>Add Component</strong> menu. The spatial mapping components are under the <strong>AR</strong> category in the <strong>Add Component</strong> menu.</p>
+
+<figure>
+<img src="../uploads/Main/SpatialMapping-AddComponent.png" alt="To access the Spatial Mapping components, select AR in the Component menu">
+<figcaption>To access the Spatial Mapping components, select <strong>AR</strong> in the <strong>Component</strong> menu</figcaption>
+</figure>
+
+<p>You can use the components together or independently. Each Spatial Mapping component uses its own surface observer to understand changes in the physical world. Depending on how the component is configured, each Spatial Mapping component periodically queries the system to understand what changes have occurred in physical space. When the system notifies the component of the relevant changes, the component prioritizes the baking of the various changed surfaces. The baking process involves generating a Mesh Filter with a Mesh that corresponds to the physical surface. The <strong>Spatial Mapping Renderer</strong> and <strong>Spatial Mapping Collider</strong> components use this Mesh Filter in their own specific ways.</p>
+
+<p><a name="SMRenderer"></a></p>
+
+<h2>Spatial Mapping Renderer (Script)</h2>
+
+<figure>
+<img src="../uploads/Main/SpatialMappingRenderer.png" alt="">
+</figure>
+
+<p>The <strong>Spatial Mapping Renderer</strong> component gives a visual representation of Spatial Mapping surfaces. This is useful for visually debugging surfaces and adding visual effects to the environment. </p>
+
+<p>The Spatial Mapping Renderer component periodically asks the system for changes in physical space. Each time the component is notified of these changes, it bakes the returned surface data into GameObjects. These GameObjects contain a Mesh Filter and a Mesh Renderer. The Renderer component manages the lifetime of the surface GameObjects. This means that the Spatial Mapping Renderer component handles creating, updating, and destroying the surface GameObject. </p>
+
+<p>The component provides an easy way to change the material on all the generated surfaces dynamically. It ships with two material types:</p>
+
+<ul>
+<li><p>An Occlusion Material that appears transparent but conceals holograms. This is a useful material to use if, for example, you want a real-world desk to conceal an in-game holographic object placed underneath it. </p></li>
+<li>
+<p>A wireframe Shader that applies to all the component’s surfaces. The colors of the wireframe represent distances. The following are the distance-to-color mappings.</p>
+
+<ul>
+<li><p>0 to 1 meters = Black</p></li>
+<li><p>1 to 2 meters = Red</p></li>
+<li><p>2 to 3 meters = Green</p></li>
+<li><p>3 to 4 meters = Blue</p></li>
+<li><p>4 to 5 meters = Yellow</p></li>
+<li><p>5 to 6 meters = Cyan</p></li>
+<li><p>6 to 7 meters = Magenta</p></li>
+<li><p>7 to 8 meters = Maroon</p></li>
+<li><p>8 to 9 meters = Teal</p></li>
+<li><p>9 to 10 meters = Orange</p></li>
+<li><p>10 meters or greater = White</p></li>
+</ul>
+</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/SpatialMapping-WireframeShader.png" alt="A wireframe Shader in the Spatial Mapping Renderer. The colors in the wireframe represent distances.">
+<figcaption>A wireframe Shader in the Spatial Mapping Renderer. The colors in the wireframe represent distances.</figcaption>
+</figure>
+
+<h3>Render Settings</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Setting</strong></th>
+	<th style="text-align:left;"><strong>Property</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Custom Render Setting</strong></td>
+	<td style="text-align:left;">Select one of the three options to render surfaces: <strong>Occlusion Material</strong> - A transparent material which hides GameObjects behind real world surfaces. NOTE: Enables all of a surface’s Mesh Renderers, overriding any other setting. <strong>Custom Material</strong> - Your own material for visualizing the surfaces. Use this for debugging, visual effects, or your own occlusion material. This enables all of a surface’s Mesh Renderers, overriding any other setting. <strong>None (Game Object)</strong> - Disables all the Mesh Renderers assigned to the surfaces.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Custom Material</strong></td>
+	<td style="text-align:left;">Select the material you want to use for rendering. The default is the built-in <strong>SpatialMappingWireframe</strong> material. The option you select here is the render material that applies to your <strong>Custom Render Settings</strong>. Note that both active options in the <strong>Custom Render Settings</strong> (both <strong>Occlusion Material</strong> and <strong>Custom Material</strong>) require a <strong>Custom Material</strong> setting here.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For information on the General Settings see <a href="#GeneralSettings">General Settings</a>, below.</p>
+
+<p><strong>Notes:</strong></p>
+
+<ul>
+<li><p>All surface GameObjects take their material from the <strong>Custom Render Setting</strong>. If you change the <strong>Custom Render Setting</strong>, all surface GameObjects’ render materials change to those of the <strong>Custom Render Setting</strong>. This reduces the number of draw calls, which in turn improves the rendering performance. Using a shared material also reduces the amount of memory that rendering uses.</p></li>
+<li><p>When you assign a new material to the <strong>Custom Material</strong> setting, it does not automatically change the surface material of your surface GameObjects. You must also set <strong>Custom Render Setting</strong> to <strong>Custom Material</strong> or <strong>Occlusion Material</strong> to apply the new material to all surfaces.</p></li>
+<li><p>If the <strong>Occlusion Material</strong> or <strong>Custom Material</strong> properties in <strong>Custom Render Setting</strong> are not assigned at runtime, they are destroyed with the Renderer component. However, any <strong>Occlusion Material</strong> or <strong>Custom Material</strong> assigned at runtime are not destroyed with the component, so you need to destroy them individually.</p></li>
+</ul>
+
+<h3>Example script: Change surface material at runtime</h3>
+
+<p>The following script example demonstrates how to to change the material applied to all surface GameObjects dynamically at runtime.</p>
+
+<pre><code>SpatialMappingRenderer renderer = spatialMappingGameObject.AddComponent&lt;SpatialMappingRenderer&gt;();
+renderer.customMaterial = new Material(Shader.Find(&quot;VR/SpatialMapping/Wireframe&quot;));
+renderer.currentRenderSetting = SpatialMappingRenderer.RenderSetting.CustomMaterial;
+
+</code></pre>
+
+<p><a name="SMCollider"></a></p>
+
+<h2>Spatial Mapping Collider (Script)</h2>
+
+<figure>
+<img src="../uploads/Main/SpatialMappingCollider.png" alt="">
+</figure>
+
+<p>The <strong>Spatial Mapping Collider</strong> component allows holographic content to interact with physical surfaces. It handles creating, updating, and destroying the surface GameObjects.</p>
+
+<p>The component periodically queries the system for surface changes in the physical world. When the system reports surface changes, the <strong>Spatial Mapping Collider</strong> component prioritizes when each reported surface is baked. When a surface is baked, a new GameObject is created that has a Mesh Filter and Mesh Collider component. Once the surface has a Mesh Collider, you can cast rays against the surface and collide with it. </p>
+
+<h3>Collider Settings</h3>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Setting</strong></th>
+	<th style="text-align:left;"><strong>Property</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Enable Collisions</strong></td>
+	<td style="text-align:left;">Check this box to turn on the surface Mesh Colliders.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Mesh Layer</strong></td>
+	<td style="text-align:left;">Set the Layer property on all the surface Mesh Colliders. Note that you need to set Layers for raycasts. When performing a raycast, you must indicate which Layers you want the ray intersection to test against. By default, all GameObjects are assigned to the <strong>Default</strong> Layer. However, it is good practice to assign your GameObjects to a specific Layer. See <a href="#performanceOptimization">Performance optimization</a>, below. See the <a href="Layers.html">Layers</a> page and <a href="Raycasters.html">Raycast</a> page for more information. See also Example script: SpatialSurface raycast, below.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Physic Material</strong></td>
+	<td style="text-align:left;">Specify which <strong>Physic Material</strong> to assign to the Mesh Collider. The default is <strong>None (Physic Material)</strong>. A <strong>Physic Material</strong> specifies how other Rigidbody components should interact with it. For example, a surface can simulate ice, and therefore apply less friction to an object moving on it. The Spatial Mapping Collider component applies its <strong>Physic Material</strong> to all of the Mesh Colliders on its surface GameObjects. See the the <a href="class-PhysicMaterial.html">Physic Material</a> page for more information.</td>
+</tr>
+</tbody>
+</table>
+
+<p>For information on the General Settings see <a href="#GeneralSettings">General Settings</a>, below.</p>
+
+<h3>Example script: SpatialSurface raycast</h3>
+
+<p>The following example demonstrates how to raycast against GameObjects on the <strong>SpatialSurface</strong> Layer.</p>
+
+<pre><code>using UnityEngine;
+using System.Collections; 
+
+public class CustomLayerCollision : MonoBehaviour
+{
+    // Update is called once per frame.
+    void Update()
+    {
+        // When the user presses the left mouse button,
+        // Do a collision test.  You could fire the
+        // DetectCollisions based on a gesture event.*
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            DetectCollisions();
+        }
+    } 
+
+    void DetectCollisions()
+    {
+        // Raycast against all game objects that are on either the
+        // spatial surface or UI layers.
+        int layerMask = 1 &lt;&lt; LayerMask.NameToLayer(&quot;SpatialSurface&quot;);
+        // We use ScreenPointToRay to create a ray whose origin is the
+        // main camera's position and direction is from the position of the main
+        // camera to the position of where the mouse position would be in world space.
+        RaycastHit[] hits = Physics.RaycastAll(Camera.main.ScreenPointToRay(Input.mousePosition), float.MaxValue, layerMask);
+
+        if(hits.Length &gt; 0)
+        {
+            foreach(RaycastHit hit in hits)
+            {
+                Debug.Log(string.Format(&quot;Hit Object **\&quot;**{0}**\&quot;** at position **\&quot;**{1}**\&quot;**&quot;, hit.collider.gameObject, hit.point));
+            }
+        }
+        else
+        {
+            Debug.Log(&quot;Nothing was hit.&quot;);
+        }
+    }
+}
+
+</code></pre>
+
+<p><a name="GeneralSettings"></a></p>
+
+<h2>Settings</h2>
+
+<h3>General Settings</h3>
+
+<p>
+<strong>General Settings</strong> function in the same way for the <strong>Spatial Mapping Renderer (Script)</strong> and <strong>Spatial Mapping Collider (Script)</strong> components.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Setting</strong></th>
+	<th style="text-align:left;"><strong>Property</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Surface Parent</strong></td>
+	<td style="text-align:left;">Select the <strong>Surface Parent</strong> GameObject that you want surface GameObjects generated by Spatial Mapping components to inherit from. Leave this as <strong>None (Game Object)</strong>, to automatically generate a Surface Parent GameObject.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Freeze Updates</strong></td>
+	<td style="text-align:left;">Check this box to stop the component querying the system for surface changes. NOTE: Each Spatial Mapping component periodically queries the system for surface changes in physical space. Querying and baking surfaces cost memory, performance, and power. For environments that you expect to be mostly static, allow users to look around the environment for a duration of time without updates.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Time Between Updates</strong></td>
+	<td style="text-align:left;">Specify the time in tenths of a second (ie 3.7 or 4.6) between queries for surface changes in physical space. The default is 2.5 seconds. Note that the more regular the queries, the higher the cost in memory, performance, and power.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Removal Update Count</strong></td>
+	<td style="text-align:left;">Specify the number of updates before a surface GameObject is removed. An update is the same as a frame in this context. The default is 10 updates (frames). NOTE: The removal update count down begins when the system notifies the component that a surface GameObject is no longer in the surface observer’s bounding volume - ie it is gone from the defined area the system reports on. Here you specify how many updates (frames) should follow after this event before removing the surface GameObject.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Level of Detail</strong></td>
+	<td style="text-align:left;">Select <strong>Low</strong>, <strong>Medium</strong>, or <strong>High</strong> quality of the Mesh generated by the component. The default is <strong>Medium</strong>. The higher the quality, the more accuracy in the Collider and rendering, the lower the quality, the less cost in performance and power. See the image below for an example of the three <strong>Level Of Detail</strong> modes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bounding Volume Type</strong></td>
+	<td style="text-align:left;">Choose here between bounding volume area shapes: <strong>Sphere</strong> or <strong>Axis Aligned Box</strong>. The default is <strong>Axis Aligned Box</strong>. NOTE: The bounding volume is the defined area about which the system reports physical surface changes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Size In Meters</strong></td>
+	<td style="text-align:left;">Set the size of the bounding volume in meters. Configure <strong>Sphere</strong> by radius; the default radius is 2 meters. Configure <strong>Axis Aligned Box</strong> by its extents; the default is a Vector3 (4,4,4) or 4 cubic meters. NOTE: The observer’s bounding volume is the defined area about which the system reports physical surface changes.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Level Of Detail</strong></p>
+
+<figure>
+<img src="../uploads/Main/SpatialMapping-LoD.png" alt="The three Level Of Detail modes">
+<figcaption>The three Level Of Detail modes</figcaption>
+</figure>
+
+<p><a name="performanceOptimization"></a></p>
+
+<h2>Performance optimization</h2>
+
+<ul>
+<li><p>Keep in mind that each Spatial Mapping component is independent of other Spatial Mapping components. This means that each component maintains its own list of surfaces, even if multiple components see the same surface. Try to limit how many Spatial Mapping components you use, in order to optimize performance.</p></li>
+<li><p>If you expect the environment in your simulation to be fairly static and unchanging (like a board game), you can scan as much surface data as needed upfront and then set the Freeze Updates property to false. This increases performance slightly and consumes less power.</p></li>
+<li><p>There is a small cost in performance for moving a Spatial Mapping component. Try to avoid moving a GameObject that has a Spatial Mapping component.</p></li>
+<li><p>In <strong>Collider Settings</strong> &gt; <strong>Level of Detail</strong>, use the <strong>Low</strong> setting. This increases performance and reduces power usage when calculating collision intersections.</p></li>
+<li><p>Spatial Mapping Mesh Colliders have less latency in updates than Spatial Mapping Mesh Renderers. This means the Colliders update faster than the Renderers.</p></li>
+<li><p>In <strong>Collider Settings</strong> &gt; <strong>Mesh Layer</strong>, by default, all game objects are assigned to the <strong>Default</strong> Layer. However, it is good practise to assign your GameObjects to a specific Layer: Raycasting is an expensive calculation to perform, in that it can slow performance. By using Layers, you can filter which GameObjects you are doing your raycast calculations against, and so optimise performance.
+If you don’t have a lot of complicated Meshes on your <strong>Default</strong> Layer, then doing the raycast test for collision won’t have a large performance cost. However, it is best to organize your GameObjects into Layers to reduce the complexity of raycast tests when doing collisions.</p></li>
+</ul>
+
+<p>See the <a href="Layers.html">Layers</a> page and <a href="Raycasters.html">Raycast</a> page for more information.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="windowsholographic-sm-bestpractices.html"></a></span><div class="tip">Spatial Mapping best practices</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="windowsholographic-webcamera.html"></a></span><div class="tip">Web Camera</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  Host Migration</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UNetHostMigration.html">English</a></li>
+<li><a href="/ja/current/Manual/UNetHostMigration.html">日本語</a></li>
+<li><a href="/es/current/Manual/UNetHostMigration.html">Español</a></li>
+<li><a href="/kr/current/Manual/UNetHostMigration.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UNetHostMigration.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetOverview.html">Networking Overview</a></li>
+<li><a href="UNetUsingHLAPI.html">The High Level API</a></li>
+<li> Host Migration</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetClientServer.html"></a></span><div class="tip">Network Clients and Servers</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetUsingTransport.html"></a></span><div class="tip">Using the Transport Layer API</div>
+</div>
+</div></div>
+<h1>Host Migration</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>In a multiplayer network game without a dedicated server, one of the peers in the game acts as the center of authority for the game. This peer is called the “host”. It runs a server and a “local client”, while the other peers each run a “remote client”.</p>
+
+<p>If the host of a game is lost, then the game cannot continue. The host could be lost because the player left, the host process was killed or crashed, the host’s machine was shut down, or because the network connection of the host was lost.</p>
+
+<p>The “Host Migration” feature allows one of the remote clients to become the new host, so that the multiplayer game can continue.</p>
+
+<h1>How it works</h1>
+
+<p>During a multiplayer game with host migration enabled, the addresses of the peers will be distributed to the peers in the game. When the host is lost, one peer can become the new host. The other peers then connect to the new host and the game can continue.</p>
+
+<p>The new NetworkMigrationManager component can be dropped into a multiplayer game that uses the Unity Networking HLAPI, and it allows the game to continue with a new host after the original host is lost. Below is a screenshot of the NetworkMigrationManager in the editor inspector. It shows the current migration state.</p>
+
+<figure>
+<img src="../uploads/Main/NetworkMigrationManagerInspector.png" alt="The Network Migration Manager component">
+<figcaption>The Network Migration Manager component</figcaption>
+</figure>
+
+<p>There is a simple user interface provided by the NetworkMigrationManager, similar to the <a href="UNetManager.html">NetworkManagerHUD</a>. This user interface is intended for testing and prototyping; a real game would implement a custom user interface for host migration, and probably custom logic - possibly choosing the new host automatically without requiring input from the user.</p>
+
+<figure>
+<img src="../uploads/Main/NetworkMigrationManagerHUD.png" alt="The Network Migration Manager prototyping HUD">
+<figcaption>The Network Migration Manager prototyping HUD</figcaption>
+</figure>
+
+<p>Even though the migration may have occurred because the old host lost connection or quite the game, it is possible for the old host of the game to rejoin the game as a client on the new host.</p>
+
+<p>The state of SyncVars and SyncLists on all networked objects in the scene are maintained during a host migration. This also applies to custom serialized data for objects.</p>
+
+<p>All of the player objects in the game are disabled when the host is lost. Then, when the other clients rejoin the new game on the new host, the corresponding players for those clients are re-enabled on the host, and respawned on the other clients. So no player state data is lost during a host migration.</p>
+
+<p>
+<strong>NOTE</strong>: Only data that is available to clients will be preserved during a host migration. If there is data that is only on the server, then it will not be available to the client that becomes the new host. So any data on the host that is not stored in SyncVars or SyncLists will not be available after a host migration.</p>
+
+<p>The callback function <a href="../ScriptReference/Networking.NetworkBehaviour.OnStartServer.html">OnStartServer</a> is invoked for all networked objects when the client becomes a new host.</p>
+
+<p>On the new host, the NetworkMigrationManager uses the function <a href="../ScriptReference/Networking.NetworkMigrationManager.BecomeNewHost.html">BecomeNewHost</a> to construct a networked server scene from the state in the current ClientScene.</p>
+
+<p>The peers in a game with host migration enabled are identified by their <code>connectionId</code> on the server. When a client reconnects to the new host of a game, this connectionId is passed to the new host so that it can match this client with the client that was connected to the old host. This Id is set on the ClientScene as the “reconnectId”.</p>
+
+<h1>Non-Player Objects</h1>
+
+<p>Non-player objects with client authority are also handled by host migration. The objects owned by each client are disabled and re-enabled the same way that player objects are.</p>
+
+<h1>Identifying Peers</h1>
+
+<p>Before the host is lost, all the peers are connected to the host. They each have a unique connectionId on the host - this is called the “oldConnectionId” in the context of host migration. </p>
+
+<p>When a new host is chosen and the peers reconnect to it, they supply their “oldConnectionId” to identify which peer they are. This allows the new host to match this reconnecting client to the corresponding player object.</p>
+
+<p>The old host uses a special oldConnectionId of zero to reconnect - since it did not have a connection to the old host, it WAS the old host. There is a constant ClientScene.ReconnectIdHost for this.</p>
+
+<p>When using the built-in user interface, the oldConnectionId is set automatically. It can be set manually using <a href="../ScriptReference/Networking.NetworkMigrationManager.Reset.html">NetworkMigrationManager.Reset</a> or <a href="../ScriptReference/Networking.ClientScene.SetReconnectId.html">ClientScene.SetReconnectId</a>.</p>
+
+<h1>Host Migration Flow</h1>
+
+<ol>
+<li><p>MachineA hosts a game with host-migration enabled</p></li>
+<li>MachineB starts a client and joins the game with host-migration enabled
+
+<ul>
+<li>MachineB is told about peers (MachineA–0, and self (MachineB)–1)</li>
+</ul>
+</li>
+<li>MachineC starts a client and joins the game with host-migration enabled
+
+<ul>
+<li>MachineC is told about peers (MachineA–0, MachineB–1, and self (MachineC)–2)</li>
+</ul>
+</li>
+<li><p>MachineA is lost, so the host is lost</p></li>
+<li>MachineB gets disconnect from host
+
+<ol>
+<li>MachineB callback function is invoked on MigrationManager on client</li>
+<li>MachineB player objects for all players are disabled</li>
+<li>MachineB stay in online scene</li>
+</ol>
+</li>
+<li>MachineB uses utility function to pick the new host, picks self
+
+<ol>
+<li>MachineB calls BecomeNewHost()</li>
+<li>MachineB start listening</li>
+<li>MachineB player object for self is reactivated</li>
+<li>MachineB The player for MachineB is now back in the game with all its old state</li>
+</ol>
+</li>
+<li>MachineC gets disconnect from host
+
+<ol>
+<li>MachineC callback function is invoked on MigrationManager on client</li>
+<li>MachineC player objects for all players are disabled</li>
+<li>MachineC stay in online scene</li>
+</ol>
+</li>
+<li>MachineC uses utility function to pick new host, picks MachineB
+
+<ul>
+<li>MachineC reconnects to new host</li>
+</ul>
+</li>
+<li>MachineB receives connection from MachineC
+
+<ol>
+<li>MachineC send reconnect message with oldConnectionId (instead of AddPlayer message)</li>
+<li>callback function is invoked on MigrationManager on server</li>
+<li>MachineB uses oldConnectionId to find the disabled player object for that player and re-adds it with ReconnectPlayerForConnection()</li>
+<li>player object is re-spawned for MachineC</li>
+<li>The player for MachineC is now back in the game with all its old state</li>
+</ol>
+</li>
+<li>MachineA recovers (the old host)
+
+<ol>
+<li>MachineA uses utility function to pick the new host, picks MachineB</li>
+<li>MachineA “reconnects” to MachineB</li>
+</ol>
+</li>
+<li><p>MachineB receives connection from MachineA</p></li>
+<li>MachineA send reconnect message with oldConnectionId of zero
+
+<ol>
+<li>callback function is invoked on MigrationManager on server (MachineB)</li>
+<li>MachineB uses oldConnectionId to find the disabled player object for that player and re-adds it with ReconnectPlayerForConnection()</li>
+<li>player object is re-spawned for MachineA</li>
+<li>The player for MachineA is now back in the game with all its old state</li>
+</ol>
+</li>
+</ol>
+
+<h1>Callback Functions</h1>
+
+<p>Callback functions on the NetworkHostMigrationManager</p>
+
+<pre><code>// called on client after the connection to host is lost. controls whether to switch scenes
+protected virtual void OnClientDisconnectedFromHost(
+    NetworkConnection conn, 
+    out SceneChangeOption sceneChange)
+
+// called on host after the host is lost. host MUST change scenes
+protected virtual void OnServerHostShutdown()
+
+// called on new host (server) when a client from the old host re-connects a player
+protected virtual void OnServerReconnectPlayer(
+    NetworkConnection newConnection, 
+    GameObject oldPlayer, 
+    int oldConnectionId, 
+    short playerControllerId)
+
+// called on new host (server) when a client from the old host re-connects a player
+protected virtual void OnServerReconnectPlayer(
+    NetworkConnection newConnection, 
+    GameObject oldPlayer, 
+    int oldConnectionId, 
+    short playerControllerId, 
+    NetworkReader extraMessageReader)
+
+// called on new host (server) when a client from the old host re-connects a non-player object
+protected virtual void OnServerReconnectObject(
+    NetworkConnection newConnection, 
+    GameObject oldObject, 
+    int oldConnectionId)
+
+// called on both host and client when the set of peers is updated
+protected virtual void OnPeersUpdated(
+    PeerListMessage peers)
+
+// utility function called by the default UI on client after connection to host was lost, to pick a new host.
+public virtual bool FindNewHost(
+    out NetworkSystem.PeerInfoMessage newHostInfo, 
+    out bool youAreNewHost)
+
+// called when the authority of a non-player object changes
+protected virtual void OnAuthorityUpdated(
+    GameObject go,
+    int connectionId,
+    bool authorityState)
+</code></pre>
+
+<h1>Constraints</h1>
+
+<p>Data that is only present on the server (the host) will be lost when the host is disconnected. For games to be able to perform host migration correctly, important data must be distributed to the clients, not held secretly on the server.</p>
+
+<p>This works for direct connection games. Additional work is required for this to function with the matchmaker and relay server.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UNetClientServer.html"></a></span><div class="tip">Network Clients and Servers</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UNetUsingTransport.html"></a></span><div class="tip">Using the Transport Layer API</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

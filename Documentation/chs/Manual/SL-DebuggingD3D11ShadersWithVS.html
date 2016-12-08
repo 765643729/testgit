@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Debugging DirectX 11 shaders with Visual Studio</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/SL-DebuggingD3D11ShadersWithVS.html">English</a></li>
+<li><a href="/ja/current/Manual/SL-DebuggingD3D11ShadersWithVS.html">日本語</a></li>
+<li><a href="/es/current/Manual/SL-DebuggingD3D11ShadersWithVS.html">Español</a></li>
+<li><a href="/kr/current/Manual/SL-DebuggingD3D11ShadersWithVS.html">한국어</a></li>
+<li><a href="/ru/current/Manual/SL-DebuggingD3D11ShadersWithVS.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="SL-Reference.html"> Shader Reference</a></li>
+<li><a href="SL-AdvancedTopics.html">Advanced ShaderLab topics</a></li>
+<li>Debugging DirectX 11 shaders with Visual Studio</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SL-TextureArrays.html"></a></span><div class="tip">Texture arrays</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SL-ImplementingTexGen.html"></a></span><div class="tip"> Implementing Fixed Function TexGen in Shaders</div>
+</div>
+</div></div>
+<h1>Debugging DirectX 11 shaders with Visual Studio</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>In Visual Studio 2012, Microsoft has indroduced Graphics Debugger, you can use it to capture a frame from platforms like Unity Editor, Windows Standalone or Windows Store Apps.</p>
+
+<p>It’s recommended to use Visual Studio 2013, as it contains several fixes for Graphics Debugger.</p>
+
+<p>
+<strong>Note:</strong> Unity Editor contains multiple child windows inside, this may cause Graphics Debugger to capture frame from incorrect window, to ensure that correct window will be captured, check ‘Maximize on Play’ tab, and hit Play button before capturing, but even then there’s no guarantee that the correct window will be captured, that’s why it’s not recommended to use Unity Editor for frame capturing.</p>
+
+<p>
+<strong>Note:</strong> Frames can only be captured if Unity is running under DirectX 11, you can select DirectX 11 from Player Settings (PC, Mac &amp; LinuxStandalone) -&gt; Other Settings.</p>
+
+<p>Steps to capture frame from Unity Editor or Windows Standalone:</p>
+
+<ul>
+<li>Launch Visual Studio 2013</li>
+<li>Go to File-&gt;New-&gt;Project-&gt;Visual C++-&gt;Empty Project</li>
+<li>Go to Project-&gt;Properties-&gt;Configuration Properties-&gt;Debugging</li>
+<li>In <strong>Command</strong> field, replace $(TargetPath) with path to Unity Editor or Windows Standalone, for ex., C:\MyApp\MyApp.exe</li>
+<li>(Optional) In <strong>Command Arguments</strong> specify <strong>-force-d3d11</strong>, this will force Windows Standalone or Unity Editor to run under DirectX 11</li>
+<li><img src="../uploads/Main/ShaderDebuggingVSProps.png" alt="Project Properties"></li>
+<li>You’re ready to run Graphics Debugger, go to Debug-&gt;Graphics-&gt;Start Diagnostics</li>
+<li>If everything is configured correctly you should see “Use ‘Print Screen’ key to capture a frame” message in top left corner of the application. See screenshot below.</li>
+<li><img src="../uploads/Main/ShaderDebuggingStandalone.png" alt="Screenshot from Windows Standalone application running with Graphics Debugger"></li>
+</ul>
+
+<p>Steps to debug DirectX 11 shader:</p>
+
+<ul>
+<li>To debug a shader you have to compile with debug symbols, to do that, you have insert <strong>#pragma enable_d3d11_debug_symbols</strong>
+</li>
+<li>Let’s try to create a basic example:
+
+<ul>
+<li>Create a new Unity project</li>
+<li>Create a new shader in Assets window</li>
+<li>Insert <strong>#pragma enable_d3d11_debug_symbols</strong>
+</li>
+<li>Create a new material and select your custom shader</li>
+<li>Assign a material to some object, for ex., a cube</li>
+<li>Build Windows Standalone application</li>
+<li>Capture a frame with steps mentioned above</li>
+</ul>
+</li>
+</ul>
+
+<p>Your shader should look like this:</p>
+
+<pre><code>Shader &quot;Custom/NewShader&quot; {
+    Properties {
+        _MainTex (&quot;Base (RGB)&quot;, 2D) = &quot;white&quot; {}
+    }
+    SubShader {
+        Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+        LOD 200
+        
+        CGPROGRAM
+        #pragma surface surf Lambert
+        #pragma enable_d3d11_debug_symbols
+        sampler2D _MainTex;
+
+        struct Input {
+            float2 uv_MainTex;
+        };
+
+        void surf (Input IN, inout SurfaceOutput o) {
+            half4 c = tex2D (_MainTex, IN.uv_MainTex);
+            o.Albedo = c.rgb;
+            o.Alpha = c.a;
+        }
+        ENDCG
+    } 
+    FallBack &quot;Diffuse&quot;
+}
+
+</code></pre>
+
+<p>If everything done correctly, you should see the following captured frame, right click and select <strong>Pixel History</strong> and select the pixel of an object which has your custom shader assigned.</p>
+
+<figure>
+<img src="../uploads/Main/ShaderDebuggingCapturedFrame.png" alt="Captured frame">
+<figcaption>Captured frame</figcaption>
+</figure>
+
+<p>Click the <strong>play</strong> button next to the <strong>Vertex Shader</strong> (circled in red in screenshot above), you should be able to debug vertex shader.</p>
+
+<figure>
+<img src="../uploads/Main/ShaderDebuggingVertexShader.png" alt="Debugging vertex shader">
+<figcaption>Debugging vertex shader</figcaption>
+</figure>
+
+<h3>Windows Store Apps</h3>
+
+<p>For Windows Store Apps, it’s a bit easier, because you don’t need to create a dummy Visual Studio project, the project is already created by Unity. </p>
+
+<p>Steps for capturing the frame and shader debugging are the same like for Unity Editor or Windows Standalone.</p>
+
+<h2>Alternative shader debugging techniques</h2>
+
+<p>In the Unity Editor, you can also use <a href="RenderDocIntegration.html">RenderDoc</a> to debug shaders, by capturing the scene from within the editor and debugging in the standalone tool.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="SL-TextureArrays.html"></a></span><div class="tip">Texture arrays</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SL-ImplementingTexGen.html"></a></span><div class="tip"> Implementing Fixed Function TexGen in Shaders</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

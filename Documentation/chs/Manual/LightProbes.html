@@ -1,0 +1,188 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Light Probes </title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/LightProbes.html">English</a></li>
+<li><a href="/ja/current/Manual/LightProbes.html">日本語</a></li>
+<li><a href="/es/current/Manual/LightProbes.html">Español</a></li>
+<li><a href="/kr/current/Manual/LightProbes.html">한국어</a></li>
+<li><a href="/ru/current/Manual/LightProbes.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li><a href="LightingOverview.html">Lighting</a></li>
+<li><a href="GIIntro.html">Global Illumination</a></li>
+<li>Light Probes </li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UsingPrecomputedLighting.html"></a></span><div class="tip">Using precomputed lighting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-LightProbeProxyVolume.html"></a></span><div class="tip">Light Probe Proxy Volumes component</div>
+</div>
+</div></div>
+<h1>Light Probes</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Although lightmapping adds greatly to the realism of a scene, it has the disadvantage that non-static objects in the scene are less realistically rendered and can look disconnected as a result. It isn’t possible to calculate lightmapping for moving objects in real time but it is possible to get a similar effect using <strong>light probes</strong>. The idea is that the lighting is sampled at strategic points in the scene, denoted by the positions of the probes. The lighting at any position can then be approximated by interpolating between the samples taken by the nearest probes. The interpolation is fast enough to be used during gameplay and helps avoid the disconnection between the lighting of moving objects and static lightmapped objects in the scene.</p>
+
+<h2>Adding Light Probes</h2>
+
+<p>The Light Probe Group component (menu: <strong>Component -&gt; Rendering -&gt; Light Probe Group</strong>) can be added to any available object in the scene. The inspector can be used to add new probes to the group. The probes appear in the scene as yellow spheres which can be positioned in the same manner as GameObjects. Selected probes can also be duplicated with the usual keyboard shortcut (ctrl+d/cmd+d).</p>
+
+<figure>
+<img src="../uploads/Main/LightProbesTestScene-sourceselected.png" alt="">
+</figure>
+
+<h2>Choosing Light Probe positions</h2>
+
+<p>Remember to <strong>place probes where you want to sample light or sample darkness</strong>. The probes need to <strong>form a volume</strong> within the scene for the space subdivision to work properly.</p>
+
+<p>The simplest approach to positioning is to arrange them in a regular 3D grid pattern. While this setup is simple and effective, it is likely to consume a lot of memory (each light probe is essentially a spherical, panoramic HDR image of the view from the sample point encoded using Spherical Harmonics). It is worth noting that probes are only needed for regions that players, NPCs or other dynamic objects can actually move to. Also, since lighting conditions are interpolated for positions between probes, it is not necessary to use lots of them across areas where the light doesn’t change very much. For example, a large area of uniform shadow would not need a large number of probes and neither would a brightly lit area far away from reflective objects. Probes are generally needed where the lighting conditions change abruptly, for instance at the edge of a shadow area or in places where pieces of scenery have different colors.</p>
+
+<p>In some cases, the infrastructure of the game can be useful in choosing light probe positions. For example, a racing game typically uses waypoints around the track for AI and other purposes. These are likely to be good candidates for probe positions and it would likely be straightforward to set these positions from an editor script. Similarly, navigation meshes typically define the areas that can be reached by players and these also lend themselves to automated positioning of probes.</p>
+
+<p>Here light probes have been baked over surfaces where our characters can walk on, but only where there are interesting lighting changes to capture:</p>
+
+<figure>
+<img src="../uploads/Main/LightProbesTestScene-baked.png" alt="">
+</figure>
+
+<h2>Flat 2D levels</h2>
+
+<p>As it is now, the light probe system can’t bake a completely flat probe cloud. So even if all your characters move only on a plane, you still have to take care to position at least some probes in a higher layer, so that a volume is formed and interpolation can work properly.</p>
+
+<figure>
+<img src="../uploads/Main/LightProbes-placement-original.png" alt="Good: This is the original probe placement. The characters can move up the ramps and up onto the boxes, so its good to sample lighting up there as well.">
+<figcaption><strong>Good</strong>: This is the original probe placement. The characters can move up the ramps and up onto the boxes, so it’s good to sample lighting up there as well.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/LightProbes-placement-stillgood.png" alt="Good: Here we assume the characters can only move on the plane. Still, theres a couple of probes placed a little bit higher, so that a volume is formed and thin cell are avoided.">
+<figcaption><strong>Good</strong>: Here we assume the characters can only move on the plane. Still, there’s a couple of probes placed a little bit higher, so that a volume is formed and thin cell are avoided.</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/LightProbes-placement-bad.png" alt="Bad: The probes are placed too flat, which creates really long and thin cells and produces unintuitive interpolation results.">
+<figcaption><strong>Bad</strong>: The probes are placed too flat, which creates really long and thin cells and produces unintuitive interpolation results.</figcaption>
+</figure>
+
+<h2>Using Light Probes</h2>
+
+<p>To allow a mesh to receive lighting from the probe system, you should use the Light Probes option on its Mesh Renderer:</p>
+
+<figure>
+<img src="../uploads/Main/MeshRendInspector.png" alt="">
+</figure>
+
+<figure>
+<img src="../uploads/Main/LightProbes-character.png" alt="">
+</figure>
+
+<p>The probe interpolation requires a point in space to represent the position of the mesh that is receiving light. By default, the centre of the mesh’s bounding box is used but it is possible to override this by dragging a Transform to the Mesh Renderer’s Anchor Override property (this Transform’s position will be used as the interpolation point instead). This may be useful when an object contains two separate adjoining meshes; if both meshes are lit individually according to their bounding box positions then the lighting will be discontinuous at the place where they join. This can be prevented by using the same Transform (for example the parent or a child object) as the interpolation point for both Mesh Renderers.</p>
+
+<p>Another option is to use a grid of interpolated light probes by setting the Light Probe Blend Mode option to Use Proxy Volume and using an additional LightProbeProxyVolume component. This component will generate a 3D grid of interpolated light probes inside a bounding volume where the resolution of the grid can be user specified. The spherical harmonics coefficients of the interpolated light probes are updated into 3D textures which are sampled at render time to compute the contribution to the diffuse ambient lighting. This will add a spatial gradient and it’s useful for large dynamic objects, particle systems or skinned mesh objects that cannot use lightmaps. </p>
+
+<p>When an object using light probes is the active selected object and the Light Probes gizmo is enabled, its interpolated probe will be rendered on top of it for preview if lighting data has been built. The interpolated probe is the one used for rendering the object and is connected with 4 thin yellow lines (3 when outside of the probe volume) to the probes it is being interpolated between:</p>
+
+<figure>
+<img src="../uploads/Main/LightProbes-characterandprobes.png" alt="">
+</figure>
+
+<h2>Lightmapping modes</h2>
+
+<p>In Unity 5.3 the default behaviour is that all static lighting (including lights set to ‘Mixed’ lightmapping mode) is baked into the light probes.</p>
+
+<p>In Unity 5.4 light probes will store full illumination from sky lights, emissive materials and ‘Baked’ lights, but only indirect illumination from ‘Mixed’ lights. Thanks to that, objects can be lit in real-time with ‘Mixed’ lights and take advantage of dynamic elements such as real-time shadows, but at the same time receive indirect lighting added to the scene by these lights.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UsingPrecomputedLighting.html"></a></span><div class="tip">Using precomputed lighting</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-LightProbeProxyVolume.html"></a></span><div class="tip">Light Probe Proxy Volumes component</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Procedural Materials</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/ProceduralMaterials.html">English</a></li>
+<li><a href="/ja/current/Manual/ProceduralMaterials.html">日本語</a></li>
+<li><a href="/es/current/Manual/ProceduralMaterials.html">Español</a></li>
+<li><a href="/kr/current/Manual/ProceduralMaterials.html">한국어</a></li>
+<li><a href="/ru/current/Manual/ProceduralMaterials.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li>Procedural Materials</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AsyncTextureUpload.html"></a></span><div class="tip">Asynchronous Texture Upload</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ProceduralMaterials-Caching.html"></a></span><div class="tip"> Procedural Materials - Memory Usage and Caching Behaviour</div>
+</div>
+</div></div>
+<h1>Procedural Materials</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity incorporates a new asset type known as <strong>Procedural Materials</strong>. These are
+essentially the same as standard Materials except that the textures they use can be generated at runtime
+rather than being predefined and stored.</p>
+
+<p>The script code that generates a texture procedurally will typically take up much less space in storage
+and transmission than a bitmap image and so Procedural Materials can help reduce download times.
+Additionally, the generation script can be equipped with parameters that can be changed in order to
+vary the visual properties of the material at runtime. These properties can be anything from color variations
+to the size of bricks in a wall. Not only does this mean that many variations can be generated from a single
+Procedural Material but also that the material can be animated on a frame-by-frame basis. Many interesting
+visual effects are possible - imagine a character gradually turning to stone or acid damaging a surface as it touches.</p>
+
+<p>Unity’s Procedural Material system is based around an industry standard product called Substance, developed
+by <a href="http://www.allegorithmic.com/">Allegorithmic</a>.</p>
+
+<h2>Supported Platforms</h2>
+
+<p>Procedural Materials are currently fully supported for Standalone (Windows, Mac, Linux), Android and iOS, PlayStation 4 and Xbox One build targets. Procedural material generation is CPU-based, and works on all hardware configurations on these platforms.</p>
+
+<p>For all other platforms (consoles, WSA, WebGL, Tizen), Unity will pre-render (“bake”) them into ordinary
+Materials during the build. Although this negates the runtime benefits of procedural generation,
+it is still useful to be able to create variations on a basic material in the editor.</p>
+
+<h2>Adding Procedural Materials to a Project</h2>
+
+<p>A Procedural Material is supplied as a Substance Archive file (SBSAR) which you can import like any other
+asset (drag and drop directly onto the Assets folder or use <strong>Assets-&gt;Import New Asset…</strong>).
+A Substance Archive asset contains one or more Procedural Materials and contains all the scripts and images
+required by these. Uncompiled SBS files are not supported.</p>
+
+<p>Although they are implemented differently, Unity handles a Procedural Material just like any other Material.
+To assign a Procedural Material to a mesh, for example, you just drag and drop it onto the mesh exactly as
+you would with any other Material.</p>
+
+<h2>Procedural Properties</h2>
+
+<p>Each Procedural Material is a custom script which generates a particular type of material. These scripts
+are similar to Unity scripts in that they can have variables exposed for assignment in the inspector.
+For example, a “Brick Wall” Procedural Material could expose properties that let you set the number of
+courses of bricks, the colors of the bricks and the color of the mortar. This potentially offers infinite
+material variations from a single asset. These properties can also be set from a script at runtime in much
+the same way as the public variables of a MonoBehaviour script.</p>
+
+<p>Procedural Materials can also incorporate complex texture animation. For example, you could animate the
+hands of the clock or cockroaches running across a floor.</p>
+
+<figure>
+<img src="../uploads/Main/SubstanceCockroach.png" alt="">
+</figure>
+
+<h2>Creating Procedural Materials From Scratch</h2>
+
+<p>Procedural Materials can work with any combination of procedurally generated textures and stored bitmaps.
+Additionally, included bitmap images can be filtered and modified before use. Unlike a standard Material,
+a Procedural Material can use vector images in the form of SVG files which allows for resolution-independent textures.</p>
+
+<p>The design tools available for creating Procedural Materials from scratch use visual, node-based editing
+similar to the kind found in artistic tools. This makes creation accessible to artists who may have little
+or no coding experience. As an example, here is a screenshot from Allegorithmic’s Substance Designer which
+shows a “brick wall” Procedural Material under construction: </p>
+
+<figure>
+<img src="../uploads/Main/SubstanceDesigner.png" alt="">
+</figure>
+
+<h2>Obtaining Procedural Materials</h2>
+
+<p>Since Unity’s Procedural Materials are based on the industry standard Substance product, Procedural Material
+assets are readily available from internet sources, including Unity’s own Asset Store. Allegorithmic’s
+Substance Designer can be used to create Procedural Materials, but there are other applications
+(3D modelling apps, for example) that incorporate the Substance technology and work just as well with Unity.</p>
+
+<h2>Performance and Optimization</h2>
+
+<p>Procedural Materials inherently tend to use less storage than bitmap images. However, the trade-off is
+that they are based around scripts and running those scripts to generate materials requires some
+CPU and GPU resources. The more complex your Procedural Materials are, the greater their runtime overhead.</p>
+
+<p>Procedural Materials support a form of caching whereby the material is only updated if its parameters
+have changed since it was last generated. Further to this, some materials may have many properties
+that could theoretically be changed and yet only a few will ever need to change at runtime. In such
+cases, you can inform Unity about the variables that will not change to help it cache as much data as
+possible from the previous generation of the material. This will often improve performance significantly.</p>
+
+<p>Procedural Materials can refer to hidden, system-wide, variables, such as elapsed time or number of
+Procedural Material instances (this data can be useful for animations). Changes in the values of these
+variables can still force a Procedural Material to update even if none of the explicitly defined parameters change.</p>
+
+<p>Procedural Materials can also be used purely as a convenience in the editor (ie, you can generate a
+standard Material by setting the parameters of a Procedural Material and then “baking” it). This will
+remove the runtime overhead of material generation but naturally, the baked materials can’t be changed
+or animated during gameplay.</p>
+
+<h2>Using the Substance Player to Analyze Performance</h2>
+
+<p>Since the complexity of a Procedural Material can affect runtime performance, Allegorithmic
+incorporates profiling features in its <em>Substance Player</em> tool. This tool is available to download
+for free from <a href="http://www.allegorithmic.com/">Allegorithmic’s website</a>.</p>
+
+<p>Substance Player uses the same optimized rendering engine as the one integrated into Unity, so
+its rendering measurement is more representative of performance in Unity than that of Substance Designer.</p>
+
+<h2>See Also</h2>
+
+<ul>
+<li>
+<a href="class-ProceduralMaterial.html">Procedural Material</a> reference page.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AsyncTextureUpload.html"></a></span><div class="tip">Asynchronous Texture Upload</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ProceduralMaterials-Caching.html"></a></span><div class="tip"> Procedural Materials - Memory Usage and Caching Behaviour</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

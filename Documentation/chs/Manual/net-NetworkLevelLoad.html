@@ -1,0 +1,271 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Network Level Loading (Legacy)</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/net-NetworkLevelLoad.html">English</a></li>
+<li><a href="/ja/current/Manual/net-NetworkLevelLoad.html">日本語</a></li>
+<li><a href="/es/current/Manual/net-NetworkLevelLoad.html">Español</a></li>
+<li><a href="/kr/current/Manual/net-NetworkLevelLoad.html">한국어</a></li>
+<li><a href="/ru/current/Manual/net-NetworkLevelLoad.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="LegacyTopics.html">Legacy Topics</a></li>
+<li><a href="NetworkReferenceGuide.html">Legacy Network Reference Guide</a></li>
+<li>Network Level Loading (Legacy)</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="net-NetworkInstantiate.html"></a></span><div class="tip">Network Instantiate (Legacy)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-MasterServer.html"></a></span><div class="tip">Master Server (Legacy)</div>
+</div>
+</div></div>
+<h1>Network Level Loading (Legacy)</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p><em>(For new projects, you should use the <a href="UNet.html">new networking system introduced in 5.1</a>. This information is for legacy projects using the old networking system.)</em></p>
+
+<p>Below is a simple example of a way to load a level in a multiplayer game. It makes sure no network messages are being processed while the level is being loaded. It also makes sure no messages are sent, until everything is ready. Lastly, when the level is loaded it sends a message to all scripts so that they know the level is loaded and can react to that. The <strong>SetLevelPrefix</strong> function helps with keeping unwanted networks updates out of a new loaded level. Unwanted updates might be updates from the previous level for example. The example also uses groups to separate game data and level load communication into groups. Group 0 is used for game data traffic and group 1 for level loading. Group 0 is blocked while the level is being loaded but group 1 kept open, it could also ferry chat communication so that can stay open during level loading.</p>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Network;
+using System.Collections;
+
+[RequireComponent(NetworkView)]
+public class ExampleScript : MonoBehaviour {
+    string[] supportedNetworkLevels  = new[]{ &quot;mylevel&quot; };
+    string disconnectedLevel = &quot;loader&quot;;
+    int lastLevelPrefix = 0;
+    NetworkView networkView;    
+
+    void Awake ()
+    {
+        // Network level loading is done in a separate channel.
+        DontDestroyOnLoad(this);
+        networkView = new NetworkView ();
+        networkView.group = 1;
+        Application.LoadLevel(disconnectedLevel);
+    }
+    
+    void OnGUI ()
+    {
+        if (Network.peerType != NetworkPeerType.Disconnected)
+        {
+            GUILayout.BeginArea(Rect(0, Screen.height - 30, Screen.width, 30));
+            GUILayout.BeginHorizontal();
+            
+            foreach (var level in supportedNetworkLevels)
+            {
+                if (GUILayout.Button(level))
+                {
+                    Network.RemoveRPCsInGroup(0);
+                    Network.RemoveRPCsInGroup(1);
+                    networkView.RPC( &quot;LoadLevel&quot;, RPCMode.AllBuffered, level, lastLevelPrefix + 1);
+                }
+            }
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+            GUILayout.EndArea();
+        }
+    }
+    
+    [RPC]
+    IEnumerator LoadLevel (string level, int levelPrefix)
+    {
+        lastLevelPrefix = levelPrefix;
+        
+        // There is no reason to send any more data over the network on the default channel,
+        // because we are about to load the level, thus all those objects will get deleted anyway
+        Network.SetSendingEnabled(0, false);    
+        
+        // We need to stop receiving because first the level must be loaded first.
+        // Once the level is loaded, rpc's and other state update attached to objects in the level are allowed to fire
+        Network.isMessageQueueRunning = false;
+        
+        // All network views loaded from a level will get a prefix into their NetworkViewID.
+        // This will prevent old updates from clients leaking into a newly created scene.
+        Network.SetLevelPrefix(levelPrefix);
+        Application.LoadLevel(level);
+        yield return;
+
+        // Allow receiving data again
+        Network.isMessageQueueRunning = true;
+        // Now the level has been loaded and we can start sending out data to clients
+        Network.SetSendingEnabled(0, true);
+
+        var gameObjects = FindObjectsOfType(GameObject) as GameObject[];
+        foreach (var go in gameObjects)
+            go.SendMessage(&quot;OnNetworkLoadedLevel&quot;, SendMessageOptions.DontRequireReceiver); 
+    }
+    
+    void OnDisconnectedFromServer ()
+    {
+        Application.LoadLevel(disconnectedLevel);
+    }
+}
+</code></pre>
+
+<p><em>C# example script</em></p>
+
+<pre><code>var supportedNetworkLevels : String[] = [ &quot;mylevel&quot; ];
+var disconnectedLevel : String = &quot;loader&quot;;
+private var lastLevelPrefix = 0;
+
+function Awake ()
+{
+    // Network level loading is done in a separate channel.
+    DontDestroyOnLoad(this);
+    networkView.group = 1;
+    Application.LoadLevel(disconnectedLevel);
+}
+
+function OnGUI ()
+{
+    if (Network.peerType != NetworkPeerType.Disconnected)
+    {
+        GUILayout.BeginArea(Rect(0, Screen.height - 30, Screen.width, 30));
+        GUILayout.BeginHorizontal();
+        
+        for (var level in supportedNetworkLevels)
+        {
+            if (GUILayout.Button(level))
+            {
+                Network.RemoveRPCsInGroup(0);
+                Network.RemoveRPCsInGroup(1);
+                networkView.RPC( &quot;LoadLevel&quot;, RPCMode.AllBuffered, level, lastLevelPrefix + 1);
+            }
+        }
+        GUILayout.FlexibleSpace();
+        GUILayout.EndHorizontal();
+        GUILayout.EndArea();
+    }
+}
+
+@RPC
+function LoadLevel (level : String, levelPrefix : int)
+{
+    lastLevelPrefix = levelPrefix;
+
+        // There is no reason to send any more data over the network on the default channel,
+        // because we are about to load the level, thus all those objects will get deleted anyway
+        Network.SetSendingEnabled(0, false);    
+
+        // We need to stop receiving because first the level must be loaded first.
+        // Once the level is loaded, rpc's and other state update attached to objects in the level are allowed to fire
+        Network.isMessageQueueRunning = false;
+        
+        // All network views loaded from a level will get a prefix into their NetworkViewID.
+        // This will prevent old updates from clients leaking into a newly created scene.
+        Network.SetLevelPrefix(levelPrefix);
+        Application.LoadLevel(level);
+        yield;
+
+        // Allow receiving data again
+        Network.isMessageQueueRunning = true;
+        // Now the level has been loaded and we can start sending out data to clients
+        Network.SetSendingEnabled(0, true);
+
+        for (var go in FindObjectsOfType(GameObject))
+            go.SendMessage(&quot;OnNetworkLoadedLevel&quot;, SendMessageOptions.DontRequireReceiver); 
+}
+
+function OnDisconnectedFromServer ()
+{
+    Application.LoadLevel(disconnectedLevel);
+}
+
+@script RequireComponent(NetworkView)
+</code></pre>
+
+<p><em>JS example script</em></p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="net-NetworkInstantiate.html"></a></span><div class="tip">Network Instantiate (Legacy)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-MasterServer.html"></a></span><div class="tip">Master Server (Legacy)</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

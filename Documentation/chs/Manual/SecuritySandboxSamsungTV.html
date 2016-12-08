@@ -1,0 +1,208 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Security Sandbox</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/SecuritySandboxSamsungTV.html">English</a></li>
+<li><a href="/ja/current/Manual/SecuritySandboxSamsungTV.html">日本語</a></li>
+<li><a href="/es/current/Manual/SecuritySandboxSamsungTV.html">Español</a></li>
+<li><a href="/kr/current/Manual/SecuritySandboxSamsungTV.html">한국어</a></li>
+<li><a href="/ru/current/Manual/SecuritySandboxSamsungTV.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="samsungtv.html">Samsung TV</a></li>
+<li><a href="samsungtv-gettingstarted.html"> Getting started with Samsung TV development</a></li>
+<li>Security Sandbox</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="samsungtv-notsupported.html"></a></span><div class="tip">Samsung TV Not Supported</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="tizen.html"></a></span><div class="tip">Tizen</div>
+</div>
+</div></div>
+<h1>Security Sandbox</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity implements a security model very similar to the one used by the Adobe Flash player™. This security restrictions apply to SamsungTV. The security model has several parts:</p>
+
+<ul>
+<li>Restrictions on accessing data on a domain other than the one hosting your .unity3d file.</li>
+<li>Some limitation on the usage of the Sockets.</li>
+<li>Disallowing invocation of any method we deemed off limits. (things like File.Delete, etc).</li>
+<li>Disallowing the usage of System.Reflection.* to call private/internal methods in classes you did not write yourself.</li>
+</ul>
+
+<p>Currently only the first two parts of the security model are emulated in the Editor.</p>
+
+<p>The built-in muti-player networking functionality of Unity (<code>UnityEngine.Network</code>, <code>UnityEngine.NetworkView</code> classes etc) is not affected.</p>
+
+<h2>This document describes how to make sure your content keeps working with version 5.0 or later.</h2>
+
+<ul>
+<li>See <a href="../ScriptReference/WWW.html">the Unity API reference for information about the WWW class</a>.</li>
+<li>See <a href="http://msdn.microsoft.com/en-us/library/system.net.sockets.socket.aspx">the .NET API reference for information about the .NET Socket class</a>.</li>
+</ul>
+
+<p>The WWW class and sockets use the same policy schema but besides that they are completely separate systems. The WWW policy only defines permissions on the web service where the policy is hosted but socket policies apply to all TCP/UDP socket connections.</p>
+
+<p>The Unity editor comes with an “Emulate Web Security” feature, that imposes the security model.
+This makes it easy to detect problems from the comfort of the editor. You can find this setting in
+<strong>Edit-&gt;Project Settings-&gt;Editor</strong>. See also the <a href="class-EditorManager.html">Editor settings</a>.</p>
+
+<h1>Implications for use of Sockets:</h1>
+
+<p>Unity needs a socket served policy in order to connect to a particular host. This policy is by default hosted by the target host on port <strong>843</strong> but it can be hosted on other ports as well. The functional difference with a non-default port is that it must be manually fetched with <a href="../ScriptReference/Security.PrefetchSocketPolicy.html">Security.PrefetchSocketPolicy()</a> API call and if it is hosted on a port higher than 1024 the policy can only give access to other ports higher than 1024.</p>
+
+<p>When using the default port it works like this: Unity tries to make a TCP socket connection to a host, it first checks that the host server will accept the connection.
+It does this by opening a TCP socket on port 843, issues a request, and expects to receive a socket policy over the new connection. Unity then checks that the host’s policy permits the connection to go ahead and it will proceed without error if so. This process happens transparently to the user’s code, which does not need to be modified to use this security model. An example of a socket policy look like this:</p>
+
+<pre><code>&lt;?xml version=&quot;1.0&quot;?&gt;
+&lt;cross-domain-policy&gt;
+   &lt;allow-access-from domain=&quot;*&quot; to-ports=&quot;1200-1220&quot;/&gt; 
+&lt;/cross-domain-policy&gt;&quot;
+
+
+</code></pre>
+
+<p>This policy effectively says “Content from any domain is free to make socket connections at ports 1200–1220”. Unity will respect this, and reject
+any attempted socket connection using a port outside that range (a SecurityException will be thrown).</p>
+
+<p>When using UDP connections the policy can also be auto fetched when they need to be enforced in a similar manner as with TCP. The difference is that auto fetching with TCP happens when you Connect to something (ensures you are allowed to connect to a server), but with UDP, since it’s connectionless, it also happens when you call any API point which sends or receives data (ensures you are allowed to send/receive traffic to/from a server).</p>
+
+<p>The socket policy applies to both TCP and UDP connection types so both UDP and TCP traffic can be controlled by one policy server.</p>
+
+<p>For your convenience, we provide a small program which simply listens at port 843; when on a connection it receives a request string, it will reply with a valid socket policy.
+The server code can be found inside the Unity install folder, in Data/Tools/SocketPolicyServer on Windows or /Unity.app/Contents/Tools/SocketPolicyServer on OS X. Note that the pre-built executable can be run on Mac since it is a Mono executable. Just type “mono sockpol.exe” to run it. Note that this example code shows the correct behaviour of a socket policy server. Specifically the server expects to receive a zero-terminated string that contains <em>&lt;policy-file-request/&gt;</em>. It only sends to the client the socket policy xml document when this string (and exactly this string) has been received. Further, it is required that the xml header and xml body are sent with a single socket write. Breaking the header and body into separate socket write operations can cause security exceptions due to Unity receiving an incomplete policy. If you experience any problems with your own server please consider using the example that we provide. This should help you diagnose whether you have server or network issues.</p>
+
+<p>Third party networking libraries, commonly used for multiplayer game networking, should be able to work with these requirements as long as they do not depend on peer 2 peer functionality (see below) but utilize dedicated servers. These sometimes even come out of the box with support for hosting policies.</p>
+
+<h2>Debugging</h2>
+
+<p>You can use <code>telnet</code> to connect to the socket policy server. An example session is shown below:</p>
+
+<pre><code>host$ telnet localhost 843
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+&lt;policy-file-request/&gt;
+&lt;?xml version='1.0'?&gt;
+&lt;cross-domain-policy&gt;
+        &lt;allow-access-from domain=&quot;*&quot; to-ports=&quot;*&quot; /&gt;
+&lt;/cross-domain-policy&gt;Connection closed by foreign host.
+host$
+
+</code></pre>
+
+<p>In this example session, telnet is used to connect to the localhost on port 843. Telnet responds with the first three lines, and then sits waiting for the user to enter something. The user has entered the policy request string <em>&lt;policy-file-request/&gt;</em>, which the socket policy server receives and responds with the socket policy. The server then disconnects causing telnet to report that the connection has been closed.</p>
+
+<h2>Listening sockets</h2>
+
+<p>When using TCP sockets you can only connect to remote endpoints provided it is allowed through the socket policy system. For UDP it works the same but the concept is a little bit different as it is a connectionless protocol, you don’t have to connect/listen to send/receive packets. It works by enforcing that you can only receive packets from a server if he has responded first with a valid policy with the <code>allow-access-from domain</code> tag.</p>
+
+<h1>This is all just so annoying, why does all this stuff exist?</h1>
+
+<p>The socket and WWW security features exist to protect people who install SamsungTV Player. Without these restrictions, an attack such as the following would be possible:</p>
+
+<ul>
+<li>Bob works at the white house.</li>
+<li>Frank is evil. He writes a Unity application that pretends to be a game, but in the background does a WWW request to http://internal.whitehouse.gov/LocationOfNuclearBombs.pdf. Internal.whitehouse.gov is a server that is not reachable from the internet, but is reachable from Bob’s workstation because he works at the white house.</li>
+<li>Frank sends those pdf bytes to http://frank.com/secretDataUploader.php</li>
+<li>Frank places this game on http://www.frank.com/coolgame.unity3d</li>
+<li>Frank somehow convinces Bob to play the game.</li>
+<li>Bob plays the game.</li>
+<li>Game silently downloads the secret document, and sends it to Frank.</li>
+</ul>
+
+<p>With the WWW and socket security features, this attack will fail, because before downloading the pdf, Unity checks http://internal.whitehouse.gov/crossdomain.xml, with the intent to ask that server: “is the data you have on your server available for public usage?”. Placing a crossdomain.xml on a webserver can be seen as the response to that question. In the case of this example, the system operator of internal.whitehouse.gov will not place a crossdomain.xml on its server, which will lead Unity to not download the pdf.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="samsungtv-notsupported.html"></a></span><div class="tip">Samsung TV Not Supported</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="tizen.html"></a></span><div class="tip">Tizen</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: WheelCollider Tutorial</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/WheelColliderTutorial.html">English</a></li>
+<li><a href="/ja/current/Manual/WheelColliderTutorial.html">日本語</a></li>
+<li><a href="/es/current/Manual/WheelColliderTutorial.html">Español</a></li>
+<li><a href="/kr/current/Manual/WheelColliderTutorial.html">한국어</a></li>
+<li><a href="/ru/current/Manual/WheelColliderTutorial.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PhysicsSection.html">Physics</a></li>
+<li>WheelCollider Tutorial</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="RagdollStability.html"></a></span><div class="tip"> Joint and Ragdoll stability</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ScriptingSection.html"></a></span><div class="tip">Scripting</div>
+</div>
+</div></div>
+<h1>WheelCollider Tutorial</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The new WheelCollider is powered by the PhysX3 Vehicles SDK that is basically a completely new vehicle simulation library when compared to PhysX2. </p>
+
+<p>Let’s go through the process of creating a basic functioning car in Unity 5.0.</p>
+
+<ul>
+<li><p>Start by selecting GameObject -&gt; 3D Object -&gt; Plane. This is the ground the car is going to drive on. Make sure the ground has zero transform (Transform -&gt; Reset) for simplicity. Scale it by putting something like 100 in Transform scale components.</p></li>
+<li>
+<p>Create a basic car skeleton:</p>
+
+<ol>
+<li><p>First, add a GameObject as the car root object: GameObject -&gt; Create Empty. Change the name to <code>car_root</code>.</p></li>
+<li><p>Add a Physics 3D Rigidbody component to <code>car_root</code>. The default mass of 1 kg is way too light for the default suspension settings. Change it to 1500 kg.</p></li>
+<li><p>Now create the car body collider: GameObject -&gt; 3D Object -&gt; Cube. Parent the box under <code>car_root</code>. Reset the transform to make it perfectly aligned in local space. Since our car is going to be oriented along the Z axis, scale the box along the Z axis by setting z scaling to 3.</p></li>
+<li><p>Add the wheels root. Select <code>car_root</code> and GameObject -&gt; Create Empty Child. Change the name to <code>wheels</code>. Reset the transform on it. This node is not mandatory, but it is for tuning convenience later. </p></li>
+<li><p>Create the first wheel: select the <code>wheels</code> object, GameObject -&gt; Create Empty Child, and name it <code>frontLeft</code>. Reset the transform on it. Set the position to (–1, 0, 1). Add Physics component -&gt; wheel collider to the wheel.</p></li>
+<li><p>Duplicate the <code>frontLeft</code> object (Cmd-D or Control-D). Change the x position to 1. Change the name to <code>frontRight</code>.</p></li>
+<li><p>Select both the <code>frontLeft</code> and <code>frontRight</code> objects. Duplicate them. Change the z position of both objects to –1. Change the names to <code>rearLeft</code> and <code>rearRight</code> respectively.</p></li>
+<li><p>Finally, select the <code>car_root</code> object and using the transform manipulators, raise it slightly above the ground.</p></li>
+</ol>
+</li>
+<li>
+<p>Now you should be able to see something like this:</p>
+
+<p>
+<img src="../uploads/Main/WheelColliderTutorial.png" alt=""> </p>
+</li>
+<li><p>To make this car actually drivable we need to write a controller for it. Let’s dive into some scripting:</p></li>
+</ul>
+
+<pre><code>    using UnityEngine;
+    using System.Collections;
+    using System.Collections.Generic;
+    
+    public class SimpleCarController : MonoBehaviour {
+        public List&lt;AxleInfo&gt; axleInfos; // the information about each individual axle
+        public float maxMotorTorque; // maximum torque the motor can apply to wheel
+        public float maxSteeringAngle; // maximum steer angle the wheel can have
+        
+        public void FixedUpdate()
+        {
+            float motor = maxMotorTorque * Input.GetAxis(&quot;Vertical&quot;);
+            float steering = maxSteeringAngle * Input.GetAxis(&quot;Horizontal&quot;);
+            
+            foreach (AxleInfo axleInfo in axleInfos) {
+                if (axleInfo.steering) {
+                    axleInfo.leftWheel.steerAngle = steering;
+                    axleInfo.rightWheel.steerAngle = steering;
+                }
+                if (axleInfo.motor) {
+                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = motor;
+                }
+            }
+        }
+    }
+    
+    [System.Serializable]
+    public class AxleInfo {
+        public WheelCollider leftWheel;
+        public WheelCollider rightWheel;
+        public bool motor; // is this wheel attached to motor?
+        public bool steering; // does this wheel apply steer angle?
+    }
+</code></pre>
+
+<pre><code>Just drop this snippet on the `car_root` object, tune the script parameters as shown below and kick off to play mode. Play around with the settings, Those shown below seem to work reasonably well:
+
+![](../uploads/Main/WheelColliderSettings.png) 
+
+You can have up to 20 wheels on a single vehicle instance with each of them applying steering, motor or braking torque.
+</code></pre>
+
+<ul>
+<li>
+<p>Now we will move on to visual wheels. As can see, WheelCollider doesn’t apply the simulated wheel position and rotation back to WheelCollider’s transform. So adding visual wheel requires some tricks. </p>
+
+<ol>
+<li><p>We need some wheel geometry here. we can make a simple wheel shape out of a cylinder. </p></li>
+<li><p>Now there could be several approaches to adding visual wheels: making it so that we have to assign visual wheels manually in script properties or writing some logic to find the corresponding visual wheel automatically. We’ll follow the second approach.</p></li>
+<li><p>Attach the visual wheels to wheel collider objects.</p></li>
+<li><p>Now change the controller script:</p></li>
+</ol>
+</li>
+</ul>
+
+<pre><code>    using UnityEngine;
+    using System.Collections;
+    using System.Collections.Generic;
+
+    [System.Serializable]
+    public class AxleInfo {
+        public WheelCollider leftWheel;
+        public WheelCollider rightWheel;
+        public bool motor;
+        public bool steering;
+    }
+     
+    public class SimpleCarController : MonoBehaviour {
+        public List&lt;AxleInfo&gt; axleInfos; 
+        public float maxMotorTorque;
+        public float maxSteeringAngle;
+     
+        // finds the corresponding visual wheel
+        // correctly applies the transform
+        public void ApplyLocalPositionToVisuals(WheelCollider collider)
+        {
+            if (collider.transform.childCount == 0) {
+                return;
+            }
+     
+            Transform visualWheel = collider.transform.GetChild(0);
+     
+            Vector3 position;
+            Quaternion rotation;
+            collider.GetWorldPose(out position, out rotation);
+     
+            visualWheel.transform.position = position;
+            visualWheel.transform.rotation = rotation;
+        }
+     
+        public void FixedUpdate()
+        {
+            float motor = maxMotorTorque * Input.GetAxis(&quot;Vertical&quot;);
+            float steering = maxSteeringAngle * Input.GetAxis(&quot;Horizontal&quot;);
+     
+            foreach (AxleInfo axleInfo in axleInfos) {
+                if (axleInfo.steering) {
+                    axleInfo.leftWheel.steerAngle = steering;
+                    axleInfo.rightWheel.steerAngle = steering;
+                }
+                if (axleInfo.motor) {
+                    axleInfo.leftWheel.motorTorque = motor;
+                    axleInfo.rightWheel.motorTorque = motor;
+                }
+                ApplyLocalPositionToVisuals(axleInfo.leftWheel);
+                ApplyLocalPositionToVisuals(axleInfo.rightWheel);
+            }
+        }
+    }
+</code></pre>
+
+<ul>
+<li>One important parameter of WheelCollider component is forceAppPointDistance. This is the distance from the base of the resting wheel to the point where the wheel forces are applied at. The default value is 0, which means to apply the forces at the base of the resting wheel, but actually, it is wise to have this point located somewhere slightly below the car’s centre of mass.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="RagdollStability.html"></a></span><div class="tip"> Joint and Ragdoll stability</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ScriptingSection.html"></a></span><div class="tip">Scripting</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

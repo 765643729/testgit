@@ -1,0 +1,241 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Water in Unity</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/HOWTO-Water.html">English</a></li>
+<li><a href="/ja/current/Manual/HOWTO-Water.html">日本語</a></li>
+<li><a href="/es/current/Manual/HOWTO-Water.html">Español</a></li>
+<li><a href="/kr/current/Manual/HOWTO-Water.html">한국어</a></li>
+<li><a href="/ru/current/Manual/HOWTO-Water.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsHowTos.html">Graphics HOWTOs</a></li>
+<li>Water in Unity</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-FixZAxisIsUp.html"></a></span><div class="tip">How do I fix the rotation of an imported model?</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-ArtAssetBestPracticeGuide.html"></a></span><div class="tip">Art Asset Best Practice Guide</div>
+</div>
+</div></div>
+<h1>Water in Unity</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity includes several water Prefabs (including the necessary Shaders, scripts and art Assets) within the <a href="HOWTO-InstallStandardAssets.html">Standard Assets packages</a>. Separate daylight and nighttime water Prefabs are provided.</p>
+
+<figure>
+<img src="../uploads/Main/Water_Reflective.png" alt="Reflective daylight water">
+<figcaption>Reflective daylight water</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/Water_ReflectiveRefractive.png" alt="Reflective/Refractive daylight water">
+<figcaption>Reflective/Refractive daylight water</figcaption>
+</figure>
+
+<h2>Setting up water</h2>
+
+<p>Place one of the existing water Prefabs into your Scene. Make sure you have the <a href="HOWTO-InstallStandardAssets.html">Standard Assets installed</a>:</p>
+
+<ul>
+<li>Simple <strong>Daylight Simple Water</strong> and <strong>Nighttime Simple Water</strong> in <strong>Standard Assets</strong> &gt; <strong>Water</strong>.</li>
+<li>Fancier water - <strong>Daylight Water</strong> and <strong>Nighttime Water</strong> in <strong>Pro Standard Assets</strong> &gt; <strong>Water</strong> (this needs some Assets from <strong>Standard Assets</strong> &gt; <strong>Water</strong> as well). Water mode (Simple, Reflective, Refractive) can be set in the Inspector.</li>
+</ul>
+
+<p>The Prefab uses an oval-shaped Mesh for the water. If you need to use a different <a href="class-Mesh.html">Mesh</a>, change it in the <strong>Mesh Filter</strong> of the water GameObject:</p>
+
+<figure>
+<img src="../uploads/Main/Water_ChangeMesh.png" alt="">
+</figure>
+
+<h2>Creating water from scratch (Advanced)</h2>
+
+<p>Simple water requires attaching a script to a plane-like mesh and using the water shader:</p>
+
+<ol>
+<li>Have mesh for the water. This should be a flat mesh, oriented horizontally. UV coordinates are not required. The water GameObject should use the Water <strong>Layer</strong>, which you can set in the Inspector.</li>
+<li>Attach the <strong>WaterSimple</strong> script (from <strong>Standard Assets/Water/Sources</strong>) to the GameObject.</li>
+<li>Use the <strong>FX/Water (simple)</strong> Shader in the Material, or tweak one of the provided water Materials (<strong>Daylight Simple Water</strong> or <strong>Nighttime Simple Water</strong>).</li>
+</ol>
+
+<p>Reflective/refractive water requires similar steps to set up from scratch:</p>
+
+<ol>
+<li>Create a Mesh for the water. This should be a flat Mesh, oriented horizontally. UV coordinates are not required. The water GameObject should use the water <strong>Layer</strong>, which you can set in the Inspector.</li>
+<li>Attach the <strong>Water</strong> script (from <strong>Pro Standard Assets/Water/Sources</strong>) to the GameObject (Water rendering mode can be set in the Inspector: <strong>Simple</strong>, <strong>Reflective</strong> or <strong>Refractive</strong>.)</li>
+<li>Use the <strong>FX/Water</strong> Shader in the Material, or tweak one of the provided water Materials (<strong>Daylight Water</strong> or <strong>Nighttime Water</strong>).</li>
+</ol>
+
+<h2>Properties in water Materials</h2>
+
+<p>These properties are used in the <strong>Reflective</strong> and <strong>Refractive</strong> water Shaders. Most of them are used in the <strong>Simple</strong> water Shader as well.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Wave scale</strong></td>
+	<td style="text-align:left;">Scaling of waves normal map. The smaller the value, the larger water waves.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Reflection/refraction distort</strong></td>
+	<td style="text-align:left;">How much reflection/refraction is distorted by the waves normal map.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Refraction color</strong></td>
+	<td style="text-align:left;">Additional tint for refraction.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Environment reflection/refraction</strong></td>
+	<td style="text-align:left;">Render textures for real-time reflection and refraction.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Normalmap</strong></td>
+	<td style="text-align:left;">Defines the shape of the waves. The final waves are produced by combining these two normal maps, each scrolling at different direction, scale and speed. The second normal map is half as large as the first one.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Wave speed</strong></td>
+	<td style="text-align:left;">Scrolling speed for first normal map (1st and 2nd numbers) and the second normal map (3rd and 4th numbers).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Fresnel</strong></td>
+	<td style="text-align:left;">A texture with alpha channel controlling the Fresnel effect - how much reflection vs. refraction is visible, based on viewing angle.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The rest of the properties are not used by the <strong>Reflective</strong> and <strong>Refractive</strong> Shaders, but need to be set up in case the user’s video card does not support it and must fallback to the simpler shader:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Reflective color/cube and fresnel</strong></td>
+	<td style="text-align:left;">A texture that defines water color (RGB) and Fresnel effect (A) based on viewing angle.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Horizon color</strong></td>
+	<td style="text-align:left;">The color of the water at horizon. `this is only used in the <strong>Simple</strong> water Shader.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Fallback texture</strong></td>
+	<td style="text-align:left;">Define the fallback Texture used to represent the water on really old video cards, if none of the better looking Shaders can run.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-FixZAxisIsUp.html"></a></span><div class="tip">How do I fix the rotation of an imported model?</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-ArtAssetBestPracticeGuide.html"></a></span><div class="tip">Art Asset Best Practice Guide</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

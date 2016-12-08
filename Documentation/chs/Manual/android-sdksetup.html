@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Android SDK Setup</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/android-sdksetup.html">English</a></li>
+<li><a href="/ja/current/Manual/android-sdksetup.html">日本語</a></li>
+<li><a href="/es/current/Manual/android-sdksetup.html">Español</a></li>
+<li><a href="/kr/current/Manual/android-sdksetup.html">한국어</a></li>
+<li><a href="/ru/current/Manual/android-sdksetup.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="android.html">Android</a></li>
+<li><a href="android-GettingStarted.html">Getting started with Android development</a></li>
+<li>Android SDK Setup</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="android-GettingStarted.html"></a></span><div class="tip">Getting started with Android development</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityRemote4Android.html"></a></span><div class="tip">Unity Remote 4</div>
+</div>
+</div></div>
+<h1>Android SDK Setup</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Whether you’re building an Android application in Unity or programming it from scratch, you need to set up the Android SDK (software development kit) before you can build and run any code on your Android device.</p>
+
+<h3>1. Download the Android SDK</h3>
+
+<p>On your PC, go to the <a href="http://developer.android.com/sdk">Android Developer SDK website</a>. Download and unpack the latest Android SDK. </p>
+
+<h3>2. Install the Android SDK</h3>
+
+<p>Follow the instructions in <a href="http://developer.android.com/sdk/installing.html">Installing the SDK</a>. You can skip the optional sections relating to Eclipse. In step 4 of <strong>Installing the SDK</strong>, be sure to add at least one <strong>Android platform</strong> with API level equal to or higher than 9 (Platform 2.3 or greater), the <strong>Platform Tools</strong>, and the <strong>USB drivers</strong> if you’re using Windows.</p>
+
+<h3>3. Enable USB debugging on your device</h3>
+
+<p>USB debugging is a useful way to debug while connecting your Android device to the SDK, so get this set up before moving on to the next step.</p>
+
+<p>To enable USB debugging, you first need to enable Developer options. To do this, navigate your phone to the “Build number” portion in your device’s <strong>Settings</strong>. Finding it can be different depending on the device:</p>
+
+<ul>
+<li>Stock Android: <strong>Settings</strong> &gt; <strong>About phone</strong> &gt; <strong>Build number</strong>
+</li>
+<li>Samsung Galaxy S5: <strong>Settings</strong> &gt; <strong>About device</strong> &gt; <strong>Build number</strong>
+</li>
+<li>LG G3: <strong>Settings</strong> &gt; <strong>About phone</strong> &gt; <strong>Software information</strong> &gt; <strong>Build number</strong>
+</li>
+<li>HTC One (M8): <strong>Settings</strong> &gt; <strong>About</strong> &gt; <strong>Software information</strong> &gt; <strong>More</strong> &gt; <strong>Build number</strong>
+</li>
+</ul>
+
+<p>
+<strong>Note:</strong> On operating systems older than version 4.2 (Jelly Bean), the Developer options aren’t hidden. Go to <strong>Settings</strong> &gt; <strong>Developer options</strong>, then enable USB debugging. </p>
+
+<p>Navigate to <strong>Build number</strong> using the instructions above. Tap on the build number 7 times. A small pop-up notification appears saying “you are now X steps away from being a developer” with a number that counts down with every additional tap. On the 7th tap, Developer options are unlocked. Go to <strong>Settings</strong> &gt; <strong>Developer</strong> options, and check the <strong>USB debugging</strong> checkbox to enable debug mode when the device is connected to a computer via USB.</p>
+
+<h3>4. Connect your Android device to the SDK</h3>
+
+<p>This can be tricky, especially under Windows-based systems where drivers tend to be a problem. Your device may come with additional information or specific drivers from the manufacturer.</p>
+
+<ul>
+<li>
+<strong>Windows</strong>: If the Android device is automatically recognized by the system you still might need to update the drivers with the ones that came with the Android SDK. You can do this through the Windows Device Manager. If the device is not recognized automatically, use the drivers from the Android SDK, or any specific drivers provided by the manufacturer. Find further information regarding USB Drivers for Windows on the <a href="http://developer.android.com/sdk/win-usb.html">Android Developer page</a>.</li>
+<li>
+<strong>Mac</strong>: If you’re developing on macOS, you usually don’t need any additional drivers.</li>
+</ul>
+
+<p>If you are unsure whether your device is properly installed on your system, please read the <a href="TroubleShootingAndroid.html">Android development troubleshooting</a> page for details.</p>
+
+<h3>5. Add the Android SDK path to Unity</h3>
+
+<p>The first time you build a project for Android (or if Unity later fails to locate the SDK), you will be asked to locate the folder where you installed the Android SDK. Select the root folder of the SDK installation. If you wish to change the location of the Android SDK, in the menu bar go to <strong>Unity</strong> &gt; <strong>Preferences</strong>, then click <strong>External Tools</strong>.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="android-GettingStarted.html"></a></span><div class="tip">Getting started with Android development</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityRemote4Android.html"></a></span><div class="tip">Unity Remote 4</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

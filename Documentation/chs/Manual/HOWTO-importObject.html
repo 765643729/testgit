@@ -1,0 +1,380 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: How do I import Models from my 3D app?</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/HOWTO-importObject.html">English</a></li>
+<li><a href="/ja/current/Manual/HOWTO-importObject.html">日本語</a></li>
+<li><a href="/es/current/Manual/HOWTO-importObject.html">Español</a></li>
+<li><a href="/kr/current/Manual/HOWTO-importObject.html">한국어</a></li>
+<li><a href="/ru/current/Manual/HOWTO-importObject.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsHowTos.html">Graphics HOWTOs</a></li>
+<li>How do I import Models from my 3D app?</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ArtAssetBestPracticeGuide.html"></a></span><div class="tip">Art Asset Best Practice Guide</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-exportFBX.html"></a></span><div class="tip">FBX export guide</div>
+</div>
+</div></div>
+<h1>How do I import Models from my 3D app?</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>To import a 3D model into Unity you can drag a file into the project window.</p>
+
+<p>In the inspector &gt; Model tab
+Unity supports importing models from most popular 3D applications.</p>
+
+<p>For pages on importing specifically from 3D packages see these pages:</p>
+
+<ul>
+<li><a href="HOWTO-ImportObjectMaya.html">Maya</a></li>
+<li><a href="HOWTO-ImportObjectCinema4D.html">Cinema 4D</a></li>
+<li><a href="HOWTO-ImportObjectMax.html">3ds Max</a></li>
+<li><a href="HOWTO-ImportObjectCheetah3D.html">Cheetah3D</a></li>
+<li><a href="HOWTO-ImportObjectModo.html">Modo</a></li>
+<li><a href="HOWTO-importObjectLightwave.html">Lightwave</a></li>
+<li><a href="HOWTO-ImportObjectBlender.html">Blender</a></li>
+<li><a href="HOWTO-ImportObjectSketchUp.html">SketchUp</a></li>
+</ul>
+
+<h2>Textures</h2>
+
+<ul>
+<li>Store textures in a folder called <strong>Textures</strong> next to the exported mesh within your unity project. This will enable Unity to find the Texture and automatically connect the Texture to the generated Material. For more information, see the <a href="class-TextureImporter.html">Textures</a> reference.</li>
+</ul>
+
+<h1>3D formats</h1>
+
+<p>Importing meshes into Unity can be achieved from two main types of files: </p>
+
+<ol>
+<li>
+<strong>Exported 3D file formats</strong>, such as .FBX or .OBJ</li>
+<li>
+<strong>Proprietary 3D application files</strong>, such as <code>.Max</code> and <code>.Blend</code> file formats from 3D Studio Max or Blender for example.</li>
+</ol>
+
+<p>Either should enable you to get your meshes into Unity, but there are considerations as to which type you choose: </p>
+
+<h2>Exported 3D files</h2>
+
+<p>Unity can read <a href="HOWTO-exportFBX.html">.FBX</a>, <strong>.dae</strong> (Collada), <strong>.3DS</strong>, <strong>.dxf</strong> and <strong>.obj</strong> files, FBX exporters can be found <a href="http://autodesk.com/fbx">here</a> and obj or Collada exporters can also be found for many applications</p>
+
+<p><strong>Advantages:</strong></p>
+
+<ul>
+<li>Only export the data you need</li>
+<li>Verifiable data (re-import into 3D package before Unity)</li>
+<li>Generally smaller files</li>
+<li>Encourages modular approach - e.g different components for collision types or interactivity</li>
+<li>Supports other 3D packages whose Proprietary formats we don’t have direct support for</li>
+</ul>
+
+<p><strong>Disadvantages:</strong></p>
+
+<ul>
+<li>Can be a slower pipeline for prototyping and iterations</li>
+<li>Easier to lose track of versions between source(working file) and game data (exported FBX for example)</li>
+</ul>
+
+<h2>Proprietary 3D application files</h2>
+
+<p>Unity can also import, <em>through conversion</em>: <strong>Max</strong>, <strong>Maya</strong>, <strong>Blender</strong>, <strong>Cinema4D</strong>, <strong>Modo</strong>, <strong>Lightwave</strong> &amp; <strong>Cheetah3D</strong> files, e.g. <strong>.MAX</strong>, <strong>.MB</strong>, <strong>.MA</strong> etc.</p>
+
+<p><strong>Advantages:</strong></p>
+
+<ul>
+<li>Quick iteration process (save the source file and Unity reimports)</li>
+<li>Simple initially</li>
+</ul>
+
+<p><strong>Disadvantages:</strong></p>
+
+<ul>
+<li>A licensed copy of that software must be installed on all machines using the Unity project</li>
+<li>Files can become bloated with unnecessary data</li>
+<li>Big files can slow Unity updates</li>
+<li>Less validation, so it is harder to troubleshoot problems</li>
+</ul>
+
+<h1>Models</h1>
+
+<p>Model files that are placed in the Assets folder in your Unity project are automatically imported and stored as Unity assets.</p>
+
+<p>A model file may contain a 3D model, such as a character, a building, or a piece of furniture. The model is imported as multiple assets. In the Project view the main imported object is a Model Prefab. Usually there are also up to several Mesh objects that are referenced by the Model Prefab.</p>
+
+<p>A model file may also contain animation data which can be used to animate this model or other models. The animation data is imported as one or more Animation Clips.</p>
+
+<figure>
+<img src="../uploads/Main/MeshExample40.png" alt="A Mesh Filter together with Mesh Renderer makes the model appear on screen.">
+<figcaption>A <a href="class-MeshFilter.html">Mesh Filter</a> together with <a href="class-MeshRenderer.html">Mesh Renderer</a> makes the model appear on screen.</figcaption>
+</figure>
+
+<h1>Import settings for Meshes</h1>
+
+<p>The <strong>Import Settings</strong> for a model file will be displayed in the <strong>Model</strong> tab of the FBX importer inspector when the model is selected. These affect the <strong>mesh</strong>, it’s <strong>normals</strong> and imported <strong>materials</strong>. Settings are applied per asset on disk so if you need assets with different settings make (and rename accordingly) a duplicate file.</p>
+
+<p>Although defaults can suffice initially, it is worth studying the settings glossary below, as they can determine what you wish to do with the game object.</p>
+
+<p>Some general adjustments to be made for example might be:</p>
+
+<ul>
+<li>Scale - this scale factor is used for compensating difference in units between Unity and 3d modeling tool - it rescales whole file. Normally you can simply set it to 1. Note that Unity’s Physics Engine is scaled as 1 unit equals 1 metre. It is important that if you want to have correct physical behaviour you should have the model correctly scaled in the original modeling application. If this cannot be done, or you do not have control over the modification of the mesh, the scale of the model can be adjusted here.</li>
+<li>Generate colliders - this will generate a collison mesh to allow your model to collide with other objects.</li>
+<li>Material Naming and Search - this will help you automatically setup your materials and locate textures</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/MecanimImporterModelTab.png" alt="FBX Importer Inspector: Model tab">
+<figcaption>FBX Importer Inspector: Model tab</figcaption>
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;" colspan="2"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;" colspan="3"><strong>Meshes</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Scale Factor</strong></td>
+	<td style="text-align:left;">Unity’s physics system expects 1 meter in the game world to be 1 unit in the imported file. If you prefer to model at a different scale then you can compensate for it here. Defaults for different 3D packages are as follows .fbx, .max, .jas, .c4d = 0.01, .mb, .ma, .lxo, .dxf, .blend, .dae = 1 .3ds = 0.1</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Mesh Compression</strong></td>
+	<td style="text-align:left;">Increasing this value will reduce the file size of the mesh, but might introduce irregularities. It’s best to turn it up as high as possible without the mesh looking too different from the uncompressed version. This is useful for <a href="ReducingFilesize.html">optimizing game size</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Read/Write Enabled</strong></td>
+	<td style="text-align:left;">Enables the mesh to be written at runtime so you can modify the data; it makes a copy in memory. When this option is turned off, it saves memory since Unity can unload a copy of mesh data in the game. However, if you are scaling or instantiating meshes at runtime with a non-uniform scale, you may have to enable “Read/Write Enabled” in their import settings. The reason is that non-uniform scaling requires the mesh data to be kept in memory. Normally this is detected at build time, but when meshes are scaled or instantiated at runtime you need to set this manually. Otherwise they might not be rendered in game builds correctly. The same applies if you need to create MeshColliders at runtime.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Optimize Mesh</strong></td>
+	<td style="text-align:left;">This option determines the order in which triangles will be listed in the mesh.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Import Blendshapes</strong></td>
+	<td style="text-align:left;">This option allows BlendShapes to be imported with your mesh.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Generate Colliders</strong></td>
+	<td style="text-align:left;">If this is enabled, your meshes will be imported with Mesh Colliders automatically attached. This is useful for quickly generating a collision mesh for environment geometry, but should be avoided for geometry you will be moving.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Swap UVs</strong></td>
+	<td style="text-align:left;">Use this if lightmapped objects pick up the wrong UV channels. This will swap your primary and secondary UV channels.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Generate Lightmap UVs</strong></td>
+	<td style="text-align:left;">Use this to create the second UV channel to be used for Lightmapping. See <a href="GIIntro.html">Lightmapping</a> document.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="3"><strong>Normals &amp; Tangents</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Normals</strong></td>
+	<td style="text-align:left;">Defines if and how normals should be calculated. This is useful for <a href="ReducingFilesize.html">optimizing game size</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Import</strong></td>
+	<td style="text-align:left;">Default option. Imports normals from the file.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Calculate</strong></td>
+	<td style="text-align:left;">Calculates normals based on <strong>Smoothing angle</strong>. If selected, the <strong>Smoothing Angle</strong> becomes enabled.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>None</strong></td>
+	<td style="text-align:left;">Disables normals. Use this option if the mesh is neither normal mapped nor affected by realtime lighting.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Tangents</strong></td>
+	<td style="text-align:left;">Defines if and how tangents and binormals should be calculated. This is useful for <a href="ReducingFilesize.html">optimizing game size</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Import</strong></td>
+	<td style="text-align:left;">Imports tangents and binormals from the file. This option is available only for FBX, Maya and 3dsMax files and only when normals are imported from the file.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Calculate</strong></td>
+	<td style="text-align:left;">Default option. Calculates tangents and binormals. This option is available only when normals are either imported or calculated.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>None</strong></td>
+	<td style="text-align:left;">Disables tangents and binormals. The mesh will have no Tangents, so won’t work with normal-mapped shaders.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Smoothing Angle</strong></td>
+	<td style="text-align:left;">Sets how sharp an edge has to be in order to be treated as a hard edge. It is also used to split normal map tangents.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Split Tangents</strong></td>
+	<td style="text-align:left;">Enable this if normal map lighting is broken by seams on your mesh. This usually only applies to characters.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="3"><strong>Materials</strong></td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Import Materials</strong></td>
+	<td style="text-align:left;">Disable this if you don’t want materials to be generated. Default-Diffuse material will be used instead.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Material Naming</strong></td>
+	<td style="text-align:left;">Controls how Unity materials are named:</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>By Base Texture Name</strong></td>
+	<td style="text-align:left;">The name of the diffuse texture of the imported material that will be used to name the material in Unity. When a diffuse texture is not assigned to the material, Unity will use the name of the imported material.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>From Model’s Material</strong></td>
+	<td style="text-align:left;">The name of the imported material will be used for naming the Unity material.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Model Name + Model’s Material</strong></td>
+	<td style="text-align:left;">The name of the model file in combination with the name of the imported material will be used for naming the Unity material.</td>
+</tr>
+<tr>
+	<td style="text-align:left;" colspan="2"><strong>Material Search</strong></td>
+	<td style="text-align:left;">Controls where Unity will try to locate existing materials using the name defined by the <strong>Material Naming</strong> option:</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Local</strong></td>
+	<td style="text-align:left;">Unity will try to find existing materials only in the “local” Materials folder, ie, the Materials subfolder which is the same folder as the model file.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Recursive-Up</strong></td>
+	<td style="text-align:left;">Unity will try to find existing materials in all Materials subfolders in all parent folders up to the Assets folder.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;"><strong>Everywhere</strong></td>
+	<td style="text-align:left;">Unity will try to find existing materials in all Unity project folders.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>See Also</h2>
+
+<ul>
+<li><a href="ModelingOptimizedCharacters.html">Modeling Optimized Characters</a></li>
+<li><a href="class-Mesh.html">Mesh Import Settings</a></li>
+<li><a href="HOWTO-FixZAxisIsUp.html">How do I fix the rotation of an imported model?</a></li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ArtAssetBestPracticeGuide.html"></a></span><div class="tip">Art Asset Best Practice Guide</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-exportFBX.html"></a></span><div class="tip">FBX export guide</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

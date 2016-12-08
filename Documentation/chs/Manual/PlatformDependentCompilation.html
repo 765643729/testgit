@@ -1,0 +1,497 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Platform dependent compilation</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/PlatformDependentCompilation.html">English</a></li>
+<li><a href="/ja/current/Manual/PlatformDependentCompilation.html">日本語</a></li>
+<li><a href="/es/current/Manual/PlatformDependentCompilation.html">Español</a></li>
+<li><a href="/kr/current/Manual/PlatformDependentCompilation.html">한국어</a></li>
+<li><a href="/ru/current/Manual/PlatformDependentCompilation.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="ScriptingSection.html">Scripting</a></li>
+<li><a href="ScriptingConcepts.html">Scripting Overview</a></li>
+<li>Platform dependent compilation</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnderstandingAutomaticMemoryManagement.html"></a></span><div class="tip">Understanding Automatic Memory Management</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ScriptCompileOrderFolders.html"></a></span><div class="tip">Special folders and script compilation order</div>
+</div>
+</div></div>
+<h1>Platform dependent compilation</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity includes a feature called <strong>Platform Dependent Compilation</strong>. This consists of some preprocessor directives that let you partition your scripts to compile and execute a section of code exclusively for one of the supported platforms.</p>
+
+<p>You can run this code within the Unity Editor, so you can compile the code specifically for your target platform and test it in the Editor!</p>
+
+<h2>Platform #define directives</h2>
+
+<p>The platform #define directives that Unity supports for your scripts are as follows:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Property:</strong></th>
+	<th style="text-align:left;"><strong>Function:</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_EDITOR</strong></td>
+	<td style="text-align:left;">#define directive for calling Unity Editor scripts from your game code.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_EDITOR_WIN</strong></td>
+	<td style="text-align:left;">#define directive for Editor code on Windows.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_EDITOR_OSX</strong></td>
+	<td style="text-align:left;">#define directive for Editor code on Mac OS X.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_STANDALONE_OSX</strong></td>
+	<td style="text-align:left;">#define directive for compiling/executing code specifically for Mac OS X (including Universal, PPC and Intel architectures).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_STANDALONE_WIN</strong></td>
+	<td style="text-align:left;">#define directive for compiling/executing code specifically for Windows standalone applications.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_STANDALONE_LINUX</strong></td>
+	<td style="text-align:left;">#define directive for compiling/executing code specifically for Linux standalone applications.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_STANDALONE</strong></td>
+	<td style="text-align:left;">#define directive for compiling/executing code for any standalone platform (Mac OS X, Windows or Linux).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WII</strong></td>
+	<td style="text-align:left;">#define directive for compiling/executing code for the Wii console.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_IOS</strong></td>
+	<td style="text-align:left;">#define directive for compiling/executing code for the iOS platform.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_IPHONE</strong></td>
+	<td style="text-align:left;">Deprecated. Use <strong>UNITY_IOS</strong> instead.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_ANDROID</strong></td>
+	<td style="text-align:left;">#define directive for the Android platform.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_PS4</strong></td>
+	<td style="text-align:left;">#define directive for running PlayStation 4 code.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_SAMSUNGTV</strong></td>
+	<td style="text-align:left;">#define directive for executing Samsung TV code.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_XBOXONE</strong></td>
+	<td style="text-align:left;">#define directive for executing Xbox One code.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_TIZEN</strong></td>
+	<td style="text-align:left;">#define directive for the Tizen platform.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_TVOS</strong></td>
+	<td style="text-align:left;">#define directive for the Apple TV platform.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WP_8_1</strong></td>
+	<td style="text-align:left;">#define directive for Windows Phone 8.1.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WSA</strong></td>
+	<td style="text-align:left;">#define directive for Windows Store Apps. Additionally, <strong>NETFX_CORE</strong> is defined when compiling C# files against .NET Core.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WSA_8_1</strong></td>
+	<td style="text-align:left;">#define directive for Windows Store Apps when targeting SDK 8.1.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WSA_10_0</strong></td>
+	<td style="text-align:left;">#define directive for Windows Store Apps when targeting Universal Windows 10 Apps. Additionally <strong>WINDOWS_UWP</strong> and <strong>NETFX_CORE</strong> are defined when compiling C# files against .NET Core.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WINRT</strong></td>
+	<td style="text-align:left;">Same as <strong>UNITY_WSA</strong>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WINRT_8_1</strong></td>
+	<td style="text-align:left;">Equivalent to <strong>UNITY_WP_8_1</strong> | <strong>UNITY_WSA_8_1</strong>. This is also defined when compiling against Universal SDK 8.1.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WINRT_10_0</strong></td>
+	<td style="text-align:left;">Equivalent to <strong>UNITY_WSA_10_0</strong>
+</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_WEBGL</strong></td>
+	<td style="text-align:left;">#define directive for WebGL.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_ADS</strong></td>
+	<td style="text-align:left;">#define directive for calling Unity Ads methods from your game code. Version 5.2 and above.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_ANALYTICS</strong></td>
+	<td style="text-align:left;">#define directive for calling Unity Analytics methods from your game code. Version 5.2 and above.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_ASSERTIONS</strong></td>
+	<td style="text-align:left;">#define directive for assertions control process.</td>
+</tr>
+</tbody>
+</table>
+
+<p>From Unity 2.6.0 onwards, you can compile code selectively. The options available depend on the version of the Editor that you are working on.
+Given a version number <strong>X.Y.Z</strong> (for example, 2.6.0), Unity exposes three global #define directives in the following formats: <strong>UNITY_X</strong>, <strong>UNITY_X_Y</strong> and <strong>UNITY_X_Y_Z</strong>.</p>
+
+<p>Here is an example of #define directives exposed in Unity 5.0.1:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_5</strong></td>
+	<td style="text-align:left;">#define directive for the release version of Unity 5, exposed in every 5.X.Y release.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_5_0</strong></td>
+	<td style="text-align:left;">#define directive for the major version of Unity 5.0, exposed in every 5.0.Z release.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_5_0_1</strong></td>
+	<td style="text-align:left;">#define directive for the minor version of Unity 5.0.1.</td>
+</tr>
+</tbody>
+</table>
+
+<p>Starting from Unity 5.3.4, you can compile code selectively based on the earliest version of Unity required to compile or execute a given portion of code. Given the same version format as above (<strong>X.Y.Z</strong>), Unity exposes one global #define in the format <strong>UNITY_X_Y_OR_NEWER</strong>, that can be used for this purpose.</p>
+
+<p>The supported #define directives are:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ENABLE_MONO</strong></td>
+	<td style="text-align:left;">Scripting backend #define for Mono.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ENABLE_IL2CPP</strong></td>
+	<td style="text-align:left;">Scripting backend #define for IL2CPP.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ENABLE_DOTNET</strong></td>
+	<td style="text-align:left;">Scripting backend #define for .NET.</td>
+</tr>
+</tbody>
+</table>
+
+<p>You use the DEVELOPMENT_BUILD #define to identify whether your script is running in a player which was built with the “Development Build” option enabled.</p>
+
+<p>You can also compile code selectively depending on the scripting back-end.</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>ENABLE_MONO</strong></td>
+	<td style="text-align:left;">Scripting back-end #define directive for Mono.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ENABLE_IL2CPP</strong></td>
+	<td style="text-align:left;">Scripting back-end #define directive for IL2CPP.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>ENABLE_DOTNET</strong></td>
+	<td style="text-align:left;">Scripting back-end #define directive for .NET.</td>
+</tr>
+</tbody>
+</table>
+
+<p>You can also use the <code>DEVELOPMENT_BUILD</code> #define directive to identify whether your script is running in a player which was built with the “Development Build” option enabled.</p>
+
+<h2>Testing precompiled code</h2>
+
+<p>Below is an example of how to use the precompiled code. It prints a message that depends on the platform you have selected for your target build.</p>
+
+<p>First of all, select the platform you want to test your code against by going to <strong>File &gt; Build Settings</strong>. This displays the <strong>Build Settings</strong> window; select your target platform from here.</p>
+
+<figure>
+<img src="../uploads/Main/BuildSettings.png" alt="Build Settings window with PC, Mac &amp; Linux selected as the target platforms">
+<figcaption>Build Settings window with PC, Mac &amp; Linux selected as the target platforms</figcaption>
+</figure>
+
+<p>Select the platform you want to test your precompiled code against and click <strong>Switch Platform</strong> to tell Unity which platform you are targeting.</p>
+
+<p>Create a script and copy/paste the following code:</p>
+
+<pre><code>// JS
+function Awake() {
+  #if UNITY_EDITOR
+    Debug.Log(&quot;Unity Editor&quot;);
+  #endif
+    
+  #if UNITY_IPHONE
+    Debug.Log(&quot;Iphone&quot;);
+  #endif
+
+  #if UNITY_STANDALONE_OSX
+    Debug.Log(&quot;Stand Alone OSX&quot;);
+  #endif
+
+  #if UNITY_STANDALONE_WIN
+    Debug.Log(&quot;Stand Alone Windows&quot;);
+  #endif    
+}
+
+
+// C#
+using UnityEngine;
+using System.Collections;
+
+public class PlatformDefines : MonoBehaviour {
+  void Start () {
+
+    #if UNITY_EDITOR
+      Debug.Log(&quot;Unity Editor&quot;);
+    #endif
+    
+    #if UNITY_IOS
+      Debug.Log(&quot;Iphone&quot;);
+    #endif
+
+    #if UNITY_STANDALONE_OSX
+    Debug.Log(&quot;Stand Alone OSX&quot;);
+    #endif
+
+    #if UNITY_STANDALONE_WIN
+      Debug.Log(&quot;Stand Alone Windows&quot;);
+    #endif
+
+  }          
+}
+
+
+</code></pre>
+
+<p>To test the code, click <strong>Play Mode</strong>. Confirm that the code works by checking for the relevant message in the Unity console, depending on which platform you selected - for example, if you choose <strong>iOS</strong>, the message “Iphone” is set to appear in the console.</p>
+
+<p>Note that in C# you can use a <code>CONDITIONAL</code> attribute which is a more clean, less error-prone way of stripping out functions. See <a href="http://msdn.microsoft.com/en-us/library/4xssyw96(v=vs.90).aspx">http://msdn.microsoft.com/en-us/library/4xssyw96(v=vs.90).aspx</a> for more information.</p>
+
+<p>In addition to the basic <code>#if</code> compiler directive, you can also use a multiway test in C# and JavaScript:</p>
+
+<pre><code>
+#if UNITY_EDITOR
+    Debug.Log(&quot;Unity Editor&quot;);
+
+#elif UNITY_IOS
+    Debug.Log(&quot;Unity iPhone&quot;);
+
+#else
+    Debug.Log(&quot;Any other platform&quot;);
+
+#endif
+
+
+</code></pre>
+
+<h2>Platform custom #defines</h2>
+
+<p>It is also possible to add to the built-in selection of #define directives by supplying your own. Open the <strong>Other Settings</strong> panel of the <a href="class-PlayerSettings.html">Player Settings</a> and navigate to the <strong>Scripting Define Symbols</strong> text box.</p>
+
+<figure>
+<img src="../uploads/Main/ScriptDefines.png" alt="">
+</figure>
+
+<p>Enter the names of the symbols you want to define for that particular platform, separated by semicolons. These symbols can then be used as the conditions for <code>#if</code> directives, just like the built-in ones.</p>
+
+<h2>Global custom #defines</h2>
+
+<p>You can define your own preprocessor directives to control which code gets included when compiling. To do this you must add a text file with the extra directives to the <strong>Assets</strong> folder. The name of the file depends on the language you are using. The extension is <strong>.rsp</strong>:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"></th>
+	<th style="text-align:left;"></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">C#</td>
+	<td style="text-align:left;">&lt;Project Path&gt;/Assets/smcs.rsp</td>
+</tr>
+<tr>
+	<td style="text-align:left;">C# - Editor Scripts</td>
+	<td style="text-align:left;">&lt;Project Path&gt;/Assets/gmcs.rsp</td>
+</tr>
+<tr>
+	<td style="text-align:left;">UnityScript</td>
+	<td style="text-align:left;">&lt;Project Path&gt;/Assets/us.rsp</td>
+</tr>
+</tbody>
+</table>
+
+<p>As an example, if you include the single line <code>-define:UNITY_DEBUG</code> in your <strong>smcs.rsp</strong> file, the #define directive <code>UNITY_DEBUG</code> exists as a global #define for C# scripts, except for Editor scripts.</p>
+
+<p>Every time you make changes to <strong>.rsp</strong> files, you need to recompile in order for them to be effective. You can do this by updating or reimporting a single script (.js or .cs) file.</p>
+
+<p><strong>NOTE</strong></p>
+
+<p>If you want to modify only global #define directives, use <strong>Scripting Define Symbols</strong> in <a href="class-PlayerSettings.html">Player Settings</a>, as this covers all the compilers. If you choose the <strong>.rsp</strong> files instead, you need to provide one file for every compiler Unity uses, and you don’t know when one or another compiler is used.</p>
+
+<p>The use of <strong>.rsp</strong> files is described in the ‘Help’ section of the <strong>smcs</strong> application which is included in the Editor installation folder. You can get more information by running <code>smcs -help</code>. </p>
+
+<p>Note that the <strong>.rsp</strong> file needs to match the compiler being invoked. For example:</p>
+
+<ul>
+<li>when targeting the web player, <strong>smcs</strong> is used with <code>smcs.rsp</code>,</li>
+<li>when targeting standalone players, <strong>gmcs</strong> is used with <code>gmcs.rsp</code>, and</li>
+<li>when targeting MS compiler, <strong>csc</strong> is used with <code>csc.rsp</code>, etc.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnderstandingAutomaticMemoryManagement.html"></a></span><div class="tip">Understanding Automatic Memory Management</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ScriptCompileOrderFolders.html"></a></span><div class="tip">Special folders and script compilation order</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

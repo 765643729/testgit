@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Troubleshooting Android development</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/TroubleShootingAndroid.html">English</a></li>
+<li><a href="/ja/current/Manual/TroubleShootingAndroid.html">日本語</a></li>
+<li><a href="/es/current/Manual/TroubleShootingAndroid.html">Español</a></li>
+<li><a href="/kr/current/Manual/TroubleShootingAndroid.html">한국어</a></li>
+<li><a href="/ru/current/Manual/TroubleShootingAndroid.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="android.html">Android</a></li>
+<li><a href="android-GettingStarted.html">Getting started with Android development</a></li>
+<li>Troubleshooting Android development</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="android-remote.html"></a></span><div class="tip">Android Remote (DEPRECATED)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="android-BuildProcess.html"></a></span><div class="tip">Inside the Android build process</div>
+</div>
+</div></div>
+<h1>Troubleshooting Android development</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>“No Platforms Found” error:</h2>
+
+<ol>
+<li>Uninstall the current Android SDK and make sure that you don’t have more than one copy of it.</li>
+<li>Update Java with a stable version. Bear in mind the latest version shouldn’t have conflicts, but users have experienced problems in the past.</li>
+<li>Download a fresh copy of the latest ADT Bundle and install it following the instructions. This should configure the development tools correctly: http://developer.android.com/sdk/index.html</li>
+<li>Configure Unity with the installed Android SDK.</li>
+</ol>
+
+<h2>Unity fails to install your application to your device</h2>
+
+<ol>
+<li>Verify that your computer can actually see and communicate with the device. See the <a href="PublishingBuilds.html">Publishing Builds</a> page for further details.</li>
+<li>Check the error message in the Unity console. This will often help diagnose the problem.</li>
+</ol>
+
+<p>If you get an error saying “Unable to install APK, protocol failure” during a build then this indicates that the device is connected to a low-power USB port (perhaps a port on a keyboard or other peripheral). If this happens, try connecting the device to a USB port on the computer itself.</p>
+
+<h2>Your application crashes immediately after launch.</h2>
+
+<ol>
+<li>Ensure that you are not trying to use <a href="class-PlayerSettings.html">NativeActivity</a> with devices that do not support it.</li>
+<li>Try removing any native plugins you have.</li>
+<li>Try disabling stripping.</li>
+<li>Use <strong>adb logcat</strong> to get the crash report from your device.</li>
+</ol>
+
+<h2>Building DEX Failed</h2>
+
+<p>This is an error which will produce a message similar to the following:-</p>
+
+<pre><code>Building DEX Failed!
+G:\Unity\JavaPluginSample\Temp/StagingArea&gt; java -Xmx1024M 
+-Djava.ext.dirs=&quot;G:/AndroidSDK/android-sdk_r09-windows\platform-tools/lib/&quot; 
+-jar &quot;G:/AndroidSDK/android-sdk_r09-windows\platform-tools/lib/dx.jar&quot; 
+--dex --verbose --output=bin/classes.dex bin/classes.jar plugins
+Error occurred during initialization of VM
+Could not reserve enough space for object heap
+Could not create the Java virtual machine.
+
+
+</code></pre>
+
+<p>This is usually caused by having the wrong version of Java installed on your machine. Updating your Java installation to the latest version will generally solve this issue.</p>
+
+<h2>The game crashes after a couple of seconds when playing video</h2>
+
+<p>Make sure <em>Settings-&gt;Developer Options-&gt;Don’t keep activities</em> isn’t enabled on the phone. The video player is its own activity and therefore the regular game activity will be destroyed if the video player is activated.</p>
+
+<h2>My game quits when I press the sleep button</h2>
+
+<p>Change the <code>activity</code> tag in the <code>AndroidManifest.xml</code> to contain <code>android:configChanges</code> tag as described <a href="http://developer.android.com/guide/topics/manifest/activity-element.html#config">here</a>.</p>
+
+<p>An example activity tag might look something like this:-</p>
+
+<pre><code>&lt;activity android:name=&quot;.AdMobTestActivity&quot;
+                  android:label=&quot;@string/app_name&quot;
+                  android:configChanges=&quot;fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen&quot;&gt;
+            &lt;intent-filter&gt;
+                &lt;action android:name=&quot;android.intent.action.MAIN&quot; /&gt;
+                &lt;category android:name=&quot;android.intent.category.LAUNCHER&quot; /&gt;
+            &lt;/intent-filter&gt;
+        &lt;/activity&gt;
+
+
+</code></pre>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="android-remote.html"></a></span><div class="tip">Android Remote (DEPRECATED)</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="android-BuildProcess.html"></a></span><div class="tip">Inside the Android build process</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,233 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: RPC Details (Legacy)</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/net-RPCDetails.html">English</a></li>
+<li><a href="/ja/current/Manual/net-RPCDetails.html">日本語</a></li>
+<li><a href="/es/current/Manual/net-RPCDetails.html">Español</a></li>
+<li><a href="/kr/current/Manual/net-RPCDetails.html">한국어</a></li>
+<li><a href="/ru/current/Manual/net-RPCDetails.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="LegacyTopics.html">Legacy Topics</a></li>
+<li><a href="NetworkReferenceGuide.html">Legacy Network Reference Guide</a></li>
+<li>RPC Details (Legacy)</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-NetworkView.html"></a></span><div class="tip">Network View</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-StateSynchronization.html"></a></span><div class="tip">State Synchronization Details (Legacy)</div>
+</div>
+</div></div>
+<h1>RPC Details (Legacy)</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p><em>(For new projects, you should use the <a href="UNet.html">new networking system introduced in 5.1</a>. This information is for legacy projects using the old networking system.)</em></p>
+
+<p>
+<strong>Remote Procedure Calls</strong> (RPCs) let you call functions on a remote machine. Invoking an RPC is similar to calling a normal function and almost as easy but there are some important differences to understand.</p>
+
+<ol>
+<li><p>An RPC call can have as many parameters as you like but the network bandwidth involved will increase with the number and size of parameters. You should keep parameters to a minimum in order to get the best performance.</p></li>
+<li><p>Unlike a normal function call, an RPC needs an additional parameter to denote the recipients of the RPC request. There are several possible RPC call modes to cover all common use cases. For example, you can easily invoke the RPC function on all connected machines, on the server alone, on all clients but the one sending the RPC call or on a specific client.</p></li>
+</ol>
+
+<p>RPC calls are usually used to execute some event on all clients in the game or pass event information specifically between two parties, but you can be creative and use them however you like. For example, a server for a game which only starts after four clients have connected could send an RPC call to all clients as soon as the fourth one connects, thus starting the game. A client of a particular player could send RPC calls to everyone to signal that they picked up an item. A server could send an RPC to a particular client to initialize the player right after they connect, for example, to assign them their player number, spawn location, team color, etc. A client could in turn send an RPC only to the server to specify starting options, such as the color they prefer or the items they have bought.</p>
+
+<h2>Using RPCs</h2>
+
+<p>A function must be marked as an RPC before it can be invoked remotely. This is done by prefixing the function in the script with an RPC attribute:</p>
+
+<pre><code>using UnityEngine;
+using System.Collections;
+
+public class ExampleScript : MonoBehaviour {
+    [RPC]
+    void PrintText (string text)
+    {
+        Debug.Log(text);
+    }
+}
+</code></pre>
+
+<p><em>C# script example</em></p>
+
+<pre><code>// All RPC calls need the @RPC attribute!
+@RPC
+function PrintText (text : String)
+{
+    Debug.Log(text);
+}
+</code></pre>
+
+<p><em>JS script example</em></p>
+
+<p>All network communication is handled by NetworkView components, so you must attach one to the object whose script declares the RPC functions before they can be called.</p>
+
+<h2>Parameters</h2>
+
+<p>You can use the following variable types as parameters to RPCs:-</p>
+
+<ul>
+<li>int</li>
+<li>float</li>
+<li>string</li>
+<li>NetworkPlayer</li>
+<li>NetworkViewID</li>
+<li>Vector3</li>
+<li>Quaternion</li>
+</ul>
+
+<p>For example, the following code invokes an RPC function with a single string parameter:</p>
+
+<pre><code>using UnityEngine;
+using UnityEngine.Network;
+using System.Collections;
+
+public class ExampleScript : MonoBehaviour {
+    NetworkView networkView;
+
+    void Start() {
+        networkView = new NetworkView ();
+        networkView.RPC (&quot;PrintText&quot;, RPCMode.All, &quot;Hello world&quot;);
+    }
+}
+</code></pre>
+
+<p><em>C# script example</em></p>
+
+<pre><code>networkView.RPC (&quot;PrintText&quot;, RPCMode.All, &quot;Hello world&quot;);
+</code></pre>
+
+<p><em>JS script example</em></p>
+
+<p>The first parameter of <strong>RPC()</strong> is the name of the function to be invoked while the second determines the targets on which it will be invoked. In this case we invoke the RPC call on everyone who is connected to the server (but the call will not be buffered to wait for clients who connect later - see below for further details about buffering).</p>
+
+<p>All parameters after the first two are the ones that will be passed to the RPC function and be sent across the network. In this case, “Hello World” will be sent as a parameter and be passed as the text parameter in the PrintText function.</p>
+
+<p>You can also access an extra internal parameter, a <a href="../ScriptReference/NetworkMessageInfo.html">NetworkMessageInfo</a> struct which holds additional information, such as where the RPC call came from. This information will be passed automatically, so the PrintText function shown above will be can be declared as:</p>
+
+<pre><code>using UnityEngine;
+using System.Collections;
+
+public class ExampleScript : MonoBehaviour {
+    [RPC]
+    void PrintText (string text, NetworkMessageInfo info)
+    {
+        Debug.Log(text + &quot; from &quot; + info.sender);
+    }
+}
+</code></pre>
+
+<p><em>C# script example</em></p>
+
+<pre><code>@RPC
+function PrintText (text : String, info : NetworkMessageInfo)
+{
+    Debug.Log(text + &quot; from &quot; + info.sender);
+}
+</code></pre>
+
+<p><em>JS script example</em></p>
+
+<p>…while being invoked the same way as before.</p>
+
+<p>As mentioned above, a Network View must be attached to any GameObject which has a script containing RPC functions. If you are using RPCs exclusively (ie, without state synchronisation) then the Network View’s <strong>State Synchronization</strong> can be set to <strong>Off</strong>.</p>
+
+<h2>RPC Buffer</h2>
+
+<p>RPC calls can also be buffered. Buffered RPC calls are stored up and executed in the order they were issued for each new client that connects. This can be a useful way to ensure that a latecoming player gets all necessary information to start. A common scenario is that every player who joins a game should first load a specific level. You could send the details of this level to all connected players but also buffer it for any who join in the future. By doing this, you ensure that the new player receives the level information just as if they had been present from the start.</p>
+
+<p>You can also remove calls from the RPC buffer when necessary. Continuing the example above, the game may have moved on from the starting level by the time a new player joins, so you could remove the original buffered RPC and send a new one to request the new level.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-NetworkView.html"></a></span><div class="tip">Network View</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-StateSynchronization.html"></a></span><div class="tip">State Synchronization Details (Legacy)</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

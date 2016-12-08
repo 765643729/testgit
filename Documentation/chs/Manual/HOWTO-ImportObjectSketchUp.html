@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Importing Objects From SketchUp</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/HOWTO-ImportObjectSketchUp.html">English</a></li>
+<li><a href="/ja/current/Manual/HOWTO-ImportObjectSketchUp.html">日本語</a></li>
+<li><a href="/es/current/Manual/HOWTO-ImportObjectSketchUp.html">Español</a></li>
+<li><a href="/kr/current/Manual/HOWTO-ImportObjectSketchUp.html">한국어</a></li>
+<li><a href="/ru/current/Manual/HOWTO-ImportObjectSketchUp.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsHowTos.html">Graphics HOWTOs</a></li>
+<li><a href="HOWTO-importObject.html">How do I import Models from my 3D app?</a></li>
+<li>Importing Objects From SketchUp</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ImportObjectBlender.html"></a></span><div class="tip">Importing Objects From Blender</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="StereoscopicRendering.html"></a></span><div class="tip">How to do Stereoscopic Rendering</div>
+</div>
+</div></div>
+<h1>Importing Objects From SketchUp</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>Overview</h2>
+
+<p>SketchUp is one of the commonly used software for architecture modeling. To use a SketchUp model for visualisation in Unity, user will previously need to convert it to an intermediate format which Unity supports and use the converted format in Unity.</p>
+
+<p>To overcome this problem, Unity now supports importing SketchUp file directly into Unity without the need for conversion and allowing user to access certain properties within the SketchUp file within Unity which is not previously possible.</p>
+
+<h2>Glossary of Terms</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;">Term</th>
+	<th style="text-align:left;">Definition</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;">Node</td>
+	<td style="text-align:left;">A node is a generalisation of Entity, Group, and Component Instance in SketchUp.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">Geo Coordinate</td>
+	<td style="text-align:left;">A coordinate system to identify a position on geographic system.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Importing SketchUp Model</h2>
+
+<p>Importing a SketchUp file into Unity is similar to importing a 3D model that is supported by Unity (eg FBX). There are 3 ways you can import a SketchUp file</p>
+
+<ol>
+<li><p>Click on Assets -&gt; Import New Asset.. from the menu bar
+<img src="../uploads/Main/sketchup1.png" alt="Editor menu to import a SketchUp model">
+</p></li>
+<li><p>Drag and drop the file into the Project window</p></li>
+<li><p>‘Import New Asset…’ via Project window’s context menu</p></li>
+</ol>
+
+<p>Once the model is imported, you can place then use the model in your scene by placing it into your scene. The hierarchy of the SketchUp file is maintain via Unity’s GameObject hierarchy.</p>
+
+<h3>Materials and Textures</h3>
+
+<p>When the model is imported, the materials and textures for the model are imported into 2 separate folders relative to where the file is imported to; namely ‘Material’ for the material of the model and ‘Texture’ for the textures from the model.</p>
+
+<figure>
+<img src="../uploads/Main/sketchup2.png" alt="SketchUp Materials and Textures folders">
+<figcaption>SketchUp Materials and Textures folders</figcaption>
+</figure>
+
+<p>The textures imported from the SketchUp file will maintain its original filename when it is imported into Unity. </p>
+
+<p>The materials imported from the SketchUp file will have the SketchUp file name prefixed into the material’s name.</p>
+
+<h3>Hidden Geometries</h3>
+
+<p>Unity is able to determine if a node should be imported by it’s visibility setting in the SketchUp file. </p>
+
+<p>If a node is set to hidden when it is last saved in the SketchUp file, Unity will not import the node.</p>
+
+<h3>Selective Node Import</h3>
+
+<p>Imagine you have a SketchUp file which contains a library of chairs and you only want to import a few of them for your scene. In this case, it is possible to only import certain objects from your SketchUp file. To do this, hold the ‘option’ key in Mac or ‘alt’ in Windows when you are importing your SketchUp file. </p>
+
+<p>By doing so, a dialog box will appear for you to select what to import:</p>
+
+<figure>
+<img src="../uploads/Main/sketchup3.png" alt="Import dialog">
+<figcaption>Import dialog</figcaption>
+</figure>
+
+<p>This dialog shows you the groups and component instances that are in the file. This also allows you to select which group or component instance to import into Unity3D.</p>
+
+<p>Once you have make your selection, click on the OK button and only the nodes that are selected will be imported.</p>
+
+<h3>Front and Back Face</h3>
+
+<p>By default, Unity will only import the front facing polygons to reduce polygon counts.
+The exception is that if the back facing polygons have material assigned in SketchUp. </p>
+
+<p>If you would like to have back facing polygons generated, you can specify this in the SketchUp Model Inspector.</p>
+
+<h3>Scale Conversion</h3>
+
+<p>Unity imports the SketchUp file and scales the model to 1 meter (0.0254 inches) to 1 unit length in Unity by default.</p>
+
+<p>You can change the import scale in the SketchUp Model Inspector.</p>
+
+<figure>
+<img src="../uploads/Main/sketchup4.png" alt="SketchUp file with a cube sert to 1m in height">
+<figcaption>SketchUp file with a cube sert to 1m in height</figcaption>
+</figure>
+
+<figure>
+<img src="../uploads/Main/sketchup5.png" alt="Setting the conversion unit changes affects the scale of the imported file. The green square is placed as reference where the size of the square is set to 1x1 unit length.">
+<figcaption>Setting the conversion unit changes affects the scale of the imported file. The green square is placed as reference where the size of the square is set to 1x1 unit length.</figcaption>
+</figure>
+
+<h3>SketchUp Component Definition, Instance and Group</h3>
+
+<p>Unity uses the same concept when generating meshes for SketchUp’s Component Definition, Component Instance and Group:</p>
+
+<figure>
+<img src="../uploads/Main/sketchup6.png" alt="">
+</figure>
+
+<p>Component Definition and Group will be generated into meshes.
+The meshes will than be instanced as GameObjects so that it can be place into the scene.</p>
+
+<h2>SketchUp Reference</h2>
+
+<h3>SketchUp Model Inspector</h3>
+
+<p>In the inspector of a imported SketchUp model, you will find several options.
+Any changes made in the inspector will require you to click on the ‘Apply’ button of the inspector to have the changes take effect.</p>
+
+<h3>SketchUp Scene Camera</h3>
+
+<p>Unity extracts and stores SketchUp file’s camera data for each scene in the file so that it can be used later. Refer to the API reference on how to retrieve the data.</p>
+
+<h3>Geo Coordinates</h3>
+
+<p>Unity extracts and stores the geo coordinates of the SketchUp file (if available). These values can be view via the SketchUp Model Inspector or refer to the API reference on how to retrieve the data.</p>
+
+<h2>Demo Package</h2>
+
+<p>The demo package demonstrates how to extract SketchUp scene camera and geo coordinates that was imported by Unity.</p>
+
+<p>Demo package content:</p>
+
+<ul>
+<li>A sample SketchUp file
+
+<ul>
+<li>Textures and Materials imported from the SketchUp file</li>
+</ul>
+</li>
+<li>SketchUpFileProperties.cs
+
+<ul>
+<li>Runtime component to store SketchUp file data</li>
+</ul>
+</li>
+<li>SketchUpFilePropertiesInspector.cs
+
+<ul>
+<li>Inspector for SketchUpFileProperties</li>
+<li>Extract data from SketchUpImporter and store them into SketchUpFileProperties</li>
+</ul>
+</li>
+</ul>
+
+<h2>Limitations</h2>
+
+<ul>
+<li>GIF textures are not supported</li>
+<li>
+<a href="http://help.sketchup.com/en/article/94824">Lines</a> are not imported</li>
+<li>2D components (Text, dimensions) are not supported</li>
+<li>
+<a href="http://help.sketchup.com/en/article/22496">Dynamic components</a> are not supported</li>
+<li>
+<a href="http://help.sketchup.com/en/article/114547">Attributes</a> are not imported into Unity</li>
+<li>SketchUp <a href="http://help.sketchup.com/en/article/114598">Layers</a> are not imported</li>
+<li>SketchUp <a href="http://help.sketchup.com/en/article/114934">Shadow</a> settings are not imported</li>
+<li>SketchUp <a href="http://help.sketchup.com/en/article/117009">Drawing Styles</a> are not imported</li>
+<li>SketchUp <a href="http://help.sketchup.com/en/article/94999">Section Planes</a> are not imported</li>
+<li>SketchUp <a href="http://help.sketchup.com/en/article/114452">Animation</a> settings are not imported</li>
+<li>Limited SketchUp Scenes data are imported</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ImportObjectBlender.html"></a></span><div class="tip">Importing Objects From Blender</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="StereoscopicRendering.html"></a></span><div class="tip">How to do Stereoscopic Rendering</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

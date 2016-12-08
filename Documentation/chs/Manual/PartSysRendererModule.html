@@ -1,0 +1,251 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Renderer Module</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/PartSysRendererModule.html">English</a></li>
+<li><a href="/ja/current/Manual/PartSysRendererModule.html">日本語</a></li>
+<li><a href="/es/current/Manual/PartSysRendererModule.html">Español</a></li>
+<li><a href="/kr/current/Manual/PartSysRendererModule.html">한국어</a></li>
+<li><a href="/ru/current/Manual/PartSysRendererModule.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="PartSysReference.html">Particle Systems Reference</a></li>
+<li><a href="ParticleSystemModules.html">Particle System Modules</a></li>
+<li>Renderer Module</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PartSysTexSheetAnimModule.html"></a></span><div class="tip">Texture Sheet Animation Module</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="comp-ParticlesLegacy.html"></a></span><div class="tip">Particle Systems (Legacy, prior to release 3.5)</div>
+</div>
+</div></div>
+<h1>Renderer Module</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Renderer module’s settings determine how a particle’s image or Mesh is transformed, shaded and overdrawn by other particles.</p>
+
+<figure>
+<img src="../uploads/Main/PartSysRendererInsp.png" alt="">
+</figure>
+
+<h2>Properties</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Property:</strong></th>
+	<th style="text-align:left;"><strong>Function:</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Render Mode</strong></td>
+	<td style="text-align:left;">How the rendered image is produced from the graphic image or Mesh.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">     Billboard</td>
+	<td style="text-align:left;">The particle always faces the Camera.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">    Stretched Billboard</td>
+	<td style="text-align:left;">The particle faces the Camera but with various scaling applied (see below).</td>
+</tr>
+<tr>
+	<td style="text-align:left;">    Horizontal Billboard</td>
+	<td style="text-align:left;">The particle plane is parallel to the xz “floor” plane.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">    Vertical Billboard</td>
+	<td style="text-align:left;">The particle is upright on the world y-axis, but turns to face the Camera.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">    Mesh</td>
+	<td style="text-align:left;">The particle is rendered from a 3D Mesh instead of a Texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Normal Direction</strong></td>
+	<td style="text-align:left;">Bias of lighting normals used for the particle graphics. A value of 1.0 points the normals at the Camera, while a value of 0.0 points them towards the centre of the screen (<strong>Billboard</strong> modes only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Camera Scale</strong></td>
+	<td style="text-align:left;">Stretches particles according to Camera movement. Set this to 0 to disable Camera movement stretching (<strong>Stretched Billboard</strong> mode only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Velocity Scale</strong></td>
+	<td style="text-align:left;">Stretches particles proportionally to their speed. Set this to 0 to disable stretching based on speed (<strong>Stretched Billboard</strong> mode only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Length Scale</strong></td>
+	<td style="text-align:left;">Stretches particles proportionally to their current size along the direction of their velocity. Set this to 0 to make your particles disappear, by effectively giving them 0 length (this is applied to <strong>Stretched Billboard</strong> mode only).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Material</strong></td>
+	<td style="text-align:left;">Material used to render the particles.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Sort Mode</strong></td>
+	<td style="text-align:left;">The order in which particles are drawn (and therefore overlaid). The possible values are <strong>By Distance</strong> (from the Camera), <strong>Oldest in Front</strong> and <strong>Youngest in Front</strong>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Sorting Fudge</strong></td>
+	<td style="text-align:left;">Bias of particle sort ordering. Lower values increase the relative chance that particles are drawn over other transparent GameObjects, including particles from other systems.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Cast Shadows</strong></td>
+	<td style="text-align:left;">If enabled, the Mesh creates shadows when a shadow-casting <a href="class-Light.html">Light</a> shines on it. The options are <strong>On</strong> and <strong>Off</strong> to enable/disable shadows, <strong>Two Sided</strong> to allow shadows to be cast from either side of the Mesh (that is, backface culling is not taken into account) and <strong>Shadows Only</strong> (that is, the shadows should be visible but not the Mesh itself).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Receive Shadows</strong></td>
+	<td style="text-align:left;">Should shadows be cast onto particles? Only opaque materials can receive shadows.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Min Particle Size</strong></td>
+	<td style="text-align:left;">The smallest particle size (regardless of other settings), expressed as a fraction of viewport size.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Max Particle Size</strong></td>
+	<td style="text-align:left;">The largest particle size (regardless of other settings), expressed as a fraction of viewport size. Note that this setting is only applied when the Rendering Mode is Billboard.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Sorting Layer</strong></td>
+	<td style="text-align:left;">Name of the Renderer’s sorting layer.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Order in Layer</strong></td>
+	<td style="text-align:left;">This Renderer’s order within a sorting layer.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Pivot</strong></td>
+	<td style="text-align:left;">Modify the pivot point used for rotating particles.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Light Probes</strong></td>
+	<td style="text-align:left;">Probe-based lighting interpolation mode.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Reflection Probes</strong></td>
+	<td style="text-align:left;">If enabled and Reflection Probes are present in the Scene, a reflection Texture is picked for this GameObject and set as a built-in Shader uniform variable.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Anchor Override</strong></td>
+	<td style="text-align:left;">A Transform used to determine the interpolation position when the Light Probe or Reflection Probe systems are used.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Details</h2>
+
+<p>The <strong>Render Mode</strong> lets you choose between several 2D <strong>Billboard</strong> graphic modes and <strong>Mesh</strong> mode. Using 3D Meshes gives particles extra authenticity when they represent solid GameObjects, such as rocks, but can also improve the sense of volume for clouds, fireballs and liquids. When 2D billboard graphics are used, the different options can be used for a variety of effects. </p>
+
+<ul>
+<li>
+<strong>Billboard</strong> mode is good for particles representing volumes that look much the same from any direction (such as clouds).</li>
+<li>
+<strong>Horizontal Billboard</strong> mode can be used when the particles cover the ground (such as target indicators and magic spell effects) or when they are flat objects that fly or float parallel to the ground (for example, shurikens).</li>
+<li>
+<strong>Vertical Billboard</strong> mode keeps each particle upright and perpendicular to the xz plane, but allows it to rotate around its y-axis. This can be helpful when you are using an orthographic Camera and want particle sizes to stay consistent.</li>
+<li>
+<strong>Stretched Billboard</strong> mode accentuates the apparent speed of particles in a similar way to the “stretch and squash” techniques used by traditional animators. Note that in <strong>Stretched Billboard</strong> mode, particles are aligned to face the Camera, and also aligned to their velocity. This alignment occurs regardless of the <strong>Velocity Scale</strong> value; even if <strong>Velocity Scale</strong> is set to 0, particles in this mode still align to the velocity.</li>
+</ul>
+
+<p>The <strong>Normal Direction</strong> can be used to create shading based on the particle’s direction from the center of the screen. This can help create a feeling of size and depth on, say, a cloud - the outer edges of the cloud particles (relative to screen center) tend to be darkened, giving the impression of a volume shaded all over, rather than a set of uniformly shaded elements.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PartSysTexSheetAnimModule.html"></a></span><div class="tip">Texture Sheet Animation Module</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="comp-ParticlesLegacy.html"></a></span><div class="tip">Particle Systems (Legacy, prior to release 3.5)</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Analytics Tracker Component</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UnityAnalyticsAnalyticsTracker.html">English</a></li>
+<li><a href="/ja/current/Manual/UnityAnalyticsAnalyticsTracker.html">日本語</a></li>
+<li><a href="/es/current/Manual/UnityAnalyticsAnalyticsTracker.html">Español</a></li>
+<li><a href="/kr/current/Manual/UnityAnalyticsAnalyticsTracker.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UnityAnalyticsAnalyticsTracker.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityServices.html">Unity Services</a></li>
+<li><a href="UnityAnalytics.html">Unity Analytics</a></li>
+<li><a href="UnityAnalyticsCustomEvents.html">Custom Events</a></li>
+<li>Analytics Tracker Component</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityAnalyticsCustomEvents.html"></a></span><div class="tip">Custom Events</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityAnalyticsCustomEventScripting.html"></a></span><div class="tip">Custom Event Scripting</div>
+</div>
+</div></div>
+<h1>Analytics Tracker Component</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Analytics API automatically sends events to the Analytics Service under certain circumstances. However, custom events can also be sent using user-defined triggers. These can be configured and implemented entirely in the Editor as well as from script.</p>
+
+<p>Attach an Analytics Tracker component to any GameObject to send a custom event via the Analytics API.</p>
+
+<figure>
+<img src="../uploads/Main/analyticsTrackerScript.png" alt="Analytics Tracker Component">
+<figcaption>Analytics Tracker Component</figcaption>
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Event Name</strong></td>
+	<td style="text-align:left;">Set a name for the custom event.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Trigger</strong></td>
+	<td style="text-align:left;">Specify the immediate cause of the event being sent. See notes on Triggers below for more information.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Parameters</strong></td>
+	<td style="text-align:left;">Set a list of keys/values. Parameter data can be either static, where you specify set strings to send as the parameter data, or it can be arbitrary fields of arbitrary components attached to a provided GameObject. See notes on Parameters below for more information.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Triggers</h2>
+
+<p>The <strong>Trigger</strong> specifies the immediate cause of the event being sent.</p>
+
+<figure>
+<img src="../uploads/Main/analyticsTrackerScriptExternal.png.png" alt="Anayltics Tracker Trigger">
+<figcaption>Anayltics Tracker Trigger</figcaption>
+</figure>
+
+<h3>External events</h3>
+
+<p>An event can leverage most standard methods in the MonoBehaviour life cycle, but it can also be triggered from an external source. For example, the <strong>External</strong> event trigger can be tied (entirely through the Editor) to a UI Button component’s click event:</p>
+
+<figure>
+<img src="../uploads/Main/ButtonScript.png" alt="Analytics Tracker External Events">
+<figcaption>Analytics Tracker External Events</figcaption>
+</figure>
+
+<p>In this example, a GameObject called <strong>MyAnalyticsTracker</strong> has an Analytics Tracker component with its <strong>Trigger</strong> type set to <strong>External</strong>. This button component can trigger the event by invoking <strong>AnalyticsTracker.TriggerEvent</strong> in its <strong>OnClick</strong> event.</p>
+
+<h2>Parameters</h2>
+
+<p>Use this field to set a list of keys/values. Parameter data can be either <strong>static</strong>, where you specify set strings to send as the parameter data, or arbitrary fields of arbitrary components attached to a provided GameObject.</p>
+
+<h3>Static parameters</h3>
+
+<figure>
+<img src="../uploads/Main/staticparameters.png" alt="Static Parameters">
+<figcaption>Static Parameters</figcaption>
+</figure>
+
+<p>Here, the parameter is marked as <strong>Static</strong>. In this example, the key is named “name” and the value is named “value”. You can change these to whatever you like. The data sent with the event for this parameter will always be the same.</p>
+
+<h3>Non-static parameters</h3>
+
+<figure>
+<img src="../uploads/Main/nonstaticanalytics.png" alt="Non-Static Parameters">
+<figcaption>Non-Static Parameters</figcaption>
+</figure>
+
+<p>This image shows a list of parameters registered as event data. The value is set to the <strong>boolParameter</strong> field of the user-defined class <strong>TestAnalyticsDataObject</strong>, and attached to a GameObject named <strong>ExampleGameObject</strong>. The event contains the contents of this field at the time when the event is sent. This could be set to any public field that resolves to a string, number or boolean.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="UnityAnalyticsCustomEvents.html"></a></span><div class="tip">Custom Events</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityAnalyticsCustomEventScripting.html"></a></span><div class="tip">Custom Event Scripting</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

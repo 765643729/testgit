@@ -1,0 +1,276 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Font</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-Font.html">English</a></li>
+<li><a href="/ja/current/Manual/class-Font.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-Font.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-Font.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-Font.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="comp-MeshGroup.html">Mesh Components</a></li>
+<li><a href="class-TextMesh.html">Text Mesh</a></li>
+<li>Font</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-TextAsset.html"></a></span><div class="tip">Text Asset</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="comp-Textures.html"></a></span><div class="tip">Texture Components</div>
+</div>
+</div></div>
+<h1>Font</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/Font.html' title='Go to Font page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>
+<strong>Fonts</strong> can be created or imported for use in either the <a href="class-GUIText.html">GUI Text</a> or the <a href="class-TextMesh.html">Text Mesh</a> <strong>Components</strong>.</p>
+
+<h2>Importing Font files</h2>
+
+<p>To add a font to your project you need to place the font file in your Assets folder. Unity will then automatically import it. Supported Font formats are TrueType Fonts (.ttf files) and OpenType Fonts (.otf files).</p>
+
+<p>To change the <strong>Size</strong> of the font, highlight it in the <strong>Project View</strong> and you have a number of options in the <strong>Import Settings</strong> in the <strong>Inspector</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/font_importer.png" alt="Import Settings for a font">
+<figcaption>Import Settings for a font</figcaption>
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Font Size</strong></td>
+	<td style="text-align:left;">The size of the font, based on the sizes set in any word processor.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Rendering mode</strong></td>
+	<td style="text-align:left;">The font rendering mode, which tells Unity how to apply smoothing to the glyphs.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Character</strong></td>
+	<td style="text-align:left;">The character set of the font to import into the font texture</td>
+</tr>
+<tr>
+	<td style="text-align:left;"></td>
+	<td style="text-align:left;">Setting this mode to Dynamic causes Unity to embed the font data itself and render font glyphs at runtime (see below).</td>
+</tr>
+</tbody>
+</table>
+
+<p><em>Import Settings specific to dynamic fonts</em></p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Include Font Data</strong></td>
+	<td style="text-align:left;">This setting controls the packaging of the font when used with Dynamic font property. When selected the TTF is included in the output of the build. When not selected it is assumed that the end user will have the font already installed on their machine. Note that fonts are subject to copyright and you should only include fonts that you have licensed or created for yourself.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Font Names</strong></td>
+	<td style="text-align:left;">A list of fallback fonts to use when fonts or characters are not available (see below).</td>
+</tr>
+</tbody>
+</table>
+
+<p>After you import the font, you can expand the font in Project View to see that it has auto-generated some assets. Two assets are created during import: “font material” and “font texture”. Unlike many applications you might be familiar with, fonts in Unity are converted into textures, and the glyphs that you display are rendered using textured quads. Adjusting the font size effectively changes how many pixels are used for each glyph in this generated texture. Text Mesh assets are 3d geometry textured with these auto-generated font textures. You will want to vary the size of the font to make these assets look crisp.</p>
+
+<h2>Dynamic fonts</h2>
+
+<p>When you set the <strong>Characters</strong> drop-down in the Import Settings to <strong>Dynamic</strong>, Unity will not pre-generate a texture with all font characters. Instead, it will use the FreeType font rendering engine to create the texture on the fly. This has the advantage that it can save in download size and texture memory, especially when you are using a font which is commonly included in user systems, so you don’t have to include the font data, or when you need to support asian languages or large font sizes (which would make the font textures very large using normal font textures).</p>
+
+<p>When Unity tries to render text with a dynamic font, but it cannot find the font (because <strong>Include Font Data</strong> was not selected, and the font is not installed on the user machine), or the font does not include the requested glyph (like when trying to render text in east Asian scripts using a latin font, or when using styled bold/italic text), then it will try each of the fonts listed in the <strong>Font Names</strong> field, to see if it can find a font matching the font name in the project (with font data included) or installed on the user machine which has the requested glyph. If none of the listed fallback fonts are present and have the requested glyph, Unity will fall back to a hard-coded global list of fallback fonts, which contains various international fonts commonly installed on the current runtime platform.</p>
+
+<p>Note that some target platforms (WebGL, some consoles) do not have OS default fonts Unity can access for rendering text. For those platforms, <strong>Include Font Data</strong> will be ignored, and font data will always be included. All fonts to be used as fallbacks must be included in the project, so if you need to render international text or bold/italic versions of a font, you need to add a font file which has the required characters to the project, and set up that font in the <strong>Font Names</strong> list of other fonts which should use it as fallbacks. If the fonts are set up correctly, the fallback fonts will be listed in the Font Importer inspector, as <em>References to other fonts in project</em>.</p>
+
+<h2>Default font asset</h2>
+
+<p>The default font asset is a dynamic font which is set up to use <a href="https://en.wikipedia.org/wiki/Arial">Arial</a>. If Unity can’t find the Arial font on your computer (for example, if you don’t have it installed), it will fall back to a font bundled with Unity called <a href="https://en.wikipedia.org/wiki/Liberation_fonts">Liberation Sans</a>.</p>
+
+<p>Liberation Sans looks like Arial, but it does not include bold or italic font styles, and only has a basic Latin character set - so styled text or non-latin characters may fall back to other fonts or fail to render. It does however have a license which allows it to be included in player builds.</p>
+
+<h2>Custom fonts</h2>
+
+<p>To create a custom font select ‘Create-&gt;custom font’ from the project window. This will add a custom font asset to your project library.</p>
+
+<figure>
+<img src="../uploads/Main/customFontInspector.png" alt="">
+</figure>
+
+<p>The <strong>Ascii Start Offset</strong> field is a decimal that defines the Ascii index you would like to begin your <strong>Character Rects</strong> index from. For example, if your Ascii Start Offset is set to 0 then the capital letter A will be at index 65 but if the Ascii Start Offset is set to 65 then the letter A will be at index 0. You can consult the Ascii Table <a href="http://ascii.cl/">here</a> but you should bear in mind that custom font uses the decimal ascii numbering system.</p>
+
+<p>
+<strong>Kerning</strong> can be set to define how close each character will be to the next character on the same line and <strong>Line spacing</strong> can be set to define how close each line will be to the next.</p>
+
+<p>To create a font material you will need to import your font as a texture then apply that texture to a material, then drag your font material onto the <strong>Default Material</strong> section.</p>
+
+<p>The <strong>Character Rects</strong> section is where each character of your font is defined.</p>
+
+<figure>
+<img src="../uploads/Main/customFontElements.png" alt="">
+</figure>
+
+<p>The <strong>Size</strong> field is for defining how many characters are in your font.</p>
+
+<p>Within each <strong>Element</strong> there is an index field for the ascii index of the character. This will be an integer that represents the character in this element.</p>
+
+<p>To work out the <strong>UV</strong> values you need to figure out how your characters are positioned on a scale of 0 to 1. You divide 1 by the number of characters on a dimension. For example if you have a font and the image dimensions on it are 256x128, 4 characters across, 2 down (so 64x64), then UV width will be 0.25 and UV height will be 0.5.</p>
+
+<p>For UV X and Y, it’s just a matter of deciding which character you want and multiplying the width or height value times the column/row of the letter.</p>
+
+<p>
+<strong>Vert</strong> size is based on the pixel size of the characters e.g. your characters are each 128x128, putting 128 and –128 into the Vert Width and Height will give properly proportioned letters. Vert Y must be negative.</p>
+
+<p>
+<strong>Width</strong> will be the width of your character in pixels.</p>
+
+<figure>
+<img src="../uploads/Main/ExampleCustomFont.png" alt="Example of custom font inspector with values">
+<figcaption>Example of custom font inspector with values</figcaption>
+</figure>
+
+<h2>Unicode support</h2>
+
+<p>Unity has full unicode support. Unicode text allows you to display German, French, Danish or Japanese characters that are usually not supported in an ASCII character set. You can also enter a lot of different special purpose characters like arrow signs or the option key sign, if your font supports it.</p>
+
+<p>To use unicode characters, choose either <strong>Unicode</strong> or <strong>Dynamic</strong> from the <strong>Characters</strong> drop-down in the Import Settings. You can now display unicode characters with this font. If you are using a <strong>GUIText</strong> or <strong>Text Mesh</strong>, you can enter unicode characters into the Component’s <strong>Text</strong> field in the Inspector.</p>
+
+<p>You can also use unicode characters if you want to set the displayed text from scripting. The Javascript and C# compilers fully support Unicode based scripts. You have to save your scripts with UTF–16 encoding. Now you can add unicode characters to a string in your script and they will display as expected in <strong>UnityGUI</strong>, a GUIText, or a Text Mesh.</p>
+
+<p>Note that surrogate pairs are not supported.</p>
+
+<h2>Changing Font Color</h2>
+
+<p>There are different ways to change the color of your displayed font, depending on how the font is used.</p>
+
+<h3>GUIText and Text Mesh</h3>
+
+<p>If you are using a GUIText or a Text Mesh, you can change its color by using a custom <strong>Material</strong> for the font. In the Project View, click on <strong>Create &gt; Material</strong>, and select and set up the newly created Material in the <strong>Inspector</strong>. Make sure you assign the texture from the font asset to the material. If you use the built-in <strong>GUI/Text Shader</strong> shader for the font material, you can choose the color in the <strong>Text Color</strong> property of the material.</p>
+
+<h3>UnityGUI</h3>
+
+<p>If you are using UnityGUI scripting to display your font, you have much more control over the font’s color under different circumstances. To change the font’s color, you create a <strong>GUISkin</strong> from <strong>Assets &gt; Create &gt; GUI Skin</strong>, and define the color for the specific control state, e.g. <strong>Label &gt; Normal &gt; Text Color</strong>. For more details, please read the <a href="class-GUISkin.html">GUI Skin page</a>.</p>
+
+<h2>Hints</h2>
+
+<ul>
+<li>To display an imported font select the font and choose <strong>GameObject &gt; Create Other &gt; 3D Text</strong>.</li>
+<li>You can reduce the generated texture size for fonts by using only lower or upper case characters.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-TextAsset.html"></a></span><div class="tip">Text Asset</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="comp-Textures.html"></a></span><div class="tip">Texture Components</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Euler Curve Import</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/AnimationEulerCurveImport.html">English</a></li>
+<li><a href="/ja/current/Manual/AnimationEulerCurveImport.html">日本語</a></li>
+<li><a href="/es/current/Manual/AnimationEulerCurveImport.html">Español</a></li>
+<li><a href="/kr/current/Manual/AnimationEulerCurveImport.html">한국어</a></li>
+<li><a href="/ru/current/Manual/AnimationEulerCurveImport.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="AnimationSection.html">Animation</a></li>
+<li><a href="AnimationClips.html">Animation Clips</a></li>
+<li><a href="AnimationsImport.html">Animation from external sources </a></li>
+<li>Euler Curve Import</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AnimationRootMotionNodeOnImportedClips.html"></a></span><div class="tip">Selecting a Root Motion Node</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AnimationEditorGuide.html"></a></span><div class="tip">Animation Window Guide</div>
+</div>
+</div></div>
+<h1>Euler Curve Import</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Rotations in 3D applications are usually represented in one of two ways, Quaternions or Euler angles. For the most part, Unity uses Quaternions as its internal representation of rotations, however it’s important to have a basic understanding of <a href="QuaternionAndEulerRotationsInUnity.html">rotation and orientation in Unity</a>.</p>
+
+<p>When importing animation from external sources, these files usually contain keyframe animation in Euler format. Unity’s default behavior is to resample these animations as Quaternion values and generate a new Quaternion keyframe for every frame in the animation, in an attempt to minimise any perceivable difference between the source animation and how it appears in Unity. </p>
+
+<p>There are still some situations where - even with resampling - the quaternion representation of the imported animation may not match the original closely enough, For this reason, in Unity 5.3 and onwards there is the option to turn off animation resampling, so that you can instead use the original Euler animation keyframes at runtime.</p>
+
+<h2>Using Euler Curve Support on Imported Animations</h2>
+
+<p>To enable support for using the original Euler Curve values in an animation file, you must turn *<strong>off</strong> the “Resample Curves” option in the Animations Import Inspector:</p>
+
+<figure>
+<img src="../uploads/Main/AnimationImportResampleRotations.png" alt="The Resample Curves option in the Animations Import Inspector">
+<figcaption>The Resample Curves option in the Animations Import Inspector</figcaption>
+</figure>
+
+<p>With this option enabled, rotations will be resampled to quaternions. This is the default behavior.
+When disabled, rotation curves will not be resampled, and the rotation curve will be imported with its original keyframes, in Euler or quaternion mode as appropriate for the curve type. <strong>Note: Any rotation curve on a joint that has pre- or post-rotations will be automatically resampled by the FBX SDK, and will automatically be imported as quaternion curves.</strong>
+</p>
+
+<p>To support a maximum variety of imported files, and for maximum fidelity, Unity supports all normal (non-repeating) euler rotation orders, and curves will be imported in their original rotation orders.</p>
+
+<p><em>The primary reason for disabling rotation resampling and using the original euler curves is when the default quaternion interpolation between frames gives faulty results, and causes issues.</em></p>
+
+<h2>The Results During Animation Playback</h2>
+
+<p>When using non-resampled rotations, there should be very little visual difference in the playback of animations. Under the hood though, rotation curves that have been imported in Euler representation will always be kept so, even at runtime. </p>
+
+<p>Since the engine functions with quaternions, rotation values have to be converted to quaternion at some point. Before Unity 5.3, this conversion always happened at import. In 5.3, when the Resample Curves option is switched off in the Animation Import inspector, the rotation values are kept as euler values up until they are applied to a Gameobject. This means that the end result should be as good as - or better than - before. </p>
+
+<p>Memory wise, for rotation curves that have not been baked in the authoring software, there should be a net gain for rotation curves.</p>
+
+<h2>Non-Default Euler Orders in the Transform Inspector</h2>
+
+<p>The Euler angles used in Unity’s transform inspector are applied in the default order of Z,X,Y. </p>
+
+<p>When playing back or editing imported animations that feature Euler curves with a rotation order different from Unity’s default, an indication of the current rotation order will be shown next to the rotation fields.</p>
+
+<figure>
+<img src="../uploads/Main/AnimationEulerAlternateRotationOrderInInspector.png" alt="The inspector showing that a non-default rotation order is being used for the rotation animation on this object">
+<figcaption>The inspector showing that a non-default rotation order is being used for the rotation animation on this object</figcaption>
+</figure>
+
+<p>When editing multiple transforms with differing rotation orders, a warning will be shown to the users to warn them that the same Euler rotation applied will give different results on curves with different rotation orders.</p>
+
+<figure>
+<img src="../uploads/Main/AnimationEulerMixedRotationOrderInInspector.png" alt="The inspector showing that a mixture of rotation orders are being used for the rotation animation on the selected group of objects">
+<figcaption>The inspector showing that a mixture of rotation orders are being used for the rotation animation on the selected group of objects</figcaption>
+</figure>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AnimationRootMotionNodeOnImportedClips.html"></a></span><div class="tip">Selecting a Root Motion Node</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="AnimationEditorGuide.html"></a></span><div class="tip">Animation Window Guide</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

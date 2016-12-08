@@ -1,0 +1,477 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Script Serialization</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/script-Serialization.html">English</a></li>
+<li><a href="/ja/current/Manual/script-Serialization.html">日本語</a></li>
+<li><a href="/es/current/Manual/script-Serialization.html">Español</a></li>
+<li><a href="/kr/current/Manual/script-Serialization.html">한국어</a></li>
+<li><a href="/ru/current/Manual/script-Serialization.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="ScriptingSection.html">Scripting</a></li>
+<li><a href="ScriptingConcepts.html">Scripting Overview</a></li>
+<li>Script Serialization</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ScriptingRestrictions.html"></a></span><div class="tip"> Scripting restrictions</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityEvents.html"></a></span><div class="tip">UnityEvents</div>
+</div>
+</div></div>
+<h1>Script Serialization</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Serialization is at the very core of the Unity Editor. Many of its features build on top of the core serialization system and most significantly, when you are using the Unity Editor, it serializes <code>MonoBehaviour</code> components which are backed by your scripts.</p>
+
+<h2>Built-in features that use serialization</h2>
+
+<p>In order to give you an understanding of how serlialization works in Unity, below is a list of the built-in features of Unity that use serlialization. </p>
+
+<h4>Inspector window</h4>
+
+<p>The Inspector window doesn’t communicate with the C# API to know the values of a property that it is inspecting: It asks the GameObject to serialize itself, and then displays this serialized data.</p>
+
+<h4>Prefabs</h4>
+
+<p>Internally, a Prefab is the serialized data stream of one (or more) GameObjects and components. A Prefab instance is a list of modifications that should be made on the serialized data for this instance. The concept Prefab only exists during project editing in the Unity Editor; the Prefab modifications get backed into a normal serialization stream when the Unity Editor makes a build, and when GameObjects are instantiated in the build, there is no reference to these GameObjects being Prefabs.</p>
+
+<h4>Instantiation</h4>
+
+<p>When you call <code>Instantiate()</code> on anything that exists in a Scene, such as a Prefab or a GameObject, the Unity Editor serializes the GameObject. (Note that everything that derives from <code>UnityEngine.Object</code> can be serialized.)</p>
+
+<p>The Editor then creates a new GameObject and deserializes (that is loads) the data onto the new GameObject. Next, the Editor runs the same serialization code in a different variant to report which other <code>UnityEngine.Objects</code> are being referenced. It checks all referenced <code>UnityEngine.Objects</code> to see if they are part of the data being <code>Instantiated()</code>. If the reference is pointing to something “external”, such as a texture, the Editor keeps that reference as it is. If the reference is pointing to something “internal”, such as a child GameObject, the Editor patches the reference to the corresponding copy.</p>
+
+<h4>Saving</h4>
+
+<p>If you open a <code>.unity</code> Scene file with a text editor, and have set the Unity Editor to <strong>force text serialization</strong>, it runs the serializer with a yaml backend. (See <a href="http://www.yaml.org">www.yaml.org </a> for further information.)</p>
+
+<h4>Loading</h4>
+
+<p>Backwards compatible loading is built on top of serialization. In-Editor yaml loading as well as the run-time loading of Scenes, Assets, and AssetBundles all use the serialization system.</p>
+
+<h4>Hot reloading of Unity Editor code</h4>
+
+<p>When you change a Unity script, the Unity serializes all Editor windows. (Note that they also derive from <code>UnityEngine.Object</code>!) Unity then destroy all the windows, unloads the old C# code, loads the new C# code, recreates the windows, and then deserializes the data streams of the windows back onto the new windows.</p>
+
+<h4>Resource.GarbageCollectSharedAssets()</h4>
+
+<p>
+<code>Resource.GarbageCollectSharedAssets()</code>
+is the native Unity garbage collector. Note that it has a different function to the C# garbage collector. It runs after you load a Scene, to asertain GameObjects from the previous Scene are no longer referenced, and so can be unloade. The native Unity garbage collector runs the serializer in a variation in which GameObjects report all references to external <code>UnityEngine.Objects</code>. This is how textures that were used by, Scene1, are unloaded in Scene2.</p>
+
+<p>The serialization system is written in C++. It is used for all internal GameObject types, such as Textures, AnimationClips, and Cameras, among others. Serialization happens at the <code>UnityEngine.Object</code> level. Each <code>UnityEngine.Object</code> is always serialized as a whole. They can contain references to other <code>UnityEngine.Objects</code>and these references get serialized properly.</p>
+
+<h2>Serialization and Monobehaviour</h2>
+
+<p>
+<code>MonoBehaviour</code> components, which are backed by your scripts also use serlialization. Because of the very high performance requirements that the serializer has, it does not always behave exactly like a C# developer would expect from a serializer. Below is some guidance on hwo to make best use of serliaization.</p>
+
+<h4>How to ensure a field in a script is serialized</h4>
+
+<p>Ensure it:</p>
+
+<ul>
+<li>is <code>public</code>, or have <code>[SerializeField]</code> attribute</li>
+<li>is not <code>static</code>
+</li>
+<li>is not <code>const</code>
+</li>
+<li>is not <code>readonly</code>
+</li>
+<li>has <code>fieldtype</code> tht is of a type that can be serialized (See below.)</li>
+</ul>
+
+<h4>Fieldtypes that can be serialized</h4>
+
+<ul>
+<li>Custom non abstract classes with <code>[Serializable]</code> attribute.</li>
+<li>Custom structs with <code>[Serializable]</code> attribute. (Added in Unity 4.5.)</li>
+<li>References to GameObjects that derive from <code>UnityEngine.Object</code>.</li>
+<li>Primitive data types (<code>int</code>, <code>float</code>, <code>double</code>, <code>bool</code>, <code>string</code>, etc.).</li>
+<li>Array of a fieldtype that can be serialized.</li>
+<li>
+<code>List</code>&lt;<code>T</code>&gt; of a fieldtype that can be serialized.</li>
+</ul>
+
+<h4>In what situations does serializer behave unexpectedly?</h4>
+
+<p><strong>Custom classes behave like structs</strong></p>
+
+<pre><code>[Serializable]
+class Animal
+{
+   public string name;
+}
+
+class MyScript : MonoBehaviour
+{
+      public Animal[] animals;
+}
+</code></pre>
+
+<p>If you populate the animals array with three references to a single Animal GameObject, in the serialization stream, you find 3 GameObjects. When it’s deserialized, there are now three different GameObjects. If you need to serialize a complex GameObject graph with references, you cannot rely on Unity’s serializer doing that all automatically for you; you have to do some work to get that GameObject graph serialized yourself. See the example below on how to serialize things Unity doesn’t serialize by itself.</p>
+
+<p>Note that this is only true for custom classes; they are serialized “inline” because their data becomes part of the complete serialization data for the <code>MonoBehaviour</code> they are used in. When you have fields that have a reference to something that is a <code>UnityEngine.Object</code> derived class, such as a <code>public Camera myCamera</code>, the data from that camera is not serialized inline. Instead an actual reference to the camera <code>UnityEngine.Object</code> is serialized.</p>
+
+<p><strong>No support for <code>null</code> for custom classes</strong></p>
+
+<p>Consider how many allocations are made when deserializing a <code>MonoBehaviour</code> that uses the following script.</p>
+
+<pre><code>class Test : MonoBehaviour
+{
+    public Trouble t;
+}
+
+[Serializable]
+class Trouble
+{
+   public Trouble t1;
+   public Trouble t2;
+   public Trouble t3;
+}
+</code></pre>
+
+<p>It wouldn’t be strange to expect 1 allocation: That of the <code>Test</code> GameObject. It also wouldn’t be strange to expect 2 allocations: One for the <code>Test</code> GameObject and one for a <code>Trouble</code> GameObject. </p>
+
+<p>However, the correct answer is 729. The serializer does not support null. If it serializes a GameObject, and a field is null, Unity instantiates a new GameObject of that type, and serializes that. Obviously this could lead to infinite cycles, so there is a depth limit of 7 levels. At that point Unity stops serializing fields that have types of custom classes, structs, lists, or arrays.</p>
+
+<p>Since so many of Unity’s subsystems build on top of the serialization system, this unexpectedly large serialization stream for the <code>Test MonoBehaviour</code> causes all these subsystems to perform more slowly than necessary. </p>
+
+<p>
+<strong>NOTE:</strong> This causes so significant a performance problem in many projects that it carries a warning message (since Unity 4.5).</p>
+
+<p><strong>No support for polymorphism</strong></p>
+
+<p>if you have a <code>public Animal[] animals</code> and you put in an instance of a dog, a cat and a giraffe, after serialization, you have three instances of Animal.</p>
+
+<p>One way to deal with this limitation is to realize that it only applies to custom classes, which get serialized inline. References to other <code>UnityEngine.Objects</code> get serialized as actual references, and for those, polymorphism does actually work. You would make a <code>ScriptableObject</code> derived class or another <code>MonoBehaviour</code> derived class, and reference that. The downside of this is that you need to store that <code>Monobehaviour</code> or scriptable GameObject somewhere, and that you cannot serialize it inline efficiently.</p>
+
+<p>The reason for these limitations is that one of the core foundations of the serialization system is that the layout of the datastream for a GameObject is known ahead of time; it depends on the types of the fields of the class, rather than what happens to be stored inside the fields.</p>
+
+<p><strong>Serializing someting that that Unity’s serializer doesn’t support</strong></p>
+
+<p>In many cases the best approach is to use serialization callbacks. These allow you to be notified before the serializer reads data from your fields and after it has finished writing to them. You can use serialization callbacks to have a different representation of your hard-to-serialize data at run time to its representation when you actually serialize.</p>
+
+<p>Transform your data into something Unity understands right before Unity wants to serialize it. Then, right after Unity has written the data to your fields you can transform the serialized form back into the form you want to have your data in at run time </p>
+
+<p>For example: Suppose you want to have a tree data structure. If you let Unity directly serialize the data structure, the “no support for null” limitation would cause your data stream to become very big, leading to performance degradations in many systems:</p>
+
+<pre><code>using UnityEngine;
+using System.Collections.Generic;
+using System;
+
+public class VerySlowBehaviourDoNotDoThis : MonoBehaviour
+{
+[Serializable]
+public class Node
+{
+public string interestingValue = &quot;value&quot;;
+
+//The field below is what makes the serialization data become huge because
+//it introduces a 'class cycle'.
+public List&lt;Node&gt; children = new List&lt;Node&gt;();
+}
+//this gets serialized
+public Node root = new Node();
+
+void OnGUI()
+{
+Display (root);
+}
+
+void Display(Node node)
+{
+GUILayout.Label (&quot;Value: &quot;);
+node.interestingValue = GUILayout.TextField(node.interestingValue, GUILayout.Width(200));
+
+GUILayout.BeginHorizontal ();
+GUILayout.Space (20);
+GUILayout.BeginVertical ();
+
+foreach (var child in node.children)
+Display (child);
+if (GUILayout.Button (&quot;Add child&quot;))
+node.children.Add (new Node ());
+
+GUILayout.EndVertical ();
+GUILayout.EndHorizontal ();
+}
+}
+</code></pre>
+
+<p>Instead, you tell Unity not to serialize the tree directly, and you make a seperate field to store the tree in a serialized format, suited to Unity’s serializer:</p>
+
+<pre><code>using System.Collections.Generic;
+using System;
+
+public class BehaviourWithTree : MonoBehaviour, ISerializationCallbackReceiver
+{
+// Node class that is used at runtime.
+// This is internal to the BehaviourWithTree class and is not serialized.
+public class Node
+{
+public string interestingValue = &quot;value&quot;;
+public List&lt;Node&gt; children = new List&lt;Node&gt;();
+}
+
+// Node class that we will use for serialization.
+[Serializable]
+public struct SerializableNode
+{
+public string interestingValue;
+public int childCount;
+public int indexOfFirstChild;
+}
+
+// The root node used for runtime tree representation. Not serialized.
+Node root = new Node(); 
+
+// This is the field we give Unity to serialize.
+public List&lt;SerializableNode&gt; serializedNodes;
+
+public void OnBeforeSerialize()
+{
+// Unity is about to read the serializedNodes field's contents.
+// The correct data must now be written into that field &quot;just in time&quot;.
+if (serializedNodes == null) serializedNodes = new List&lt;SerializableNode&gt;();
+if (root == null) root = new Node ();
+serializedNodes.Clear();
+AddNodeToSerializedNodes(root);
+// Now Unity is free to serialize this field, and we should get back the expected 
+// data when it is deserialized later.
+}
+
+void AddNodeToSerializedNodes(Node n)
+{
+var serializedNode = new SerializableNode () {
+interestingValue = n.interestingValue,
+childCount = n.children.Count,
+indexOfFirstChild = serializedNodes.Count+1
+};
+serializedNodes.Add (serializedNode);
+foreach (var child in n.children)
+AddNodeToSerializedNodes (child);
+}
+
+public void OnAfterDeserialize()
+{
+//Unity has just written new data into the serializedNodes field.
+//let's populate our actual runtime data with those new values.
+if (serializedNodes.Count &gt; 0) {
+ReadNodeFromSerializedNodes (0, out root);
+}
+else
+root = new Node ();
+}
+
+int ReadNodeFromSerializedNodes(int index, out Node node)
+{
+var serializedNode = serializedNodes [index];
+// Transfer the deserialized data into the internal Node class
+Node newNode = new Node() {
+interestingValue = serializedNode.interestingValue,
+children = new List&lt;Node&gt; ()
+};
+// The tree needs to be read in depth-first, since that's how we wrote it out.
+for (int i = 0; i != serializedNode.childCount; i++) {
+Node childNode;
+index = ReadNodeFromSerializedNodes (++index, out childNode);
+newNode.children.Add (childNode);
+}
+node = newNode;
+return index;
+}
+
+// This OnGUI draws out the node tree in the Game View, with buttons to add new nodes as children.
+void OnGUI()
+{
+if (root != null)
+Display (root);
+}
+
+void Display(Node node)
+{
+GUILayout.Label (&quot;Value: &quot;);
+// Allow modification of the node's &quot;interesting value&quot;.
+node.interestingValue = GUILayout.TextField(node.interestingValue, GUILayout.Width(200));
+
+GUILayout.BeginHorizontal ();
+GUILayout.Space (20);
+GUILayout.BeginVertical ();
+
+foreach (var child in node.children)
+Display (child);
+if (GUILayout.Button (&quot;Add child&quot;))
+node.children.Add (new Node ());
+
+GUILayout.EndVertical ();
+GUILayout.EndHorizontal ();
+}
+}
+</code></pre>
+
+<p>Beware that the serializer, including these callbacks coming from the serializer, usually happen not on the main thread, so you are very limited in what you can do in terms of invoking Unity API. You can, however, do the necessary data transformations to get your data from a non-Unity-serializer-friendly format to a Unity-serializer-friendly-format.</p>
+
+<h2>Script serialization errors</h2>
+
+<p>When scripts call the Unity API from constructors or field initializers, or during deserialization (loading), they can trigger errors. This section demonstrates the poor practise that causes these errors.</p>
+
+<p>You should call the majority of the Unity API from the main thread; for example, from <code>Start</code> or <code>Update</code> on MonoBehaviour. </p>
+
+<p>You should only call a subset of the Unity API from script constructors or field initializers; <code>Debug.Log</code> or <code>Mathf</code> for example. This is because constructors are invoked when constructing an instance of a class during deserialization, and these should only run on a main thread but might end up running on a non-main thread. So, you get errors if you call all the Unity API from script constructors or field initializers. </p>
+
+<h3>Calling Unity API from constructor or field initializers</h3>
+
+<p>When Unity creates an instance of a MonoBehaviour or ScriptableObject derived class, it calls the default constructor to create the managed GameObject. This happens before entering the main loop, and before the Scene has been fully loaded. Field initializers are also called from the default constructor of a managed GameObject. In general, do not call the Unity API from a constructor, as this is unsafe for the majority of the Unity API.</p>
+
+<p>Examples of <strong>poor practice</strong>:</p>
+
+<pre><code>//NOTE: THIS IS A DELIBERATE BAD EXAMPLE TO DEMONSTRATE POOR PRACTISE  - DO NOT REUSE
+
+public class FieldAPICallBehaviour : MonoBehaviour
+{
+   public GameObject foo = GameObject.Find(&quot;foo&quot;);   // This line generates an error 
+                        // message as it should not be called from within a constructor
+
+}
+</code></pre>
+
+<pre><code>//NOTE: THIS IS A BAD EXAMPLE TO DEMONSTRATE POOR PRACTISE - DO NOT REUSE
+
+public class ConstructorAPICallBehaviour : MonoBehaviour
+{
+   ConstructorAPICallBehaviour()
+   {
+       GameObject.Find(&quot;foo&quot;);   // This line generates an error message
+                                // as it should not be called from within a constructor
+   }
+}
+</code></pre>
+
+<p>Both these cases generate the error message: <em>Find is not allowed to be called from a MonoBehaviour constructor (or instance field initializer), call in in Awake or Start instead.</em>
+</p>
+
+<p>Fix this by making the the call to the Unity API in <code>MonoBehaviour.Start</code>.</p>
+
+<h3>Calling Unity API during deserialization</h3>
+
+<p>When Unity loads a Scene, it recreates the managed GameObjects from the saved Scene and populates them with the saved values (deserializing). In order to create the managed GameObjects, call the default constructor for the GameObjects. If a field referencing a GameObject is saved (serialized) and the GameObject default constructor calls the Unity API, you get an error when loading the Scene. As with the previous error, it is not yet in the main loop and the Scene is not fully loaded. This is considered unsafe for the majority of the Unity API.</p>
+
+<p>Example of <strong>poor practice</strong>:</p>
+
+<pre><code>//NOTE: THIS IS A BAD EXAMPLE TO DEMONSTRATE POOR PRACTISE  - DO NOT REUSE
+
+public class SerializationAPICallBehaviour : MonoBehaviour
+{
+   [System.Serializable]
+   public class CallAPI
+   {
+       public CallAPI()
+       {
+           GameObject.Find(&quot;foo&quot;); // This line generates an error message 
+                                                 // as it should not be called during serialization
+
+       }
+   }
+
+   CallAPI callAPI;
+}
+</code></pre>
+
+<p>This generates the error: <em>Find is not allowed to be called during serialization, call it from Awake or Start instead.</em>
+</p>
+
+<p>To fix this, refactor your code so that no Unity API calls are made in any constructors for any serialized GameObjects. If you need to call the Unity API for a GameObject, do this in the main thread from one of the MonoBehaviour callbacks, such as <code>Start</code>, <code>Awake</code> or <code>Update</code>.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="ScriptingRestrictions.html"></a></span><div class="tip"> Scripting restrictions</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UnityEvents.html"></a></span><div class="tip">UnityEvents</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

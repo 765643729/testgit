@@ -1,0 +1,334 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Reducing the File Size of the Build</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/ReducingFilesize.html">English</a></li>
+<li><a href="/ja/current/Manual/ReducingFilesize.html">日本語</a></li>
+<li><a href="/es/current/Manual/ReducingFilesize.html">Español</a></li>
+<li><a href="/kr/current/Manual/ReducingFilesize.html">한국어</a></li>
+<li><a href="/ru/current/Manual/ReducingFilesize.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityOverview.html">Working In Unity</a></li>
+<li><a href="AdvancedDevelopment.html">Advanced Development</a></li>
+<li>Reducing the File Size of the Build</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AssetBundleFAQ.html"></a></span><div class="tip">AssetBundles FAQ</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-SocialAPI.html"></a></span><div class="tip">Social API</div>
+</div>
+</div></div>
+<h1>Reducing the File Size of the Build</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Keeping the file size of the built app to a minimum is often important, especially for mobile devices or for app stores that impose a size limit. The first step in reducing the size is to determine which assets contribute most to it, since these assets are the most likely candidates for optimisation. You can find this information out from the Editor Log just after you have performed the build (select <strong>Open Editor Log</strong> from the small panel menu in the top right of the Console window).</p>
+
+<figure>
+<img src="../uploads/Main/FileSizeOptimization.png" alt="The editor log just after a build">
+<figcaption>The editor log just after a build</figcaption>
+</figure>
+
+<p>The log provides a summary of assets broken down by type and then lists all the individual assets in order of size contribution. Typically, things like textures, music and videos will take up the most storage while scripts, levels and shaders are often negligible. Note that the <em>File Headers</em> mentioned in the summary are not assets in themselves. The headers are actually the extra data that is added to “raw” asset files to store references and settings. The headers normally make very little difference to asset size but if the value may be large if you have numerous large assets in the Resources folder.</p>
+
+<p>The log helps you identify assets that you might want to remove or optimise but you should consider the following before setting to work: </p>
+
+<ul>
+<li><p>Unity re-codes imported assets into its own internal formats, so the choice of source asset type is not relevant. For example, if you have a multi-layer Photoshop texture in the project then it will be flattened and compressed before building. Exporting the texture as a PNG file will not make any difference to build size, so you should stick to the format that is most convenient for you during development.</p></li>
+<li><p>Unity strips most unused assets during the build, so you don’t gain anything by manually removing assets from the project. The only assets that are not removed are scripts (which are generally very small anyway) and assets in the Resources folder (since Unity can’t determine which of these will be needed and which won’t). With this in mind, you should make sure that the assets in the Resources folder are only the ones you really need for the game. You might be able to replace assets in Resources with <a href="AssetBundlesIntro.html">AssetBundles</a> to load assets dynamically and thereby reduce the player size.</p></li>
+</ul>
+
+<h2>Suggestions for Reducing Build Size</h2>
+
+<h3>Textures</h3>
+
+<p>Often textures take up most space in the build. The first to do is to use compressed texture formats (DXT(<strong>Desktop platforms</strong>) or PVRTC) where you can.</p>
+
+<p>If that doesn’t get the size down, try to reduce the size of the textures. The trick here is that you don’t need to modify the actual source content. Simply select the texture in the Project view and set <strong>Max Size</strong> in Import Settings. It is a good idea to zoom in on an object that uses the texture, then adjust the <strong>Max Size</strong> until it starts looking worse in the <strong>Scene View</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/FileSizeOptimizationTexture.png" alt="Changing the Maximum Texture Size will not affect your texture asset, just its resolution in the game">
+<figcaption>Changing the Maximum Texture Size will not affect your texture asset, just its resolution in the game</figcaption>
+</figure>
+
+<p>The following table shows how much storage the image formats take up in bytes per pixel:</p>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Compression</strong></th>
+	<th style="text-align:left;"><strong>Memory consumption (bytes/pixel)</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Standalone &amp; WebGL</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Crunched DXT1</strong></td>
+	<td style="text-align:left;"><em>variable</em></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA Crunched DXT5</strong></td>
+	<td style="text-align:left;"><em>variable</em></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Compressed DXT1</strong></td>
+	<td style="text-align:left;">0.5 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA Compressed DXT5</strong></td>
+	<td style="text-align:left;">1 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB 16bit</strong></td>
+	<td style="text-align:left;">2 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB 24bit</strong></td>
+	<td style="text-align:left;">3 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Alpha 8bit</strong></td>
+	<td style="text-align:left;">1 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA 16bit</strong></td>
+	<td style="text-align:left;">2 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA 32bit</strong></td>
+	<td style="text-align:left;">4 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>iOS</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Compressed PVRTC 2 bits</strong></td>
+	<td style="text-align:left;">0.25 bpp (bytes/pixel)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA Compressed PVRTC 2 bits</strong></td>
+	<td style="text-align:left;">0.25 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Compressed PVRTC 4 bits</strong></td>
+	<td style="text-align:left;">0.5 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA Compressed PVRTC 4 bits</strong></td>
+	<td style="text-align:left;">0.5 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB 16bit</strong></td>
+	<td style="text-align:left;">2 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB 24bit</strong></td>
+	<td style="text-align:left;">3 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Alpha 8bit</strong></td>
+	<td style="text-align:left;">1 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA 16bit</strong></td>
+	<td style="text-align:left;">2 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA 32bit</strong></td>
+	<td style="text-align:left;">4 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Android</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Compressed DXT1</strong></td>
+	<td style="text-align:left;">0.5 bpp (bytes/pixel)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA Compressed DXT5</strong></td>
+	<td style="text-align:left;">1 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Compressed ETC1</strong></td>
+	<td style="text-align:left;">0.5 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Compressed PVRTC 2 bits</strong></td>
+	<td style="text-align:left;">0.25 bpp (bytes/pixel)</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA Compressed PVRTC 2 bits</strong></td>
+	<td style="text-align:left;">0.25 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB Compressed PVRTC 4 bits</strong></td>
+	<td style="text-align:left;">0.5 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA Compressed PVRTC 4 bits</strong></td>
+	<td style="text-align:left;">0.5 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB 16bit</strong></td>
+	<td style="text-align:left;">2 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGB 24bit</strong></td>
+	<td style="text-align:left;">3 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Alpha 8bit</strong></td>
+	<td style="text-align:left;">1 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA 16bit</strong></td>
+	<td style="text-align:left;">2 bpp</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>RGBA 32bit</strong></td>
+	<td style="text-align:left;">4 bpp</td>
+</tr>
+</tbody>
+</table>
+
+<p>The formula for the total image storage size is <em>width * height * bpp</em>. If you are using mipmaps then the storage will be about a third larger than the single image.</p>
+
+<p>By default Unity compresses all textures when importing. For faster workflow in the editor, you can turn compression off from the Preferences but all textures will be compressed in the build regardless of this setting.</p>
+
+<h3>Meshes and Animations</h3>
+
+<p>
+<a href="class-Mesh.html">Meshes</a> and imported Animation Clips can be compressed so they take up less space in your game file. Compression can be turned on in the Mesh Import Settings.</p>
+
+<p>Mesh and Animation compression uses quantization, which means it takes less space but the compression can introduce some inaccuracies. Experiment with what level of compression is acceptable for your models.</p>
+
+<p>Note that mesh compression only produces smaller data files and does not use less memory at run time. Animation keyframe reduction produces smaller data files <em>and</em> uses less memory at run time and generally you should always have it enabled.</p>
+
+<h3>DLLs</h3>
+
+<p>By default, Unity includes only the following DLLs in the built player:</p>
+
+<ul>
+<li>mscorlib.dll</li>
+<li>Boo.Lang.dll</li>
+<li>UnityScript.Lang.dll</li>
+<li>UnityEngine.dll</li>
+</ul>
+
+<p>When building a player, you should avoid any dependencies on <em>System.dll</em> or <em>System.Xml.dll</em>. Unity does not include these in the built player by default but if you use their classes then they will get included. These DLLs will add about a megabyte to the player’s storage size. If you need to parse XML in your game, you can use a library like <a href="../uploads/Examples/Mono.Xml.zip">Mono.Xml.zip</a> as a smaller alternative to the system libraries. While most Generic containers are contained in mscorlib, Stack&lt;&gt; and few others are in System.dll, so you should avoid these if possible.</p>
+
+<figure>
+<img src="../uploads/Main/FileSizeMonoDependency.png" alt="As you can see, Unity is including System.Xml.dll and System.dll, when building a player">
+<figcaption>As you can see, Unity is including System.Xml.dll and System.dll, when building a player</figcaption>
+</figure>
+
+<h3>Reducing Mobile .NET Library Size</h3>
+
+<p>Unity supports two .NET API compatibility levels for some mobile devices: .NET 2.0 and a subset of .NET 2.0. You can select the appropriate level for your build in the <a href="class-PlayerSettings.html">Player Settings</a>.</p>
+
+<p>The .NET 2.0 API profile is similar to the full .NET 2.0 API. Most library routines are fully implemented and so this option offers the best compatibility with pre-existing .NET code. However, for many games, the full library is not needed and the superfluous code takes up valuable memory space.</p>
+
+<p>To avoid wasted memory, Unity also supports the .NET 2.0 Subset API profile. This is very similar to the Mono “monotouch” profile, so many limitations of the “monotouch” profile also apply to Unity’s .NET 2.0 Subset profile. (More information on the limitations of the “monotouch” profile can be found <a href="http://www.mono-project.com/archived/monotouchlimitations/">here</a>). Many library routines that are not commonly needed in games are left out of this profile in order to save memory. However, this also means that code with dependencies on those routines will not work correctly. This option can be a useful optimization but you should check that existing code still works after it is applied.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="AssetBundleFAQ.html"></a></span><div class="tip">AssetBundles FAQ</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="net-SocialAPI.html"></a></span><div class="tip">Social API</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

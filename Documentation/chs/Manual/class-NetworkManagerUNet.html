@@ -1,0 +1,287 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: NetworkManager</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-NetworkManagerUNet.html">English</a></li>
+<li><a href="/ja/current/Manual/class-NetworkManagerUNet.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-NetworkManagerUNet.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-NetworkManagerUNet.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-NetworkManagerUNet.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UNet.html">Multiplayer and Networking</a></li>
+<li><a href="UNetReference.html">Networking Reference</a></li>
+<li>NetworkManager</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-NetworkLobbyPlayer.html"></a></span><div class="tip">Network Lobby Player</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-NetworkManagerHUD.html"></a></span><div class="tip">Network Manager HUD</div>
+</div>
+</div></div>
+<h1>NetworkManager</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The NetworkManager is a higher level class that allows you to control the state of a networked game. It provides an interface in the editor to control the configuration of the network, the prefabs used for spawning, and the scenes to use for different network game states.</p>
+
+<p>See <a href="UNetManager.html">Using the NetworkManager</a> for more details on these properties.</p>
+
+<h2>Properties</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>autoCreatePlayer</strong></td>
+	<td style="text-align:left;">Flag to automatically add a player when a client connects.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>channels</strong></td>
+	<td style="text-align:left;">The number of transport layer QoS Channels.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>client</strong></td>
+	<td style="text-align:left;">The current NetworkClient being used by the manager.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>connectionConfig</strong></td>
+	<td style="text-align:left;">Advanced custom network configuration data.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>customConfig</strong></td>
+	<td style="text-align:left;">Flag to use custom network configuration (advanced).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>dontDestroyOnLoad</strong></td>
+	<td style="text-align:left;">Flag to make the NetworkManager persist between scenes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>globalConfig</strong></td>
+	<td style="text-align:left;">The transport layer global configuration to be used.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>isNetworkActive</strong></td>
+	<td style="text-align:left;">True if the NetworkServer or NetworkClient is active.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>logLevel</strong></td>
+	<td style="text-align:left;">The level of network logging to write.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>matches</strong></td>
+	<td style="text-align:left;">The list of matches that are available to join.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>matchHost</strong></td>
+	<td style="text-align:left;">Matchmaker host address.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>matchInfo</strong></td>
+	<td style="text-align:left;">A MatchInfo instance that will be used when StartServer() or StartClient() are called.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>matchMaker</strong></td>
+	<td style="text-align:left;">The UMatch matchmaker object.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>matchName</strong></td>
+	<td style="text-align:left;">The name of the current match.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>matchPort</strong></td>
+	<td style="text-align:left;">Matchmaker host port.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>matchSize</strong></td>
+	<td style="text-align:left;">The maximum number of players in the current match.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>maxConnections</strong></td>
+	<td style="text-align:left;">The maximum number of connections allowed by the server.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>maxDelay</strong></td>
+	<td style="text-align:left;">The maximum time in seconds to delay buffered messages.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>migrationManager</strong></td>
+	<td style="text-align:left;">The migration manager being used with the NetworkManager.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>networkAddress</strong></td>
+	<td style="text-align:left;">The network address to connect to.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>networkPort</strong></td>
+	<td style="text-align:left;">The network port used to listen on and connect to.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>numPlayers</strong></td>
+	<td style="text-align:left;">The number of active player objects across all connections on the server.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>offlineScene</strong></td>
+	<td style="text-align:left;">The scene to switch to when the network goes off-line.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>onlineScene</strong></td>
+	<td style="text-align:left;">The scene to switch to when the network goes on-line.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>packetLossPercentage</strong></td>
+	<td style="text-align:left;">The percentage of packet loss to add when network simulator active</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>playerPrefab</strong></td>
+	<td style="text-align:left;">The prefab to instantiate for players when a client connects.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>playerSpawnMethod</strong></td>
+	<td style="text-align:left;">Choose <strong>Random</strong> to spawn players at randomly chosen <code>startPositions</code>. Choose <strong>Round Robin</strong> to cycle through <code>startPositions</code> in a set list.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>runInBackground</strong></td>
+	<td style="text-align:left;">Flag to make the player run in the background by default.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>scriptCRCCheck</strong></td>
+	<td style="text-align:left;">Flag for using the script CRC check between server and clients.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>secureTunnelEndpoint</strong></td>
+	<td style="text-align:left;">End point for XBox Live connectivity.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>serverBindAddress</strong></td>
+	<td style="text-align:left;">The IP address to bind the server to.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>serverBindToIP</strong></td>
+	<td style="text-align:left;">Flag to tell the server whether to bind to a specific IP address.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>simulatedLatency</strong></td>
+	<td style="text-align:left;">Latency in milliseconds to add when network simulator active.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>spawnPrefabs</strong></td>
+	<td style="text-align:left;">The set of registered spawnable prefabs.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>startPositions</strong></td>
+	<td style="text-align:left;">The set of NetworkStartPosition objects found in the scene.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>useSimulator</strong></td>
+	<td style="text-align:left;">Flag to use network conditions simulation.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>useWebSockets</strong></td>
+	<td style="text-align:left;">This makes the NetworkServer listen for WebSockets connections instead of normal transport layer connections.</td>
+</tr>
+</tbody>
+</table>
+
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-NetworkLobbyPlayer.html"></a></span><div class="tip">Network Lobby Player</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-NetworkManagerHUD.html"></a></span><div class="tip">Network Manager HUD</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

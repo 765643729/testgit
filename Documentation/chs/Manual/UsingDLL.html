@@ -1,0 +1,249 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Managed Plugins</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/UsingDLL.html">English</a></li>
+<li><a href="/ja/current/Manual/UsingDLL.html">日本語</a></li>
+<li><a href="/es/current/Manual/UsingDLL.html">Español</a></li>
+<li><a href="/kr/current/Manual/UsingDLL.html">한국어</a></li>
+<li><a href="/ru/current/Manual/UsingDLL.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="UnityOverview.html">Working In Unity</a></li>
+<li><a href="AdvancedDevelopment.html">Advanced Development</a></li>
+<li><a href="Plugins.html">Plugins</a></li>
+<li>Managed Plugins</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PluginInspector.html"></a></span><div class="tip">Plugin Inspector</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="NativePlugins.html"></a></span><div class="tip">Native Plugins</div>
+</div>
+</div></div>
+<h1>Managed Plugins</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Usually, scripts are kept in a project as source files and compiled by Unity whenever the source changes. However, it is also possible to compile a script to a <strong>dynamically linked library</strong> (DLL) using an external compiler. The resulting DLL can then be added to the project and the classes it contains can be attached to objects just like normal scripts.</p>
+
+<p>It is generally much easier to work with scripts than DLLs in Unity. However, you may have access to third party Mono code which is supplied in the form of a DLL. When developing your own code, you may be able to use compilers not supported by Unity (F#, for example) by compiling the code to a DLL and adding it to your Unity project. Also, you may want to supply Unity code without the source (for an Asset Store product, say) and a DLL is an easy way to do this.</p>
+
+<h2>Creating a DLL</h2>
+
+<p>To create a DLL, you will first need a suitable compiler. Not all compilers that produce .NET code are guaranteed to work with Unity, so it may be wise to test the compiler with some available code before doing significant work with it. If the DLL contains no code that depends on the Unity API then you can simply compile it to a DLL using the appropriate compiler options. If you do want to use the Unity API then you will need to make Unity’s own DLLs available to the compiler. On a Mac, these are contained in the application bundle (you can see the internal structure of the bundle by using the Show Package Contents command from the contextual menu; right click or ctrl-click the Unity application):-</p>
+
+<p>The path to the Unity DLLs will typically be</p>
+
+<pre><code>/Applications/Unity/Unity.app/Contents/Frameworks/Managed/
+</code></pre>
+
+<p>…and the two DLLs are called UnityEngine.dll and UnityEditor.dll.</p>
+
+<p>On Windows, the DLLs can be found in the folders that accompany the Unity application. The path will typically be</p>
+
+<pre><code>C:\Program Files\Unity\Editor\Data\Managed
+</code></pre>
+
+<p>…while the names of the DLLs are the same as for Mac OS.</p>
+
+<p>The exact options for compiling the DLL will vary depending on the compiler used. As an example, the command line for the Mono C# compiler, <strong>mcs</strong>, might look like this on Mac OS:-</p>
+
+<pre><code>mcs -r:/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll -target:library ClassesForDLL.cs 
+</code></pre>
+
+<p>Here, the <em>-r</em> option specifies a path to a library to be included in the build, in this case the UnityEngine library. The <em>-target</em> option specifies which type of build is required; the word “library” is used to select a DLL build. Finally, the name of the source file to compile is <em>ClassesForDLL.cs</em> (it is assumed that this file is in the current working folder, but you could specify the file using a full path if necessary). Assuming all goes well, the resulting DLL file will appear shortly in the same folder as the source file.</p>
+
+<h2>Using the DLL</h2>
+
+<p>Once compiled, the DLL file can simply be dragged into the Unity project like any other asset. The DLL asset has a foldout triangle which can be used to reveal the separate classes inside the library. Classes that derive from MonoBehaviour can be dragged onto Game Objects like ordinary scripts. Non-MonoBehaviour classes can be used directly from other scripts in the usual way.</p>
+
+<figure>
+<img src="../uploads/Main/DLLScreenshot.png" alt="A folded-out DLL with the classes visible">
+<figcaption>A folded-out DLL with the classes visible</figcaption>
+</figure>
+
+<h2>Step by Step Guide for MonoDevelop and Visual Studio</h2>
+
+<p>This section explains how to build and integrate a simple DLL example with MonoDevelop and Visual Studio and also how to prepare a debugging session for the DLL.</p>
+
+<h3>Setting Up the Project</h3>
+
+<p>First, open MonoDevelop or Visual Studio and create a new project. In MonoDevelop, you do this by selecting <strong>File &gt; New &gt; Solution</strong> and then choosing <strong>C# &gt; Library</strong>. In Visual Studio, you should select <strong>File &gt; New &gt; Project</strong> and then choose <strong>Visual C# &gt; Class Library</strong>.</p>
+
+<p>You then need to fill out the information for the new library:</p>
+
+<ul>
+<li>
+<strong>Name</strong> is the namespace (for this example use “DLLTest” as the name).</li>
+<li>
+<strong>Location</strong> is the parent folder of the project.</li>
+<li>
+<strong>Solution name</strong> is the folder of the project.</li>
+</ul>
+
+<p>Next, you should add references to the Unity DLLs. In MonoDevelop, you should open the contextual menu For <em>References</em> in the Solution Browser and choose <strong>Edit References</strong>. Then, choose the option <strong>.Net Assembly tab &gt; File System &gt; select file</strong>. In Visual Studio, open the contextual menu For <em>References</em> in the Solution Explorer and choose <strong>Add Reference</strong>. Then, choose the option <strong>Browse &gt; Browse &gt; select file</strong>.</p>
+
+<p>At this stage, you will have the option to select the required DLL file. On Mac OSX, the file can be found at</p>
+
+<pre><code>    Applications/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll
+</code></pre>
+
+<p>…while on Windows, the path is</p>
+
+<pre><code>    Program Files\Unity\Editor\Data\Managed\UnityEngine.dll
+</code></pre>
+
+<h3>Code</h3>
+
+<p>For this example, rename the class to “MyUtilities” in the Solution browser and replace its code with the following:</p>
+
+<pre><code>using System;   
+using UnityEngine;
+
+namespace DLLTest {
+
+    public class MyUtilities {
+    
+        public int c;
+
+        public void AddValues(int a, int b) {
+            c = a + b;  
+        }
+    
+        public static int GenerateRandom(int min, int max) {
+            System.Random rand = new System.Random();
+            return rand.Next(min, max);
+        }
+    }
+}
+</code></pre>
+
+<p>With the code in place, build the project to generate the DLL file along with its debug symbols.</p>
+
+<h3>Using the DLL in Unity</h3>
+
+<p>For this example, create a new project in Unity and copy the built file <code>&lt;project folder&gt;/bin/Debug/DLLTest.dll</code> into the Assets folder. Then, create a C# script called “Test” in Assets, and replace its contents with the following code:</p>
+
+<pre><code>using UnityEngine;
+using System.Collections;
+using DLLTest;
+
+public class Test : MonoBehaviour {
+
+     void Start () {
+        MyUtilities utils = new MyUtilities();
+        utils.AddValues(2, 3);
+        print(&quot;2 + 3 = &quot; + utils.c);
+     }
+    
+     void Update () {
+        print(MyUtilities.GenerateRandom(0, 100));
+     }
+}
+</code></pre>
+
+<p>When you attach this script to an object in the scene and press Play, you will see the output of the code from the DLL in the Console window.</p>
+
+<h3>Setting Up a Debugging Session for the DLL</h3>
+
+<p>Firstly, you should prepare the debug symbols for the DLL. In MonoDevelop, copy the built file <code>&lt;project folder&gt;/bin/Debug/DLLTest.dll.mdb</code> into the Assets/Plugins folder. In Visual Studio, execute</p>
+
+<pre><code>Program Files\Unity\Editor\Data\Mono\lib\mono\2.0\pdb2mdb.exe
+</code></pre>
+
+<p>in the command prompt, passing <code>&lt;project folder&gt;\bin\Debug\DLLTest.pdb</code> as a parameter. Then, copy the converted file <code>&lt;project folder&gt;\bin\Debug\DLLTest.dll.mdb</code> into Assets/Plugins.</p>
+
+<p>Next, open the “Test” script in MonoDevelop. Make sure the Unity debugger is enabled from the Tools menu (Windows) or MonoDevelop-Unity menu (MacOS). The option you need from this menu is <strong>Add-in Manager &gt; Installed tab &gt; Unity &gt; select Mono Soft Debugger Support for Unity &gt; Enable</strong>.</p>
+
+<p>With this setup completed, you can debug code that uses the DLL in Unity in the usual way. See the <a href="ScriptingTools.html">Scripting Tools</a> section for further information about debugging.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="PluginInspector.html"></a></span><div class="tip">Plugin Inspector</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="NativePlugins.html"></a></span><div class="tip">Native Plugins</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

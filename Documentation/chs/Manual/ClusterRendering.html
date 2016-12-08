@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Cluster Rendering</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/ClusterRendering.html">English</a></li>
+<li><a href="/ja/current/Manual/ClusterRendering.html">日本語</a></li>
+<li><a href="/es/current/Manual/ClusterRendering.html">Español</a></li>
+<li><a href="/kr/current/Manual/ClusterRendering.html">한국어</a></li>
+<li><a href="/ru/current/Manual/ClusterRendering.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li>Cluster Rendering</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="RefProbePerformance.html"></a></span><div class="tip">Reflection Probe Performance and Optimisation</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ClusterRenderingDeployment.html"></a></span><div class="tip">Deploying a Unity Cluster</div>
+</div>
+</div></div>
+<h1>Cluster Rendering</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Cluster Rendering is available as a separate license purchase. Please <a href="https://store.unity.com/contact?type=sales">contact us</a> to speak to a Unity account representative about purchasing a license for Cluster Rendering.</p>
+
+<h2>Overview</h2>
+
+<p>Unity’s Cluster Rendering technology allows multiple machines to simulate the same scene in-sync with each other, and display the result on a cluster of displays. This feature enables you to deploy your Unity environment to complex multi-screen environments like a <a href="https://en.wikipedia.org/wiki/Video_wall">video wall</a>, a <a href="https://en.wikipedia.org/wiki/Cave_automatic_virtual_environment">CAVE</a>, a <a href="https://en.wikipedia.org/wiki/Fulldome">Dome</a> or any custom layout of multiple displays.</p>
+
+<p>Compared to other solutions in which only one machine is used to generate multiple display outputs, Unity’s Cluster Rendering has the ability to scale up to very large number of displays (up to 50 or more if networking capability is very high). With a single machine powering multiple displays, each display adds a computational cost to that machine. Even with a very powerful machine, this puts a low limit on the number of displays it can provide at a good framerate. In comparison, with Unity’s Cluster Rendering, the rendering load is shared over many machines, with each machine being responsible for rendering one display.</p>
+
+<p>This works by having the same project installed on all machines, running in lock-step synchronization. Each machine runs the same simulation, but differs only in the rendering output, rendering only its portion of the entire multi-display setup.</p>
+
+<p>This lock-step synchronization occurs over a local area network. </p>
+
+<h2>Hardware Setup</h2>
+
+<p>A Node in the cluster consists of a workstation and a display output. Each workstation runs a copy of the Unity application with Cluster Rendering enabled. There is one Master Node and multiple Client Nodes. The Client Nodes connect to the Master Node via a Local Area Network. A wired network is highly recommended for this. A WiFi network is generally not fast enough, and will result in inconsistencies in synchronization.</p>
+
+<figure>
+<img src="../uploads/Main/ClusterRenderingDiagram.png" alt="">
+</figure>
+
+<h2>Unity Cluster under the hood</h2>
+
+<p>To start a Cluster Rendering group, you should start the Master and all Client machines at the same time. Then launch the application on each machine with the specific command line argument to define the master and client relationship. </p>
+
+<p>The Master Node will then sync up all the client nodes with itself. The synchronization method is known as frame locking, or “lock step” synchronization. This means the Master Node will propagate an “update” signal at its own Update() call to all Client Nodes, once all clients have “checked in” with the master. Once the Master Node has sent out the Update signal, it will wait for the next full check-in by all the clients and repeat the cycle.</p>
+
+<p>The Master Node also sends along data such as timing, the random number seed and input values. This will ensure the application will simulate identically across the master and all the clients. The data payload that gets synchronized between the Master and Client Nodes each frame is constant, regardless of the number or complexity of objects in the scene. This means the complexity of the scene does not have an impact on network performance, only the individual rendering performance of each node.</p>
+
+<h2>Splitting the displays across multiple machines</h2>
+
+<p>With all Client Nodes synchronized to the Master Node in the cluster, you must organize the Nodes so that each is rendering the portion of the view that it is supposed to render. The synchronization data does not include information about the Camera, so you are free to manipulate the camera individually in each node. Since all nodes are simulating the same scene, the trick is to manipulate the camera properties so that each node is rendering the correct portion of the overall display.</p>
+
+<p>How you will achieve that will depend on how the multiple physical screens are set up, but the basic approach is to assign a different projection matrix to each node’s camera. See <a href="../ScriptReference/Camera-projectionMatrix.html">Camera.projectionMatrix</a> for more information on how to do this. </p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="RefProbePerformance.html"></a></span><div class="tip">Reflection Probe Performance and Optimisation</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="ClusterRenderingDeployment.html"></a></span><div class="tip">Deploying a Unity Cluster</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

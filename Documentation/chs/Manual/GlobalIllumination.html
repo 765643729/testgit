@@ -1,0 +1,438 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Lighting Window</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/GlobalIllumination.html">English</a></li>
+<li><a href="/ja/current/Manual/GlobalIllumination.html">日本語</a></li>
+<li><a href="/es/current/Manual/GlobalIllumination.html">Español</a></li>
+<li><a href="/kr/current/Manual/GlobalIllumination.html">한국어</a></li>
+<li><a href="/ru/current/Manual/GlobalIllumination.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li><a href="LightingOverview.html">Lighting</a></li>
+<li><a href="GIIntro.html">Global Illumination</a></li>
+<li>Lighting Window</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GIIntro.html"></a></span><div class="tip">Global Illumination</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UsingPrecomputedLighting.html"></a></span><div class="tip">Using precomputed lighting</div>
+</div>
+</div></div>
+<h1>Lighting Window</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The Lighting Window (menu: <strong>Window &gt; Lighting</strong>) is the main control point for Unity’s Global Illumination (GI) features. Although GI in Unity gives good results with default settings, the window’s properties allow you to adjust many aspects of the GI process to customise your scene or optimise for quality, speed and storage space as you need. This window also contains lighting-related settings that were available under the <em>Render Settings</em> in Unity versions prior to 5.0. These include ambient light, halos, cookies and fog.</p>
+
+<h2>Overview</h2>
+
+<p>The controls of the Lighting window are divided among three tabs:</p>
+
+<ul>
+<li><p>The <strong>Object</strong> tab lets you choose subsets of the objects in your scene and change settings for them. This is very useful for selecting which objects should participate in the GI computations and also for applying settings consistently to groups of objects.</p></li>
+<li><p>The <strong>Scene</strong> tab has settings that apply to the scene overall rather than individual objects. These settings control lighting effects and also optimisation options.</p></li>
+<li><p>The <strong>Lightmaps</strong> tab shows the lightmap asset files generated by the GI process.</p></li>
+</ul>
+
+<p>The tabs are described in full detail below.</p>
+
+<p>Regardless of which tab is selected, the window also has an <strong>Auto</strong> checkbox near the bottom. If enabled, this allows the lightmap data to be updated while you edit the scene (although you should note that the update usually take a few seconds rather than happening instantaneously). If Auto is disabled then the Build button to the right of the checkbox becomes active; use the button to trigger lightmap updates as you need them. The Build button also has a dropdown menu with an option to clear the baked data from the scene (without clearing the GI Cache).</p>
+
+<p>Below the Auto checkbox is a small panel showing lightmap statistics.</p>
+
+<h2>Object Tab</h2>
+
+<p>The Object tab lets you select groups of objects and apply settings to them.</p>
+
+<p>At the top of the tab is a set of Scene Filter buttons that let you limit the hierarchy view to specific types of objects: Lights, Renderers, Terrains. Selecting All will show the hierarchy view as normal.</p>
+
+<figure>
+<img src="../uploads/Main/LtWindowFilterAll.svg" alt="">
+</figure>
+
+<p>If you select any of the other buttons then the hierarchy view will be limited to showing just those object types. This is essentially just a quick way to access the standard hierarchy view filter for the most common cases.</p>
+
+<figure>
+<img src="../uploads/Main/LtWindowFilterLight.svg" alt="">
+</figure>
+
+<p>Note that the filter does not affect which object is currently selected, so it is possible to have, say, a terrain object selected even when the hierarchy is filtered to show only lights.</p>
+
+<p>The relevance of the filter buttons is that each of the three object types has its own set of properties, each described in detail below.</p>
+
+<h3>Lights</h3>
+
+<p>For a light object, the Object tab essentially shows the same information as the light component’s standard inspector panel. The properties that specifically affect GI are <strong>Baking</strong> and <strong>Bounce Intensity</strong>.</p>
+
+<p>
+<strong>Baking</strong> allows you to choose if the light should be baked if <em>Baked</em> GI is selected. <em>Mixed</em> will also bake it, but it will still be present at runtime to give direct lighting to non-static objects. <em>Realtime</em> works both for Precomputed Realtime GI and when not using global illumination.</p>
+
+<p>
+<strong>Bounce Intensity</strong> allows you to vary the intensity of indirect light (ie, light that is bounced from one object to another. The value is a multiple of the default brightness calculated by the GI system; if you set Bounce Intensity to a value greater than one then bounced light will be made brighter, while a value less than one will make it dimmer. This is useful, for example, when a dark surface in shadow (such as the interior of a cave) needs to be rendered brighter in order to make detail visible. Or alternatively, if you want to use Precomputed Realtime GI in general, but want to limit a single light to give direct light only, you can set its Bounce Intensity to 0.</p>
+
+<h3>Renderers</h3>
+
+<p>For Renderers, the following properties are available:</p>
+
+<figure>
+<img src="../uploads/Main/LtWindowObjRenderProps.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Lightmap Static</strong></td>
+	<td style="text-align:left;">This indicates to Unity that the object’s location is fixed and so it should participate in the GI. If an object is not marked as Lightmap Static then it can still be lit using <a href="LightProbes.html">Light Probes</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Scale in Lightmap</strong></td>
+	<td style="text-align:left;">This value affects the number of pixels in the lightmap texture that are used for this object. With the default value of 1.0, the number of lightmap pixels used for the object is only dependent on its surface area (ie, same number of pixels per unit area for all objects). A value greater than 1.0 increases the number of pixels (ie, the lightmap resolution) used for this object while a value less than 1.0 decreases it. You can use this property to optimise lightmaps so that important and detailed areas are more accurately lit. For example, an isolated building with flat, dark walls might look fine with a low lightmap scale (less than 1.0) while a collection of colourful motorcycles displayed close together might warrant a high scale value.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Preserve UVs</strong></td>
+	<td style="text-align:left;">Unity can recalculate the UV coordinates used for the realtime lightmap texture so as to improve its storage and performance characteristics. Please note that the recalculation process will sometimes make misjudgements about discontinuities in the original UV mapping. For example, an intentionally sharp edge may be misinterpreted as a continuous surface, resulting in artifacts where the seam should be. If <em>Preserve UVs</em> is enabled then the lightmapping UVs from the object will be translated to the lightmap to retain the effect intended by the artist. If <em>Preserve UVs</em> is switched off then Unity will calculate the realtime lightmap UVs based on the baked UVs so as to join adjacent “charts” and compact the lightmap as much as possible. This calculation is based on the two settings below (max distance and max angle). The realtime charts are packed with a half pixel border around them. This ensures that we get no leaking when rendering from them.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Auto UV Max Distance</strong></td>
+	<td style="text-align:left;">Enlighten automatically generates simplified UVs by merging UV charts. Charts will only be simplified if the worldspace distance between the charts is smaller than this value.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Auto UV Max Angle</strong></td>
+	<td style="text-align:left;">Enlighten automatically generates simplified UVs by merging UV charts. Charts will only be merged if the angle between the charts is smaller than this value.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Important GI</strong></td>
+	<td style="text-align:left;">This tells Unity that light reflected or emitted from the object is likely to affect other objects in a noticeable way. This ensures that subtle illumination effects created by this object are not optimised away.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Advanced Parameters</strong></td>
+	<td style="text-align:left;">Allows you to choose or create a set of <a href="LightmapParameters.html">Lightmap Parameters</a> for the current object selection.</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Terrains</h3>
+
+<p>For Terrains, the properties are a subset of those available for renderers.</p>
+
+<figure>
+<img src="../uploads/Main/LtWIndowObjTerrainProps.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Lightmap Static</strong></td>
+	<td style="text-align:left;">This indicates to Unity that the object’s location is fixed and so it should participate in the GI. If an object is not marked as Lightmap Static then it can still be lit using Light Probes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Scale in Lightmap</strong></td>
+	<td style="text-align:left;">This value affects the number of pixels in the lightmap texture that are used for this object. With the default value of 1.0, the number of lightmap pixels used for the object is only dependent on its surface area (ie, same number of pixels per unit area for all objects). A value greater than 1.0 increases the number of pixels (ie, the lightmap resolution) used for this object while a value less than 1.0 decreases it. You can use this property to optimise lightmaps so that important and detailed areas are more accurately lit.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Advanced Parameters</strong></td>
+	<td style="text-align:left;">Allows you to choose or create a set of <a href="LightmapParameters.html">Lightmap Parameters</a> for the current object selection. The default parameter set for Terrains is the <em>Very Low Resolution</em> built-in set.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Scene Tab</h2>
+
+<p>The Scene tab contains settings that apply to the scene overall as opposed to individual objects. Note that <em>Precomputed Realtime GI</em> and <em>Baked GI</em> features can be enabled or disabled by clicking the checkboxes next to their names in the Scene tab.</p>
+
+<figure>
+<img src="../uploads/Main/LtWindowSceneTab.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Environment Lighting</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Skybox</strong></td>
+	<td style="text-align:left;">A skybox is an image that appears behind everything else in the scene so as to simulate the sky or other distant background. This property lets you choose the skybox asset you want to use for the scene.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Sun</strong></td>
+	<td style="text-align:left;">When a procedural skybox is used, you can use this to specify a directional light object to indicate the direction of the “sun” (or whatever large, distant light source is illuminating your scene). If this is set to <em>None</em> then the brightest directional light in the scene will be assumed to represent the sun.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Ambient Source</strong></td>
+	<td style="text-align:left;">Ambient light is light that is present all around the scene and doesn’t come from any specific source object. There are three options for the source of the ambient light. <em>Color</em> simply uses a flat color for all ambient light in the scene. <em>Gradient</em> lets you choose the color separately for ambient light from the sky, horizon and ground and blends smoothly between them. <em>Skybox</em> uses the colors of the skybox (if specified by the property described above) to determine the ambient light coming from different angles; this allows for more precise effects than the simpler Gradient option.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Ambient Intensity</strong></td>
+	<td style="text-align:left;">The brightness of the ambient light in the scene.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Ambient GI</strong></td>
+	<td style="text-align:left;">Specifies the GI mode (Precomputed Realtime or Baked) that should be used for handling the ambient light. This property has no effect unless both modes are enabled for the scene.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Reflection Source</strong></td>
+	<td style="text-align:left;">Allows you to specify whether to use the skybox for reflection effects (the default) or alternatively choose a cubemap to use instead. If the skybox is selected as the source then an additional option is provided to set the resolution of the skybox for reflection purposes.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Reflection Intensity</strong></td>
+	<td style="text-align:left;">The degree to which the reflection source (skybox or cubemap) will be visible in reflective objects.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Reflection Bounces</strong></td>
+	<td style="text-align:left;">A reflection “bounce” occurs where a reflection from one object is then reflected by another object. The reflections are captured in the scene through the use of <a href="ReflectionProbes.html">Reflection Probes</a>. This property lets you set how many times the bounces back and forth between objects are evaluated by the probes; if set to 1 then only the initial reflection (from the skybox or cubemap specified in the Reflection Source property) will be taken into account.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Precomputed Realtime GI</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Realtime Resolution</strong></td>
+	<td style="text-align:left;">This sets the number of texels (ie, “texture pixels”) that will be used per unit of length for objects being lit by realtime GI. A resolution of 1 per unit is usually a good value (depending on the size of the objects in the scene) but for terrains and huge objects you will usually want to scale the resolution down. You can use the <a href="LightmapParameters.html">Lightmap Parameters</a> or the <a href="class-MeshRenderer.html">Mesh Renderer’s</a> <em>Scale In Lightmap</em> property to reduce the resolution. Note that this property also sets the <em>Indirect Resolution</em> if both Realtime and Baked GI are enabled - see the <em>Baked GI</em> properties below.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>CPU Usage</strong></td>
+	<td style="text-align:left;">This lets you set the approximate amount of CPU time that should be spent evaluating realtime GI at runtime. Higher CPU usage results in faster reactions from the lighting but may affect framerate, etc. This does not affect the CPU usage for the precomputation process performed in the editor. Note that higher CPU usage is achieved by increasing the number of threads assigned to the GI; processors with many cores may therefore suffer less of a performance hit.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Baked GI</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Baked Resolution</strong></td>
+	<td style="text-align:left;">This sets the number of texels (ie, “texture pixels”) that will be used per unit of length for objects being lit by baked GI. This is typically set about ten times higher than the Realtime Resolution (see Precomputed Realtime GI above).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Baked Padding</strong></td>
+	<td style="text-align:left;">The separation (in texel units) between separate shapes in the baked lightmap.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Compressed</strong></td>
+	<td style="text-align:left;">Should the baked lightmap texture be compressed? A compressed lightmap requires less storage space but the compression process can introduce unwanted artifacts into the texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Indirect Resolution</strong></td>
+	<td style="text-align:left;">(Only available when Precomputed Realtime GI is disabled) Resolution of the indirect lighting calculations. Equivalent to Realtime Resolution when using Precomputed Realtime GI.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Ambient Occlusion</strong></td>
+	<td style="text-align:left;">The relative brightness of surfaces in ambient occlusion (ie, partial blockage of ambient light in interior corners). Higher values indicate greater contrast between the occluded and fully lit areas. This is only applied to the indirect lighting calculated by the GI system.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Final Gather</strong></td>
+	<td style="text-align:left;">When the final gather option is enabled, the final light bounce in the GI calculation will be calculated at the same resolution as the baked lightmap. This improves the visual quality of the lightmap but at the cost of additional baking time in the editor.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>General GI</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Directional Mode</strong></td>
+	<td style="text-align:left;">The lightmap can be set up to store information about the dominant incoming light at each point on the objects’ surfaces. In <em>Directional</em> mode, a second lightmap is generated to store the dominant direction of incoming light. This allows diffuse normal mapped materials to work with the GI. In <em>Directional Specular</em> mode, further data is stored to allow full shading incorporating specular reflection and normal maps. <em>Non-directional</em> mode switches both these options off. Directional mode requires about twice as much storage space for the additional lightmap data; Directional Specular requires four times as much storage and also about twice as much texture memory. See the page on <a href="LightmappingDirectional.html">Directional Lightmapping</a> for further details.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Indirect Intensity</strong></td>
+	<td style="text-align:left;">A value that scales the brightness of indirect light as seen in the final lightmap (ie, ambient light or light bounced and emitted from objects). Setting this to 1.0 uses the default scaling; values less than 1.0 reduce the intensity while values greater than 1.0 increase it.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bounce Boost</strong></td>
+	<td style="text-align:left;">A scaling value to increase the amount of light bounced from surfaces onto other surfaces. The default value is 1.0 which indicates no increase.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Default Parameters</strong></td>
+	<td style="text-align:left;">Unity uses a set of general parameters for the lightmapping in addition to properties of the Lighting window. A few defaults are available from the menu for this property but you can also create your own lightmap parameter file using the <strong>Create New</strong> option. See the <a href="LightmapParameters.html">Lightmap Parameters</a> page for further details.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Atlas Size</strong></td>
+	<td style="text-align:left;">The size in pixels of the full lightmap texture which incorporates separate regions for the individual object textures.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Fog</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Fog Color</strong></td>
+	<td style="text-align:left;">The color used to draw fog in the scene. Note that fog is not available with the <a href="RenderingPaths.html">Deferred rendering path</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Fog Mode</strong></td>
+	<td style="text-align:left;">The way in which the fogging accumulates with distance from the camera. The options are <em>Linear</em>, <em>Exponential</em> and <em>Exponential Squared</em> (these are in increasing order of fog accumulation with distance).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Start</strong></td>
+	<td style="text-align:left;">(Only available for <em>Linear</em> fog mode) The distance from camera at which the fog starts.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>End</strong></td>
+	<td style="text-align:left;">(Only available for <em>Linear</em> fog mode) The distance from camera at which the fog completely obscures scene objects.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Other Settings</strong></td>
+	<td style="text-align:left;"></td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Halo Texture</strong></td>
+	<td style="text-align:left;">The texture used for drawing a <a href="class-Halo.html">Halos</a> around lights.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Halo Strength</strong></td>
+	<td style="text-align:left;">The visibility of halos around lights.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Flare Fade Speed</strong></td>
+	<td style="text-align:left;">The time over which <a href="class-LensFlare.html">lens flares</a> will fade from view after initially appearing.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Flare Strength</strong></td>
+	<td style="text-align:left;">The visibility of lens flares from lights.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Spot Cookie</strong></td>
+	<td style="text-align:left;">The <a href="HOWTO-LightCookie.html">Cookie</a> texture used for spot lights.</td>
+</tr>
+</tbody>
+</table>
+
+<p>The Build button will start the lighting build process. The button can expand into a dropdown where you can clear the baked data. This isn’t the same as clearing the <a href="GICache.html">GICache</a>.</p>
+
+<h2>Lightmaps Tab</h2>
+
+<p>The final tab provides an easy way to set and locate the lightmap asset file used for the scene.</p>
+
+<figure>
+<img src="../uploads/Main/LtWindowLightmapsTab.png" alt="">
+</figure>
+
+<p>If you click the filename in the <em>Lightmap Snapshot</em> box, the Project view will show you the asset file. If you click the small pip next to the box, an object selection window will appear to let you select a different lightmap. If you rename the folder where the current lightmap asset is located and then set the Lightmap Snapshot property to None, a new file will be created the next time you build the lightmap. Using multiple files like this is a good way to test out GI settings and compare different sets of parameters.</p>
+
+<p>The image below the Lightmap Snapshot box shows a preview of the lightmap. This is only available when <em>Baked</em> lights are used; the preview will be blank for <em>Realtime</em> lights.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GIIntro.html"></a></span><div class="tip">Global Illumination</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="UsingPrecomputedLighting.html"></a></span><div class="tip">Using precomputed lighting</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

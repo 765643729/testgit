@@ -1,0 +1,216 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Character Controller</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-CharacterController.html">English</a></li>
+<li><a href="/ja/current/Manual/class-CharacterController.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-CharacterController.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-CharacterController.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-CharacterController.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PhysicsSection.html">Physics</a></li>
+<li><a href="Physics3DReference.html">3D Physics Reference</a></li>
+<li>Character Controller</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-CapsuleCollider.html"></a></span><div class="tip">Capsule Collider</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-CharacterJoint.html"></a></span><div class="tip">Character Joint</div>
+</div>
+</div></div>
+<h1>Character Controller</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/CharacterController.html' title='Go to CharacterController page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>The <strong>Character Controller</strong> is mainly used for third-person or first-person player control that does not make use of <strong>Rigidbody</strong> physics.</p>
+
+<figure>
+<img src="../uploads/Main/Inspector-CharacterController.png" alt="">
+</figure>
+
+<h2>Properties</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong><em>Property:</em></strong></th>
+	<th style="text-align:left;"><strong><em>Function:</em></strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Slope Limit</strong></td>
+	<td style="text-align:left;">Limits the collider to only climb slopes that are less steep (in degrees) than the indicated value.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Step Offset</strong></td>
+	<td style="text-align:left;">The character will step up a stair only if it is closer to the ground than the indicated value. This should not be greater than the Character Controller’s height or it will generate an error.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Skin width</strong></td>
+	<td style="text-align:left;">Two colliders can penetrate each other as deep as their Skin Width. Larger Skin Widths reduce jitter. Low Skin Width can cause the character to get stuck. A good setting is to make this value 10% of the Radius.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Min Move Distance</strong></td>
+	<td style="text-align:left;">If the character tries to move below the indicated value, it will not move at all. This can be used to reduce jitter. In most situations this value should be left at 0.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Center</strong></td>
+	<td style="text-align:left;">This will offset the Capsule Collider in world space, and won’t affect how the Character pivots.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Radius</strong></td>
+	<td style="text-align:left;">Length of the Capsule Collider’s radius. This is essentially the width of the collider.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Height</strong></td>
+	<td style="text-align:left;">The Character’s <strong>Capsule Collider</strong> height. Changing this will scale the collider along the Y axis in both positive and negative directions.</td>
+</tr>
+</tbody>
+</table>
+
+<figure>
+<img src="../uploads/Main/CharacterControllerWindow.png" alt="The Character Controller">
+<figcaption>The Character Controller</figcaption>
+</figure>
+
+<h2>Details</h2>
+
+<p>The traditional Doom-style first person controls are not physically realistic. The character runs 90 miles per hour, comes to a halt immediately and turns on a dime. Because it is so unrealistic, use of Rigidbodies and physics to create this behavior is impractical and will feel wrong. The solution is the specialized Character Controller. It is simply a capsule shaped <strong>Collider</strong> which can be told to move in some direction from a script. The Controller will then carry out the movement but be constrained by collisions. It will slide along walls, walk up stairs (if they are lower than the <strong>Step Offset</strong>) and walk on slopes within the <strong>Slope Limit</strong>.</p>
+
+<p>The Controller does not react to forces on its own and it does not automatically push Rigidbodies away.</p>
+
+<p>If you want to push Rigidbodies or objects with the Character Controller, you can apply forces to any object that it collides with via the <strong>OnControllerColliderHit()</strong> function through scripting.</p>
+
+<p>On the other hand, if you want your player character to be affected by physics then you might be better off using a <a href="class-Rigidbody.html">Rigidbody</a> instead of the Character Controller.</p>
+
+<h3>Fine-tuning your character</h3>
+
+<p>You can modify the <strong>Height</strong> and <strong>Radius</strong> to fit your Character’s mesh. It is recommended to always use around 2 meters for a human-like character. You can also modify the <strong>Center</strong> of the capsule in case your pivot point is not at the exact center of the Character.</p>
+
+<p>
+<strong>Step Offset</strong> can affect this too, make sure that this value is between 0.1 and 0.4 for a 2 meter sized human.</p>
+
+<p>
+<strong>Slope Limit</strong> should not be too small. Often using a value of 90 degrees works best. The Character Controller will not be able to climb up walls due to the capsule shape.</p>
+
+<h3>Don’t get stuck</h3>
+
+<p>The <strong>Skin Width</strong> is one of the most critical properties to get right when tuning your Character Controller.
+If your character gets stuck it is most likely because your <strong>Skin Width</strong> is too small. The <strong>Skin Width</strong> will let objects slightly penetrate the Controller but it removes jitter and prevents it from getting stuck.</p>
+
+<p>It’s good practice to keep your <strong>Skin Width</strong> at least greater than 0.01 and more than 10% of the <strong>Radius</strong>.</p>
+
+<p>We recommend keeping <strong>Min Move Distance</strong> at 0.</p>
+
+<p>See the Character Controller script reference <a href="../ScriptReference/CharacterController.html">here</a>
+</p>
+
+<p>You can download an example project showing pre-setup animated and moving character controllers from the <a href="http://www.unity3d.com/support/resources">Resources</a> area on our website.</p>
+
+<h2>Hints</h2>
+
+<ul>
+<li>Try adjusting your <strong>Skin Width</strong> if you find your character getting stuck frequently.</li>
+<li>The Character Controller can affect objects using physics if you write your own scripts.</li>
+<li>The Character Controller can not be affected by objects through physics.</li>
+<li>Note that changing Character Controller properties in the inspector will recreate the controller in the scene, so any existing Trigger contacts will get lost, and you will not get any OnTriggerEntered messages until the controller is moved again.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-CapsuleCollider.html"></a></span><div class="tip">Capsule Collider</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-CharacterJoint.html"></a></span><div class="tip">Character Joint</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

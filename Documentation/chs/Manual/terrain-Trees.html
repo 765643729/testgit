@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Trees</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/terrain-Trees.html">English</a></li>
+<li><a href="/ja/current/Manual/terrain-Trees.html">日本語</a></li>
+<li><a href="/es/current/Manual/terrain-Trees.html">Español</a></li>
+<li><a href="/kr/current/Manual/terrain-Trees.html">한국어</a></li>
+<li><a href="/ru/current/Manual/terrain-Trees.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li><a href="script-Terrain.html">Terrain Engine</a></li>
+<li>Trees</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="terrain-Textures.html"></a></span><div class="tip">Terrain Textures</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SpeedTree.html"></a></span><div class="tip">SpeedTree</div>
+</div>
+</div></div>
+<h1>Trees</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity terrains can be furnished with <em>trees</em>. Patches of trees can be painted onto a terrain in much the same way that heightmaps and textures are painted but the trees are solid 3D objects that grow from the surface. Unity uses optimisations (eg, billboarding for distant trees) to maintain good rendering performance, so you can have dense forests with thousands of trees and still keep an acceptable framerate.</p>
+
+<figure>
+<img src="../uploads/Main/TerrainWithTrees.png" alt="Terrain with trees">
+<figcaption>Terrain with trees</figcaption>
+</figure>
+
+<h2>Enabling Trees</h2>
+
+<p>The tree button on the toolbar enables tree painting.</p>
+
+<figure>
+<img src="../uploads/Main/TerrainTreePaintTool.png" alt="">
+</figure>
+
+<p>Initially, the terrain will have no trees available but if you click the <em>Edit Trees</em> button and select <em>Add Tree</em> you will see a window to select a tree asset from your project.</p>
+
+<figure>
+<img src="../uploads/Main/TerrainTreeAddWindow.png" alt="The Add Tree window">
+<figcaption>The Add Tree window</figcaption>
+</figure>
+
+<p>Unity comes with several sample SpeedTree tree objects in the Standard Assets packages for prototyping purposes <strong>Assets &gt; Import Package &gt; Terrain Assets</strong>) but you can also create suitable objects with SpeedTree Modeler app, Unity Tree Creator tools or other 3D modelling apps. </p>
+
+<p>If the selected tree object is created by the Tree Creator, the window will show Bend factor for adjusting the wind responsiveness. See the section on <em>Making trees bend in the wind</em> below. </p>
+
+<h2>Painting Trees</h2>
+
+<p>With a tree selected, you can paint onto the landscape in the same way you paint textures or heightmaps. You can remove trees from an area by holding the shift key while you paint and remove just the currently selected tree type by holding down the control key. The familiar <em>Brush Size</em> option is available for tree painting but the <em>Opacity</em> property is replaced by <em>Tree Density</em>, which controls the average number of trees painted into a given unit of area. </p>
+
+<p>There is a ranged slider for you to control the tree’s minimal height and maximal height. If you disable Random, you can specify a value for all tree’s height. By default a tree’s width is locked to height so that trees are always scaled uniformly. However you can disable Lock Width to Height option and specify the width separately. </p>
+
+<p>There is also a control for <em>Color Variation</em> and <em>Random Tree Rotation</em>. The variation options help to create the impression of a random, natural-looking forest rather than an artificial plantation of identical trees.</p>
+
+<p>The <em>Mass Place Trees</em> button is a very useful way to create an overall covering of trees without painting over the whole landscape. Following a mass placement, you can still use painting to add or remove trees to create denser or sparser areas.</p>
+
+<h2>SpeedTree/LOD Trees</h2>
+
+<p>From Unity 5, you can use SpeedTree Modeler from IDV, Inc. to create trees with advanced visual effects such as smooth LOD transition, fast billboarding and natural wind animation. Please refer to their <a href="http://www.speedtree.com/unity/">site</a> for detailed information. You can also freely import SpeedTree assets into your project folder from asset store packages or other third party sources. </p>
+
+<p>See <a href="SpeedTree.html">here</a> for more information.</p>
+
+<h2>Tree Creator trees</h2>
+
+<p>Unity has its own <a href="class-Tree.html">Tree creator</a> that you can use to produce new tree assets but you can also use a standard 3D modelling app for the task. The tree mesh should have fewer than 2000 triangles (for performance reasons) and the anchor point should be right at the base of the tree where it emerges from the ground. The mesh should always have exactly two materials, one for the tree body and the other for the leaves.</p>
+
+<p>Trees must use the <strong>Nature/Soft Occlusion Leaves</strong> and <strong>Nature/Soft Occlusion Bark</strong> shader. In order to use those shaders you also have to place the tree in a special folder that contains the name “Ambient-Occlusion”. When you place a model in such a folder and reimport it, Unity will calculate soft ambient occlusion in a way that is specifically designed for trees. The “Nature/Soft Occlusion” shaders rely on the folder naming convention and the tree won’t render correctly if you don’t follow it.</p>
+
+<p>When you save a tree asset from the modelling app, you will need to click the <em>Refresh</em> button (shown in the inspector when the tree painting tool is selected) in order to see the updated trees on your terrain.</p>
+
+<h2>Using Colliders with Trees</h2>
+
+<p>You can add a Capsule Collider to a new tree asset by instantiating it in the scene, adding the collider (menu: <strong>Component &gt; Physics &gt; Capsule Collider</strong>) and creating a new prefab for the modified tree object. When you add the tree to the terrain for painting, make sure you select the prefab with the collider rather than the original object. You should also enable <em>Create Tree Colliders</em> in the terrain’s Terrain Collider component inspector.</p>
+
+<h2>Making trees bend in the wind</h2>
+
+<p>The first thing you will need to do is create a wind zone. You can do this by selecting from the menu: <strong>Game Object &gt; Create General &gt; Wind Zone</strong>.</p>
+
+<p>At this point, you will need to make sure that your trees are set to bend. Select your tree types, then select Edit Trees… -&gt; Edit tree. Setting the bend value to 1 will cause the trees to adjust if you have not already done this.</p>
+
+<p>You may notice that your trees are moving about quite violently. To fix this, you can change your bend value, but it is probably easier to set the values on the “Wind zone” directly, keeping your tree bend value set to 1. To keep the trees from fluttering around too much, adjust the wind turbulence down to around 0.1 to 0.3 and everything will become much smoother. If you don’t want the trees blowing all the way to one side, set the Wind Main value down to the same value as your turbulence.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="terrain-Textures.html"></a></span><div class="tip">Terrain Textures</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SpeedTree.html"></a></span><div class="tip">SpeedTree</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

@@ -1,0 +1,324 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual:  GPU instancing</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/GPUInstancing.html">English</a></li>
+<li><a href="/ja/current/Manual/GPUInstancing.html">日本語</a></li>
+<li><a href="/es/current/Manual/GPUInstancing.html">Español</a></li>
+<li><a href="/kr/current/Manual/GPUInstancing.html">한국어</a></li>
+<li><a href="/ru/current/Manual/GPUInstancing.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsOverview.html">Graphics Overview</a></li>
+<li>Advanced Rendering Features</li>
+<li> GPU instancing</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GraphicsCommandBuffers.html"></a></span><div class="tip"> Graphics Command Buffers</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SparseTextures.html"></a></span><div class="tip">Sparse Textures</div>
+</div>
+</div></div>
+<h1>GPU instancing</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<h2>Introduction</h2>
+
+<p>You can use GPU instancing to draw many identical objects with only a few draw calls. There are some restrictions that you need to bear in mind:</p>
+
+<ul>
+<li>Your identical objects need to share the same Mesh and the same Material. You can, however, add per-instance data. See <a href="#AddingPerInstanceData">Adding per-instance data</a> below for more information.</li>
+<li>The MeshRenderer component and Graphics.DrawMesh API are supported.</li>
+<li>GPU instancing is available on the following platforms:
+
+<ul>
+<li>Windows: DX11 and DX12 with SM 4.0 and above / OpenGL 4.1 and above</li>
+<li>OS X and Linux: OpenGL 4.1 and above</li>
+<li>PlayStation 4</li>
+<li>Xbox One</li>
+</ul>
+</li>
+</ul>
+
+<h2>Adding instancing to your objects</h2>
+
+<p>A <strong>Standard Surface Shader</strong> that supports instancing is available in the Unity Editor. Add one to your project by selecting <strong>Shader</strong> &gt; <strong>Standard Surface Shader (Instanced)</strong>.</p>
+
+<figure>
+<img src="../uploads/Main/GPUInstancing-CreateInstancedShader.png" alt="Adding the Standard Instanced Shader">
+<figcaption>Adding the Standard Instanced Shader</figcaption>
+</figure>
+
+<p>Apply this Shader to your GameObject’s Material. In your Material’s Inspector window, click the <strong>Shader</strong> drop-down, roll over the <strong>Instanced</strong> field, and choose your instanced Shader from the list:</p>
+
+<figure>
+<img src="../uploads/Main/GPUInstancing-AssignInstancedShader.png" alt="Assigning the Standard Instanced Shader to a Material">
+<figcaption>Assigning the Standard Instanced Shader to a Material</figcaption>
+</figure>
+
+<p><a name="AddingPerInstanceData"></a></p>
+
+<h2>Adding per-instance data</h2>
+
+<p>Even though the instanced GameObjects are sharing the same Mesh and Material, you can set Shader properties on a per-object basis using the <strong>MaterialPropertyBlock</strong> API. In the example below, each GameObject is assigned a random color value using the <code>_Color</code> property:</p>
+
+<pre><code>MaterialPropertyBlock props = new MaterialPropertyBlock();
+MeshRenderer renderer;
+
+foreach (GameObject obj in objects)
+{
+   float r = Random.Range(0.0f, 1.0f);
+   float g = Random.Range(0.0f, 1.0f);
+   float b = Random.Range(0.0f, 1.0f);
+   props.SetColor(&quot;_Color&quot;, new Color(r, g, b));
+   
+   renderer = obj.GetComponent&lt;MeshRenderer&gt;();
+   renderer.SetPropertyBlock(props);
+}
+</code></pre>
+
+<h2>Adding instancing to your own shaders</h2>
+
+<p>The following example takes a simple unlit Shader and makes it capable of instancing:</p>
+
+<pre><code>Shader &quot;SimplestInstancedShader&quot;
+{
+    Properties
+    {
+        _Color (&quot;Color&quot;, Color) = (1, 1, 1, 1)
+    }
+
+    SubShader
+    {
+        Tags { &quot;RenderType&quot;=&quot;Opaque&quot; }
+        LOD 100
+
+        Pass
+        {
+            CGPROGRAM
+            #pragma vertex vert
+            #pragma fragment frag
+            #pragma multi_compile_instancing
+            #include &quot;UnityCG.cginc&quot;
+
+            struct appdata
+            {
+                float4 vertex : POSITION;
+                UNITY_INSTANCE_ID
+            };
+
+            struct v2f
+            {
+                float4 vertex : SV_POSITION;
+                UNITY_INSTANCE_ID
+            };
+
+            UNITY_INSTANCING_CBUFFER_START (MyProperties)
+            UNITY_DEFINE_INSTANCED_PROP (float4, _Color)
+            UNITY_INSTANCING_CBUFFER_END
+           
+            v2f vert (appdata v)
+            {
+                v2f o;
+
+                UNITY_SETUP_INSTANCE_ID (v);
+                UNITY_TRANSFER_INSTANCE_ID (v, o);
+
+                o.vertex = UnityObjectToClipPos (v.vertex);
+                return o;
+            }
+           
+            fixed4 frag (v2f i) : SV_Target
+            {
+                UNITY_SETUP_INSTANCE_ID (i);
+                return UNITY_ACCESS_INSTANCED_PROP (_Color);
+            }
+            ENDCG
+        }
+    }
+}
+
+</code></pre>
+
+<h2>Added code</h2>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Addition</strong></th>
+	<th style="text-align:left;"><strong>Function</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>#pragma multi_compile_instancing</strong></td>
+	<td style="text-align:left;">
+<code>multi_compile_instancing</code> generates a Shader with two variants: one with built-in keyword <code>INSTANCING_ON</code> defined (allowing instancing), the other with nothing defined. This allows the Shader to fall back to a non-instanced version if instancing isn’t supported on the GPU.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_INSTANCE_ID</strong></td>
+	<td style="text-align:left;">This is used in the vertex Shader input/output structure to define an instance ID. See <code>SV_InstanceID</code> for more information.</td>
+</tr>
+<tr>
+	<td style="text-align:left;">
+<strong>UNITY_INSTANCING_CBUFFER_START(name)</strong> / <strong>UNITY_INSTANCING_CBUFFER_END</strong>
+</td>
+	<td style="text-align:left;">Every per-instance property must be defined in a specially named constant buffer. Use this pair of macros to wrap the properties you want to be made unique to each instance.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_DEFINE_INSTANCED_PROP(float4, color)</strong></td>
+	<td style="text-align:left;">This defines a per-instance Shader property with a type and a name. In this example, the <code>_color</code> property is unique.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_SETUP_INSTANCE_ID(v);</strong></td>
+	<td style="text-align:left;">This makes the instance ID accessible to Shader functions. It must be used at the very beginning of a vertex Shader, and is optional for fragment Shaders.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_TRANSFER_INSTANCE_ID(v, o);</strong></td>
+	<td style="text-align:left;">This copies the instance ID from the input structure to the output structure in the vertex Shader. This is only necessary if you need to access per-instance data in the fragment Shader.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>UNITY_ACCESS_INSTANCED_PROP(color)</strong></td>
+	<td style="text-align:left;">This accesses a per-instance Shader property. It uses an instance ID to index into the instance data array.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+<strong>Note:</strong> As long as Material properties are instanced, Renderers can always be rendered instanced, even if you put different instanced properties into different Renderers. Normal (non-instanced) properties cannot be batched, so do not put them in the <code>MaterialPropertyBlock</code>. Instead, create different Materials for them.</p>
+
+<h3>A note regarding UnityObjectToClipPos</h3>
+
+<p>
+<code>UnityObjectToClipPos(v.vertex)</code> is always preferred where <code>mul(UNITY_MATRIX_MVP,v.vertex)</code> would otherwise be used. While you can continue to use <code>UNITY_MATRIX_MVP</code> as normal in instanced Shaders, <code>UnityObjectToClipPos</code> is the most efficient way of transforming vertex positions from object space into clip space. </p>
+
+<p>In instanced Shaders, <code>UNITY_MATRIX_MVP</code> (among other built-in matrices) is transparently modified to include an extra matrix multiply. Specifically, it is expanded to <code>mul(UNITY_MATRIX_VP, unity_ObjectToWorld)</code>. <code>unity_ObjectToWorld</code> is expanded to <code>unity_ObjectToWorldArray[unity_InstanceID]</code>). </p>
+
+<p>
+<code>UnityObjectToClipPos</code> is optimized to perform two matrix-vector multiplications simultaneously, and is therefore more efficient than performing the multiplication manually, because the Shader compiler does not automatically perform this optimization.</p>
+
+<h2>Modifying multi-pass Shaders to work with instancing</h2>
+
+<p>For vertex and fragment Shaders, Unity needs to change the way vertex transformations are calculated in multi-pass scenarios (for example, in the ForwardAdd pass) to avoid z-fighting artifacts against the base/first passes due to floating point errors in matrix calculation. To do this, add <code>#pragma force_concat_matrix</code> to the Shader.</p>
+
+<p>Specifically, the vertex transformation in the <code>ForwardAdd</code> pass is calculated by multiplying the M (model) matrix with the VP (view and projection) matrix instead of using a CPU-precomputed MVP matrix. </p>
+
+<p>This is not necessary for surface Shaders, because the correct calculation is automatically substituted.</p>
+
+<h2>Batching priority</h2>
+
+<p>Static batching takes priority over instancing. If a GameObject is marked for static batching and is successfully batched, instancing is disabled even if its Renderer uses an instancing Shader. When this happens, a warning box appears in the Inspector suggesting that the <strong>Static Batching</strong> flag be unchecked in the <a href="class-PlayerSettings.html">Player Settings</a>.</p>
+
+<p>Instancing takes priority over dynamic batching. If Meshes can be instanced, dynamic batching is disabled.</p>
+
+<h2>Further notes</h2>
+
+<ul>
+<li>Instanced draw calls appear in the Frame Debugger as <strong>Draw Mesh (instanced)</strong>.</li>
+<li>When writing or modifying your own Shaders, don’t forget to instance shadows, too. For a surface Shader, use the <code>addshadow</code> option to force the generation of an instanced shadow pass.</li>
+<li>You don’t have to define per-instance properties, but setting up an instance ID is mandatory, because world matrices need it to work correctly.</li>
+<li>When using forward rendering, objects affected by multiple lights can’t be instanced efficiently. Only the base pass can make effective use of instancing, not the add passes.</li>
+<li>Objects that use lightmaps, or are affected by different light or reflection probes, can’t be instanced.</li>
+<li>If you have more than two passes for multi-pass Shaders, only the first passes can be instanced. This is because Unity forces the later passes to be rendered together for each object.</li>
+<li>D3D constant buffers have a maximum size of 64KB. For OpenGL, it’s usually 16KB. You will reach this limit if you try to define too many per-instance properties. The Shaders may fail to compile or, even worse, the Shader compiler might crash. To work around this, you have to balance between the size of the batch and the size of per-instance properties. Defining <code>UNITY_MAX_INSTANCE_COUNT</code> with an integer before including any .cginc file allows you to limit the maximum number of instances an instanced draw call can draw. This allows for more properties per instance in the instance constant buffer. You can achieve the same result when using a surface Shader with <code>#pragma instancing_options maxcount:number</code>. The default value of this max instance count is 500. For OpenGL, the actual value is one quarter of the value you specify, so 125 by default.</li>
+<li>All the Shader macros used in the above example are defined in <em>UnityInstancing.cginc</em>. Find this file in <em>[Unity folder]\Editor\Data\CGIncludes</em>.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GraphicsCommandBuffers.html"></a></span><div class="tip"> Graphics Command Buffers</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="SparseTextures.html"></a></span><div class="tip">Sparse Textures</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

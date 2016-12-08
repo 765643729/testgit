@@ -1,0 +1,184 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Splitting Animations</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/Splittinganimations.html">English</a></li>
+<li><a href="/ja/current/Manual/Splittinganimations.html">日本語</a></li>
+<li><a href="/es/current/Manual/Splittinganimations.html">Español</a></li>
+<li><a href="/kr/current/Manual/Splittinganimations.html">한국어</a></li>
+<li><a href="/ru/current/Manual/Splittinganimations.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="AnimationSection.html">Animation</a></li>
+<li><a href="AnimationClips.html">Animation Clips</a></li>
+<li><a href="AnimationsImport.html">Animation from external sources </a></li>
+<li>Splitting Animations</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GenericAnimations.html"></a></span><div class="tip"> Non-humanoid Animations</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="LoopingAnimationClips.html"></a></span><div class="tip">Looping animation clips</div>
+</div>
+</div></div>
+<h1>Splitting Animations</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>An animated character typically has a number of different movements that are activated in the game in different circumstances. These movements are called <a href="class-AnimationClip.html"><strong>Animation Clips</strong></a>. For example, we might have separate animation clips for walking, running, jumping, throwing, dying, etc. Depending on the way the model was animated, these separate movements might be imported as distinct animation clips or as one single clip where each movement simply follows on from the previous one. In cases where there is only a single clip, the clip must be <strong>split</strong> into its component animation clips within Unity, which will involve some extra steps in your workflow.</p>
+
+<h2>Working with models that have pre-split animations</h2>
+
+<p>The simplest types of models to work with are those that contain pre-split animations. If you have an animation like that, the <strong>Animations</strong> tab in the <strong>Animation Importer Inspector</strong> will look like this:</p>
+
+<figure>
+<img src="../uploads/Main/MecanimImportPreSplitAnimation.png" alt="">
+</figure>
+
+<p>You will see a list available clips which you can preview by pressing Play in the <strong>Preview Window</strong> (lower down in the inspector). The frame ranges of the clips can be edited, if needed. </p>
+
+<h2>Working with models that have unsplit animations</h2>
+
+<p>For models where the clips are supplied as one continuous animation, the <strong>Animation</strong> tab in the <strong>Animation Importer Inspector</strong> will look like this:</p>
+
+<figure>
+<img src="../uploads/Main/MecanimImportAnimationNoSplit.png" alt="">
+</figure>
+
+<p>In cases like this, you can define the frame ranges that correspond to each of the separate animation sequences (walking, jumping, etc). You can create a new animation clip by pressing (+) and selecting the range of frames that are included in it. </p>
+
+<p>For example:</p>
+
+<ul>
+<li>walk animation during frames 1 - 33</li>
+<li>run animation during frames 41 - 57</li>
+<li>kick animation during frames 81 - 97</li>
+</ul>
+
+<figure>
+<img src="../uploads/Main/MecanimImportAnimationSplitting.png" alt="The Import Settings Options for Animation">
+<figcaption>The Import Settings Options for Animation</figcaption>
+</figure>
+
+<p>In the Import Settings, the <strong>Split Animations</strong> table is where you tell Unity which frames in your asset file make up which Animation Clip. The names you specify here are used to activate them in your game.</p>
+
+<p>For further information about the animation inspector, see the <a href="class-AnimationClip.html">Animation Clip component reference page</a>.</p>
+
+<h2>Animating objects and properties in Unity using Mecanim</h2>
+
+<p>You can create animation clips which animate any object or component property using Unity’s animation window. These animation clips can then be arranged into a state machine in exactly the same way as external animation clips such as character animations. For example, you could animate the motion of a <a href="class-Camera.html">camera</a>, the colour of a <a href="class-Light.html">light</a>, the individual frames of a <a href="SpriteEditor.html">sprite</a> animation, or a public property of a <a href="CreatingAndUsingScripts.html">script</a>.</p>
+
+<p>To set up a Character or other GameObject for animation, you need to follow this process:</p>
+
+<ul>
+<li>Create a <strong>New Animator Controller</strong>
+</li>
+<li>Open the <strong>Animator Window</strong> to edit the Animator Controller</li>
+<li>Drag the desired animation clip into the <strong>Animator Controller Window</strong>
+</li>
+<li>Drag the model asset into the Hierarchy.</li>
+<li>Add the animator controller to the <strong>Animator component</strong> of the asset.</li>
+</ul>
+
+<h3>Importing Animations using multiple model files</h3>
+
+<p>Another way to import animations is to follow a naming scheme that Unity allows for the animation files. You create separate model files and name them with the convention ‘modelName@animationName.fbx’. For example, for a model called “goober”, you could import separate idle, walk, jump and walljump animations using files named “goober@idle.fbx”, “goober@walk.fbx”, “goober@jump.fbx” and “goober@walljump.fbx”. Only the animation data from these files will be used, even if the original files are exported with mesh data.</p>
+
+<figure>
+<img src="../uploads/Main/animation_at_naming.png" alt="An example of four animation files for an animated character (note that the .fbx suffix is not shown within Unity)">
+<figcaption>An example of four animation files for an animated character (note that the .fbx suffix is not shown within Unity)</figcaption>
+</figure>
+
+<p>Unity automatically imports all four files and collects all animations to the file without the @ sign in. In the example above, the goober.mb file will be set up to reference idle, jump, walk and wallJump automatically.</p>
+
+<p>For FBX files, simply export a model file with no animation ticked (eg, goober.fbx) and the 4 clips as goober@_animname_.fbx by exporting the desired keyframes for each (enable animation in the FBX dialog).</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="GenericAnimations.html"></a></span><div class="tip"> Non-humanoid Animations</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="LoopingAnimationClips.html"></a></span><div class="tip">Looping animation clips</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

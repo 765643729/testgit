@@ -1,0 +1,191 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Creating a New Animation Clip</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/animeditor-CreatingANewAnimationClip.html">English</a></li>
+<li><a href="/ja/current/Manual/animeditor-CreatingANewAnimationClip.html">日本語</a></li>
+<li><a href="/es/current/Manual/animeditor-CreatingANewAnimationClip.html">Español</a></li>
+<li><a href="/kr/current/Manual/animeditor-CreatingANewAnimationClip.html">한국어</a></li>
+<li><a href="/ru/current/Manual/animeditor-CreatingANewAnimationClip.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="AnimationSection.html">Animation</a></li>
+<li><a href="AnimationClips.html">Animation Clips</a></li>
+<li><a href="AnimationEditorGuide.html">Animation Window Guide</a></li>
+<li>Creating a New Animation Clip</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="animeditor-UsingAnimationEditor.html"></a></span><div class="tip">Using the Animation view</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="animeditor-AnimatingAGameObject.html"></a></span><div class="tip">Animating a Game Object</div>
+</div>
+</div></div>
+<h1>Creating a New Animation Clip</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>To animate Game Objects in Unity, the object or objects need an <strong>Animator Component</strong> attached. This Animator Component must reference an <strong>Animator Controller</strong>, which in turn contains references to one or more <strong>Animation Clips</strong>.</p>
+
+<p>When using the Animation View to begin animating a GameObject in Unity, all these items will be automatically created, attached and set-up for you. </p>
+
+<p>To create a new <strong>Animation Clip</strong> for the selected GameObject, and make sure the <strong>Animation Window</strong> is visible.</p>
+
+<p>If the GameObject does not yet have any Animation Clips assigned, you will see the “Create” button in the centre of the Animation Window timeline area. Click the Create button. You will then be prompted to save your new empty Animation Clip somewhere in your <strong>Assets</strong> folder. </p>
+
+<figure>
+<img src="../uploads/Main/AnimationEditorNewClip.png" alt="Create a new Animation Clip">
+<figcaption>Create a new Animation Clip</figcaption>
+</figure>
+
+<p>Once you have saved this new empty Animation Clip, a number of things happen automatically:</p>
+
+<ul>
+<li>A new Animator Controller asset will be will be created</li>
+<li>The new clip being created will be added into the Animator Controller as the default state</li>
+<li>An Animator Component will be added to the GameObject being animated</li>
+<li>The Animator Component will have the new Animator Controller assigned to it</li>
+</ul>
+
+<p>The result of this automatic sequence is that all the required elements of the animation system are set up for you, and you can now begin animating the objects.</p>
+
+<h2>Adding another Animation Clip</h2>
+
+<p>If the Game Object already has one or more Animation Clips assigned, the “Create” button will not be visible. Instead, one of the clips will be visible in the animation window. You can switch between which Animation Clip is visible in the window by using the menu in the top-left of the Animation window, just under the playback controls.</p>
+
+<p>If you want to create a new Animation Clip on an object that already has animations, you must select “Create New Clip” from this menu. Again, you will be prompted to save your new empty Animation Clip before being able to work with it.</p>
+
+<figure>
+<img src="../uploads/Main/AnimationEditorNewClipMenu.png" alt="Adding an additional new Animation Clip to an object which already has some clips assigned">
+<figcaption>Adding an additional new Animation Clip to an object which already has some clips assigned</figcaption>
+</figure>
+
+<h2>How it fits together</h2>
+
+<p>While the above steps automatically set up the relevant components and references, it can useful to understand which pieces must be connected together.</p>
+
+<ul>
+<li>A GameObject must have an <strong>Animator</strong> component</li>
+<li>The Animator component must have an <strong>Animator Controller</strong> asset assigned</li>
+<li>The Animator Controller asset must have one or more Animation Clips assigned</li>
+</ul>
+
+<p>The diagram below shows how these pieces are assigned, starting from the new animation clip created in the Animation Window:</p>
+
+<figure>
+<img src="../uploads/Main/AnimationNewClipAutoSetup.png" alt="A new clip is created, and saved as an asset. The clip is automatically added as the default state to a new Animator Controller which is also saved as an asset. The Animator Controller is assigned to an Animator Component which is added to the GameObject. ">
+<figcaption>A new clip is created, and saved as an asset. The clip is automatically added as the default state to a new Animator Controller which is also saved as an asset. The Animator Controller is assigned to an Animator Component which is added to the GameObject. </figcaption>
+</figure>
+
+<p>In the image below, you can see a GameObject selected (“Cube”) that is not yet animated. We have just a simple cube, with no Animator component. The Animation, Hierarchy, Project and Inspector windows are arranged side-by-side for clarity. </p>
+
+<figure>
+<img src="../uploads/Main/AnimationEditorNewAnimationBefore.png" alt="Before: An un-animated gameobject (Cube) is selected. It does not yet have an Animator Component, and no Animator Controller exists.">
+<figcaption>Before: An un-animated gameobject (“Cube”) is selected. It does not yet have an Animator Component, and no Animator Controller exists.</figcaption>
+</figure>
+
+<p>By pressing the create button in the Animation view, a new animation clip is created. Unity will ask to pick the name &amp; location to save this new Animation Clip. Unity also creates an Animator Controller asset with the same name as the selected GameObject, adds an Animator component to the GameObject, and connects the assets up appropriately. </p>
+
+<figure>
+<img src="../uploads/Main/AnimationEditorNewAnimationAdded.png" alt="After: After creating a new clip, you can see the new assets created in the project window, and the Animator Component assigned in the Inspector window (far right). You can also see the new clip assigned as the default state in the Animator Window">
+<figcaption>After: After creating a new clip, you can see the new assets created in the project window, and the Animator Component assigned in the Inspector window (far right). You can also see the new clip assigned as the default state in the Animator Window</figcaption>
+</figure>
+
+<p>In the new view above, you can see:</p>
+
+<ul>
+<li>The Animation Window (top left) now shows a timeline with a red playback head line, ready to record new keyframes. The clip’s name is visible in the clip menu, just below the playback controls.</li>
+<li>The Inspector (center) shows that the Cube GameObject now has an <strong>Animator Component</strong> added, and the “Controller” field of the component shows that an Animator Controller asset called “Cube” is assigned</li>
+<li>The Project Window (bottom right) shows that two new assets have been created - An Animator Controller asset called “Cube” and an Animation Clip asset called “Cube Animation Clip”</li>
+<li>The Animator Window (bottom left) shows the contents of the Animator Controller - you can see that the Cube Animation Clip has been added to the controller, and that it is the “default state” as indicated by the orange color. Subsequent clips added to the controller would have a grey color, indicating they are not the default state.</li>
+</ul>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="animeditor-UsingAnimationEditor.html"></a></span><div class="tip">Using the Animation view</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="animeditor-AnimatingAGameObject.html"></a></span><div class="tip">Animating a Game Object</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

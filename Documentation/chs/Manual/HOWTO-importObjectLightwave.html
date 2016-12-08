@@ -1,0 +1,228 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Importing Objects From Lightwave</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/HOWTO-importObjectLightwave.html">English</a></li>
+<li><a href="/ja/current/Manual/HOWTO-importObjectLightwave.html">日本語</a></li>
+<li><a href="/es/current/Manual/HOWTO-importObjectLightwave.html">Español</a></li>
+<li><a href="/kr/current/Manual/HOWTO-importObjectLightwave.html">한국어</a></li>
+<li><a href="/ru/current/Manual/HOWTO-importObjectLightwave.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsHowTos.html">Graphics HOWTOs</a></li>
+<li><a href="HOWTO-importObject.html">How do I import Models from my 3D app?</a></li>
+<li>Importing Objects From Lightwave</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ImportObjectModo.html"></a></span><div class="tip">Importing Objects From Modo</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-ImportObjectBlender.html"></a></span><div class="tip">Importing Objects From Blender</div>
+</div>
+</div></div>
+<h1>Importing Objects From Lightwave</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>You can import meshes and animations from Lightwave in two different ways:</p>
+
+<ul>
+<li>Using the FBX plugin for Lightwave - Included from version 9.0</li>
+<li>Importing lightwave scene files using the Lightwave App Link - Included from version 11.0</li>
+</ul>
+
+<p>Unity currently imports:</p>
+
+<ol>
+<li>All nodes with position, rotation and scale. Pivot points and Names are also imported.</li>
+<li>Meshes with up to 2 UV Channels</li>
+<li>Normals</li>
+<li>Materials with Texture and diffuse color. Multiple materials per mesh.</li>
+<li>Animations.</li>
+<li>Bone-based animations.</li>
+</ol>
+
+<p>Detailed documentation for this from Lightwave is not available on-line but comes in the PDF manual included with your download</p>
+
+<p>Note:</p>
+
+<ul>
+<li>Lightwave specific materials need to be baked as textures for Unity to read them - use the Node system in Lightwave for a non-destructive pipeline</li>
+<li>Unity only understands polygon meshes so convert to polygons before saving/exporting</li>
+</ul>
+
+<h2>FBX Export</h2>
+
+<p>From Lightwave version 11 onwards the FBX 2012 exporter is now included:</p>
+
+<figure>
+<img src="../uploads/Main/LW_Export.png" alt="">
+</figure>
+
+<figure>
+<img src="../uploads/Main/LW_FBX.png" alt="">
+</figure>
+
+<p>
+<strong>FBX Filename</strong> : This file can contain multiple objects, Choose a filename and save to your \assets directory</p>
+
+<p>
+<strong>Anim Layer</strong> : TBC</p>
+
+<p>
+<strong>Type</strong> : Choose Binary to reduce filesize or ASCII for a text editable FBX</p>
+
+<p>
+<strong>FBX Version</strong> Select 201200 from the drop down to ensure version 2012.1</p>
+
+<p>
+<strong>Export :</strong> Select all the elements you wish to include - not cameras and lights are not read into Unity</p>
+
+<p>
+<strong>Mesh type</strong> Choose Cage Subdivision if * otherwise choose subdivided to *</p>
+
+<p>
+<strong>Bake Motion Envelopes</strong>TBC</p>
+
+<p><strong>Start frame / End frame</strong></p>
+
+<p>
+<strong>Scale Scene</strong> Set a scale for your scene applicable to match Unity</p>
+
+<h2>Importing LIghtwave scenes with AppLink</h2>
+
+<p>To read a lightwave scene you must use the Applink package provided with your Lightwave installation from version 11 onwards only</p>
+
+<h2>Setup</h2>
+
+<ul>
+<li>Browse to the \support\3rdparty_support\Unity3D folder in your LightWave3D installation</li>
+<li>Copy LightWaveAppLink.unitypackage into \Unity installation folder within \Editor\Standard Packages folder</li>
+</ul>
+
+<p>E.g. Windows C:\Program Files (x86)\Unity\Editor\Standard Packages (for machines running a 64-bit version of Windows)
+or Mac: Applications/Unity/Standard Packages.</p>
+
+<h2>Create Unity Project for you lightwave scene</h2>
+
+<ul>
+<li>In Unity create a project e.g. UnityProject_name and check the LightWave AppLink package and any others you require for your project</li>
+<li>Close Unity</li>
+<li>Copy or Move your LightWave_Content folder and it’s directory structure into your UnityProject_name\AssetsSave your LWS file in the \assets folder</li>
+<li>In lightwave make sure your scene file is has it’s content directory set to the new location in the unity project</li>
+</ul>
+
+<p>Your folder structure should look like this:</p>
+
+<p>Unity_Project
+ Assets
+ LightWave_Content
+ Images
+ Objects
+ Scenes</p>
+
+<ul>
+<li>Save your LWS scene</li>
+<li>Open your Unity project</li>
+</ul>
+
+<p>Unity will then convert the LightWave scene to an FBX</p>
+
+<ul>
+<li>Select the FBX of the scene and set your scale to 1.0 and Apply</li>
+<li>Add converted FBX scene to your scene hierarchy</li>
+<li>Update any Unity materials to set textures and shader types to try and match equivalent Lightwave shaders</li>
+</ul>
+
+<p>Any changes to the FBX (lightwave scene assets) will only be stored in Unity, so this is a Uni-directional pipeline, but Unity will remember any material assignments and properties applied to the FBX scene even if you update from LightWave</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="HOWTO-ImportObjectModo.html"></a></span><div class="tip">Importing Objects From Modo</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="HOWTO-ImportObjectBlender.html"></a></span><div class="tip">Importing Objects From Blender</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

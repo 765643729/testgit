@@ -1,0 +1,263 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Skinned Mesh Renderer</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/class-SkinnedMeshRenderer.html">English</a></li>
+<li><a href="/ja/current/Manual/class-SkinnedMeshRenderer.html">日本語</a></li>
+<li><a href="/es/current/Manual/class-SkinnedMeshRenderer.html">Español</a></li>
+<li><a href="/kr/current/Manual/class-SkinnedMeshRenderer.html">한국어</a></li>
+<li><a href="/ru/current/Manual/class-SkinnedMeshRenderer.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="Graphics.html">Graphics</a></li>
+<li><a href="GraphicsReference.html">Graphics Reference</a></li>
+<li><a href="comp-MeshGroup.html">Mesh Components</a></li>
+<li>Skinned Mesh Renderer</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-MeshRenderer.html"></a></span><div class="tip">Mesh Renderer</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-TextMesh.html"></a></span><div class="tip">Text Mesh</div>
+</div>
+</div></div>
+<h1>Skinned Mesh Renderer</h1>
+<!--BeginSwitchLink--><a href='../ScriptReference/SkinnedMeshRenderer.html' title='Go to SkinnedMeshRenderer page in the Scripting Reference' class='switch-link gray-btn sbtn left'>Switch to Scripting</a><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Unity uses the <strong>Skinned Mesh Renderer</strong> component to render <strong>Bone</strong> animations, where the shape of the Mesh is deformed by predefined animation sequences. This technique is useful for characters and other objects whose joints bend (as opposed to a machine where joints are more like hinges). </p>
+
+<p>A Skinned Mesh Renderer is automatically added to any Mesh that needs it at import time.</p>
+
+<h2>Properties</h2>
+
+<figure>
+<img src="../uploads/Main/Inspector-SkinnedMeshRenderer.png" alt="">
+</figure>
+
+<table>
+<colgroup>
+<col style="text-align:left;">
+<col style="text-align:left;">
+</colgroup>
+
+<thead>
+<tr>
+	<th style="text-align:left;"><strong>Property:</strong></th>
+	<th style="text-align:left;"><strong>Function:</strong></th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+	<td style="text-align:left;"><strong>Cast Shadows</strong></td>
+	<td style="text-align:left;">If enabled, the Mesh will cast shadows when a suitable <a href="class-Light.html">Light</a> shines on it.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Receive Shadows</strong></td>
+	<td style="text-align:left;">If enabled, the Mesh will show shadows that are cast upon it by other objects.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Motion Vectors</strong></td>
+	<td style="text-align:left;">If enabled, the Mesh will have per-object motion vectors rendered into the Camera motion vector Texture.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Materials</strong></td>
+	<td style="text-align:left;">The list of <strong>Materials</strong> the Mesh will be rendered with.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Light Probes</strong></td>
+	<td style="text-align:left;">Probe-based lighting interpolation mode.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Reflection Probes</strong></td>
+	<td style="text-align:left;">If enabled, and if Reflection Probes are present in the scene, a reflection Texture will be picked for this GameObject and set as a built-in Shader uniform variable.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Anchor Override</strong></td>
+	<td style="text-align:left;">A Transform used to determine the interpolation position when the Light Probe or Reflection Probe systems are used.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Quality</strong></td>
+	<td style="text-align:left;">Define the maximum number of bones used per vertex while skinning. The higher the number of bones, the higher the quality of the Renderer. Set the <strong>Quality</strong> to <strong>Auto</strong> to use the <strong>Blend Weights</strong> value from the <a href="class-QualitySettings.html">Quality Settings</a>.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Skinned Motion Vectors</strong></td>
+	<td style="text-align:left;">If enabled, the Mesh skinning data will be double buffered so that skinned motion can be interpolated and placed into the motion vector Texture. This has a GPU memory overhead, but leads to more correct motion vectors.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Update When Offscreen</strong></td>
+	<td style="text-align:left;">If enabled, the Skinned Mesh will be updated even when it can’t be seen by any Camera. If disabled, the animations themselves will also stop running when the GameObject is off-screen.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Mesh</strong></td>
+	<td style="text-align:left;">Use this to define the Mesh used by this Renderer.</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Root Bone</strong></td>
+	<td style="text-align:left;">Use this to define the bone that is the “root” of the animation (that is, the bone relative to which all the others move).</td>
+</tr>
+<tr>
+	<td style="text-align:left;"><strong>Bounds</strong></td>
+	<td style="text-align:left;">The bounding volume that is used to determine when the Mesh is offscreen. The bounds are pre-calculated on import from the Mesh and animations in the model file, and are displayed as a wireframe around the model in the Scene View.</td>
+</tr>
+</tbody>
+</table>
+
+<h2>Details</h2>
+
+<p>
+<strong>Bones</strong> are invisible objects inside a skinned Mesh that affect the way the Mesh is deformed during animation. The basic idea is that the bones are joined together to form a hierarchical “skeleton”, and the animation is defined by rotating the joints of the skeleton to make it move. Each bone is attached to some of the vertices of the surrounding Mesh. When the animation is played, the vertices move with the bone or bones they are connected to, so the “skin” follows the movement of the skeleton. At a simple joint (for example, an elbow), the Mesh vertices are affected by both of the bones that meet there, and the Mesh will stretch and rotate realistically as the joint bends. In more complex situations, more than two bones will affect a particular area of the Mesh, resulting in more subtle movements.</p>
+
+<p>Although a skinned Mesh is most commonly used with predefined animations, it is also possible to attach <a href="class-Rigidbody.html">Rigidbody components</a> to each bone in a skeleton to put it under the control of the Physics engine. This is typically used to create the “ragdoll” effect, where a character’s limbs flail after being thrown or struck by an explosion.</p>
+
+<h3>Quality</h3>
+
+<p>Unity can skin every vertex with one, two or four bones. Using four bones gives the best results but this comes with a higher processing overhead. Games commonly use two bone weights, which is a good compromise between visual quality and performance.</p>
+
+<p>If the <strong>Quality</strong> is set to <strong>Auto</strong>, the <strong>Blend Weights</strong> value from the <a href="class-QualitySettings.html">Quality Settings</a> are used. This allows end-users to choose the quality setting themselves and get the desired balance of animation quality and framerate.</p>
+
+<h3>Update When Offscreen</h3>
+
+<p>By default, skinned Meshes that are not visible to any camera are not updated. The skinning is not updated until the Mesh comes back on screen. This is done to save system resources.</p>
+
+<p>The object’s visibility is determined from the Mesh’s <strong>Bounds</strong> (that is, the entire bounding volume must be outside the view of any active Camera). However, the true bounding volume of an animated Mesh can change as the animation plays (for example, the bounding volume will get taller if the character raises their hand in the air). Unity takes all attached animations into account when calculating the maximum bounding volume, but there are cases when the bounds can’t be calculated to anticipate every possible use case. </p>
+
+<p>Each of the following example situations become a problem when they push bones or vertices out of the pre-calculated bounding volume:</p>
+
+<ul>
+<li>animations added at run-time</li>
+<li>additive animations</li>
+<li>procedurally changing the positions of bones from a script</li>
+<li>using vertex shaders which can push vertices outside the pre-calculated bounds</li>
+<li>using ragdolls</li>
+</ul>
+
+<p>In those cases, there are two solutions:</p>
+
+<ol>
+<li>Modify the Bounds to match the potential bounding volume of your Mesh</li>
+<li>Enable <strong>Update When Offscreen</strong> to skin and render the skinned Mesh all the time</li>
+</ol>
+
+<p>You should usually use the first option, because it is better for performance. However, the second option is preferable if performance is not a major concern, or if you can’t predict the size of your bounding volume (for example, when using ragdolls).</p>
+
+<p>In order to make Skinned Meshes work better with ragdolls, Unity will automatically remap the Skinned Mesh Renderer to the root bone on import. However Unity only does this if there is a single Skinned Mesh Renderer in the model file. This means that if you can’t attach all Skinned Mesh Renderers to the root bone or a child, and you use ragdolls, you should turn off this optimization.</p>
+
+<h2>Importing skinned Meshes</h2>
+
+<p>Currently, skinned Meshes can be imported from:</p>
+
+<ul>
+<li>Maya</li>
+<li>Cinema4D</li>
+<li>3D Studio Max</li>
+<li>Blender</li>
+<li>Cheetah 3D</li>
+<li>XSI</li>
+<li>Any tool that supports the FBX format</li>
+</ul>
+
+<p>On mobile devices, Unity handles skinning on the CPU with hand-coded NEON/VFP assembly. A limitation here is that normals and tangents are not normalized, so if you are writing your own Shaders, you should handle the normalization youself. However, if you are using <a href="SL-SurfaceShaders.html">Surface Shaders</a>, Unity automatically handles the normalization.</p>
+
+<p>
+<strong>Note:</strong> Optimized Meshes sort bones differently from non-optimized Meshes, resulting in potentially significant animation problems. This is because non-optimized Meshes rely on bone order to animate, while Optimized Meshes use the bone names and do not rely on bone order.</p>
+
+<p>If you simply import the FBX file and use it, Unity will take care of the order of the transforms.</p>
+
+<p>For advanced users, if you want to change <code>SkinnedMeshRenderer.sharedMesh</code>:</p>
+
+<ol>
+<li>In ‘non-optimized’ mode, you need to make sure that the <code>SkinnedMeshRenderer.bones</code> matches <code>SkinnedMeshRenderer.sharedMesh</code> in a strict way. The referenced Transforms should be there in the correct order.</li>
+<li>In optimized mode, it’s much simpler; the rendering works as long as the avatar has the referenced bones. In this case, <code>SkinnedMeshRenderer.bones</code> is always empty.</li>
+</ol>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="class-MeshRenderer.html"></a></span><div class="tip">Mesh Renderer</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="class-TextMesh.html"></a></span><div class="tip">Text Mesh</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>

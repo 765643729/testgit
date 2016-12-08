@@ -1,0 +1,165 @@
+<!DOCTYPE html><html lang="en" class="no-js">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unity - Manual: Getting started with iOS development</title>
+<meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
+<meta name="author" content="Unity Technologies">
+<link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
+<link rel="icon" type="image/png" href="../StaticFilesManual/images/favicons/favicon.png">
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="../StaticFilesManual/images/favicons/apple-touch-icon-152x152.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="../StaticFilesManual/images/favicons/apple-touch-icon-144x144.png">
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="../StaticFilesManual/images/favicons/apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="../StaticFilesManual/images/favicons/apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="../StaticFilesManual/images/favicons/apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon-precomposed" href="../StaticFilesManual/images/favicons/apple-touch-icon.png">
+<meta name="msapplication-TileColor" content="#222c37">
+<meta name="msapplication-TileImage" content="../StaticFilesManual/images/favicons/tileicon-144x144.png">
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-2854981-1']);
+  _gaq.push(['_setDomainName', 'unity3d.com']);
+  _gaq.push(['_trackPageview']);
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+  </script><script type="text/javascript" src="../StaticFilesManual/js/jquery.js?ts=1480000337"></script><script type="text/javascript" src="../StaticFilesManual/js/core.js?ts=1480000337"></script><script type="text/javascript" src="docdata/toc.js?ts=1480000337"></script><script type="text/javascript" src="docdata/global_toc.js?ts=1480000337"></script><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,400italic" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../StaticFilesManual/css/core.css?ts=1480000337">
+</head>
+<body>
+<div class="header-wrapper">
+<div id="header" class="header"><div class="content">
+<div class="spacer"><div class="menu">
+<div class="logo"><a href="http://docs.unity3d.com"></a></div>
+<div class="search-form"><form action="30_search.html" method="get" class="apisearch">
+<input type="text" name="q" placeholder="Search manual..." autosave="Unity Reference" results="5" class="sbox field" id="q"><input type="submit" class="submit">
+</form></div>
+<ul>
+<li><a href="../Manual/index.html" class="selected">Manual</a></li>
+<li><a href="../ScriptReference/index.html">Scripting API</a></li>
+</ul>
+</div></div>
+<div class="more">
+<div class="filler"></div>
+<ul><li><a href="http://unity3d.com/">unity3d.com</a></li></ul>
+</div>
+</div></div>
+<div class="toolbar"><div class="content">
+<div class="version-number">Version: <b>5.5</b> (<a href="http://docs.unity3d.com/540/Documentation/Manual">switch to 5.4</a>)</div>
+<div class="lang-switcher">
+<div class="current toggle" data-target=".lang-list">
+<div class="lbl">Language: <span class="b">English</span>
+</div>
+<div class="arrow"></div>
+</div>
+<div class="lang-list" style="display:none;"><ul>
+<li><a href="/Manual/iphone-GettingStarted.html">English</a></li>
+<li><a href="/ja/current/Manual/iphone-GettingStarted.html">日本語</a></li>
+<li><a href="/es/current/Manual/iphone-GettingStarted.html">Español</a></li>
+<li><a href="/kr/current/Manual/iphone-GettingStarted.html">한국어</a></li>
+<li><a href="/ru/current/Manual/iphone-GettingStarted.html">Русский</a></li>
+</ul></div>
+</div>
+</div></div>
+</div>
+<div id="master-wrapper" class="master-wrapper clear">
+<div id="sidebar" class="sidebar"><div class="sidebar-wrap"><div class="content"><div class="sidebar-menu"><div class="toc"><h2>Unity Manual</h2></div></div></div></div></div>
+<div id="content-wrap" class="content-wrap"><div class="content-block"><div class="content">
+<div class="section">
+<div class="breadcrumbs clear"><ul>
+<li><a href="UnityManual.html">Unity Manual</a></li>
+<li><a href="PlatformSpecific.html">Platform-specific</a></li>
+<li><a href="iphone.html">iOS</a></li>
+<li>Getting started with iOS development</li>
+</ul></div>
+<div class="mb20"><div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="iphone.html"></a></span><div class="tip">iOS</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="iphone-basic.html"></a></span><div class="tip">Unity iOS Basics</div>
+</div>
+</div></div>
+<h1>Getting started with iOS development</h1>
+<!--BeginSwitchLink--><!--EndSwitchLink-->
+<div class="clear"></div>
+
+<p>Building games for devices like the iPhone and iPad requires a different approach than you would use for desktop PC games. Unlike the PC market, your target hardware is standardized and not as fast or powerful as a computer with a dedicated video card. Because of this, you will have to approach the development of your games for these platforms a little differently. Also, the features available in Unity for iOS differ slightly from those for desktop PCs.</p>
+
+<h2>Setting up your Apple Developer account</h2>
+
+<p>You don’t need an Apple Developer account to build to devices; any Apple ID is sufficient for building only to your own device for testing. </p>
+
+<p>However, we recommend that you set up your Apple Developer account before proceeding because you will need it to use Unity to its full potential with iOS. This includes establishing your team, adding your devices, and finalizing your provisioning profiles. All this setup is performed through Apple’s Developer website. Since this is a complex process, we have provided a <a href="iphone-accountsetup.html">basic outline</a> of the tasks that must be completed, which can be referred to alongside the step-by-step instructions at <a href="http://developer.apple.com/iphone">Apple’s iPhone Developer portal</a>.</p>
+
+<h2>The Unity XCode project</h2>
+
+<p>When you build the Unity iOS game an XCode project is generated. This project is required to sign, compile and prepare your game for distribution. See the <a href="StructureOfXcodeProject.html">Unity XCode project</a> manual page for further information.</p>
+
+<h2>Accessing iOS functionality</h2>
+
+<p>Unity provides a number of scripting APIs to access the multi-touch screen, accelerometer, device geographical location system and much more. You can find out more about the script classes on the <a href="iphone-API.html">iOS scripting page</a>.</p>
+
+<h2>Exposing native C, C++ or Objective-C code to scripts</h2>
+
+<p>Unity allows you to call custom native functions written in C, C++ or Objective-C directly from C# scripts. To find out how to bind native functions, visit the <a href="Plugins.html">plugins page</a>.</p>
+
+<h2>Prepare your application for in-app purchases</h2>
+
+<p>The Unity iOS runtime allows you to download new content and you can use this feature to implement in-app purchases. See the <a href="iphone-Downloadable-Content.html">downloadable content</a> manual page for further information.</p>
+
+<h2>Splash screen customization</h2>
+
+<p>See the <a href="MobileCustomizeSplashScreen.html">splash screen customization page</a> to find out how to change the image your game shows while launching.</p>
+
+<h2>Troubleshooting and reporting crashes</h2>
+
+<p>If you are experiencing crashes on the iOS device, please consult the <a href="TroubleShootingIPhone.html">iOS troubleshooting</a> page for a list of common issues and solutions. If you can’t find a solution here then please file a bug report for the crash (menu: <strong>Help &gt; Report A Bug</strong> in the Unity editor).</p>
+
+<h2>How Unity’s iOS and desktop targets differ</h2>
+
+<h3>Statically typed JavaScript</h3>
+
+<p>Dynamic typing in JavaScript is always turned off in Unity when targetting iOS (this is equivalent to <code>#pragma strict</code> getting added to all your scripts automatically). Static typing greatly improves performance, which is especially important on iOS devices. When you switch an existing Unity project to the iOS target, you will get compiler errors if you are using dynamic typing. You can easily fix these either by using explicitly declared types for the variables that are causing errors or taking advantage of type inference.</p>
+
+<h3>Audio compression</h3>
+
+<p>Unity supports importing a variety of source format sound files. However when importing these files (with the exception of tracker files), they are always re-encoded to the build target format. By default, this format is Vorbis, though this can be overridden per platform to other formats (ADPCM, MP3 etc) if required. Mp3 playback offers a little better performance on iPhone compared with Vorbis playback.</p>
+
+<h3>PVRTC instead of DXT texture compression</h3>
+
+<p>Unity iOS does not support DXT textures. Instead, PVRTC texture compression is natively supported by iPhone/iPad devices. Consult the <a href="class-TextureImporter.html">texture import settings</a> documentation to learn more about iOS texture formats.</p>
+
+<h3>Movie playback</h3>
+
+<p>MovieTextures are not supported on iOS. Instead, full-screen streaming playback is provided via scripting functions. To learn about the supported file formats and scripting API, consult the <a href="class-MovieTexture.html">movie page</a> in the manual.</p>
+<div class="nextprev clear">
+<div class="icon tt left mr1" data-distance="-40|-30|top">
+<span class="prev"><a href="iphone.html"></a></span><div class="tip">iOS</div>
+</div>
+<div class="icon tt right" data-distance="-40|-30|top">
+<span class="next"><a href="iphone-basic.html"></a></span><div class="tip">Unity iOS Basics</div>
+</div>
+</div>
+</div>
+<div class="footer-wrapper"><div class="footer clear">
+<div class="copy">
+<known_issues><p>Is something described here not working as you expect it to? It might be a <b>Known Issue</b>. Please check with the Issue Tracker at <a href="http://issuetracker.unity3d.com">issuetracker.unity3d.com</a>.</p></known_issues>Copyright © 2016 Unity Technologies. Publication 5.5-Z</div>
+<div class="menu">
+<a href="http://unity3d.com/learn">Tutorials</a><a href="http://answers.unity3d.com">Community Answers</a><a href="https://support.unity3d.com/hc/en-us">Knowledge Base</a><a href="http://forum.unity3d.com">Forums</a><a href="http://unity3d.com/asset-store">Asset Store</a>
+</div>
+</div></div>
+</div></div></div>
+</div>
+<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+</body>
+</html>
