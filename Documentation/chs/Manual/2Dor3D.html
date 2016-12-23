@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unity - Manual: 2D or 3D projects</title>
+<title>Unity - 手册: 2D或3D项目</title>
 <meta name="description" content="The Unity Manual helps you learn and use the Unity engine. With the Unity engine you can create 2D and 3D games, apps and experiences.">
 <meta name="author" content="Unity Technologies">
 <link rel="shortcut icon" href="../StaticFilesManual/images/favicons/favicon.ico">
@@ -84,51 +84,51 @@
 <span class="next"><a href="GettingStarted.html"></a></span><div class="tip"> Getting started</div>
 </div>
 </div></div>
-<h1>2D or 3D projects</h1>
+<h1>2D or 3D 项目</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Unity is equally suited to creating both 2D and 3D games. When you create a new project in Unity, you have the choice to start in 2D or 3D mode. You may already know what you want to build, but there are a few subtle points that may affect which mode you choose.</p>
+<p>Unity同样适合创建2D和3D游戏.当你在Unity中创建一个新项目时,你可以选择在2D或3D模式启动.你可能已经知道你想要创建什么了,但有些微妙的地方可能会影响你选择哪种模式.</p>
 
-<p>The choice between starting in 2D or 3D mode determines some settings for the Unity Editor, such as whether images are imported as textures or sprites. You can swap between 2D or 3D mode at any time regardless of the mode you set when you created your project (see <a href="2DAnd3DModeSettings.html">2D and 3D Mode Settings</a>. Here are some guidelines which should help you choose.</p>
+<p>在2D或3D模式下启动之间的选择决定了Unity 编辑器的一些设置，例如图像是作为纹理还是精灵导入.你可以随时在2D或3D模式之间切换,无论您在创建你创建项目时设置的模式如何(请参阅 <a href="2DAnd3DModeSettings.html">2D和3D模式的设置</a>).以下一些参考,可以帮助你选择.</p>
 
-<h3>Full 3D</h3>
+<h3>全3D</h3>
 
 <figure>
 <img src="../uploads/Main/3dGames.jpg" alt="Some 3D scenes from Unitys sample projects on the Asset Store">
-<figcaption>Some 3D scenes from Unity’s sample projects on the Asset Store</figcaption>
+<figcaption>Unity资源库中的一些3D场景项目</figcaption>
 </figure>
 
-<p>3D games usually make use of three-dimensional geometry, with Materials and Textures rendered on the surface of GameObjects to make them appear as solid environments, characters and objects that make up your game world. The Camera can move in and around the Scene freely, with light and shadows cast around the world in a realistic way. 3D games usually render the Scene using perspective, so objects appear larger on screen as they get closer to the camera. For all games that fit this description, start in <strong>3D</strong> mode.</p>
+<p>3D游戏通常使用三维几何,使用渲染在游戏对象表面上的材质和纹理,使它们显示为构成您的游戏世界的固体环境,角色和对象.相机可以自由的在场景中和周围移动,光影以真实的方式投射在这个世界各处. 3D游戏通常渲染透视场景，因此当物体靠近相机时，物体在屏幕上显得更大. 对于符合此说明的所有游戏，请以<strong>3D</strong>模式启动.</p>
 
-<h3>Orthographic 3D</h3>
+<h3>正交(Orthographic) 3D</h3>
 
 <figure>
 <img src="../uploads/Main/3dOrthographicGames.jpg" alt="Some 3D games using an Orthographic view">
-<figcaption>Some 3D games using an Orthographic view</figcaption>
+<figcaption>一些3D游戏使用正交视图</figcaption>
 </figure>
 
-<p>Sometimes games use 3D geometry, but use an orthographic camera instead of perspective. This is a common technique used in games which give you a bird’s-eye view of the action, and is sometimes called “2.5D”. If you’re making a game like this, you should also use the Editor in <strong>3D</strong> mode, because even though there is no <em>perspective</em>, you will still be working with 3D models and Assets. You’ll need to switch your <a href="CamerasOverview.html">Camera</a> and <a href="SceneViewNavigation.html">Scene view</a> to <strong>Orthographic</strong> though.</p>
+<p>一些游戏使用3D几何,但用一个正交相机代替透视.这是一个常用的技术，在游戏中给你一个鸟瞰的视角的行为，有时被称为“2.5D”. 如果你正在制作这样的游戏, 你也应该使用编辑器在<strong>3D</strong>模式, 因为即使没有<em>透视</em>, 你仍然将使用3D模型和资产. 你需要将<a href="CamerasOverview.html">相机</a>和<a href="SceneViewNavigation.html">场景视图</a>切换到<strong>正交</strong>.</p>
 
-<p><em>Scenes above from <a href="https://www.assetstore.unity3d.com/en/#!/publisher/5217">Synty Studios</a> and <a href="https://www.assetstore.unity3d.com/en/#!/publisher/1299">BITGEM</a>.</em></p>
+<p><em>上面的场景来自 <a href="https://www.assetstore.unity3d.com/en/#!/publisher/5217">Synty Studios</a> 和 <a href="https://www.assetstore.unity3d.com/en/#!/publisher/1299">BITGEM</a>.</em></p>
 
-<h3>Full 2D</h3>
+<h3>全 2D</h3>
 
 <figure>
 <img src="../uploads/Main/2dGames.jpg" alt="Some examples of typical 2D game types">
-<figcaption>Some examples of typical 2D game types</figcaption>
+<figcaption>一些典型的2D游戏类型的例子</figcaption>
 </figure>
 
-<p>Many 2D games use flat graphics, sometimes called sprites, which have no three-dimensional geometry at all. They are drawn to the screen as flat images, and the game’s camera has no perspective. For this type of game, you should start the editor in <strong>2D</strong> mode.</p>
+<p>许多2D游戏使用平面图形,有时称为精灵(sprites),它们根本没有三维几何.他们被绘制到屏幕上的平面图像，这个游戏的相机没有透视。 对于这种类型的游戏，你应该在<strong>2D</strong>模式下启动编辑器.</p>
 
-<h3>2D gameplay with 3D graphics</h3>
+<h3>2D游戏与3D图形</h3>
 
 <figure>
 <img src="../uploads/Main/2dGame3dSceneSideScroll.jpg" alt="A side scrolling game with 2D gameplay, but 3d graphics">
-<figcaption>A side scrolling game with 2D gameplay, but 3d graphics</figcaption>
+<figcaption>横向滚动游戏的2D游戏，但是是3d图形</figcaption>
 </figure>
 
-<p>Some 2D games use 3D geometry for the environment and characters, but restrict the <em>gameplay</em> to two dimensions. For example, the camera may show a side-scrolling view, and the player can only move in two dimensions, but the game itself still uses 3D models for the obstacles and a 3D perspective for the camera. For these games, the 3D effect may serve a stylistic rather than functional purpose. This type of game is <em>also</em> sometimes referred to as “2.5D”. Although the gameplay is 2D, you are mostly manipulating 3D models to build the game, so you should start the editor in <strong>3D</strong> mode.</p>
+<p>一些2D游戏针对环境和角色使用3D几何，但将<em>游戏</em>限制为两个维度.例如,相机可以显示横向滚动视图,并且玩家只能在二维上移动,但是游戏本身仍然使用3D模型用于障碍物和3D相机的3D透视.对于这些游戏,3D效果的目的是用于风格而不是功能. 这种类型的游戏有时<em>也</em>被称为“2.5D”. Although the gameplay is 2D, you are mostly manipulating 3D models to build the game, so you should start the editor in <strong>3D</strong> mode.</p>
 
 <h3>2D gameplay and graphics, with a perspective camera</h3>
 
