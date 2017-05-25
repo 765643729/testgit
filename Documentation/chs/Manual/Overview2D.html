@@ -87,30 +87,30 @@
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>While famous for its 3D capabilities, Unity can also be used to create 2D games. The familiar functions of the editor are still available but with helpful additions to simplify 2D development.</p>
+<p>虽然Unity是因为它的3D而著名，但它也可以用来创建2D游戏。可以在编辑器找到相似的功能来帮助单纯的2D的开发。</p>
 
 <figure>
 <img src="../uploads/Main/Overview2D.png" alt="Scene viewed in 2D mode">
-<figcaption>Scene viewed in 2D mode</figcaption>
+<figcaption>2D 视图模式下的场景</figcaption>
 </figure>
 
-<p>The most immediately noticeable feature is the <em>2D</em> view mode button in the toolbar of the Scene view. When 2D mode is enabled, an orthographic (ie, perspective-free) view will be set; the camera looks along the Z axis with the Y axis increasing upwards. This allows you to visualise the scene and place 2D objects easily.</p>
+<p>最值得关注的是在Scene界面下的工具栏的 <em>2D</em> 视图模式（2D view mode）按钮。 当激活 2D 模式时, 会放置一个正交视图（也就是perspective-free）;相机沿着z轴和Y轴向上增长。这可以使你可以更容易的具体化场景和放置2D对象。</p>
 
-<p>For a full list of 2D components, how to switch between 2D and 3D mode, and the different 2D and 3D Mode settings, see <a href="2Dor3D.html">2D or 3D Projects</a>.</p>
+<p>要了解所有的2D组件，怎样选择2D还是3D模式，以及2D模式和3D模式的区别，请参考 <a href="2Dor3D.html">2D or 3D Projects</a>.</p>
 
-<h2>2D Graphics</h2>
+<h2>2D 图形（Graphics）</h2>
 
-<p>Graphic objects in 2D are known as <strong>Sprites</strong>. Sprites are essentially just standard textures but there are special techniques for combining and managing sprite textures for efficiency and convenience during development. Unity provides a built-in <a href="SpriteEditor.html">Sprite Editor</a> to let you extract sprite graphics from a larger image. This allows you to edit a number of component images within a single texture in your image editor. You could use this, for example, to keep the arms, legs and body of a character as separate elements within one image.</p>
+<p>2D图形对象被称为精灵（<strong>Sprites</strong>）。精灵本质上只是标准纹理，但是在开发过程中有特别的可以提高效率和便利性的组合和管理精灵纹理的技术。Unity 提供一个内置的 <a href="SpriteEditor.html">精灵编辑器（Sprite Editor）</a> 以供从一个大的图像中提取部分作为精灵图像。它使你能够在你的图形编辑器中把图片的一部分作为单一的纹理来编辑。比如，你可以把图片中一个角色的手、脚和身体拆分为单独的元素。</p>
 
-<p>Sprites are rendered with a <a href="class-SpriteRenderer.html">Sprite Renderer</a> component rather than the <a href="class-MeshRenderer.html">Mesh Renderer</a> used with 3D objects. You can add this to a GameObject via the Components menu (<strong>Component &gt; Rendering &gt; Sprite Renderer</strong> or alternatively, you can just create a GameObject directly with a Sprite Renderer already attached (menu: <strong>GameObject &gt; 2D Object &gt; Sprite</strong>).</p>
+<p>精灵是用 <a href="class-SpriteRenderer.html">Sprite Renderer</a> 组件渲染而非像3D对象那样使用 <a href="class-MeshRenderer.html">Mesh Renderer</a>。你可以通过组件菜单(<strong>Component &gt; Rendering &gt; Sprite Renderer</strong>)将它添加到GameObject，或者，你可以使用已经附加上的Sprite Renderer直接创建一个GameObject(目录: <strong>GameObject &gt; 2D Object &gt; Sprite</strong>)。</p>
 
-<p>In addition, you can use a <a href="SpriteCreator.html">Sprite Creator</a> tool to make placeholder 2D images.</p>
+<p>另外，你可以使用 <a href="SpriteCreator.html">Sprite Creator</a> 工具制作一个占位符（placeholder）2D图像。</p>
 
-<h2>2D Physics</h2>
+<h2>2D 物理学（Physics）</h2>
 
-<p>Unity has a separate physics engine for handling 2D physics so as to make use of optimizations only available with 2D. The components correspond to the standard 3D physics components such as <a href="class-Rigidbody.html">Rigidbody</a>, <a href="class-BoxCollider.html">Box Collider</a> and <a href="class-HingeJoint.html">Hinge Joint</a>, but with “2D” appended to the name. So, sprites can be equipped with <a href="class-Rigidbody2D.html">Rigidbody 2D</a>, <a href="class-BoxCollider2D.html">Box Collider 2D</a> and <a href="class-HingeJoint2D.html">Hinge Joint 2D</a>. Most 2D physics components are simply “flattened” versions of the 3D equivalents (eg, <em>Box Collider 2D</em> is a square while <em>Box Collider</em> is a cube) but there are a few exceptions.</p>
+<p>Unity有单独的用于处理2D的物理引擎，仅用于2D的优化。这些组件对应标准的3D物理组件，例如<a href="class-Rigidbody.html">刚体</a>, <a href="class-BoxCollider.html">箱体碰撞器（Box Collider）</a>和<a href="class-HingeJoint.html">链条连接（Hinge Joint）</a>，但是命名上加上了“2D”。因此，精灵可以配备<a href="class-Rigidbody2D.html">刚体2D（Rigidbody 2D）</a>，<a href="class-BoxCollider2D.html">箱体碰撞器2D（Box Collider 2D）</a>和<a href="class-HingeJoint2D.html">链条连接2D（Hinge Joint 2D）</a>。大多数2D物理组件就是3D的“扁平化”版本（例如，<em>箱体碰撞器2D（Box Collider 2D）</em>是一个长方形，而<em>箱体碰撞器（Box Collider）</em>是一个立方体）但也有一些例外。</p>
 
-<p>For a full list of 2D Physics components, see <a href="2Dor3D.html">2D or 3D Projects</a>. See the <a href="PhysicsSection.html">Physics</a> section of the manual for further information about 2D physics concepts and components.</p>
+<p>关于2D物理组件的完整列表，请查阅<a href="2Dor3D.html">2D or 3D Projects</a>。更多关于2D物理概念和组件的信息请查阅<a href="PhysicsSection.html">Physics</a>章节。</p>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
 <span class="prev"><a href="Unity2D.html"></a></span><div class="tip">Unity 2D</div>
@@ -130,10 +130,10 @@
 </div></div></div>
 </div>
 <noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-MC35ML" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-MC35ML');</script>
+<!--<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':-->
+<!--new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],-->
+<!--j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=-->
+<!--'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);-->
+<!--})(window,document,'script','dataLayer','GTM-MC35ML');</script>-->
 </body>
 </html>
