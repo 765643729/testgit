@@ -83,78 +83,78 @@
 <span class="next"><a href="SpriteCreator.html"></a></span><div class="tip">Sprite Creator</div>
 </div>
 </div></div>
-<h1>Sprites</h1>
+<h1>精灵（Sprites）</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
 <p>
-<strong>Sprites</strong> are 2D Graphic objects. If you are used to working in 3D, <strong>Sprites</strong> are essentially just standard textures but there are special techniques for combining and managing sprite textures for efficiency and convenience during development.</p>
+<strong>精灵</strong>是2D的图形化对象。如果你之前使用的3D，<strong>精灵</strong>本质上只是标准纹理，但在开发中有一些特殊的技巧来组合和管理精灵纹理来提高效率和便利性。</p>
 
-<p>Unity provides a placeholder <a href="SpriteCreator.html">Sprite Creator</a>, a built-in <a href="SpriteEditor.html">Sprite Editor</a>, a <a href="class-SpriteRenderer.html">Sprite Renderer</a> and a <a href="SpritePacker.html">Sprite Packer</a>
+<p>Unity提供一个占位符（placeholder）<a href="SpriteCreator.html">精灵生成器（Sprite Creator）</a>，一个内置的<a href="SpriteEditor.html">精灵编辑器（Sprite Editor）</a>，一个<a href="class-SpriteRenderer.html">精灵渲染器（Sprite Renderer）</a>以及一个<a href="SpritePacker.html">精灵打包器（Sprite Packer）</a>。
 </p>
 
-<p>See <strong><em>Importing and Setting up Sprites</em></strong> below for information on setting up assets as <strong>Sprites</strong> in your Unity project.</p>
+<p>查看下方的<strong><em>导入和设置精灵</em></strong>以了解如何在你的Unity项目中设置<strong>精灵</strong>。</p>
 
-<h2>Sprite Tools</h2>
+<h2>精灵工具</h2>
 
-<p><strong>Sprite Creator</strong></p>
+<p><strong>精灵生成器（Sprite Creator）</strong></p>
 
-<p>Use the <a href="SpriteCreator.html">Sprite Creator</a> to create placeholder sprites in your project, so you can carry on with development without having to source or wait for graphics.</p>
+<p>使用<a href="SpriteCreator.html">精灵生成器</a>在你的项目中创建一个占位精灵，你就可以没有资源或图像的情况下继续开发。</p>
 
-<p><strong>Sprite Editor</strong></p>
+<p><strong>精灵编辑器（Sprite Editor）</strong></p>
 
-<p>The <a href="SpriteEditor.html">Sprite Editor</a> lets you extract sprite graphics from a larger image and edit a number of component images within a single texture in your image editor. You could use this, for example, to keep the arms, legs and body of a character as separate elements within one image.</p>
+<p><a href="SpriteEditor.html">精灵编辑器</a>使你能够在你的图形编辑器中从一个大的图像中提取和编辑一部分简单纹理作为精灵图形。例如，你可以把一张图片中的手、脚和身体分别作为单独的元素。</p>
 
-<p><strong>Sprite Renderer</strong></p>
+<p><strong>精灵渲染器（Sprite Renderer）</strong></p>
 
-<p>Sprites are rendered with a <a href="class-SpriteRenderer.html">Sprite Renderer</a> component rather than the <a href="class-MeshRenderer.html">Mesh Renderer</a> used with 3D objects. Use it to display images as <strong>Sprites</strong> for use in both 2D and 3D scenes.</p>
+<p>精灵是用<a href="class-SpriteRenderer.html">精灵渲染器</a>组件渲染，而非和3D对象一样使用<a href="class-MeshRenderer.html">网格渲染器（Mesh Renderer）</a>。使用它将2D和3D场景下的图片展示为<strong>精灵</strong>。</p>
 
-<p><strong>Sprite Packer</strong></p>
+<p><strong>精灵打包器（Sprite Packer）</strong></p>
 
-<p>Use <a href="SpritePacker.html">Sprite Packer</a> to opimize the use and performance of video memory by your project.</p>
+<p>使用<a href="SpritePacker.html">精灵打包器</a>来优化你项目的使用和视频内存的性能。</p>
 
-<h2>Importing and Setting Up Sprites</h2>
+<h2>导入和设置精灵</h2>
 
 <p>
-<strong>Sprites</strong> are a type of <strong>Asset</strong> in Unity projects. You can see them, ready to use, via the <strong>Project View</strong>. </p>
+<strong>精灵</strong>是Unity项目中的一种<strong>资产</strong>。你可以通过<strong>Project View</strong>看到他们并且使用。</p>
 
-<p>There are two ways to bring <strong>Sprites</strong> into your project:</p>
+<p>有两种方法把<strong>精灵</strong>加入你的项目中：</p>
 
 <ol>
 <li>
-<p>In your computer’s Finder (Mac OS X) or File Explorer (Windows), place your image directly into your Unity project’s <strong>Assets</strong> folder. </p>
+<p>在你电脑的搜索器（Finder） (Mac OS X)或文件浏览器(Windows)， 把你的图片直接放置到Unity项目的<strong>Assets</strong>文件夹中。</p>
 
-<p>Unity detects this and displays it in your project’s <strong>Project View</strong>.</p>
+<p>Unity检测到后会把它显示到项目的<strong>Project View</strong>。</p>
 </li>
 <li>
-<p>In Unity, go to <strong>Assets&gt;Import New Asset…</strong> to bring up your computer’s Finder (Mac OS X) or File Explorer (Windows). </p>
+<p>在Unity中，点击<strong>Assets&gt;Import New Asset…</strong>把你电脑的搜索器（Finder） (Mac OS X)或文件浏览器(Windows)。</p>
 
-<p>From there, select the image you want, and Unity puts it in the <strong>Project View</strong>.</p>
+<p>在这里选择你的图片，Unity会把它显示到<strong>Project View</strong>。</p>
 </li>
 </ol>
 
-<p>See <a href="ImportingAssets.html">Importing Assets</a> for more details on this and important information about organising your <strong>Assets</strong> folder.</p>
+<p>请查阅<a href="ImportingAssets.html">Importing Assets</a>以获取更多组织你的<strong>Assets</strong>文件夹的详细信息。</p>
 
-<p><strong>Setting your Image as a Sprite</strong></p>
+<p><strong>把图片设置为精灵</strong></p>
 
-<p>If your project mode is set to 2D, the image you import is automatically set as a <strong>Sprite</strong>. </p>
+<p>如果你的项目是2D模式，你导入的图片会自动设置为<strong>精灵</strong>。</p>
 
-<p>However, if your project mode is set to 3D, your image is set as a <strong>Texture</strong>, so you need to change the asset’s <strong>Texture Type</strong>:</p>
+<p>但是，如果你的项目是3D模式，你的图片会设置为<strong>纹理</strong>，因此你需要更改资源的<strong>Texture Type</strong>:</p>
 
 <ol>
-<li><p>Click on the asset to see its <strong>Import Inspector</strong>. </p></li>
+<li><p>点击资源查看其<strong>Import Inspector</strong>。</p></li>
 <li>
-<p>Set the <strong>Texture Type</strong> to <strong>Sprite (2D and UI)</strong>.</p>
+<p>设置<strong>Texture Type</strong>为<strong>精灵(2D and UI)</strong>。</p>
 
-<p><em>(See Fig 1: Set Texture Type….)</em></p>
+<p><em>（见图1: 设置纹理类型）</em></p>
 </li>
 </ol>
 
-<p>See <a href="2Dor3D.html">2D or 3D Projects</a> for details on setting your project mode to 2D.</p>
+<p>请查阅<a href="2Dor3D.html">2D or 3D Projects</a>以获取更多设置你的项目为2D模式的详细信息。</p>
 
 <figure>
 <img src="../uploads/Main/TextureTypeSprite.png" alt="Fig 1: Set Texture Type to Sprite (2D and UI) in the assets inspector">
-<figcaption>Fig 1: Set Texture Type to Sprite (2D and UI) in the asset’s inspector</figcaption>
+<figcaption>图1: 在资产的检查器中设置纹理类型为精灵(2D and UI)</figcaption>
 </figure>
 <div class="nextprev clear">
 <div class="icon tt left mr1" data-distance="-40|-30|top">
