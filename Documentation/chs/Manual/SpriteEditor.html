@@ -84,87 +84,87 @@
 <span class="next"><a href="SpritePacker.html"></a></span><div class="tip">Sprite Packer</div>
 </div>
 </div></div>
-<h1>Sprite Editor</h1>
+<h1>精灵编辑器（Sprite Editor）</h1>
 <!--BeginSwitchLink--><!--EndSwitchLink-->
 <div class="clear"></div>
 
-<p>Sometimes a sprite texture contains just a single graphic element but it is often more convenient to combine several related graphics together into a single image. For example, the image could contain component parts of a single character, as with a car whose wheels move independently of the body. Unity makes it easy to extract elements from a composite image by providing a <strong>Sprite Editor</strong> for the purpose.</p>
+<p>有时一个精灵纹理只包含一个图形元素，但是通常可以更方便的将几个相关的图形组合到一个图像中。例如，图像可以包含一个角色的组成部分，比如轮胎独立于车身移动的汽车。Unity通过<strong>精灵编辑器</strong>使你可以很容易的从复合图像中提取元素。</p>
 
-<p><strong>NOTE:</strong></p>
+<p><strong>注意：</strong></p>
 
-<p>Make sure the graphic you want to edit has its <strong>Texture Type</strong> set to <strong>Sprite (2D and UI)</strong>. For information on importing and setting up sprites, see <a href="Sprites.html">Sprites</a>.</p>
+<p>确保您要编辑的图形的<strong>纹理类型</strong>设置为<strong>Sprite（2D和UI）</strong>。 关于导入和设置精灵的信息，请查阅<a href="Sprites.html">Sprites</a>。</p>
 
-<p>Sprite textures with multiple elements need the <strong>Sprite Mode</strong> to be set to <strong>Multiple</strong> in the Inpsector. (See <em>Fig 2: Texture Import Inspector…</em> below.)</p>
+<p>具有多个元素的精灵纹理需要在检查器（Inpsector）中把<strong>Sprite Mode</strong>设置为<strong>Multiple</strong>。 （见图2：精灵导入检查器（Texture Import Inspector））</p>
 
-<h2>Opening the Sprite Editor</h2>
+<h2>打开精灵编辑器</h2>
 
-<p>To open the <strong>Sprite Editor</strong>:</p>
+<p>打开<strong>精灵编辑器</strong>:</p>
 
 <ol>
 <li>
-<p>Select the 2D image you want to edit from the <strong>Project View</strong> <em>(Fig 1: Project View)</em>. </p>
+<p>从<strong>Project View</strong>中选择你要编辑的2D图片。 <em>（图1：Project View）</em>。</p>
 
-<p>Note that you can’t edit a sprite which is in the <strong>Scene View</strong>.</p>
+<p>注意你无法编辑<strong>Scene View</strong>中的精灵。</p>
 </li>
-<li><p>Click on the <strong>Sprite Editor</strong> button in the <strong>Texture Import Inspector</strong> <em>(Fig 2: Texture Import Inspector)</em> and the <strong>Sprite Editor</strong> displays <em>(Fig 3: Sprite Editor)</em>.</p></li>
+<li><p>点击<strong>Texture Import Inspector</strong>中的<strong>Sprite Editor</strong>按钮<em>（图二：纹理导入检查器（Texture Import Inspector））</em>以及<strong>Sprite Editor</strong>界面<em>（图三：Sprite Editor）</em>。</p></li>
 </ol>
 
 <p>
-<strong>Note:</strong> You can only see the <strong>Sprite Editor</strong> button if the <strong>Texture Type</strong> on the image you have selected is set to <strong>Sprite (2D and UI)</strong>.</p>
+<strong>注意：</strong>你只有在你选择的图片的<strong>Texture Type</strong>设置为<strong>Sprite (2D and UI)</strong>时你才可以看到<strong>Sprite Editor</strong>按钮。</p>
 
 <figure>
 <img src="../uploads/ProjectViewSprite.png" alt="Fig 1: Project View">
-<figcaption>Fig 1: Project View</figcaption>
+<figcaption>图1：Project View</figcaption>
 </figure>
 
 <figure>
 <img src="../uploads/SpriteEditorButton.png" alt="Fig 2: Texture Import Inspector with Sprite Editor button">
-<figcaption>Fig 2: Texture Import Inspector with Sprite Editor button</figcaption>
+<figcaption>图2：Sprite Editor按钮的Texture Import Inspector</figcaption>
 </figure>
 
 <p>
-<strong>Note:</strong> Set the <strong>Sprite Mode</strong> to <strong>Multiple</strong> in the <strong>Texture Import Inspector</strong> if your image has several elements.</p>
+<strong>注意：</strong>如果你的图片有多个元素，在<strong>Texture Import Inspector</strong>中把<strong>Sprite Mode</strong>设置为<strong>Multiple</strong>。</p>
 
 <figure>
 <img src="../uploads/SpriteEditor.png" alt="Fig 3: Sprite Editor">
-<figcaption>Fig 3: Sprite Editor</figcaption>
+<figcaption>图3：Sprite Editor</figcaption>
 </figure>
 
-<p>Along with the composite image, you will see a number of controls in the bar at the top of the window. The slider at the top right controls the zoom, while the color bar button to its left chooses whether you view the image itself or its alpha levels. The right-most slider controls the pixelation (mipmap) of the texure. Moving the slider to the left reduces the resolution of the sprite texture. The most important control is the <strong>Slice</strong> menu at the top left, which gives you options for separating the elements of the image automatically. Finally, the <strong>Apply</strong> and <strong>Revert</strong> buttons allow you to keep or discard any changes you have made.</p>
+<p>在复合图像时，你会在窗口顶部栏位看到一些控件。右上角的滑块控制缩放，左侧的颜色条按钮选择是查看原始图片还是图片的alpha级别。最右边的滑块控制纹理的像素化（mipmap）。把滑块向左移动减少精灵纹理的分辨率。最重要的控件是左上角的<strong>Slice</strong>菜单，它提供自动分离元素的选项。<strong>Apply</strong>和<strong>Revert</strong>按钮可用保存或忽略你所做的更改。</p>
 
-<h2>Using the Editor</h2>
+<h2>使用编辑器</h2>
 
-<p>The most direct way to use the editor is to identify the elements manually. If you click on the image, you will see a rectangular selection area appear with handles in the corners. You can drag the handles or the edges of the rectangle to resize it around a specific element. Having isolated an element, you can add another by dragging a new rectangle in a separate part of the image. You’ll notice that when you have a rectangle selected, a panel appears in the bottom right of the window:</p>
+<p>使用编辑器最直接的方式是手动识别元素。当你点击图片，你会看到一个角落有手柄的矩形的选区。你可以拖动手柄或矩形的边缘来调整指定元素的大小。隔离元素后，您可以通过在图像的单独部分拖动一个新矩形来添加另一个元素。当你选择一个矩形后，窗口右下角会出现一个面板：</p>
 
 <figure>
 <img src="../uploads/Main/SpritePanel.png" alt="">
 </figure>
 
-<p>The controls in the panel let you choose a name for the sprite graphic and set the position and size of the rectangle by its coordinates. A border width, for left, top, right and bottom can be specified in pixels. There are also settings for the sprite’s pivot, which Unity uses as the coordinate origin and main “anchor point” of the graphic. You can choose from a number of default rectangle-relative positions (eg, Center, Top Right, etc) or use custom coordinates.</p>
+<p>通过面板中的控制器可以设置精灵图形的名称，以及通过坐标设置矩形位置和大小。可以设置像素级上、下、左、右的边的宽度。也可以使用Unity的图片坐标原点和主要“锚点”设置精灵的中心点。你可以选择一组默认的矩形相对位置（比如，中心、右上角等）或者使用自定义坐标。</p>
 
-<p>The <strong>Trim</strong> button next to the Slice menu item will resize the rectangle so that it fits tightly around the edge of the graphic based on transparency.</p>
+<p>Slice菜单项旁边的<strong>Trim</strong>按钮可以调整矩形大小，使其可以基于透明度紧密围绕图形边缘。</p>
 
 <p>
-<strong>Note:</strong> Borders are only supported for the UI system, not for the 2D SpriteRenderer.</p>
+<strong>注意：</strong>Borders只支持UI系统，不适用于2D SpriteRenderer.</p>
 
-<h2>Automatic Slicing</h2>
+<h2>自动切片（Automatic Slicing）</h2>
 
-<p>Isolating the sprite rectangles manually works well but in many cases, Unity can save you work by detecting the graphic elements and extracting them for you automatically. If you click on the <strong>Slice</strong> menu in the control bar, you will see this panel:</p>
+<p>手动分离精灵矩形效果很好，但是在许多情况下，Unity可以自动检测图形元素并且分离它们。点击控制栏的<strong>Slice</strong>菜单，你会看到如下界面：</p>
 
 <figure>
 <img src="../uploads/Main/SpriteSlicePanelAuto.png" alt="">
 </figure>
 
-<p>With the slicing type set to <strong>Automatic</strong>, the editor will attempt to guess the boundaries of sprite elements by transparency. You can set a default pivot for each identified sprite. The <strong>Method</strong> menu lets you choose how to deal with existing selections in the window. The <strong>Delete existing</strong> option will simply replace whatever is already selected, <strong>Smart</strong> will attempt to create new rectangles while retaining or adjusting existing ones, and <strong>Safe</strong> will add new rectangles without changing anything already in place.</p>
+<p>把切片类型设置为<strong>Automatic</strong>，编辑器将通过透明度猜测精灵元素的边界。你可以为每个识别出的精灵设置默认的中心点。在<strong>Method</strong>菜单可以在窗口中选择怎样处理已有的选项。<strong>Delete existing</strong>选项会直接替换掉所选择的，<strong>Smart</strong>会在保留或调整已存在的矩形时尝试创建新的矩形，<strong>Safe</strong>会不改变任何已有的矩形的情况下添加新的矩形。</p>
 
 <p>
-<strong>Grid by Cell Size</strong> or <strong>Grid by Cell Count</strong> options are also available for the slicing type. This is very useful when the sprites have already been laid out in a regular pattern during creation:</p>
+<strong>Grid by Cell Size</strong>或者<strong>Grid by Cell Count</strong>选项也适用于切片类型。这对于在创建时就设计好的精灵十分有用：</p>
 
 <figure>
 <img src="../uploads/Main/SpriteSlicePanelGrid.png" alt="">
 </figure>
 
-<p>The <strong>Pixel Size</strong> values determine the height and width of the tiles in pixels. If you chose grid by cell count, <strong>Column &amp; Row</strong> determines the number of columns and rows used for slicing. You can also use the <strong>Offset</strong> values to shift the grid position from the top-left of the image and the <strong>Padding</strong> values to inset the sprite rectangles slightly from the grid. The <strong>Pivot</strong> can be set with one of nine preset locations or a <strong>Custom Pivot</strong> location can be set.</p>
+<p><strong>Pixel Size</strong>值决定了小方块（tiles）的高度和宽度的像素大小。如果你选择grid by cell count，<strong>Column &amp; Row</strong>决定了切片的行和列的数量。你也可以使用<strong>Offset</strong>值从图片左上角来改变网格的位置 and the <strong>Padding</strong> values to inset the sprite rectangles slightly from the grid. The <strong>Pivot</strong> can be set with one of nine preset locations or a <strong>Custom Pivot</strong> location can be set.</p>
 
 <p>Note that after any of the automatic slicing methods has been used, the generated rectangles can still be edited manually. You can let Unity handle the rough definition of the sprite boundaries and pivots and then do any necessary fine tuning yourself.</p>
 
